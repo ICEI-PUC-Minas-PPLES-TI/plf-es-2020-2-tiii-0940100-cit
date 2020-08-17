@@ -1,7 +1,7 @@
 # Cit - Por uma cidade melhor
 
 <p>   O Cit, busca possibilitar os cidadãos de fazerem denúncias dos problemas estruturais de suas cidades, por meio do envio de provas(Ex: fotos de buracos no asfalto, rede elétrica no meio de árvores, entre outros.) e informando o endereço do problema. Dessa forma, outros usuários da região, podem assim, votar na existência e correção para aquele transtorno.</p>
-<p>   Diante disso, os dados poderão ser compartilhados com a prefeitura e/ou estado, que poderão corrigi-los, com isso, melhorando a qualidade de vida para todos. Contando com mais funções como, ser possível a divulgação do ranking das melhores cidades, que poderia ser utilizado em diversas formas e ocasiões(Ex: um prefeito ser eleger por meio da divulgação dos seus resultados na cidade.).</p>
+<p>   Diante disso, os dados poderão ser visualizados pelas contas que se cadastrarem como entidades aptas a receberem denúncias de problemas das respectivas localizações, como a prefeitura e/ou estado, que poderão corrigi-los, com isso, melhorando a qualidade de vida para todos. E os usuários comuns(os que fazem as denúncias), contam com a função de ver o ranking das melhores cidades, que poderia ser utilizado em diversas formas e ocasiões(Ex: um prefeito ser eleger por meio da divulgação dos seus resultados na cidade.).</p>
 
 ## Integrantes
 
