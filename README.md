@@ -21,11 +21,25 @@
 Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
 
 ## Histórico de versões
+#### [0.1.2] - 27/08/2020
+##### Adicionado
+* Adicionado bussiness model canvas
+* Adicionado ata da segunda reunião
+* Adicionado mapa de stakeholder
+##### Atualizado
+* Alterado introdução na documentação
+* Realizado mudanças na definição de problema na documentação
+* Alterado tópico de modelagem de processo na documentação
+* Realizado mudanças no tópico de pesquisa
+    
+#### [0.1.1] - 17/08/2020
+##### Adicionado
+* Adicionado ata da primeira reunião
+##### Atualizado
+* Atualização na introdução da documentação.
 
-* 0.1.1
-    * CHANGE: Atualização das documentacoes. Código permaneceu inalterado.
-* 0.1.0
-    * Implementação da funcionalidade X pertencente ao processo P.
-* 0.0.1
-    * Trabalhando na modelagem do processo de negócios.
+#### [0.1.0] - 14/08/2020
+##### Adicionado
+* Adicionado primeira versão da documentação
+
 
