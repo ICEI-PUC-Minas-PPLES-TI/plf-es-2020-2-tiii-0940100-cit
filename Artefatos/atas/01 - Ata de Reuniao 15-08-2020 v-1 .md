@@ -39,10 +39,17 @@ ___
 ___
 
 #### Notas e Decisões
-    * Ficou decidido que: Lucas Ângelo será o Scrum Master, responsável por garantir que todos os integrantes estejam aderentes ao processo, sigam as regras e concluam os artefatos corretamente, além de colaborar no time de desenvolvimento; José Maurício será o Product Owner responsável por manter um registro de todos os requisitos necessário para o desenvolvimento do projeto, possibilitando atingir as funcionalidades desejadas, além de colaborar no time de desenvolvimento; Henrique Penna será o DevOp do projeto, com as funções de refinar o projeto, verificando se todos os requisitos de desenvolvimento e implementação foram realmente atendidos, dessa forma precisa trabalhar sempre de maneira integrada e contínua com a equipe de desenvolvimento, garantindo a qualidade nas entregas, além de colaborar no time de desenvolvimento; Marco Tullio e Guilherme Gabriel fazem parte da equipe de desenvolvimento, são responsáveis para possibilitar a entrega das funcionalidades programadas aconteçam.
+    * Ficou decidido que: Lucas Ângelo será o Scrum Master, responsável por garantir que todos os integrantes estejam aderentes ao processo, sigam as regras e concluam os
+    artefatos corretamente, além de colaborar no time de desenvolvimento; José Maurício será o Product Owner responsável por manter um registro de todos os requisitos necessário
+    para o desenvolvimento do projeto, possibilitando atingir as funcionalidades desejadas, além de colaborar no time de desenvolvimento; Henrique Penna será o DevOp do projeto,
+    com as funções de refinar o projeto, verificando se todos os requisitos de desenvolvimento e implementação foram realmente atendidos, dessa forma precisa trabalhar sempre de
+    maneira integrada e contínua com a equipe de desenvolvimento, garantindo a qualidade nas entregas, além de colaborar no time de desenvolvimento; Marco Tullio e Guilherme
+    Gabriel fazem parte da equipe de desenvolvimento, são responsáveis para possibilitar a entrega das funcionalidades programadas aconteçam.
 
-    * O horário decidido para reuniões da equipe do Cit foi aos sábados, após a aula de banco de dados. Devido ao fato de assim, já possuirmos as informações necessárias sobre correções e melhorarias apontadas pelos professores nas aulas de sexta-feira, além de poder aplicar o que foi aprendido nas aulas de banco de dados no projeto.
+    * O horário decidido para reuniões da equipe do Cit foi aos sábados, após a aula de banco de dados. Devido ao fato de assim, já possuirmos as informações necessárias sobre
+    correções e melhorarias apontadas pelos professores nas aulas de sexta-feira, além de poder aplicar o que foi aprendido nas aulas de banco de dados no projeto.
 
-    * O Planejamento geral do projeto foi discutido pelo grupo do WhatsApp e na aula do dia 14/08, no qual chegamos as conclusões que foram descritas no tópico da “Introdução” do documento Final.
+    * O Planejamento geral do projeto foi discutido pelo grupo do WhatsApp e na aula do dia 14/08, no qual chegamos as conclusões que foram descritas no tópico da “Introdução”
+    do documento Final.
 
     * A plataforma escolhida para criação do nosso Business Model Canvas foi a canvanizer.com e para a criação do documento final com colaboração online foi o docs.google.com.
