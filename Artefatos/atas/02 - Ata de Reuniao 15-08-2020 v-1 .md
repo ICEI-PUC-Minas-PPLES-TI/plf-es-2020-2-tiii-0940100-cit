@@ -41,9 +41,12 @@ ___
 #### Notas e Decisões
     * Ficou decidido que todos os participantes auxiliarão no adicionamento de artefatos das Sprints, e atualizá-los à medida que forem concluídos no projeto do GitHub.
 
-    * Falhas citadas na aula do dia 21/08/2020 foram corrigidas por todos os membros pelo link do canvanizer: https://canvanizer.com/canvas/rWX4F0MFisLeO . Problemas relacionados a falta de clareza na explicação da proposta de valor, má exemplificação dos usuários e falta de artefatos nos recursos chaves relacionados ao suporte. Por meio da colaboração online na plataforma Miro.
+    * Falhas citadas na aula do dia 21/08/2020 foram corrigidas por todos os membros pelo link do canvanizer: https://canvanizer.com/canvas/rWX4F0MFisLeO . Problemas
+    relacionados a falta de clareza na explicação da proposta de valor, má exemplificação dos usuários e falta de artefatos nos recursos chaves relacionados ao suporte.
+    Por meio da colaboração online na plataforma Miro.
 
-    * Atualização do Relatório Final para a versão corrigida, incluindo o BMC e mapa de Stakeholder atualizados, e documento sem comentários até a sessão 3. Por meio da colaboração online na plataforma Miro. 
+    * Atualização do Relatório Final para a versão corrigida, incluindo o BMC e mapa de Stakeholder atualizados, e documento sem comentários até a sessão 3. Por meio da
+    colaboração online na plataforma Miro. 
 
     * Melhor detalhamento e exemplificação modal do mapa de StakeHolder, por meio da colaboração online na plataforma Miro. 
 
