@@ -53,3 +53,12 @@ ___
     do documento Final.
 
     * A plataforma escolhida para criação do nosso Business Model Canvas foi a canvanizer.com e para a criação do documento final com colaboração online foi o docs.google.com.
+
+___
+
+#### - Pendências
+
+| Descrição da Pendência               | Data para solução               | Responsável      |
+| -------------                        | :-------------:                 | -----:           |
+| Atualização do ReadMe do GitHub, com ideias do Hugo, na aula do dia 14/08                   | 17/08/2020                      | Lucas Ângelo O. M. Rocha    |
+| Atualização da “Introdução” do documento, com ideias do Hugo, na aula do dia 14/08                   | 17/08/2020                      | Lucas Ângelo O. M. Rocha    |
