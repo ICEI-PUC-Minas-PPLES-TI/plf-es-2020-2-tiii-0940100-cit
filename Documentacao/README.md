@@ -200,3 +200,70 @@ vezes desconhecerem-os.
 a plataforma canvanizer.com, com o objetivo de enxergar o que fazemos, para quem e por
 que. O quadro canvas está disponível no link:
 https://canvanizer.com/canvas/rWX4F0MFisLeO
+
+**3. Participantes do processo**
+
+&nbsp;&nbsp;&nbsp;&nbsp;O O Mapa de Stakeholder pode ser acessado de forma dinâmica pelo 
+link: https://miro.com/app/board/o9J_knKlYCk=/ . Nele foi detectado os principais usuário que utilizaram e/ou 
+serão afetados pela aplicação do Cit. Abaixo está anexadas uma versão A4 estática do mapa de stakeholder circle.
+
+https://imgur.com/0yEv16j	
+
+**4. Modelagem do processo de negócio**
+**4.1 Modelagem do processo de negócio**
+
+&nbsp;&nbsp;&nbsp;&nbsp;É irrefutável que existem muitos problemas estruturais que comprometem a mobilidade urbana em 
+todas as localidades do mundo, dentre eles, vários são recorrentes como a deterioração dos pavimentos públicos
+que ocasionam fendas e buracos, e também os existem os problemas repentinos de níveis críticos, como cabos de alta 
+tensão arrebentados e árvores caídas que atrapalham o trânsito. 
+ 
+&nbsp;&nbsp;&nbsp;&nbsp;Diante disso, é perceptível que o modelo atual ainda é eficiente para uma correção rápida 
+dos problemas críticos, devido à alta demanda de denúncias por parte de corporações influentes que forem atingidas 
+pelos problemas, direcionando as denúncias para os órgãos responsáveis pela manutenção das infraestruturas, como
+prefeituras e/ou defesa civil. Entretanto, cidadãos comuns, sem poderes políticos ou influência local, não possuem voz 
+para a denúncia de problemas recorrentes em suas localizações, como uma rua não pavimentada da sua casa, falta de 
+saneamento básico, entre diversos outros problemas constantes em sociedades de todo o mundo.
+
+**4.2. Descrição Geral da proposta**
+
+&nbsp;&nbsp;&nbsp;&nbsp;Pretende-se com o Cit, montar um processo onde todos cidadãos de qualquer localização do mundo
+possam denunciar seus problemas em relação da infraestrutura urbana e/ou rural, de forma colaborativa. Para que assim, 
+com um maior número de denúncias de um mesmo problema, ele ganhe visão e seja corrigido pelo órgão responsável. Com por 
+exemplo, em uma situação hipotética, vários moradores de uma mesma rua poderem adicionar provas(fotos e/ou vídeos) do seu
+problema de não ter asfalto, até que essas denúncias promovam uma repercussão e ocasione na pavimentação na região, 
+por meio da prefeitura municipal.
+
+&nbsp;&nbsp;&nbsp;&nbsp;À vista disso, à medida que os problemas forem sendo solucionados, será possível gerar relatórios
+sobre o progresso das regiões em relação a manutenção da infraestrutura, que tornar-se de interesse político, o qual 
+candidatos poderiam utilizar seus feitos registrados no ranking do Cit, para promoverem suas campanhas políticas. 
+Com isso, ambas as partes sairiam ganhando, os cidadãos com melhorias para seus cotidianos, e políticos com seus votos. 
+
+**4.3.  Modelagem dos processos**
+**4.3.1 Processo 1 – NOME**
+**4.3.3 Processo 2 – NOME**
+
+
+**5. Projeto da Solução**
+**5.1. Requisitos funcionai**
+
+&nbsp;&nbsp;&nbsp;&nbsp;Enumere os requisitos funcionais previstos para a sua aplicação. Use a tabela abaixo para enumerá-lo.  Esses requisitos devem estar de acordo com as definições do modelo de negócio.
+
+**REFERÊNCIAS**
+
+**[1.1]** - _G1 - Jornal Nacional, "Falta de acesso ao saneamento básico é realidade para milhões de brasileiros" 2019 
+Por Jornal Nacional 16/07/2020 22h45. Disponível em:
+<https://g1.globo.com/jornal-nacional/noticia/2020/07/16/falta-de-acesso-ao-saneamento-basico-e-realidade-para-milhoes-de-
+brasileiros.ghtml>. Acesso em: 09 de ago. 2020._
+
+**[1.2]** - _ ACidadeON - Ribeirão Preto, "Morador denuncia bueiro aberto há mais de um mês na zona Norte" 2019
+Da reportagem | ACidadeON/Ribeirao 6/8/2020 09:52 
+<https://www.acidadeon.com/ribeiraopreto/cotidiano/cidades/NOT,0,0,1536359,video++morador+denuncia+bueiro+aberto+em+avenida+na+zona+norte.aspx>.
+Acesso em: 09 de ago. 2020._
+
+**[4.1]** - _G1  "Brasil tem o menor investimento público em infraestrutura entre 21 países da América Latina e 
+do Caribe em 2019, diz relatório do BID" Por GloboNews 30/07/2020 16h56
+ <https://g1.globo.com/economia/noticia/2020/07/30/brasil-tem-o-menor-investimento-publico-em-infraestrutura-entre-21-paises-da-america-latina-e-do-caribe-em-2019-diz-relatorio-do-bid.ghtml>
+ . Acesso em: 09 de ago. 2020._
+
+
+
