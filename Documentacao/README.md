@@ -149,15 +149,16 @@ concorrência de melhora entre elas, por meio de comparações.
 
 ## 1.3.1 Objetivos específicos
 
-● Permitir o cadastro de pessoas físicas, que possibilitará o envio de denúncias
+● Permitir o cadastro de pessoas físicas, que possibilitará o envio de denúncias.
 
 ● Fornecer funcionalidades que permita a denúncia dos problemas por meio da
-localização e envio de provas(fotos)
+localização e envio de provas(fotos).
 
-● Permitir o cadastro de contas para entidades que receberam e corrigirem os problemas
+● Permitir o cadastro de contas para entidades que receberam e corrigirem os problemas.
 
 ● Criação automática de ranking das melhores cidades, por meio dos dados recebidos de
-problemas solucionados
+problemas solucionados.
+
 
 **1.3.2 Público-Alvo**
 
