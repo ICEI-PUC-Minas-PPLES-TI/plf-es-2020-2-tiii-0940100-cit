@@ -77,17 +77,14 @@ Belo Horizonte – MG – Brasil
 
 **1.1 Contextualização**
 
-&nbsp;&nbsp;&nbsp;&nbsp;A falta de infraestrutura urbana é um grave empecilho, e mesmo assim, comum na
+&nbsp;&nbsp;&nbsp;&nbsp;A falta de infraestrutura urbana é um grave empecilho para a vida dos cidadãos, e ,mesmo assim, comum na
 maioria das cidades do Brasil, gerando uma série de outros problemas relacionados à
 mobilidade.
 &nbsp;&nbsp;&nbsp;&nbsp;À todo momento na internet, saem notícias mencionando problemas estruturais das
 cidades, como bueiros entupidos, ruas não pavimentadas, entre diversos outros. Vários
-exemplos recorrentes, como a falta de saneamento básico, que assombra até mesmo a Região
-
-
-Metropolitana do Rio (​ _REFERÊNCIAS 1.1, G1 “Falta de saneamento básico”_ ​), problemas
+exemplos recorrentes, como a falta de saneamento básico, que assombra até mesmo a Região Metropolitana do Rio (​ _REFERÊNCIAS 1.1, G1 “Falta de saneamento básico”_ ​), problemas
 que necessitam de alcançar um maior público para que possam ser notados e arrumados, como
-o bueiro aberto a maior de um mês no Ribeirão Preto ((​ _REFERÊNCIAS 1.2,
+o bueiro aberto a maior de um mês no Ribeirão Preto (​ _REFERÊNCIAS 1.2,
 ACidadeON“Bueiro aberto há mais de um mês”_ ​).
 Diante disso, torna-se fundamental que existam canais divulgação de informação e
 mecanismos que permitam ao usuário acessem e divulguem problemas que encontrassem em
@@ -95,7 +92,7 @@ seus municípios.
 
 **1.1.1 Pesquisas**
 
-&nbsp;&nbsp;&nbsp;&nbsp;Foram feitas pesquisas, através do Google Forms, com um público generalizado de 50
+&nbsp;&nbsp;&nbsp;&nbsp;Foi feita uma pesquisa pelos integrantes do grupo, através do Google Forms, com um público generalizado de 50
 cidadãos, com o intuito de obter mais informações em relação ao problema de estrutura e
 mobilidade. Primeiro, seria necessário entender junto ao público alvo se eles já tiveram algum
 problema de infraestrutura urbana, os dados levantados estão representados na imagem 1.
@@ -147,12 +144,14 @@ prefeitura e/ou estado, que poderão corrigi-los, com isso, melhorando a qualida
 todos. E os usuários comuns(os que fazem as denúncias), contam com a função de ver o
 ranking das melhores cidades, que poderia ser utilizado em diversas formas e ocasiões(Ex: um
 prefeito ser eleger por meio da divulgação dos seus resultados na cidade.).
+
 **1.3 Objetivo geral**
+
 O objetivo da Cit é possibilitar às pessoas denunciarem problemas na infraestrutura
 das cidades. Efetuando assim, uma divulgação do ranking das melhores cidades, para que haja
 concorrência de melhora entre elas, por meio de comparações.
 
-## 1.3.1 Objetivos específicos
+**1.3.1 Objetivos específicos**
 
 ● Permitir o cadastro de pessoas físicas, que possibilitará o envio de denúncias.
 
@@ -176,7 +175,7 @@ problemas solucionados.
 | Figura z - Antônio | Antônio Eustáquio ||
 | ------------- |:-------------:| -----:|
 | ![alt text](https://i.imgur.com/IFwUdsT.png "Eustáquio") |**Idade**: 55 anos <br>**Ocupação**: Caminhoneiro, possui caminhão próprio e trabalha com transporte de carga 5 dias na semana.| Aplicativos: <br> * Facebook <br> * Instagram
-|Motivações: <br> * Filhos|Frustrações: <br> *Falta de dinheiro <br> * Falta de app para denunciar problemas |Hobbies <br> * Tocar violão <br> * Culinária
+|Motivações: <br> * Filhos|Frustrações: <br> *Falta de dinheiro <br> * Falta de canal rápido de denúncia de problemas nas vias públicas |Hobbies <br> * Tocar violão <br> * Culinária
 
 ○ Primera persona: Entidades Governamentais
 
@@ -192,7 +191,7 @@ problemas solucionados.
 mobilidade, diante disso, o Banco Interamericano de Desenvolvimento fez uma pesquisa
 envolvendo 21 países da América Latina e do Caribe em 2019, que dizia que o Brasil era o
 país com o menor investimento público em infraestrutura (REFERÊNCIAS 4.1, G1 “Falta de
-saneamento básico”
+saneamento básico”).
 
 
 &nbsp;&nbsp;&nbsp;&nbsp;Adicionalmente, há uma carência de canais de divulgação de problemas de
@@ -217,7 +216,8 @@ serão afetados pela aplicação do Cit. Abaixo está anexadas uma versão A4 es
 https://imgur.com/0yEv16j	
 
 **4. Modelagem do processo de negócio**
-**4.1 Modelagem do processo de negócio**
+
+**4.1 Análise da Situação Atual**
 
 &nbsp;&nbsp;&nbsp;&nbsp;É irrefutável que existem muitos problemas estruturais que comprometem a mobilidade urbana em 
 todas as localidades do mundo, dentre eles, vários são recorrentes como a deterioração dos pavimentos públicos
@@ -233,7 +233,7 @@ saneamento básico, entre diversos outros problemas constantes em sociedades de 
 
 **4.2. Descrição Geral da proposta**
 
-&nbsp;&nbsp;&nbsp;&nbsp;Pretende-se com o Cit, montar um processo onde todos cidadãos de qualquer localização do mundo
+&nbsp;&nbsp;&nbsp;&nbsp;Pretende-se, com o Cit, montar um processo onde todos cidadãos de qualquer localização do mundo
 possam denunciar seus problemas em relação da infraestrutura urbana e/ou rural, de forma colaborativa. Para que assim, 
 com um maior número de denúncias de um mesmo problema, ele ganhe visão e seja corrigido pelo órgão responsável. Com por 
 exemplo, em uma situação hipotética, vários moradores de uma mesma rua poderem adicionar provas(fotos e/ou vídeos) do seu
@@ -241,7 +241,7 @@ problema de não ter asfalto, até que essas denúncias promovam uma repercussã
 por meio da prefeitura municipal.
 
 &nbsp;&nbsp;&nbsp;&nbsp;À vista disso, à medida que os problemas forem sendo solucionados, será possível gerar relatórios
-sobre o progresso das regiões em relação a manutenção da infraestrutura, que tornar-se de interesse político, o qual 
+sobre o progresso das regiões em relação a manutenção da infraestrutura, que torna-se de interesse político, o qual 
 candidatos poderiam utilizar seus feitos registrados no ranking do Cit, para promoverem suas campanhas políticas. 
 Com isso, ambas as partes sairiam ganhando, os cidadãos com melhorias para seus cotidianos, e políticos com seus votos. 
 
