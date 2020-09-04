@@ -100,7 +100,7 @@ cidadãos, com o intuito de obter mais informações em relação ao problema de
 mobilidade. Primeiro, seria necessário entender junto ao público alvo se eles já tiveram algum
 problema de infraestrutura urbana, os dados levantados estão representados na imagem 1.
 
-Imagem 1 - Pergunta principal da pesquisa
+Imagem 1 - Pergunta principal da pesquisa.
 
 ![Imagem1](https://i.imgur.com/ZMyYtzo.png "Imagem1")
 
@@ -110,7 +110,7 @@ Imagem 1 - Pergunta principal da pesquisa
 ao público e também um campo para que eles tivessem liberdade de inserir novos problemas.
 Os dados obtidos estão destacados na imagem 2.
 
-Imagem 2 - Principais problemas apontados pela pesquisa
+Imagem 2 - Principais problemas apontados pela pesquisa.
 
 ![Imagem2](https://i.imgur.com/nCMIL9U.png "Imagem2")
 
@@ -120,7 +120,7 @@ seu sucesso, foi perguntado aos participantes da pesquisa se eles já conseguira
 problemas relatados de maneira fácil, como 95,6% das pessoas responderam que não, houve a
 legitimação do projeto.
 
-Imagem 3 - Verificação da realidade do problema pela pesquisa
+Imagem 3 - Verificação da realidade do problema por meio da Pesquisa.
 
 ![Imagem2](https://i.imgur.com/oxz49yg.png "Imagem2")
 
