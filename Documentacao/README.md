@@ -120,7 +120,7 @@ seu sucesso, foi perguntado aos participantes da pesquisa se eles já conseguira
 problemas relatados de maneira fácil, como 95,6% das pessoas responderam que não, houve a
 legitimação do projeto.
 
-Imagem 3 - Verificação da realidade do problema por meio da Pesquisa.
+Imagem 3 - Verificação da realidade do problema por meio da pesquisa.
 
 ![Imagem2](https://i.imgur.com/oxz49yg.png "Imagem2")
 
