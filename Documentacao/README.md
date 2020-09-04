@@ -9,7 +9,7 @@ Henrique Penna Forte Monteiro,
 
 Lucas Ângelo Oliveira Martins Rocha,
 
-Marco Tullio Oliveira 
+Marco Tullio Oliveira.
 
 ---
 
@@ -126,12 +126,11 @@ Imagem 3 - Verificação da realidade do problema pela pesquisa
 impostos e esperam um retorno no que diz respeito a estruturas urbanísticas e serviços como
 saúde, segurança e educação. Porém, na prática, devido aos altos índices de corrupção do país
 e outros fatores, este dinheiro acaba sendo desviado e a população se sente impotente diante
-dos problemas, sem conseguir, se manifestar de forma efetiva e sem burocracia. Desta forma,
+dos problemas, sem conseguir, se manifestar de forma efetiva. Desta forma,
 o problema está situado na falta de uma plataforma na qual, os cidadãos possam se manifestar
 e assim, poder cobrar das entidades governamentais um retorno dos altos impostos pagos. A
 outra parte do problema, se trata das figuras públicas, que não conseguem encontrar uma
-plataforma onde possam divulgar os trabalhos realizados, desta forma, divulgando o seu
-trabalho. O Cit, busca possibilitar os cidadãos de fazerem denúncias dos problemas estruturais
+plataforma onde possam divulgar os trabalhos realizados. O Cit, busca possibilitar os cidadãos de fazerem denúncias dos problemas estruturais
 de suas cidades, por meio do envio de provas(Ex: fotos de buracos no asfalto, rede elétrica no
 meio de árvores, entre outros.) e informando o endereço do problema. Dessa forma, outros
 usuários da região, podem assim, votar na existência e correção para aquele transtorno.
@@ -162,7 +161,8 @@ problemas solucionados.
 
 **1.3.2 Público-Alvo**
 
-● Criamos algumas personas, para exemplificar o público alvo dos nossos 2 processos
+● Criamos algumas personas, para exemplificar o público alvo dos nossos 2 processo.
+
 * Primera persona: Cidadão
 
 
