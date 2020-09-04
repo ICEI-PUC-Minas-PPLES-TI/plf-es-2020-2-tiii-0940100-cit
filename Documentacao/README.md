@@ -88,7 +88,7 @@ que necessitam de alcançar um maior público para que possam ser notados e arru
 o bueiro aberto a maior de um mês no Ribeirão Preto (​ _REFERÊNCIAS 1.2,
 ACidadeON“Bueiro aberto há mais de um mês”_ ​).
 
-Diante disso, torna-se fundamental que existam canais divulgação de informação e
+&nbsp;&nbsp;&nbsp;&nbsp;Diante disso, torna-se fundamental que existam canais divulgação de informação e
 mecanismos que permitam ao usuário acessem e divulguem problemas que encontrassem em
 seus municípios.
 
