@@ -80,12 +80,14 @@ Belo Horizonte – MG – Brasil
 &nbsp;&nbsp;&nbsp;&nbsp;A falta de infraestrutura urbana é um grave empecilho para a vida dos cidadãos, e ,mesmo assim, comum na
 maioria das cidades do Brasil, gerando uma série de outros problemas relacionados à
 mobilidade.
+
 &nbsp;&nbsp;&nbsp;&nbsp;À todo momento na internet, saem notícias mencionando problemas estruturais das
 cidades, como bueiros entupidos, ruas não pavimentadas, entre diversos outros. Vários
 exemplos recorrentes, como a falta de saneamento básico, que assombra até mesmo a Região Metropolitana do Rio (​ _REFERÊNCIAS 1.1, G1 “Falta de saneamento básico”_ ​), problemas
 que necessitam de alcançar um maior público para que possam ser notados e arrumados, como
 o bueiro aberto a maior de um mês no Ribeirão Preto (​ _REFERÊNCIAS 1.2,
 ACidadeON“Bueiro aberto há mais de um mês”_ ​).
+
 Diante disso, torna-se fundamental que existam canais divulgação de informação e
 mecanismos que permitam ao usuário acessem e divulguem problemas que encontrassem em
 seus municípios.
@@ -147,7 +149,7 @@ prefeito ser eleger por meio da divulgação dos seus resultados na cidade.).
 
 **1.3 Objetivo geral**
 
-O objetivo da Cit é possibilitar às pessoas denunciarem problemas na infraestrutura
+&nbsp;&nbsp;&nbsp;&nbsp;O objetivo da Cit é possibilitar às pessoas denunciarem problemas na infraestrutura
 das cidades. Efetuando assim, uma divulgação do ranking das melhores cidades, para que haja
 concorrência de melhora entre elas, por meio de comparações.
 
