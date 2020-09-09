@@ -233,6 +233,18 @@ prefeituras e/ou defesa civil. Entretanto, cidadãos comuns, sem poderes políti
 para a denúncia de problemas recorrentes em suas localizações, como uma rua não pavimentada da sua casa, falta de 
 saneamento básico, entre diversos outros problemas constantes em sociedades de todo o mundo.
 
+&nbsp;&nbsp;&nbsp;&nbsp;Foi feita uma pesquisa para entender o processo adotado pelos municípios, atualmente.
+Para esta análise, foi escolhida a Prefeitura de Contagem para a coleta de dados. Para um cidadão comum descobrir uma forma de como
+denúnciar um simples buraco aberto foi acessado o site da prefeitura, porém não havia explícito como fazer a denúncia e resolver o problema
+escolhido. Desta forma, em contato com a Defesa Civil, o órgão disse que não faz denúncias e que este problema é de responsabilidade da
+Secretaria de Manuntenção, visto isso, ao entrar em contato com a mesma, foi perguntado qual o endereço no qual o problema está situado
+para que desta forma, o cidadão seja direcionado para a regional inerente ao problema. Ao ligar para a regional responsável pela região do buraco
+aberto em questão, foi solicitado alguns dados para efetuar o pedido para tampar o buraco. Este pedido poderia ser feito pelo e-mail da regional 
+ou até mesmo pelo telefone, onde deveria constar os dados de Endereço, Nome, Telefone e Qual o Problema. Ao ser perguntado qual a sequência do processo
+o atendente comunicou que é feito o pedido com os dados solicitados, depois é repassado a um responsável para a emissão de um ofício, após a emissão
+do ofício é repassado a Secretaria de Manutenção, onde é repassado a um(a) Engenheiro(a) que irá  avaliar o caso, será realizada uma visita e desta forma
+havendo a liberação para tampar o buraco ou não.
+
 **4.2. Descrição Geral da proposta**
 
 &nbsp;&nbsp;&nbsp;&nbsp;Pretende-se, com o Cit, montar um processo onde todos cidadãos de qualquer localização do mundo
