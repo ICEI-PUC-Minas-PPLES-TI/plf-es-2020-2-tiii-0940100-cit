@@ -73,6 +73,8 @@ Belo Horizonte – MG – Brasil
 
 **_Resumo._**
 
+___
+
 **1. Introdução**
 
 **1.1 Contextualização**
@@ -121,7 +123,7 @@ legitimação do projeto.
 
 Imagem 3 - Verificação da realidade do problema por meio da pesquisa.
 
-![Imagem2](https://i.imgur.com/oxz49yg.png "Imagem2")
+![Imagem3](https://i.imgur.com/oxz49yg.png "Imagem3")
 
 
 
@@ -176,14 +178,14 @@ problemas solucionados.
 
 | Figura z - Antônio | Antônio Eustáquio ||
 | ------------- |:-------------:| -----:|
-| ![alt text](https://i.imgur.com/IFwUdsT.png "Eustáquio") |**Idade**: 55 anos <br>**Ocupação**: Caminhoneiro, possui caminhão próprio e trabalha com transporte de carga 5 dias na semana.| Aplicativos: <br> * Facebook <br> * Instagram
+| ![Eustáquio](https://i.imgur.com/IFwUdsT.png "Eustáquio") |**Idade**: 55 anos <br>**Ocupação**: Caminhoneiro, possui caminhão próprio e trabalha com transporte de carga 5 dias na semana.| Aplicativos: <br> * Facebook <br> * Instagram
 |Motivações: <br> * Filhos|Frustrações: <br> *Falta de dinheiro <br> * Falta de canal rápido de denúncia de problemas nas vias públicas |Hobbies <br> * Tocar violão <br> * Culinária
 
 ○ Primera persona: Entidades Governamentais
 
 | Fonte: Blog Gran Cursos Online [x], 2020. | Prefeitura Municipal de Belo Horizonte ||
 | ------------- |:-------------:| -----:|
-| ![alt text](https://i.imgur.com/7JkkxSQ.png "Eustáquio") |**Idade**: 123 anos <br>**Ocupação**: Possui diversos setores, inclusive específico para correção de problemas estruturais do município.| Aplicativos: <br> * Website <br> * Instagram <br> * Facebook
+| ![Prefeitura BH](https://i.imgur.com/7JkkxSQ.png "Prefeitura BH") |**Idade**: 123 anos <br>**Ocupação**: Possui diversos setores, inclusive específico para correção de problemas estruturais do município.| Aplicativos: <br> * Website <br> * Instagram <br> * Facebook
 |Motivações: <br> * Resolver problemas dos cidadãos belo horizontinos |Frustrações <br> * Falta de dinheiro <br> * Não conseguir localizar todos os problemas dos cidadãos |Responsabilidades <br>* Cuidar do município no que diz respeito à proteção do patrimônio histórico-cultural, pavimentação das ruas, garantir o bom funcionamento do transporte público, criar creches, conservação do espaço urbano e organização do trânsito.
 
 
@@ -202,6 +204,8 @@ rede integrada de denúncias, que possibilitem o cidadãos lutarem pelos seus di
 fato de muitas redes municipais não poderem arrumar os problemas, pelo fato, de algumas
 vezes desconhecerem-os.
 
+___
+
 **2. Modelo de negócios**
 
 &nbsp;&nbsp;&nbsp;&nbsp;O modelo de negócios do Cit foi feito baseado no Business Model Canvas, utilizando
@@ -209,13 +213,19 @@ a plataforma canvanizer.com, com o objetivo de enxergar o que fazemos, para quem
 que. O quadro canvas está disponível no link:
 https://canvanizer.com/canvas/rWX4F0MFisLeO
 
+___
+
 **3. Participantes do processo**
 
 &nbsp;&nbsp;&nbsp;&nbsp;O O Mapa de Stakeholder pode ser acessado de forma dinâmica pelo 
 link: https://miro.com/app/board/o9J_knKlYCk=/ . Nele foi detectado os principais usuário que utilizaram e/ou 
 serão afetados pela aplicação do Cit. Abaixo está anexadas uma versão A4 estática do mapa de stakeholder circle.
 
-https://imgur.com/0yEv16j	
+Imagem 4 - Mapa de StakeHolders do Cit.
+
+![Imagem4](https://i.imgur.com/0yEv16j.png "Imagem4")
+
+___
 
 **4. Modelagem do processo de negócio**
 
@@ -263,6 +273,7 @@ Com isso, ambas as partes sairiam ganhando, os cidadãos com melhorias para seus
 **4.3.1 Processo 1 – NOME**
 **4.3.3 Processo 2 – NOME**
 
+___
 
 **5. Projeto da Solução**
 **5.1. Requisitos funcionai**
