@@ -235,15 +235,8 @@ ___
 todas as localidades do mundo, dentre eles, vários são recorrentes como a deterioração dos pavimentos públicos
 que ocasionam fendas e buracos, e também os existem os problemas repentinos de níveis críticos, como cabos de alta 
 tensão arrebentados e árvores caídas que atrapalham o trânsito. 
- 
-&nbsp;&nbsp;&nbsp;&nbsp;Diante disso, é perceptível que o modelo atual ainda é eficiente para uma correção rápida 
-dos problemas críticos, devido à alta demanda de denúncias por parte de corporações influentes que forem atingidas 
-pelos problemas, direcionando as denúncias para os órgãos responsáveis pela manutenção das infraestruturas, como
-prefeituras e/ou defesa civil. Entretanto, cidadãos comuns, sem poderes políticos ou influência local, não possuem voz 
-para a denúncia de problemas recorrentes em suas localizações, como uma rua não pavimentada da sua casa, falta de 
-saneamento básico, entre diversos outros problemas constantes em sociedades de todo o mundo.
 
-&nbsp;&nbsp;&nbsp;&nbsp;Foi feita uma pesquisa para entender o processo adotado pelos municípios, atualmente.
+&nbsp;&nbsp;&nbsp;&nbsp;Dessa forma, com o objetivo de obter mais informações sobre o funcionamento padrão de denunúncias, foi feita uma pesquisa para entender o processo adotado pelos municípios, atualmente.
 Para esta análise, foi escolhida a Prefeitura de Contagem para a coleta de dados. Para um cidadão comum descobrir uma forma de como
 denúnciar um simples buraco aberto foi acessado o site da prefeitura, porém não havia explícito como fazer a denúncia e resolver o problema
 escolhido. Desta forma, em contato com a Defesa Civil, o órgão disse que não faz denúncias e que este problema é de responsabilidade da
@@ -254,6 +247,15 @@ ou até mesmo pelo telefone, onde deveria constar os dados de Endereço, Nome, T
 o atendente comunicou que é feito o pedido com os dados solicitados, depois é repassado a um responsável para a emissão de um ofício, após a emissão
 do ofício é repassado a Secretaria de Manutenção, onde é repassado a um(a) Engenheiro(a) que irá  avaliar o caso, será realizada uma visita e desta forma
 havendo a liberação para tampar o buraco ou não.
+ 
+&nbsp;&nbsp;&nbsp;&nbsp;Isto posto, é perceptível que o modelo atual ainda é ligeiramente eficiente para uma correção rápida 
+dos problemas críticos, devido à alta demanda de denúncias por parte de corporações influentes que forem atingidas 
+pelos problemas, direcionando as denúncias para os órgãos responsáveis pela manutenção das infraestruturas, como
+prefeituras e/ou defesa civil. Entretanto, cidadãos comuns, sem poderes políticos ou influência local, não possuem voz 
+para a denúncia de problemas recorrentes em suas localizações, como uma rua não pavimentada da sua casa, falta de 
+saneamento básico, entre diversos outros problemas constantes em sociedades de todo o mundo. 
+
+&nbsp;&nbsp;&nbsp;&nbsp;Diante dos fatos supracitados, e de acordo com a nossa pesquisa, pode-se chegar a conclusão que para cada tipo de denúncia, existem dezenas de passos buracráticos que um cidadão comum deve fazer, para conseguir denunciar um problema, e nem mesmo se quer, talvez, ter resposta para o que foi denúnciado. Além do fato, que dependendo da área, todos esses passos serão diferentes, dificultando cada vez mais, a simples tarefa de se efetuar uma denúncia estrutural urbana.
 
 **4.2. Descrição Geral da proposta**
 
