@@ -217,7 +217,7 @@ ___
 
 **3. Participantes do processo**
 
-&nbsp;&nbsp;&nbsp;&nbsp;O O Mapa de Stakeholder pode ser acessado de forma dinâmica pelo 
+&nbsp;&nbsp;&nbsp;&nbsp;O Mapa de Stakeholder pode ser acessado de forma dinâmica pelo 
 link: https://miro.com/app/board/o9J_knKlYCk=/ . Nele foi detectado os principais usuário que utilizaram e/ou 
 serão afetados pela aplicação do Cit. Abaixo está anexadas uma versão A4 estática do mapa de stakeholder circle.
 
