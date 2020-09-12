@@ -28,26 +28,24 @@ ___
 ___
 
 #### - Pauta
-    1. Iniciar a Sprint 2
-    2. Criar a versão preliminar da "Análise da situação atual" no Relatório Final
-    3. Criar a versão preliminar da "Descrição Geral da proposta" no Relatório Final
-    4. Atualizar o Relatório Final para markdown
-    5. Atualizar as atas de reunião para markdown
-    6. Incrementar atualizações no planejamento do GitHub
+    1. Continuar versões preliminares da Sprint 2
+    2. Corrigir "Análise da situação atual" no Relatório Final
+    3. Avaliar correção da "Análise da situação atual" no Relatório Final
+    4. Criar ata 04
+    5. Corrigir falhas na imagem das atas
+    6. Atualizar planejamento do GitHub
 
 ___
 
 #### Notas e Decisões
-    * Sprint 2 já iniciada, funções foram dividas entre os participantes. Scrum Master já fez os tópicos da "Análise da situação atual" e "Descrição Geral da proposta" e os outros integrantes avaliam, corrigem e alterão o que for necessário.
+    * Na correção da "Análise da situação atual" do Relatório Final, foi solicitado detalhar melhor o funcionamento do acompanhamento da denúncia. Isso será feito até o dia 13/09.
 
-    * Ficou decidido utilizar o markdown para as Atas de Reunião e no Relatório final, com o intuito de melhorar o versionamento e leitura pelo repostitório.
+    * Início da correção da versão preliminar do tópico "Descrição Geral da proposta", será feita durante a semana.
 
 ___
 
 #### - Pendências
 | Descrição da Pendência                                       | Data para solução               | Responsável         |
 | -------------                                                | :-------------:                 | -----:              |
-| Transformar as Atas de Reunião em Markdown                   | 31/08/2020                      | Lucas Ângelo        |
-| Transformar o Relatório Final em Markdown                    | 31/08/2020                      | Henrique Penna      |
-| Transformar o Relatório Final em Markdown                    | 31/08/2020                      | Marco Tullio        |
-| Ler/melhorar/incrementar Relatório Final Sprint 2            | 31/08/2020                      | Participantes       |
+| Detalhar melhor o acompanhamento da denúncia no tópico 4.1 do Relatório.                   | 31/08/2020                      | Lucas Ângelo        |
+| Ler e aprimorar o tópico "Descrição Geral da proposta" do Relatório Fianl.                   | 31/08/2020                      | Todos os participantes        |
