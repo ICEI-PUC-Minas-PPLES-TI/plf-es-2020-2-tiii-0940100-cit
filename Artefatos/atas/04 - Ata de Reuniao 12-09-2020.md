@@ -12,9 +12,9 @@ ___
 ####  - Informações
 | Ata de Reunião          |
 | -------------           |
-| Data: 29/08/2020        |
-| Hora: 11:30 às 12:30    |
-| Local: Discord do grupo |
+| Data: 12/09/2020        |
+| Hora: 11:30 às 13:30    |
+| Local: Teams do grupo   |
 
 #### - Participantes
 | Nome                                 | E-mail                          | Papel            |

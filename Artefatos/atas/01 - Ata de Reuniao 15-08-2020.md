@@ -1,4 +1,4 @@
-![alt text](https://raw.githubusercontent.com/icei-pucminas/plf-es-2020-2-tiii-0940100-cit/master/Artefatos/images/logoPucAtaReuniao.png?token=AL2ND3ZU4I2OLQNIM3TH76C7KOU4A "Logo Puc")
+![alt text](https://i.imgur.com/4B1IxdA.png "Logo Puc")
 
 ***
 
