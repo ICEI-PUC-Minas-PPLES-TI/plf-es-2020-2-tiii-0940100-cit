@@ -38,9 +38,12 @@ ___
 ___
 
 #### Notas e Decisões
-    * Na correção da "Análise da situação atual" do Relatório Final, foi solicitado detalhar melhor o funcionamento do acompanhamento da denúncia. Isso será feito até o dia 13/09.
+    * Na correção da "Análise da situação atual" do Relatório Final, 
+    foi solicitado detalhar melhor o funcionamento do acompanhamento 
+    da denúncia. Isso será feito até o dia 13/09.
 
-    * Início da correção da versão preliminar do tópico "Descrição Geral da proposta", será feita durante a semana.
+    * Início da correção da versão preliminar do tópico 
+    "Descrição Geral da proposta", será feita durante a semana.
 
 ___
 
