@@ -261,7 +261,7 @@ saneamento básico, entre diversos outros problemas constantes em sociedades de 
 
 &nbsp;&nbsp;&nbsp;&nbsp;Pretende-se, com o Cit, montar um processo onde todos cidadãos de qualquer localização do mundo
 possam denunciar seus problemas em relação da infraestrutura urbana e/ou rural, de forma colaborativa. Para que assim, 
-com um maior número de denúncias de um mesmo problema, ele ganhe visão e seja corrigido pelo órgão responsável. Com por 
+com um maior número de denúncias de um mesmo problema, ele ganhe visão e seja corrigido pelo órgão responsável. Como por 
 exemplo, em uma situação hipotética, vários moradores de uma mesma rua poderem adicionar provas(fotos e/ou vídeos) do seu
 problema de não ter asfalto, até que essas denúncias promovam uma repercussão e ocasione na pavimentação na região, 
 por meio da prefeitura municipal.
