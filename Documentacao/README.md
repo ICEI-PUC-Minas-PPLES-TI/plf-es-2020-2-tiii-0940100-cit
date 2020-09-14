@@ -1,7 +1,7 @@
 # Cit - Por uma cidade melhor
 
 
-Guilherme Gabriel Silva Pereira​
+Guilherme Gabriel Silva Pereira,
 
 José Maurício Guimarães França,
 
@@ -9,7 +9,7 @@ Henrique Penna Forte Monteiro,
 
 Lucas Ângelo Oliveira Martins Rocha,
 
-Marco Tullio Oliveira.
+Marco Tullio Oliveira
 
 ---
 
@@ -31,45 +31,6 @@ Belo Horizonte – MG – Brasil
 **tulliomarco93@gmail.com**
 
 ---
-
-**1. Introdução 2**
-
-    1.1 Contextualização
-       1.1.1 Pesquisas
-    1.2 Problema
-    1.3 Objetivo geral
-       1.3.1 Objetivos específicos
-    1.4 Justificativas
-**2. Modelo de negócios**
-
-**3. Participantes do processo**
-
-
-**4. Modelagem do processo de negócio 7**
-
-    4.1. Análise da situação atual
-    4.2. Descrição Geral da proposta
-    4.3. Modelagem dos processos
-    4.3.1 Processo 1 – NOME
-    4.3.3 Processo 2 – NOME
-
-**5. Projeto da Solução**
-
-    5.1. Requisitos funcionais
-    5.2. Detalhamento das atividades
-    5.2.1. Atividades do Processo 1
-    5.3. Diagrama de Entidade-Relacionamento
-
-**5.4. Tecnologias 9**
-
-    6. Indicadores de desempenho
-    7. Uso Software
-    8. Avaliação
-    9. Conclusão
-
-**REFERÊNCIAS 10**
-
-**APÊNDICES 11**
 
 **_Resumo._**
 
@@ -278,7 +239,7 @@ Com isso, ambas as partes sairiam ganhando, os cidadãos com melhorias para seus
 ___
 
 **5. Projeto da Solução**
-**5.1. Requisitos funcionai**
+**5.1. Requisitos funcionais**
 
 &nbsp;&nbsp;&nbsp;&nbsp;Enumere os requisitos funcionais previstos para a sua aplicação. Use a tabela abaixo para enumerá-lo.  Esses requisitos devem estar de acordo com as definições do modelo de negócio.
 
