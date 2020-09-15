@@ -222,7 +222,7 @@ saneamento básico, entre diversos outros problemas constantes em sociedades de 
 
 Imagem 5 - Processo da Situação Atual.
 
-!.[Imagem5](https://imgur.com/pXEwZG3 "Imagem5")
+!.[Imagem5](https://i.imgur.com/pXEwZG3.png "Imagem5")
 
 **4.2. Descrição Geral da proposta**
 
