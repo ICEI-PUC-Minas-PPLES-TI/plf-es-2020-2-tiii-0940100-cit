@@ -227,15 +227,15 @@ Imagem 5 - Processo da Situação Atual.
 **4.2. Descrição Geral da proposta**
 
 &nbsp;&nbsp;&nbsp;&nbsp;Pretende-se, com o Cit, montar um processo onde todos cidadãos de qualquer localização do mundo
-possam denunciar seus problemas em relação da infraestrutura urbana e/ou rural, de forma colaborativa. Para que assim, 
+possam denunciar seus problemas em relação a infraestrutura urbana, de forma colaborativa. Para que assim, 
 com um maior número de denúncias de um mesmo problema, ele ganhe visão e seja corrigido pelo órgão responsável. Como por 
-exemplo, em uma situação hipotética, vários moradores de uma mesma rua poderem adicionar provas(fotos e/ou vídeos) do seu
+exemplo, vários moradores de uma mesma rua poderem adicionar provas(fotos e/ou vídeos) do seu
 problema de não ter asfalto, até que essas denúncias promovam uma repercussão e ocasione na pavimentação na região, 
 por meio da prefeitura municipal.
 
-&nbsp;&nbsp;&nbsp;&nbsp;À vista disso, à medida que os problemas forem sendo solucionados, será possível gerar relatórios
-sobre o progresso das regiões em relação a manutenção da infraestrutura, que torna-se de interesse político, o qual 
-candidatos poderiam utilizar seus feitos registrados no ranking do Cit, para promoverem suas campanhas políticas. 
+&nbsp;&nbsp;&nbsp;&nbsp;Visto isso, à medida que os problemas forem sendo solucionados, será possível acompanhar
+o progresso das regiões em relação a manutenção da infraestrutura, que torna-se de interesse político, o qual 
+candidatos poderão utilizar seus feitos registrados no ranking do Cit, para promoverem suas campanhas políticas. 
 Com isso, ambas as partes sairiam ganhando, os cidadãos com melhorias para seus cotidianos, e políticos com seus votos. 
 
 **4.3.  Modelagem dos processos**
