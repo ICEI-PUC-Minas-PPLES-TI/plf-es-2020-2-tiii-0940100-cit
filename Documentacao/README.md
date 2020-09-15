@@ -214,7 +214,9 @@ dos problemas críticos, devido à alta demanda de denúncias por parte de corpo
 pelos problemas, direcionando as denúncias para os órgãos responsáveis pela manutenção das infraestruturas, como
 prefeituras e/ou defesa civil. Entretanto, cidadãos comuns, sem poderes políticos ou influência local, não possuem voz 
 para a denúncia de problemas recorrentes em suas localizações, como uma rua não pavimentada da sua casa, falta de 
-saneamento básico, entre diversos outros problemas constantes em sociedades de todo o mundo. 
+saneamento básico, entre diversos outros problemas constantes em sociedades de todo o mundo.
+
+&nbsp;&nbsp;&nbsp;&nbsp;Além disso, ao fazer uma denúncia, o cidadão não tem um acompanhamento necessário sobre a resolução do problema, dependendo de checar o local do problema pessoalemnte para saber se ele foi solucionado. Ademais, os próprios servidores públicos não têm uma previsão sobre o tempo que determinado problema levará para ser resolvido. Assim, temos uma situação problemática onde os servidores não tem controle da situação e os cidadãos não tem um feedback sobre as denúncias efetuadas com intuito de melhorar a situação das vias públicas.
 
 &nbsp;&nbsp;&nbsp;&nbsp;Diante dos fatos supracitados, e de acordo com a nossa pesquisa, pode-se chegar a conclusão que para cada tipo de denúncia, existem dezenas de passos buracráticos que um cidadão comum deve fazer, para conseguir denunciar um problema, e nem mesmo se quer, talvez, ter resposta para o que foi denúnciado. Além do fato, que dependendo da área, todos esses passos serão diferentes, dificultando cada vez mais, a simples tarefa de se efetuar uma denúncia estrutural urbana.
 
