@@ -220,6 +220,8 @@ saneamento básico, entre diversos outros problemas constantes em sociedades de 
 
 &nbsp;&nbsp;&nbsp;&nbsp;Diante dos fatos supracitados, e de acordo com a nossa pesquisa, pode-se chegar a conclusão que para cada tipo de denúncia, existem dezenas de passos buracráticos que um cidadão comum deve fazer, para conseguir denunciar um problema, e nem mesmo se quer, talvez, ter resposta para o que foi denúnciado. Além do fato, que dependendo da área, todos esses passos serão diferentes, dificultando cada vez mais, a simples tarefa de se efetuar uma denúncia estrutural urbana.
 
+Imagem 5 - Processo da Situação Atual.
+
 !.[Imagem5](https://i.imgur.com/q6ZOWwl.png "Imagem5")
 
 **4.2. Descrição Geral da proposta**
