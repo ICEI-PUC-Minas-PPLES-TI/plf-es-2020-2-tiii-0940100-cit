@@ -225,7 +225,7 @@ Imagem 5 - Processo da Situação Atual.
 
 **4.2. Descrição Geral da proposta**
 
-&nbsp;&nbsp;&nbsp;&nbsp;Pretende-se, com o Cit, montar um processo onde todos cidadãos de qualquer localização do Basil
+&nbsp;&nbsp;&nbsp;&nbsp;Pretende-se, com o Cit, montar um processo onde todos cidadãos de qualquer localização do Brasil
 possam denunciar seus problemas em relação a infraestrutura urbana, de forma colaborativa. Para que assim, 
 com um maior número de denúncias de um mesmo problema, ele ganhe visão e seja corrigido pelo órgão responsável. Como por 
 exemplo, vários moradores de uma mesma rua poderem adicionar provas(fotos e/ou vídeos) do seu
