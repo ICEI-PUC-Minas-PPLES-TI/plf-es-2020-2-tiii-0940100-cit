@@ -192,10 +192,7 @@ ___
 
 **4.1 Análise da Situação Atual**
 
-&nbsp;&nbsp;&nbsp;&nbsp;É irrefutável que existem muitos problemas estruturais que comprometem a mobilidade urbana em 
-todas as localidades do mundo, dentre eles, vários são recorrentes como a deterioração dos pavimentos públicos
-que ocasionam fendas e buracos, e também os existem os problemas repentinos de níveis críticos, como cabos de alta 
-tensão arrebentados e árvores caídas que atrapalham o trânsito. 
+&nbsp;&nbsp;&nbsp;&nbsp;Observando o cenário atual é inegável dizer que existem muitos problemas estruturais que comprometem a mobilidade urbana em todas as localidades do mundo, dos quais dentre eles, vários são recorrentes como a deterioração dos pavimentos públicos que ocasionam fendas e buracos, e também os existem os problemas repentinos de níveis críticos, como cabos de alta tensão arrebentados e árvores caídas que atrapalham o trânsito. 
 
 &nbsp;&nbsp;&nbsp;&nbsp;Dessa forma, com o objetivo de obter mais informações sobre o funcionamento padrão de denunúncias, foi feita uma pesquisa para entender o processo adotado pelos municípios, atualmente.
 Para esta análise, foi escolhida a Prefeitura de Contagem para a coleta de dados. Para um cidadão comum descobrir uma forma de como
