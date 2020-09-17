@@ -62,9 +62,10 @@ cidadãos, com o intuito de obter mais informações em relação ao problema de
 mobilidade. Primeiro, seria necessário entender junto ao público alvo se eles já tiveram algum
 problema de infraestrutura urbana, os dados levantados estão representados na imagem 1.
 
-Imagem 1 - Pergunta principal da pesquisa.
 
-![Imagem1](https://i.imgur.com/ZMyYtzo.png "Imagem1")
+| ![Imagem1](https://i.imgur.com/ZMyYtzo.png "Imagem1") |
+|:--:| 
+| *<sub>Imagem 1 - Pergunta principal da pesquisa.</sub>* |
 
 
 
@@ -72,21 +73,19 @@ Imagem 1 - Pergunta principal da pesquisa.
 ao público e também um campo para que eles tivessem liberdade de inserir novos problemas.
 Os dados obtidos estão destacados na imagem 2.
 
-Imagem 2 - Principais problemas apontados pela pesquisa.
-
-![Imagem2](https://i.imgur.com/nCMIL9U.png "Imagem2")
-
+| ![Imagem2](https://i.imgur.com/nCMIL9U.png "Imagem2") |
+|:--:| 
+| *<sub>Imagem 2 - Principais problemas apontados pela pesquisa.</sub>* |
 
 &nbsp;&nbsp;&nbsp;&nbsp; Para enfim, justificar a ideia do trabalho e dar sequência no mesmo com a certeza do
 seu sucesso, foi perguntado aos participantes da pesquisa se eles já conseguiram denunciar os
 problemas relatados de maneira fácil, como 95,6% das pessoas responderam que não, houve a
 legitimação do projeto.
 
-Imagem 3 - Verificação da realidade do problema por meio da pesquisa.
 
-![Imagem3](https://i.imgur.com/oxz49yg.png "Imagem3")
-
-
+| ![Imagem3](https://i.imgur.com/oxz49yg.png "Imagem3") |
+|:--:| 
+| *<sub>Imagem 3 - Verificação da realidade do problema por meio da pesquisa.</sub>* |
 
 **1.2 Problema**
 
@@ -182,10 +181,9 @@ ___
 link: https://miro.com/app/board/o9J_knKlYCk=/ . Nele foi detectado os principais usuário que utilizaram e/ou 
 serão afetados pela aplicação do Cit. Abaixo está anexadas uma versão A4 estática do mapa de stakeholder circle.
 
-Imagem 4 - Mapa de StakeHolders do Cit.
-
-![Imagem4](https://i.imgur.com/0yEv16j.png "Imagem4")
-
+| ![Imagem4](https://i.imgur.com/0yEv16j.png "Imagem4") |
+|:--:| 
+| *<sub>Imagem 4 - Mapa de StakeHolders do Cit.</sub>* |
 ___
 
 **4. Modelagem do processo de negócio**
@@ -196,17 +194,17 @@ ___
 
 &nbsp;&nbsp;&nbsp;&nbsp;Dessa forma, com o objetivo de obter mais informações sobre o funcionamento padrão de denunúncias, foi feita uma pesquisa para entender o processo adotado pelos municípios, atualmente.
 Para esta análise, foi escolhida a Prefeitura de Contagem para a coleta de dados. Para um cidadão comum descobrir uma forma de como
-denúnciar um simples buraco aberto foi acessado o site da prefeitura, porém não havia explícito como fazer a denúncia e resolver o problema
-escolhido. Desta forma, em contato com a Defesa Civil, o órgão disse que não faz denúncias e que este problema é de responsabilidade da
+denúnciar um simples buraco aberto, foi acessado o site da prefeitura, porém não havia explícito como fazer a denúncia e consequentemente resolver o problema
+encaminhado. Desta forma, em contato com a Defesa Civil, o órgão disse que não recebia as denúncias e que este problema é de responsabilidade da
 Secretaria de Manuntenção, visto isso, ao entrar em contato com a mesma, foi perguntado qual o endereço no qual o problema está situado
 para que desta forma, o cidadão seja direcionado para a regional inerente ao problema. Ao ligar para a regional responsável pela região do buraco
 aberto em questão, foi solicitado alguns dados para efetuar o pedido para tampar o buraco. Este pedido poderia ser feito pelo e-mail da regional 
-ou até mesmo pelo telefone, onde deveria constar os dados de Endereço, Nome, Telefone e Qual o Problema. Ao ser perguntado qual a sequência do processo
+ou até mesmo pelo telefone, onde deveria constar os dados de endereço, nome, telefone e descrição do Problema. Ao ser questionado sobre qual a sequência do processo
 o atendente comunicou que é feito o pedido com os dados solicitados, depois é repassado a um responsável para a emissão de um ofício, após a emissão
 do ofício é repassado a Secretaria de Manutenção, onde é repassado a um(a) Engenheiro(a) que irá  avaliar o caso, será realizada uma visita e desta forma
 havendo a liberação para tampar o buraco ou não.
  
-&nbsp;&nbsp;&nbsp;&nbsp;Isto posto, é perceptível que o modelo atual ainda é ligeiramente eficiente para uma correção rápida 
+&nbsp;&nbsp;&nbsp;&nbsp;Isto posto, é perceptível que o modelo atual ainda é ligeiramente funcional para uma correção rápida 
 dos problemas críticos, devido à alta demanda de denúncias por parte de corporações influentes que forem atingidas 
 pelos problemas, direcionando as denúncias para os órgãos responsáveis pela manutenção das infraestruturas, como
 prefeituras e/ou defesa civil. Entretanto, cidadãos comuns, sem poderes políticos ou influência local, não possuem voz 
@@ -219,9 +217,11 @@ saneamento básico, entre diversos outros problemas constantes em sociedades de 
 
 &nbsp;&nbsp;&nbsp;&nbsp;Pela foto abaixo, podemos observar o quão burocrático a situação atual se encontra, descrevendo o processo descrito acima.
 
-Imagem 5 - Processo da Situação Atual.
 
-![Imagem5](https://i.imgur.com/pXEwZG3.png "Imagem5")
+
+| ![Imagem5](https://i.imgur.com/pXEwZG3.png "Imagem5") |
+|:--:| 
+| *<sub>Imagem 5 - Processo da Situação Atual.</sub>* |
 
 **4.2. Descrição Geral da proposta**
 
