@@ -21,6 +21,23 @@
 Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
 
 ## Histórico de versões
+
+#### [0.1.5] - 17/09/2020
+##### Atualizado
+* Correção de erros ortográficos e de concordância no relatório final
+* Mudanças de layout da legendas das imagens no relatório final
+
+#### [0.1.4] - 11/09/2020
+##### Atualizado
+* Correção de erros ortográficos e de concordância
+
+#### [0.1.3] - 04/09/2020
+##### Adicionado
+* Adicionado conteúdo ao tópico Análise da Situação Atual
+##### Atualizado
+* Alterado detalhes em tópicos de Contextualização e Pesquisas
+* Correção de erros ortográficos
+
 #### [0.1.2] - 27/08/2020
 ##### Adicionado
 * Adicionado bussiness model canvas
