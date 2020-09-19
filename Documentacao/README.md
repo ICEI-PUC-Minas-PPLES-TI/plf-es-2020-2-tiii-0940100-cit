@@ -227,15 +227,19 @@ saneamento básico, entre diversos outros problemas constantes em sociedades de 
 
 &nbsp;&nbsp;&nbsp;&nbsp;Pretende-se, com o Cit, montar um processo onde todos cidadãos de qualquer localização do Brasil
 possam denunciar seus problemas em relação a infraestrutura urbana, de forma colaborativa. Para que assim, 
-com um maior número de denúncias de um mesmo problema, ele ganhe visão e seja corrigido pelo órgão responsável. Como por 
-exemplo, vários moradores de uma mesma rua poderem adicionar provas(fotos e/ou vídeos) do seu
+quanto mais denúncias um mesmo problema receber, mais chances dele obter visibilidade e ser corrigido pelo órgão responsável. Como por 
+exemplo, vários moradores de uma mesma rua poderem adicionar provas(fotos) do seu
 problema de não ter asfalto, até que essas denúncias promovam uma repercussão e ocasione na pavimentação na região, 
 por meio da prefeitura municipal.
+
+&nbsp;&nbsp;&nbsp;&nbsp;Ademais, órgãos públicos também se cadastrarão no Cit com o intuito de receberem as denúncias de suas regiões e categorias, selecionadas previamente. Diante disso, as denúncias feitas pelos cidadãos, poderão ser encaminhadas para as contas das organizações responsáveis pela categoria do problema. Logo, os problemas denunciados poderão ser solucionados pelas organizações, devido ao fato de poderem ser facilmente localizados, por meio dos dados informados pelos cidadãos no momento de efetuar a denúncia(Endereço, fotos e uma breve descrição). 
+
+&nbsp;&nbsp;&nbsp;&nbsp;Com isso, o andamento será notificado para as contas dos cidadãos, alertando-os caso algum órgão se disponibilize para corrigir o problema da denúncia ou marque-a como solucionada. Enquanto não houver iniciado alguma correção, o acompanhamento apresentará a denúncia com o status de aberta.
 
 &nbsp;&nbsp;&nbsp;&nbsp;Visto isso, à medida que os problemas forem sendo solucionados, será possível acompanhar
 o progresso das regiões em relação a manutenção da infraestrutura, que torna-se de interesse político, o qual 
 candidatos poderão utilizar seus feitos registrados no ranking do Cit, para promoverem suas campanhas políticas. 
-Com isso, ambas as partes sairiam ganhando, os cidadãos com melhorias para seus cotidianos, e políticos sendo reconhecidos e consequentemente ganhando votos. 
+Portanto, ambas as partes sairiam ganhando, os cidadãos com melhorias para seus cotidianos, e políticos sendo reconhecidos e consequentemente ganhando votos por solicitarem que os órgãos corrijam os problemas denunciados.
 
 **4.3.  Modelagem dos processos**
 **4.3.1 Processo 1 – NOME**
