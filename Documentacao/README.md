@@ -242,8 +242,29 @@ candidatos poderão utilizar seus feitos registrados no ranking do Cit, para pro
 Portanto, ambas as partes sairiam ganhando, os cidadãos com melhorias para seus cotidianos, e políticos sendo reconhecidos e consequentemente ganhando votos por solicitarem que os órgãos corrijam os problemas denunciados.
 
 **4.3.  Modelagem dos processos**
-**4.3.1 Processo 1 – NOME**
-**4.3.3 Processo 2 – NOME**
+
+&nbsp;&nbsp;&nbsp;&nbsp; Processo primário 1: Cidadão fazer a denúncia de um problema estrutural em área urbana. Processo primário 2: Órgão responsável gerenciar denúncias feitas pelos cidadãos. Processo primário 3: Gerar um ranking dos municípios que mais solucionam problemas denunciados. 
+&nbsp;&nbsp;&nbsp;&nbsp; Processo de suporte 1: Sistema de cadastro e login do cidadão no site da Cit. Processo de suporte 2: Sistema de cadastro e login órgãos responsáveis no site da Cit.
+&nbsp;&nbsp;&nbsp;&nbsp; Processo de gerenciamento: Monitorar as denúncias para impedir spam e/ou phishing e denúncias não corrigidas corretamente.
+
+
+**4.3.1 Processo primários**
+***4.3.1.1 Processo 1 - Cidadão denunciar***
+MODELAGEM - Lucas
+***4.3.1.2 Processo 2 - Órgão gerenciar denúncia***
+MODELAGEM - Guilherme
+***4.3.1.3 Processo 3 - Gerar ranking de melhores municípios***
+MODELAGEM - José
+
+**4.3.2 Processo de Suporte**
+***4.3.2.1 Processo 1 - Entrar em conta cidadão***
+MODELAGEM - Marco
+***4.3.2.2 Processo 2 - Entrar em conta órgão***
+MODELAGEM - Henrique
+
+**4.3.3 Processo de Gerenciamento**
+***4.3.3.1 Processo 1 - Monitorar as denúncias***
+MODELAGEM - Guilherme/Lucas
 
 ___
 
