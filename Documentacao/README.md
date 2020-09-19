@@ -219,7 +219,7 @@ saneamento básico, entre diversos outros problemas constantes em sociedades de 
 
 
 
-| ![Imagem5](https://i.imgur.com/pXEwZG3.png "Imagem5") |
+| ![Imagem5](https://i.imgur.com/hMMJLJr.png "Imagem5") |
 |:--:| 
 | *<sub>Imagem 5 - Processo da Situação Atual.</sub>* |
 
