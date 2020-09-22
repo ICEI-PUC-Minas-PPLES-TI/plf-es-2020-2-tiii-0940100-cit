@@ -245,7 +245,7 @@ Portanto, ambas as partes sairiam ganhando, os cidadãos com melhorias para seus
 
 &nbsp;&nbsp;&nbsp;&nbsp; Processo primário 1: Cidadão fazer a denúncia de um problema estrutural em área urbana. Processo primário 2: Órgão responsável gerenciar denúncias feitas pelos cidadãos. Processo primário 3: Gerar um ranking dos municípios que mais solucionam problemas denunciados. 
 &nbsp;&nbsp;&nbsp;&nbsp; Processo de suporte 1: Sistema de cadastro e login do cidadão no site da Cit. Processo de suporte 2: Sistema de cadastro e login órgãos responsáveis no site da Cit.
-&nbsp;&nbsp;&nbsp;&nbsp; Processo de gerenciamento: Monitorar as denúncias para impedir spam e/ou phishing e denúncias não corrigidas corretamente.
+&nbsp;&nbsp;&nbsp;&nbsp; Processo de gerenciamento: Monitorar as denúncias para impedir phishing e denúncias não corrigidas corretamente.
 
 
 **4.3.1 Processo primários**
