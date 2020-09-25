@@ -15,7 +15,6 @@ Marco Tullio Oliveira
 
 ​### Instituto de Informática e Ciências Exatas– Pontifícia Universidade de Minas Gerais (PUC
 MINAS)
-​### Engenharia de Software 2/2020
 
 Belo Horizonte – MG – Brasil
 
