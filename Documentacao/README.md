@@ -249,21 +249,21 @@ Portanto, ambas as partes sairiam ganhando, os cidadãos com melhorias para seus
 
 
 **4.3.1 Processo primários**
-***4.3.1.1 Processo 1 - Cidadão denunciar***
+***4.3.1.1 Processo 1 - Efetuar Denúncia***
 MODELAGEM - Lucas
-***4.3.1.2 Processo 2 - Órgão gerenciar denúncia***
+***4.3.1.2 Processo 2 - Gerenciar Denúncia***
 MODELAGEM - Guilherme
-***4.3.1.3 Processo 3 - Gerar ranking de melhores municípios***
+***4.3.1.3 Processo 3 - Gerenciar Ranking***
 MODELAGEM - José
 
 **4.3.2 Processo de Suporte**
-***4.3.2.1 Processo 1 - Entrar em conta cidadão***
+***4.3.2.1 Processo 1 - Login Cidadão***
 MODELAGEM - Marco
-***4.3.2.2 Processo 2 - Entrar em conta órgão***
+***4.3.2.2 Processo 2 - Login Órgão***
 MODELAGEM - Henrique
 
 **4.3.3 Processo de Gerenciamento**
-***4.3.3.1 Processo 1 - Monitorar as denúncias***
+***4.3.3.1 Processo 1 - Monitorar Denúncias***
 MODELAGEM - Guilherme/Lucas
 
 ___
