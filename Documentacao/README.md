@@ -250,21 +250,36 @@ Portanto, ambas as partes sairiam ganhando, os cidadãos com melhorias para seus
 
 **4.3.1 Processo primários**
 ***4.3.1.1 Processo 1 - Efetuar Denúncia***
-MODELAGEM - Lucas
+| ![Imagem6](https://i.imgur.com/dMqfM3y.png "Imagem6") |
+|:--:| 
+| *<sub>Imagem 6 - Processo de Efetuar Denúncia.</sub>* |
+
 ***4.3.1.2 Processo 2 - Gerenciar Denúncia***
-MODELAGEM - Guilherme
+| ![Imagem7](https://i.imgur.com/H5woKWp.png "Imagem7") |
+|:--:| 
+| *<sub>Imagem 7 - Processo de Gerenciar Denúncia.</sub>* |
+
 ***4.3.1.3 Processo 3 - Gerenciar Ranking***
-MODELAGEM - José
+| ![Imagem8](https://i.imgur.com/0LXPoA1.png "Imagem8") |
+|:--:| 
+| *<sub>Imagem 8 - Processo de Gerenciar Ranking.</sub>* |
 
 **4.3.2 Processo de Suporte**
 ***4.3.2.1 Processo 1 - Login Cidadão***
-MODELAGEM - Marco
+| ![Imagem9](https://i.imgur.com/j1DIW5A.png "Imagem9") |
+|:--:| 
+| *<sub>Imagem 9 - Processo Login Cidadão.</sub>* |
+
 ***4.3.2.2 Processo 2 - Login Órgão***
-MODELAGEM - Henrique
+| ![Imagem10](https://i.imgur.com/l5VWVfU.png "Imagem10") |
+|:--:| 
+| *<sub>Imagem 10 - Processo Login Órgão.</sub>* |
 
 **4.3.3 Processo de Gerenciamento**
 ***4.3.3.1 Processo 1 - Monitorar Denúncias***
-MODELAGEM - Guilherme/Lucas
+| ![Imagem11](https://i.imgur.com/chnYbfG.png "Imagem11") |
+|:--:| 
+| *<sub>Imagem 11 - Processo de Monitorar Denúncias.</sub>* |
 
 ___
 
