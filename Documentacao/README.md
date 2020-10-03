@@ -287,7 +287,7 @@ ___
 **5.1. Requisitos funcionais**
 
 | No.    | Processo/tarefa      | Descrição                                                                             | Prioridade    |
-| :------ |:--------------------:| :------------------------------------------------------------------------------------:| -------------:|
+| :----- |:--------------------:| :------------------------------------------------------------------------------------:| -------------:|
 | 01     | Efetuar Denúncia     | Cidadão fazer a denúncia de um problema estrutural em área urbana.                    | Alta          |
 | 02     | Gerenciar Denúncia   | Órgão responsável gerenciar denúncias feitas pelos cidadãos.                          | Alta          |
 | 03     | Gerenciar Ranking    | Gerar um ranking dos municípios que mais solucionam problemas denunciados.            | Média         |
