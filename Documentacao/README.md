@@ -294,6 +294,21 @@ ___
 | 04     | Monitorar Denúncia   | Monitorar as denúncias para impedir phishing e denúncias não corrigidas corretamente. | Baixa         |
 
 
+**5.2. Detalhamento das atividades**
+
+***5.2.1 RF-01***
+Esse Requisito Funcional, é classificado como um Processo Primário, de alta prioridade, pois terá contato direto com os usuários(cidadãos) do site. Esse processo de Efetuar uma Denúncia possui dois agentes, o Cidadão e o Site da CIT. O cidadão entra no site da Cit para denúnciar um problema estrutural de sua cidade, caso não exista uma denúncia já cadastrada para o problema que o usuário pretende denunciar, ele poderá criar uma nova denúncia pelo formulário, entretanto, caso já exista ele pode apenas votar na denúncia já cadastrada e se desejar adicionar mais provas (fotos) do problema. Diante disso, o cidadão terá o feedback caso haja qualquer atualização no status da denúncia inicialmente aberta.
+
+***5.2.2 RF-02***
+
+
+***5.2.3 RF-03***
+
+
+***5.2.4 RF-04***
+
+
+
 **REFERÊNCIAS**
 
 **[1.1]** - _G1 - Jornal Nacional, "Falta de acesso ao saneamento básico é realidade para milhões de brasileiros" 2019 
