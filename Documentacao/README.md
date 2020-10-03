@@ -286,7 +286,13 @@ ___
 **5. Projeto da Solução**
 **5.1. Requisitos funcionais**
 
-&nbsp;&nbsp;&nbsp;&nbsp;Enumere os requisitos funcionais previstos para a sua aplicação. Use a tabela abaixo para enumerá-lo.  Esses requisitos devem estar de acordo com as definições do modelo de negócio.
+| No.    | Processo/tarefa      | Descrição                                                                             | Prioridade    |
+| :------ |:--------------------:| :------------------------------------------------------------------------------------:| -------------:|
+| 01     | Efetuar Denúncia     | Cidadão fazer a denúncia de um problema estrutural em área urbana.                    | Alta          |
+| 02     | Gerenciar Denúncia   | Órgão responsável gerenciar denúncias feitas pelos cidadãos.                          | Alta          |
+| 03     | Gerenciar Ranking    | Gerar um ranking dos municípios que mais solucionam problemas denunciados.            | Média         |
+| 04     | Monitorar Denúncia   | Monitorar as denúncias para impedir phishing e denúncias não corrigidas corretamente. | Baixa         |
+
 
 **REFERÊNCIAS**
 
