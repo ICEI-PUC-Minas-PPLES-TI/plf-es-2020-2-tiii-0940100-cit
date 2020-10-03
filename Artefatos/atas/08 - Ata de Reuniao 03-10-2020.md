@@ -54,9 +54,9 @@ ___
 #### - Pendências
 | Descrição da Pendência                                       | Data para solução               | Responsável         |
 | -------------                                                | :-------------:                 | -----:              |
-| Corrigir Processos primário 1                   | 25/09/2020                      | Lucas Ângelo        |
-| Corrigir Processos primário 2                   | 25/09/2020                      | Guilherme Gabriel        |
-| Corrigir Processos primário 3                   | 25/09/2020                      | José Maurício        |
-| Corrigir Processos de suporte 1                   | 25/09/2020                      | Marco Tullio        |
-| Corrigir Processos de suporte 2                   | 25/09/2020                      | Henrique Penna        |
-| Corrigir Processos de gerenciamento 1                   | 25/09/2020                      | Guilherme Gabriel/Lucas Ângelo        |
+| Corrigir Processos primário 1                   | 06/10/2020                      | Lucas Ângelo        |
+| Corrigir Processos primário 2                   | 06/10/2020                      | Guilherme Gabriel        |
+| Corrigir Processos primário 3                   | 06/10/2020                      | José Maurício        |
+| Corrigir Processos de suporte 1                   | 06/10/2020                      | Marco Tullio        |
+| Corrigir Processos de suporte 2                   | 06/10/2020                      | Henrique Penna        |
+| Corrigir Processos de gerenciamento 1                   | 06/10/2020                      | Guilherme Gabriel/Lucas Ângelo        |
