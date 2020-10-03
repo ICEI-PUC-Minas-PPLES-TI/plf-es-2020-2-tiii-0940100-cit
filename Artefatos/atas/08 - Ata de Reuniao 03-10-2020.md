@@ -37,11 +37,11 @@ ___
 #### Notas e Decisões
 
     ## Decisões para correção de modelagens
-    * Lucas Ângelo: No Processo Primário 1 tentar verificar se é possível reduzir o nível de detalhamento
+    * Lucas Ângelo: No Processo Primário 1 tentar verificar se é possível reduzir o nível de detalhamento.
 
     * Guilherme Gabriel: No Processo Primário 2 corrigir falha onde foram utilizados 3 gatewarys conectando um no outro(Sendo que era possível usar 1 de acordo com o Hugo), gateway logo após a atividade de "Avaliar se a denúncia pe válida".
     
-    * José Maurício: No Processo Primário 3, não foram mencionado falhas
+    * José Maurício: No Processo Primário 3, não foram mencionado falhas.
 
     * Marco Tullio: No Processo de Suporte 1, reduzir o número de atividades detalhadas (Exemplom: tem uma atividade apenas para "Digitar Login" e outra para "Digitar Senha"), sendo que o Hugo já ensinou a colocar campos de entradas nas propriedades das atividades. A pedido Scrum Master, separar o processo de cadastro do processo de login, como foi feito pelo Henrique no Processo de Suporte 2. Além disso, se possível organizar a sequência das atividades de cima para baixo E da esqueda para direita, pois está um pouco confuso visualizar o trajeto apenas subindo e descendo.
 
@@ -52,11 +52,11 @@ ___
 ___
 
 #### - Pendências
-| Descrição da Pendência                                       | Data para solução               | Responsável         |
-| -------------                                                | :-------------:                 | -----:              |
-| Corrigir Processos primário 1                   | 06/10/2020                      | Lucas Ângelo        |
-| Corrigir Processos primário 2                   | 06/10/2020                      | Guilherme Gabriel        |
-| Corrigir Processos primário 3                   | 06/10/2020                      | José Maurício        |
-| Corrigir Processos de suporte 1                   | 06/10/2020                      | Marco Tullio        |
-| Corrigir Processos de suporte 2                   | 06/10/2020                      | Henrique Penna        |
-| Corrigir Processos de gerenciamento 1                   | 06/10/2020                      | Guilherme Gabriel/Lucas Ângelo        |
+| Descrição da Pendência                   | Data para solução               | Responsável                           |
+| ---------------------------------------- | :------------------------------:| -------------------------------------:|
+| Corrigir Processos primário 1            | 06/10/2020                      | Lucas Ângelo                          |
+| Corrigir Processos primário 2            | 06/10/2020                      | Guilherme Gabriel                     |
+| Corrigir Processos primário 3            | 06/10/2020                      | José Maurício                         |
+| Corrigir Processos de suporte 1          | 06/10/2020                      | Marco Tullio                          |
+| Corrigir Processos de suporte 2          | 06/10/2020                      | Henrique Penna                        |
+| Corrigir Processos de gerenciamento 1    | 06/10/2020                      | Guilherme Gabriel/Lucas Ângelo        |
