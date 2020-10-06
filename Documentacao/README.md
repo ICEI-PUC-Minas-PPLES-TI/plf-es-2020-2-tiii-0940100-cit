@@ -299,13 +299,13 @@ ___
 ***5.2.1 RF-01 - Efetuar Denúncia***
 Este Requisito Funcional, é classificado como um Processo Primário, de alta prioridade, pois terá contato direto com os usuários(cidadãos) do site. Esse processo de Efetuar uma Denúncia possui dois agentes, o Cidadão e o Site da CIT. O cidadão entra no site da Cit para denúnciar um problema estrutural de sua cidade, caso não exista uma denúncia já cadastrada para o problema que o usuário pretende denunciar, ele poderá criar uma nova denúncia pelo formulário, entretanto, caso já exista ele pode apenas votar na denúncia já cadastrada e se desejar adicionar mais provas (fotos) do problema. Diante disso, o cidadão terá o feedback caso haja qualquer atualização no status da denúncia inicialmente aberta.
 
-***5.2.2 RF-02***
-
+***5.2.2 RF-02 - Gerenciar Denúncia***
+O segundo Requisito Funcional, relacionado ao processo com o mesmo nome, é classificado como Processo Primário, sendo de alta prioridade, pois ele tem um envolvimento direto com usuários (órgãos responsáveis), sendo uma etapa estritamente necessária na correção de um problema urbano com o uso da plataforma CIT. Nesse processo, o usuário logado na conta do órgão, poderá visualizar todas as denúncias feitas que são de responsabilidade do mesmo, podendo filtrá-los para organizar sua exibição, para assim escolher uma denúncia a ser gerenciada. Com uma denúncia escolhida, o usuário poderá reportar algum erro a equipe do CIT se aquele problema urbano não for de jurisdição do órgão em questão, se não for o caso, prossegue-se com a gerência da denúncia, enviando os dados para um engenheiro responsável, que irá avaliar o problema para agendar o censerto do mesmo e assim realizá-lo.
 
 ***5.2.3 RF-03 - Gerenciar Ranking***
 Já este requisito funcional, é também um processo primário, de média prioridade, se trata de uma forma que evidenciará quais as prefeituras estão mais empenhadas em resolver os problemas apresentados no site da CIT. Com uma cidade estando no topo do ranking, o seu governo ganhará mais credibilidade e desta forma, promovendo os serviços que estão sendo realizados pela gestão. E ainda sim, existirá aquelas cidades que não estão se empenhando para solucionar os problemas da cidade, visto que, isto estará refletido no ranking da CIT, proporcionando que a gestão responsável fique má vista pelos cidadãos, promovendo negativamente os políticos responsáveis.
 
-***5.2.4 RF-04***
+***5.2.4 RF-04 - Monitorar Denúncia***
 
 
 
