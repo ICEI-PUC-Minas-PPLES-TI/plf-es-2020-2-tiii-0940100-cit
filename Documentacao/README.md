@@ -306,7 +306,7 @@ O segundo Requisito Funcional, relacionado ao processo com o mesmo nome, é clas
 Já este requisito funcional, é também um processo primário, de média prioridade, se trata de uma forma que evidenciará quais as prefeituras estão mais empenhadas em resolver os problemas apresentados no site da CIT. Com uma cidade estando no topo do ranking, o seu governo ganhará mais credibilidade e desta forma, promovendo os serviços que estão sendo realizados pela gestão. E ainda sim, existirá aquelas cidades que não estão se empenhando para solucionar os problemas da cidade, visto que, isto estará refletido no ranking da CIT, proporcionando que a gestão responsável fique má vista pelos cidadãos, promovendo negativamente os políticos responsáveis.
 
 ***5.2.4 RF-04 - Monitorar Denúncia***
-
+O último Requisito Funcional, sendo um processo de gerenciamento de baixa prioridade, refere-se ao processo de gerenciar as denúncias feitas pelos cidadãos no site da CIT, de forma a detectar e excluir aquelas com conteúdo que se desvia do objetivo do site, como imagens não relacionadas ao problema denunciado ou descrições contendo discursos de ódio. É importante também que os usuários que recorrentemente fazem essas denúncias mal-intensionadas sejam impossibilitadas de fazerem novas denúncias para reduzir a quantidade desse tipo de denúncia.
 
 
 **REFERÊNCIAS**
