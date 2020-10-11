@@ -350,7 +350,7 @@ Já este requisito funcional, é também um processo primário, de média priori
 | Propriedade (atributo)    | Requerido? (S/N) | Default             | Descrição                                                                    |
 | :------------------------ |:---------------- | :-------------------| :---------------------------------------------------------------------------:|
 | url                       | Sim | http://www.domain.com/ranking/   | Endereço de conexão para visualização do Ranking gerado.                     |
-| Prefeito                  | Sim | (*Capturado com o cep)           | Nome do Prefeito do Município                                                |
+| prefeito                  | Sim | (*Capturado com o cep)           | Nome do Prefeito do Município                                                |
 | uf                        | Sim | (*Capturado com o cep)           | Nome da Unidade Federativa.                                                  |
 | municipio                 | Sim | (*Capturado com o cep)           | Nome do Município.                                                           |
 | qtdDenúnciasSolucionadas  | Sim |                                  | Quantidade de Denúncias Solucionadas pelo Município                          |
