@@ -299,12 +299,42 @@ ___
 | 02     | Gerenciar Denúncia   | Órgão responsável gerenciar denúncias feitas pelos cidadãos.                          | Alta          |
 | 03     | Gerenciar Ranking    | Gerar um ranking dos municípios que mais solucionam problemas denunciados.            | Média         |
 | 04     | Monitorar Denúncia   | Monitorar as denúncias para impedir phishing e denúncias não corrigidas corretamente. | Baixa         |
-
+| 05     | Login Cidadão        | Possibilitar cidadão entrar em sua conta para fazer denúncias.                        | Média         |
+| 06     | Registro Cidadão     | Possibilitar cidadão criar sua conta para entrar nela.                                | Média         |
+| 07     | Login Organização    | Possibilitar organização entrar em sua conta para receber denúncias.                  | Média         |
+| 08     | Registro Organização | Possibilitar organização criar sua conta para entrar nela e gerar sub-usuários.       | Média         |
 
 **5.2. Detalhamento das atividades**
 
 ***5.2.1 RF-01 - Efetuar Denúncia***
-Este Requisito Funcional, é classificado como um Processo Primário, de alta prioridade, pois terá contato direto com os usuários(cidadãos) do site. Esse processo de Efetuar uma Denúncia possui dois agentes, o Cidadão e o Site da CIT. O cidadão entra no site da Cit para denúnciar um problema estrutural de sua cidade, caso não exista uma denúncia já cadastrada para o problema que o usuário pretende denunciar, ele poderá criar uma nova denúncia pelo formulário, entretanto, caso já exista ele pode apenas votar na denúncia já cadastrada e se desejar adicionar mais provas (fotos) do problema. Diante disso, o cidadão terá o feedback caso haja qualquer atualização no status da denúncia inicialmente aberta.
+Este Requisito Funcional, é classificado como um processo primário, de alta prioridade, pois terá contato direto com os usuários(cidadãos) do site. Possui dois agentes, o Cidadão e o Site da CIT. O cidadão entra no site da Cit para denúnciar um problema estrutural de sua cidade, caso não exista uma denúncia já cadastrada para o problema que o usuário pretende denunciar, ele poderá criar uma nova denúncia pelo formulário, entretanto, caso já exista ele pode apenas votar na denúncia já cadastrada e se desejar adicionar mais provas (fotos) do problema. Diante disso, o cidadão terá o feedback caso haja qualquer atualização no status da denúncia inicialmente aberta.
+
+****5.2.1.1**** - Cadastrar denúncia pela primeira vez
+| Propriedade (atributo)    | Requerido? (S/N) | Default             | Descrição                                                                    |
+| url                       | Sim | http://www.domain.com/denunciar/ | Endereço de conexão para se efetuar uma denúncia pela primeira vez.          |
+| idDenuncia                | Sim | (Gerador automaticamente)        | Gerar um id automaticamente para a denúncia.                                 |
+| usuarioCidadao            | Sim |                                  | Cidadão já deve estar logado, para capturar o usuario. (email)               |
+| cep                       | Sim | (*Localização do usuário)        | Capturar o CEP do usuário, provavelmente onde está a denúncia.               |
+| logradouro                | Sim |                                  | Rua, avenida entre outra localização urbana.                                 |
+| numero                    | Não |                                  | Número ou quilômetro próximo da localização do problema denunciado.          |
+| complemento               | Não |                                  | Informação adicional da localização do prolema denunciado.                   |
+| referencia                | Não |                                  | Alguma referência para auxiliar na localização do problema.                  |
+| uf                        | Sim | (*Capturado com o cep)           | Unidade federativa do problema.                                              |
+| municipio                 | Sim | (*Capturado com o cep)           | Município onde se localiza o problema                                        |
+| categoria                 | Sim |                                  | Categoria da denúncia: Elétrica, Hídrica, Obra, Manutenção; (órgão).         |
+| foto                      | Sim |                                  | Foto para mostrar existência do problema.                                    |
+| qtdVotos                  | Sim | 1                                | Quantidade de cidadãos que afirmam a existência do problema.                 |
+| status                    | Sim | Aberta                         | Status para enviar feedbacks da denúncia. (Aberta, Em andamento, Finalizada) |
+
+****5.2.1.2**** - Votar em denúncia já existente
+| Propriedade (atributo)    | Requerido? (S/N) | Default               | Descrição                                                            |
+| id                        | Sim | (Que aparecerá no url)             | ID da denúncia selecionada pelo cidadão.                             |
+| url                       | Sim | http://www.domain.com/denunciar/id | Endereço de conexão para se efetuar uma denúncia pela primeira vez.  |
+| usuarioCidadao            | Sim |                                    | Cidadão já deve estar logado, para capturar o usuario. (email)       |
+| foto                      | Não |                                    | Foto para mostrar existência do problema.                            |
+| qtdVotos                  | Sim | qtdVotos = qtdVotos+1              | Quantidade de cidadãos que afirmam a existência do problema.         |
+
+
 
 ***5.2.2 RF-02 - Gerenciar Denúncia***
 O segundo Requisito Funcional, relacionado ao processo com o mesmo nome, é classificado como Processo Primário, sendo de alta prioridade, pois ele tem um envolvimento direto com usuários (órgãos responsáveis), sendo uma etapa estritamente necessária na correção de um problema urbano com o uso da plataforma CIT. Nesse processo, o usuário logado na conta do órgão, poderá visualizar todas as denúncias feitas que são de responsabilidade do mesmo, podendo filtrá-los para organizar sua exibição, para assim escolher uma denúncia a ser gerenciada. Com uma denúncia escolhida, o usuário poderá reportar algum erro a equipe do CIT se aquele problema urbano não for de jurisdição do órgão em questão, se não for o caso, prossegue-se com a gerência da denúncia, enviando os dados para um engenheiro responsável, que irá avaliar o problema para agendar o censerto do mesmo e assim realizá-lo.
