@@ -327,6 +327,7 @@ Este Requisito Funcional, é classificado como um processo primário, de alta pr
 | foto                      | Sim |                                  | Foto para mostrar existência do problema.                                    |
 | qtdVotos                  | Sim | 1                                | Quantidade de cidadãos que afirmam a existência do problema.                 |
 | status                    | Sim | Aberta                           | Status para enviar feedbacks da denúncia. (Aberta, Em andamento, Finalizada) |
+| validade                  | Sim | Sim                              | Sempre que for cadastrada ou alterada dados da denunciar, monitorar          |
 
 ****5.2.1.2 - Votar em denúncia já existente****
 
@@ -348,6 +349,11 @@ Já este requisito funcional, é também um processo primário, de média priori
 
 ***5.2.4 RF-04 - Monitorar Denúncia***
 O último Requisito Funcional, sendo um processo de gerenciamento de baixa prioridade, refere-se ao processo de gerenciar as denúncias feitas pelos cidadãos no site da CIT, de forma a detectar e excluir aquelas com conteúdo que se desvia do objetivo do site, como imagens não relacionadas ao problema denunciado ou descrições contendo discursos de ódio. É importante também que os usuários que recorrentemente fazem essas denúncias mal-intensionadas sejam impossibilitadas de fazerem novas denúncias para reduzir a quantidade desse tipo de denúncia.
+
+| Propriedade (atributo)    | Requerido? (S/N) | Default             | Descrição                               |
+| :------------------------ |:---------------- | :-------------------| :--------------------------------------:|
+| id                        | Sim              |                     | ID da denúncia a ser avaliada.          |
+| validade                  | Sim              |                     | Vai ser valida: Sim, ou inválida: não.  |
 
 
 **REFERÊNCIAS**
