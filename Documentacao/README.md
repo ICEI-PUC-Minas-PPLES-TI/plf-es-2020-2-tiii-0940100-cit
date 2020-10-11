@@ -250,34 +250,41 @@ Portanto, ambas as partes sairiam ganhando, os cidadãos com melhorias para seus
 
 **4.3.1 Processo primários**
 ***4.3.1.1 Processo 1 - Efetuar Denúncia***
-| ![Imagem6](https://i.imgur.com/dMqfM3y.png "Imagem6") |
+| ![Imagem6](https://i.imgur.com/nd2SgNB.png "Imagem6") |
 |:--:| 
 | *<sub>Imagem 6 - Processo de Efetuar Denúncia.</sub>* |
 
 ***4.3.1.2 Processo 2 - Gerenciar Denúncia***
-| ![Imagem7](https://i.imgur.com/H5woKWp.png "Imagem7") |
+| ![Imagem7](https://i.imgur.com/DiKfPlp.png "Imagem7") |
 |:--:| 
 | *<sub>Imagem 7 - Processo de Gerenciar Denúncia.</sub>* |
 
 ***4.3.1.3 Processo 3 - Gerenciar Ranking***
-| ![Imagem8](https://i.imgur.com/0LXPoA1.png "Imagem8") |
+| ![Imagem8](https://i.imgur.com/DKL1bPf.png "Imagem8") |
 |:--:| 
 | *<sub>Imagem 8 - Processo de Gerenciar Ranking.</sub>* |
 
 **4.3.2 Processo de Suporte**
-***4.3.2.1 Processo 1 - Login Cidadão***
-| ![Imagem9](https://i.imgur.com/j1DIW5A.png "Imagem9") |
+***4.3.2.1 Processo 1 - Login e Registro Cidadão***
+| ![Imagem9.1](https://i.imgur.com/otARdAy.png "Imagem9.1") |
 |:--:| 
-| *<sub>Imagem 9 - Processo Login Cidadão.</sub>* |
 
-***4.3.2.2 Processo 2 - Login Órgão***
-| ![Imagem10](https://i.imgur.com/l5VWVfU.png "Imagem10") |
+| *<sub>Imagem 9.1 - Processo Login Cidadão.</sub>* |
+| ![Imagem9.2](https://i.imgur.com/V5U6gWW.png "Imagem9.2") |
+| *<sub>Imagem 9.2 - Processo Registro Cidadão.</sub>* |
+
+***4.3.2.2 Processo 2 - Login e Registro Órgão***
+| ![Imagem10.1](https://i.imgur.com/2uEdGqb.png "Imagem10.1") |
 |:--:| 
-| *<sub>Imagem 10 - Processo Login Órgão.</sub>* |
+| *<sub>Imagem 10.1 - Processo Login Órgão.</sub>* |
+
+| ![Imagem10.2](https://i.imgur.com/T97VYhP.png "Imagem10.2") |
+|:--:| 
+| *<sub>Imagem 10.2 - Processo Registro Órgão.</sub>* |
 
 **4.3.3 Processo de Gerenciamento**
 ***4.3.3.1 Processo 1 - Monitorar Denúncias***
-| ![Imagem11](https://i.imgur.com/chnYbfG.png "Imagem11") |
+| ![Imagem11](https://i.imgur.com/0WTgw9R.png "Imagem11") |
 |:--:| 
 | *<sub>Imagem 11 - Processo de Monitorar Denúncias.</sub>* |
 
