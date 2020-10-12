@@ -22,6 +22,28 @@ Assim que a primeira versão do sistema estiver disponível, deverá complementa
 
 ## Histórico de versões
 
+#### [0.1.8] - 08/10/2020
+##### Adicionado
+* Adicionado atas da oitava e nona reunião
+* Adicionado versão preliminar de requisitos funcionais à documentação
+##### Atualizado
+* Realizado correções no modelo BPMN à pedido dos professores
+* Atualizado fotos de modelagens na documentação geral
+
+#### [0.1.7] - 01/10/2020
+##### Adicionado
+* Adicionado ata da sétima reunião
+##### Atualizado
+* Realizado correções no modelo BPMN à pedido dos professores
+* Atualizado modelagens na documentação geral
+
+#### [0.1.6] - 24/09/2020
+##### Adicionado
+* Adicionado atas da quinta e sexta reunião
+* Adicionado versão inicial dos processos de modelagem de negócios
+##### Atualizado
+* Mudanças na descrição geral da proposta
+
 #### [0.1.5] - 17/09/2020
 ##### Atualizado
 * Correção de erros ortográficos e de concordância no relatório final
