@@ -363,6 +363,24 @@ O último Requisito Funcional, sendo um processo de gerenciamento de baixa prior
 | id                        | Sim              |                     | ID da denúncia a ser avaliada.          |
 | validade                  | Sim              |                     | Vai ser valida: Sim, ou inválida: não.  |
 
+****5.2.5 - Login Cidadão***
+Procsso de suporte referente ao Efetuar Denúncia(RF-01).
+
+| Propriedade (atributo)    | Requerido? (S/N) | Default             | Descrição                               |
+| :------------------------ |:---------------- | :-------------------| :---------------------------------------|
+| Usuario                   | Sim |  Pode  ser email                 | Informar nome de Usuario/Email          |
+| Senha                     | Sim |                                  | Informar senha                          |      
+
+****5.2.6 - Registro Cidadão***
+Procsso de suporte referente ao Efetuar Denúncia(RF-01).
+
+| Propriedade (atributo)    | Requerido? (S/N) | Default             | Descrição                                                                    |
+| :------------------------ |:---------------- | :-------------------| :---------------------------------------|
+| Nome                      | Sim | Tem que ser nome completo        | Informar nome                           |                                          
+| Nome de usuario           | Sim | Login                            | Informar nomde de usuario               |                                     
+| Email                     | Sim |                                  | Informar email                          |
+| Senha                     | Sim |                                  | Informar senha                          |
+
 
 **REFERÊNCIAS**
 
