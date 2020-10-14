@@ -381,7 +381,7 @@ Processo de suporte referente ao Efetuar Denúncia(RF-01).
 | Email                     | Sim |                                  | Informar email                          |
 | Senha                     | Sim |                                  | Informar senha                          |
 
-****5.2.7 RF-07 - Login Organização ***
+***5.2.7 RF-07 - Login Organização***
 Processo de suporte de média prioridade, referente ao processo de Gerenciar Denúncia (RF-02). Consiste em buscar os dados da instituição a qual confere os dados recebidos para que possam ser realizados os processos seguintes com um registro de autoria.
 | Propriedade (atributo)    | Requerido? (S/N) | Default             | Descrição                                                                    |
 | :------------------------ |:---------------- | :-------------------| :---------------------------------------|
@@ -389,7 +389,7 @@ Processo de suporte de média prioridade, referente ao processo de Gerenciar Den
 | Nome de usuario           | Sim | Login                            | Informar nome de de usuario             |                                     
 | Senha                     | Sim |                                  | Informar senha                          |
 
-****5.2.8 RF-08 - Registro Organização ***
+***5.2.8 RF-08 - Registro Organização***
 Processo de suporte de média prioridade. Realiza a criação de um novo registro necessário para o RF-07
 | Propriedade (atributo)    | Requerido? (S/N) | Default             | Descrição                                                                    |
 | :------------------------ |:---------------- | :-------------------| :---------------------------------------|
