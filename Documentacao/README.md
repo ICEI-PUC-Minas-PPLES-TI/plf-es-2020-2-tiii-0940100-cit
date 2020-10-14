@@ -364,7 +364,7 @@ O último Requisito Funcional, sendo um processo de gerenciamento de baixa prior
 | validade                  | Sim              |                     | Vai ser valida: Sim, ou inválida: não.  |
 
 ****5.2.5 - Login Cidadão***
-Procsso de suporte referente ao Efetuar Denúncia(RF-01).
+Processo de suporte referente ao Efetuar Denúncia(RF-01).
 
 | Propriedade (atributo)    | Requerido? (S/N) | Default             | Descrição                               |
 | :------------------------ |:---------------- | :-------------------| :---------------------------------------|
@@ -372,15 +372,33 @@ Procsso de suporte referente ao Efetuar Denúncia(RF-01).
 | Senha                     | Sim |                                  | Informar senha                          |      
 
 ****5.2.6 - Registro Cidadão***
-Procsso de suporte referente ao Efetuar Denúncia(RF-01).
+Processo de suporte referente ao Efetuar Denúncia(RF-01).
 
 | Propriedade (atributo)    | Requerido? (S/N) | Default             | Descrição                                                                    |
 | :------------------------ |:---------------- | :-------------------| :---------------------------------------|
 | Nome                      | Sim | Tem que ser nome completo        | Informar nome                           |                                          
-| Nome de usuario           | Sim | Login                            | Informar nomde de usuario               |                                     
+| Nome de usuario           | Sim | Login                            | Informar nome de de usuario               |                                     
 | Email                     | Sim |                                  | Informar email                          |
 | Senha                     | Sim |                                  | Informar senha                          |
 
+****5.2.7 RF-07 - Login Organização ***
+Processo de suporte de média prioridade, referente ao processo de Gerenciar Denúncia (RF-02). Consiste em buscar os dados da instituição a qual confere os dados recebidos para que possam ser realizados os processos seguintes com um registro de autoria.
+| Propriedade (atributo)    | Requerido? (S/N) | Default             | Descrição                                                                    |
+| :------------------------ |:---------------- | :-------------------| :---------------------------------------|
+| ID Organização            | Sim |                                  | Informar código de instituição (Gerado pós cadastro)|                                          
+| Nome de usuario           | Sim | Login                            | Informar nome de de usuario             |                                     
+| Senha                     | Sim |                                  | Informar senha                          |
+
+****5.2.8 RF-08 - Registro Organização ***
+Processo de suporte de média prioridade. Realiza a criação de um novo registro necessário para o RF-07
+| Propriedade (atributo)    | Requerido? (S/N) | Default             | Descrição                                                                    |
+| :------------------------ |:---------------- | :-------------------| :---------------------------------------|
+| CNPJ Organização          | Sim |                                  | Informar CNPJ de instituição            |                                          
+| Nome de usuario           | Sim | Login                            | Informar nome de de usuario             |                                     
+| Senha                     | Sim |                                  | Informar senha                          |
+| Descrição da organização  | Sim |                                  | Descrever qual o propósito da organização|
+| Soluções da organização   | Sim |                                  | Citar quais problemas a organização resolve|
+| Localização               | Sim |                                  | Informar onde a organização realiza suas operações|
 
 **REFERÊNCIAS**
 
