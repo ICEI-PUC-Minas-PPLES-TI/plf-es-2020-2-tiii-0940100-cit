@@ -268,9 +268,10 @@ Portanto, ambas as partes sairiam ganhando, os cidadãos com melhorias para seus
 ***4.3.2.1 Processo 1 - Login e Registro Cidadão***
 | ![Imagem9.1](https://i.imgur.com/otARdAy.png "Imagem9.1") |
 |:--:| 
-
 | *<sub>Imagem 9.1 - Processo Login Cidadão.</sub>* |
+
 | ![Imagem9.2](https://i.imgur.com/V5U6gWW.png "Imagem9.2") |
+|:--:|
 | *<sub>Imagem 9.2 - Processo Registro Cidadão.</sub>* |
 
 ***4.3.2.2 Processo 2 - Login e Registro Órgão***
@@ -296,13 +297,14 @@ ___
 | No.    | Processo/tarefa      | Descrição                                                                             | Prioridade    |
 | :----- |:--------------------:| :------------------------------------------------------------------------------------:| -------------:|
 | 01     | Efetuar Denúncia     | Cidadão fazer a denúncia de um problema estrutural em área urbana.                    | Alta          |
-| 02     | Gerenciar Denúncia   | Órgão responsável gerenciar denúncias feitas pelos cidadãos.                          | Alta          |
+| 02     | Listar Denúncias     | Exibir denúncias feitas pelos cidadãos para o Órgão responsável gerenciá-las.           | Alta          |
 | 03     | Gerenciar Ranking    | Gerar um ranking dos municípios que mais solucionam problemas denunciados.            | Média         |
 | 04     | Monitorar Denúncia   | Monitorar as denúncias para impedir phishing e denúncias não corrigidas corretamente. | Baixa         |
 | 05     | Login Cidadão        | Possibilitar cidadão entrar em sua conta para fazer denúncias.                        | Média         |
 | 06     | Registro Cidadão     | Possibilitar cidadão criar sua conta para entrar nela.                                | Média         |
 | 07     | Login Organização    | Possibilitar organização entrar em sua conta para receber denúncias.                  | Média         |
 | 08     | Registro Organização | Possibilitar organização criar sua conta para entrar nela e gerar sub-usuários.       | Média         |
+| 09     | Notificar Status     | Notificar aos cidadões contribuintes da denúncia uma atualiação no status da mesma    | Alta          |
 
 **5.2. Detalhamento das atividades**
 
@@ -343,6 +345,13 @@ Este Requisito Funcional, é classificado como um processo primário, de alta pr
 
 ***5.2.2 RF-02 - Gerenciar Denúncia***
 O segundo Requisito Funcional, relacionado ao processo com o mesmo nome, é classificado como Processo Primário, sendo de alta prioridade, pois ele tem um envolvimento direto com usuários (órgãos responsáveis), sendo uma etapa estritamente necessária na correção de um problema urbano com o uso da plataforma CIT. Nesse processo, o usuário logado na conta do órgão, poderá visualizar todas as denúncias feitas que são de responsabilidade do mesmo, podendo filtrá-los para organizar sua exibição, para assim escolher uma denúncia a ser gerenciada. Com uma denúncia escolhida, o usuário poderá reportar algum erro a equipe do CIT se aquele problema urbano não for de jurisdição do órgão em questão, se não for o caso, prossegue-se com a gerência da denúncia, enviando os dados para um engenheiro responsável, que irá avaliar o problema para agendar o censerto do mesmo e assim realizá-lo.
+
+****5.2.1.1 - Ordenar denúncias****
+
+| Propriedade (atributo)    | Requerido? (S/N) | Default  | Descrição                                                                                              |
+| :------------------------ |:---------------- | :--------| :-----------------------------------------------------------------------------------------------------:|
+| filtro                    | Sim | Relevância            | Filtro de ordenação de Denúncias, podendo ser de Relevância, Tempo(crescente e Decrescente) ou Urgência|
+
 
 ***5.2.3 RF-03 - Gerenciar Ranking***
 Já este requisito funcional, é também um processo primário, de média prioridade, se trata de uma forma que evidenciará quais as prefeituras estão mais empenhadas em resolver os problemas apresentados no site da CIT. Com uma cidade estando no topo do ranking, o seu governo ganhará mais credibilidade e desta forma, promovendo os serviços que estão sendo realizados pela gestão. E ainda sim, existirá aquelas cidades que não estão se empenhando para solucionar os problemas da cidade, visto que, isto estará refletido no ranking da CIT, proporcionando que a gestão responsável fique má vista pelos cidadãos, promovendo negativamente os políticos responsáveis.
