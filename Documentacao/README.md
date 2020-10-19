@@ -322,7 +322,7 @@ Este Requisito Funcional, é classificado como um processo primário, de alta pr
 | status                    | Sim | Aberta                           | Status para enviar feedbacks da denúncia. (Aberta, Em andamento, Finalizada) |
 | validade                  | Sim | Sim                              | Sempre que for cadastrada ou alterada dados da denunciar, monitorar          |
 | contribuidor              | Sim | (email do cidadão)               | Cidadão já deve estar logado, para capturar o usuario. (email)               |
-| tipo_do_contribuidor      | Sim | "Cadastrante"                    | Para saber quem foi o ca
+| tipo_do_contribuidor      | Sim | "Cadastrante"                    | Para saber quem foi o cadastrante.                                           |
 | cep                       | Sim | (*Localização do usuário)        | Capturar o CEP do usuário, provavelmente onde está a denúncia.               |
 | uf                        | Sim | (*Capturado com o cep)           | Unidade federativa do problema.                                              |
 | municipio                 | Sim | (*Capturado com o cep)           | Município onde se localiza o problema                                        |
@@ -338,6 +338,7 @@ Este Requisito Funcional, é classificado como um processo primário, de alta pr
 | id                        | Sim | (Que aparecerá no url)             | ID da denúncia selecionada pelo cidadão.                             |
 | url                       | Sim | http://www.domain.com/denunciar/id | Endereço de conexão para se efetuar uma denúncia pela primeira vez.  |
 | contribuidor              | Sim | (email do cidadão)                 | Cidadão já deve estar logado, para capturar o usuario. (email)       |
+| tipo_do_contribuidor      | Sim | "Votador      "                    | Para saber quem votou.                                               |
 | foto                      | Não |                                    | Foto para mostrar existência do problema.                            |
 | qtdVotos                  | Sim | qtdVotos = qtdVotos+1              | Quantidade de cidadãos que afirmam a existência do problema.         |
 
