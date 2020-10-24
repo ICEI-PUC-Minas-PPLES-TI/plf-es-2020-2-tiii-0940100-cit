@@ -412,7 +412,7 @@ Processo de suporte de média prioridade. Realiza a criação de um novo registr
 
 ***5.3 - Diagrama de Entidade-Relacionamento***
 
-| ![Imagem11](https://i.imgur.com/YfUWhZd.png "Imagem11") |
+| ![Imagem11](https://i.imgur.com/2oDJl20.png "Imagem11") |
 |:--:| 
 | *<sub>Imagem 12 - Diagrama de Entidade e Relacionamento CIT.</sub>* |
 
