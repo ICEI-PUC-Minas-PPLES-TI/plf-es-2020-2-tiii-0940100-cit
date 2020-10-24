@@ -411,10 +411,16 @@ Processo de suporte de média prioridade. Realiza a criação de um novo registr
 | Localização               | Sim |                                  | Informar onde a organização realiza suas operações|
 
 ***5.3 - Diagrama de Entidade-Relacionamento***
-
-| ![Imagem11](https://i.imgur.com/2oDJl20.png "Imagem11") |
+| ![Imagem11](https://i.imgur.com/2oDJl20.png "Imagem12") |
 |:--:| 
 | *<sub>Imagem 12 - Diagrama de Entidade e Relacionamento CIT.</sub>* |
+
+***5.4. Tecnologias***
+Será desenvolvida uma aplicação web, diante disso, é necessário definir linguagens de marcação, estilização, de programação e um sistema de gerenciamento de banco de dados para suprir toda essa aplicação do CIT. Como linguagem de marcação de hipertexto foi escolhido o HTML5 para construção estrutural do site, para estilização utilizaremos CSS3, para programação será utilizado JavaScript no frontend e backend, e o SGBD selecionado foi O MySQL por ser relacional e gratuito. A IDE de desenvolvimento escolhida foi o Visual Studio Code. Nuvem de hospedagem para a aplicação foi escolhida a Azure.
+
+| ![Imagem11](https://i.imgur.com/mYCFwLB.png "Imagem13") |
+|:--:| 
+| *<sub>Imagem 13 - Interações entre usuário e tecnologia.</sub>* |
 
 
 **REFERÊNCIAS**
