@@ -22,6 +22,23 @@ Assim que a primeira versão do sistema estiver disponível, deverá complementa
 
 ## Histórico de versões
 
+#### [0.1.11] - 29/10/2020
+* Adicionado conteúdo de tecnologia à documentação
+##### Atualizado
+* Corrigido erros no DER
+
+#### [0.1.10] - 22/10/2020
+##### Adicionado
+* Adicionado versão preliminar de DER
+
+#### [0.1.9] - 15/10/2020
+##### Adicionado
+* Adicionado requisitos funcionais 07, 08 e 09
+
+##### Atualizado
+* Realizado correções no modelo BPMN à pedido dos professores
+* Simplificado requisitos funcionais 01-06
+
 #### [0.1.8] - 08/10/2020
 ##### Adicionado
 * Adicionado atas da oitava e nona reunião
