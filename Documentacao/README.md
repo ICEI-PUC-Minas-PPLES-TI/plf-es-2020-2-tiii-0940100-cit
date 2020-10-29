@@ -268,9 +268,10 @@ Portanto, ambas as partes sairiam ganhando, os cidadãos com melhorias para seus
 ***4.3.2.1 Processo 1 - Login e Registro Cidadão***
 | ![Imagem9.1](https://i.imgur.com/otARdAy.png "Imagem9.1") |
 |:--:| 
-
 | *<sub>Imagem 9.1 - Processo Login Cidadão.</sub>* |
+
 | ![Imagem9.2](https://i.imgur.com/V5U6gWW.png "Imagem9.2") |
+|:--:|
 | *<sub>Imagem 9.2 - Processo Registro Cidadão.</sub>* |
 
 ***4.3.2.2 Processo 2 - Login e Registro Órgão***
@@ -296,13 +297,14 @@ ___
 | No.    | Processo/tarefa      | Descrição                                                                             | Prioridade    |
 | :----- |:--------------------:| :------------------------------------------------------------------------------------:| -------------:|
 | 01     | Efetuar Denúncia     | Cidadão fazer a denúncia de um problema estrutural em área urbana.                    | Alta          |
-| 02     | Gerenciar Denúncia   | Órgão responsável gerenciar denúncias feitas pelos cidadãos.                          | Alta          |
+| 02     | Listar Denúncias     | Exibir denúncias feitas pelos cidadãos para o Órgão responsável gerenciá-las.           | Alta          |
 | 03     | Gerenciar Ranking    | Gerar um ranking dos municípios que mais solucionam problemas denunciados.            | Média         |
 | 04     | Monitorar Denúncia   | Monitorar as denúncias para impedir phishing e denúncias não corrigidas corretamente. | Baixa         |
 | 05     | Login Cidadão        | Possibilitar cidadão entrar em sua conta para fazer denúncias.                        | Média         |
 | 06     | Registro Cidadão     | Possibilitar cidadão criar sua conta para entrar nela.                                | Média         |
 | 07     | Login Organização    | Possibilitar organização entrar em sua conta para receber denúncias.                  | Média         |
 | 08     | Registro Organização | Possibilitar organização criar sua conta para entrar nela e gerar sub-usuários.       | Média         |
+| 09     | Notificar Status     | Notificar aos cidadões contribuintes da denúncia uma atualiação no status da mesma    | Alta          |
 
 **5.2. Detalhamento das atividades**
 
@@ -314,20 +316,20 @@ Este Requisito Funcional, é classificado como um processo primário, de alta pr
 | Propriedade (atributo)    | Requerido? (S/N) | Default             | Descrição                                                                    |
 | :------------------------ |:---------------- | :-------------------| :---------------------------------------------------------------------------:|
 | url                       | Sim | http://www.domain.com/denunciar/ | Endereço de conexão para se efetuar uma denúncia pela primeira vez.          |
-| idDenuncia                | Sim | (Gerador automaticamente)        | Gerar um id automaticamente para a denúncia.                                 |
-| usuarioCidadao            | Sim |                                  | Cidadão já deve estar logado, para capturar o usuario. (email)               |
-| cep                       | Sim | (*Localização do usuário)        | Capturar o CEP do usuário, provavelmente onde está a denúncia.               |
-| logradouro                | Sim |                                  | Rua, avenida entre outra localização urbana.                                 |
-| numero                    | Não |                                  | Número ou quilômetro próximo da localização do problema denunciado.          |
-| complemento               | Não |                                  | Informação adicional da localização do prolema denunciado.                   |
-| referencia                | Não |                                  | Alguma referência para auxiliar na localização do problema.                  |
-| uf                        | Sim | (*Capturado com o cep)           | Unidade federativa do problema.                                              |
-| municipio                 | Sim | (*Capturado com o cep)           | Município onde se localiza o problema                                        |
+| id                        | Sim | (Gerador automaticamente)        | Gerar um id automaticamente para a denúncia.                                 |
 | categoria                 | Sim |                                  | Categoria da denúncia: Elétrica, Hídrica, Obra, Manutenção; (órgão).         |
-| foto                      | Sim |                                  | Foto para mostrar existência do problema.                                    |
 | qtdVotos                  | Sim | 1                                | Quantidade de cidadãos que afirmam a existência do problema.                 |
 | status                    | Sim | Aberta                           | Status para enviar feedbacks da denúncia. (Aberta, Em andamento, Finalizada) |
 | validade                  | Sim | Sim                              | Sempre que for cadastrada ou alterada dados da denunciar, monitorar          |
+| contribuidor              | Sim | (email do cidadão)               | Cidadão já deve estar logado, para capturar o usuario. (email)               |
+| tipo_do_contribuidor      | Sim | "Cadastrante"                    | Para saber quem foi o cadastrante.                                           |
+| cep                       | Sim | (*Localização do usuário)        | Capturar o CEP do usuário, provavelmente onde está a denúncia.               |
+| uf                        | Sim | (*Capturado com o cep)           | Unidade federativa do problema.                                              |
+| municipio                 | Sim | (*Capturado com o cep)           | Município onde se localiza o problema                                        |
+| logradouro                | Sim |                                  | Rua, avenida entre outra localização urbana.                                 |
+| numero                    | Não |                                  | Número ou quilômetro próximo da localização do problema denunciado.          |
+| referencia                | Não |                                  | Alguma referência para auxiliar na localização do problema.                  |
+| foto                      | Sim |                                  | Imagem para mostrar existência do problema.                                  |
 
 ****5.2.1.2 - Votar em denúncia já existente****
 
@@ -335,7 +337,8 @@ Este Requisito Funcional, é classificado como um processo primário, de alta pr
 | :------------------------ |:---------------- | :---------------------| :-------------------------------------------------------------------:|
 | id                        | Sim | (Que aparecerá no url)             | ID da denúncia selecionada pelo cidadão.                             |
 | url                       | Sim | http://www.domain.com/denunciar/id | Endereço de conexão para se efetuar uma denúncia pela primeira vez.  |
-| usuarioCidadao            | Sim |                                    | Cidadão já deve estar logado, para capturar o usuario. (email)       |
+| contribuidor              | Sim | (email do cidadão)                 | Cidadão já deve estar logado, para capturar o usuario. (email)       |
+| tipo_do_contribuidor      | Sim | "Votador      "                    | Para saber quem votou.                                               |
 | foto                      | Não |                                    | Foto para mostrar existência do problema.                            |
 | qtdVotos                  | Sim | qtdVotos = qtdVotos+1              | Quantidade de cidadãos que afirmam a existência do problema.         |
 
@@ -343,6 +346,13 @@ Este Requisito Funcional, é classificado como um processo primário, de alta pr
 
 ***5.2.2 RF-02 - Gerenciar Denúncia***
 O segundo Requisito Funcional, relacionado ao processo com o mesmo nome, é classificado como Processo Primário, sendo de alta prioridade, pois ele tem um envolvimento direto com usuários (órgãos responsáveis), sendo uma etapa estritamente necessária na correção de um problema urbano com o uso da plataforma CIT. Nesse processo, o usuário logado na conta do órgão, poderá visualizar todas as denúncias feitas que são de responsabilidade do mesmo, podendo filtrá-los para organizar sua exibição, para assim escolher uma denúncia a ser gerenciada. Com uma denúncia escolhida, o usuário poderá reportar algum erro a equipe do CIT se aquele problema urbano não for de jurisdição do órgão em questão, se não for o caso, prossegue-se com a gerência da denúncia, enviando os dados para um engenheiro responsável, que irá avaliar o problema para agendar o censerto do mesmo e assim realizá-lo.
+
+****5.2.1.1 - Ordenar denúncias****
+
+| Propriedade (atributo)    | Requerido? (S/N) | Default  | Descrição                                                                                              |
+| :------------------------ |:---------------- | :--------| :-----------------------------------------------------------------------------------------------------:|
+| filtro                    | Sim | Relevância            | Filtro de ordenação de Denúncias, podendo ser de Relevância, Tempo(crescente e Decrescente) ou Urgência|
+
 
 ***5.2.3 RF-03 - Gerenciar Ranking***
 Já este requisito funcional, é também um processo primário, de média prioridade, se trata de uma forma que evidenciará quais as prefeituras estão mais empenhadas em resolver os problemas apresentados no site da CIT. Com uma cidade estando no topo do ranking, o seu governo ganhará mais credibilidade e desta forma, promovendo os serviços que estão sendo realizados pela gestão. E ainda sim, existirá aquelas cidades que não estão se empenhando para solucionar os problemas da cidade, visto que, isto estará refletido no ranking da CIT, proporcionando que a gestão responsável fique má vista pelos cidadãos, promovendo negativamente os políticos responsáveis.
@@ -399,6 +409,19 @@ Processo de suporte de média prioridade. Realiza a criação de um novo registr
 | Descrição da organização  | Sim |                                  | Descrever qual o propósito da organização|
 | Soluções da organização   | Sim |                                  | Citar quais problemas a organização resolve|
 | Localização               | Sim |                                  | Informar onde a organização realiza suas operações|
+
+***5.3 - Diagrama de Entidade-Relacionamento***
+| ![Imagem11](https://i.imgur.com/2oDJl20.png "Imagem12") |
+|:--:| 
+| *<sub>Imagem 12 - Diagrama de Entidade e Relacionamento CIT.</sub>* |
+
+***5.4. Tecnologias***
+Será desenvolvida uma aplicação web, diante disso, é necessário definir linguagens de marcação, estilização, de programação e um sistema de gerenciamento de banco de dados para suprir toda essa aplicação do CIT. Como linguagem de marcação de hipertexto foi escolhido o HTML5 para construção estrutural do site, para estilização utilizaremos CSS3, para programação será utilizado JavaScript no frontend e backend, e o SGBD selecionado foi O MySQL por ser relacional e gratuito. A IDE de desenvolvimento escolhida foi o Visual Studio Code. Nuvem de hospedagem para a aplicação foi escolhida a Azure.
+
+| ![Imagem11](https://i.imgur.com/mYCFwLB.png "Imagem13") |
+|:--:| 
+| *<sub>Imagem 13 - Interações entre usuário e tecnologia.</sub>* |
+
 
 **REFERÊNCIAS**
 
