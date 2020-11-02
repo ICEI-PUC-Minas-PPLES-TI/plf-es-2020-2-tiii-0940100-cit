@@ -40,7 +40,7 @@ ___
 
 **1.1 Contextualização**
 
-&nbsp;&nbsp;&nbsp;&nbsp;A falta de infraestrutura urbana é um grave empecilho para a vida dos cidadãos, e ,mesmo assim, comum na
+&nbsp;&nbsp;&nbsp;&nbsp;A falta de infraestrutura urbana é um grave empecilho para a vida dos cidadãos, e, mesmo assim, comum na
 maioria das cidades do Brasil, gerando uma série de outros problemas relacionados à
 mobilidade.
 
@@ -378,37 +378,37 @@ Processo de suporte referente ao Efetuar Denúncia(RF-01).
 
 | Propriedade (atributo)    | Requerido? (S/N) | Default             | Descrição                               |
 | :------------------------ |:---------------- | :-------------------| :---------------------------------------|
-| Usuario                   | Sim |  Pode  ser email                 | Informar nome de Usuario/Email          |
-| Senha                     | Sim |                                  | Informar senha                          |      
+| Usuario                   | Sim              |                     | Informar nome de Usuario/Email          |
+| Senha                     | Sim              |                     | Informar senha                          |      
 
 ****5.2.6 - Registro Cidadão***
 Processo de suporte referente ao Efetuar Denúncia(RF-01).
 
 | Propriedade (atributo)    | Requerido? (S/N) | Default             | Descrição                                                                    |
 | :------------------------ |:---------------- | :-------------------| :---------------------------------------|
-| Nome                      | Sim | Tem que ser nome completo        | Informar nome                           |                                          
-| Nome de usuario           | Sim | Login                            | Informar nome de de usuario               |                                     
-| Email                     | Sim |                                  | Informar email                          |
-| Senha                     | Sim |                                  | Informar senha                          |
+| Nome                      | Sim              |                     | Informar nome                           |
+| Nome de usuario           | Sim              |                     | Informar nome de de usuario             |
+| Email                     | Sim              |                     | Informar email                          |
+| Senha                     | Sim              |                     | Informar senha                          |
 
 ***5.2.7 RF-07 - Login Organização***
 Processo de suporte de média prioridade, referente ao processo de Gerenciar Denúncia (RF-02). Consiste em buscar os dados da instituição a qual confere os dados recebidos para que possam ser realizados os processos seguintes com um registro de autoria.
 | Propriedade (atributo)    | Requerido? (S/N) | Default             | Descrição                                                                    |
-| :------------------------ |:---------------- | :-------------------| :---------------------------------------|
-| ID Organização            | Sim |                                  | Informar código de instituição (Gerado pós cadastro)|                                          
-| Nome de usuario           | Sim | Login                            | Informar nome de de usuario             |                                     
-| Senha                     | Sim |                                  | Informar senha                          |
+| :------------------------ |:---------------- | :-------------------| :-----------------------------------------------------|
+| ID Organização            | Sim              |                     | Informar código de instituição (Gerado pós cadastro)  |
+| Nome de usuario           | Sim              |                     | Informar nome de de usuario                           |
+| Senha                     | Sim              |                     | Informar senha                                        |
 
 ***5.2.8 RF-08 - Registro Organização***
 Processo de suporte de média prioridade. Realiza a criação de um novo registro necessário para o RF-07
 | Propriedade (atributo)    | Requerido? (S/N) | Default             | Descrição                                                                    |
-| :------------------------ |:---------------- | :-------------------| :---------------------------------------|
-| CNPJ Organização          | Sim |                                  | Informar CNPJ de instituição            |                                          
-| Nome de usuario           | Sim | Login                            | Informar nome de de usuario             |                                     
-| Senha                     | Sim |                                  | Informar senha                          |
-| Descrição da organização  | Sim |                                  | Descrever qual o propósito da organização|
-| Soluções da organização   | Sim |                                  | Citar quais problemas a organização resolve|
-| Localização               | Sim |                                  | Informar onde a organização realiza suas operações|
+| :------------------------ |:---------------- | :-------------------| :-------------------------------------------------|
+| CNPJ Organização          | Sim              |                     | Informar CNPJ de instituição                      |
+| Nome de usuario           | Sim              |                     | Informar nome de de usuario                       |
+| Senha                     | Sim              |                     | Informar senha                                    |
+| Descrição da organização  | Sim              |                     | Descrever qual o propósito da organização         |
+| Soluções da organização   | Sim              |                     | Citar quais problemas a organização resolve       |
+| Localização               | Sim              |                     | Informar onde a organização realiza suas operações|
 
 ***5.3 - Diagrama de Entidade-Relacionamento***
 | ![Imagem11](https://i.imgur.com/2oDJl20.png "Imagem12") |
@@ -416,7 +416,7 @@ Processo de suporte de média prioridade. Realiza a criação de um novo registr
 | *<sub>Imagem 12 - Diagrama de Entidade e Relacionamento CIT.</sub>* |
 
 ***5.4. Tecnologias***
-Será desenvolvida uma aplicação web, diante disso, é necessário definir linguagens de marcação, estilização, de programação e um sistema de gerenciamento de banco de dados para suprir toda essa aplicação do CIT. Como linguagem de marcação de hipertexto foi escolhido o HTML5 para construção estrutural do site, para estilização utilizaremos CSS3, para programação será utilizado JavaScript no frontend e backend, e o SGBD selecionado foi O MySQL por ser relacional e gratuito. A IDE de desenvolvimento escolhida foi o Visual Studio Code. Nuvem de hospedagem para a aplicação foi escolhida a Azure.
+Será desenvolvida uma aplicação web, diante disso, é necessário definir linguagens de marcação, estilização, de programação e um sistema de gerenciamento de banco de dados para suprir toda essa aplicação do CIT. Como linguagem de marcação de hipertexto foi escolhido o HTML5 para construção estrutural do site, para estilização utilizaremos CSS3, com auxilio do framework Bootstrap. Para programação será utilizado JavaScript no frontend e backend (Por meio do interpretador NodeJS, juntamente com o framework Nuxt.js para conectar o backend com o frontend.), e o SGBD selecionado foi o MariaDB por ser relacional e gratuito. A IDE de desenvolvimento escolhida foi o Visual Studio Code. Nuvem de hospedagem para a aplicação foi escolhida a Azure, para hospedar uma máquina virtual utilizando o SO Ubuntu.
 
 | ![Imagem11](https://i.imgur.com/mYCFwLB.png "Imagem13") |
 |:--:| 
