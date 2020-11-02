@@ -1,0 +1,1 @@
+select * from denuncia where cep = '30452154'
