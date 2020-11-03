@@ -1,3 +1,3 @@
 use cit;
-select * from cidadao where  nome = 'Marco' AND senha = md5('123456');
+select * from cidadao where  email = 'Marco@gmail.com' AND senha = md5('123456');
 
