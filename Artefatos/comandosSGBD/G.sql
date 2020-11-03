@@ -1,5 +1,3 @@
-SELECT COUNT(d.id) as 'qtd_contribuicoes'
-FROM cidadao c
-INNER JOIN denuncia_contribuicao d ON c.id = d.cidadao_id
+SELECT COUNT(DISTINCT d.denuncia_id) as 'qtd_denuncias' -- Apenas denuncias distintas, para nao contar contribuicoes de uma mesma denuncia
+FROM denuncia_contribuicao d
 WHERE d.cidadao_id = 1 -- Passar o ID do cidadao que deseja procurar
-GROUP BY (d.denuncia_id);
