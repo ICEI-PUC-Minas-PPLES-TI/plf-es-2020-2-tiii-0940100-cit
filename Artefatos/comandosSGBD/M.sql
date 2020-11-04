@@ -3,4 +3,5 @@
 SELECT *
 FROM organizacao_usuario
 WHERE email = 'ggabriel@sga.pucminas.br'
+	AND organizacao_id = 5
 	AND senha = MD5('654321')

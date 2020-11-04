@@ -3,6 +3,10 @@ const express = require('express')
 // Create express instance
 const app = express()
 
+
+app.use(express.json());       // to support JSON-encoded bodies
+app.use(express.urlencoded());
+
 // Require API routes
 const cidadao = require('./routes/cidadao')
 const denuncia = require('./routes/denuncia')
