@@ -24,20 +24,20 @@
                 <!-- Usuário de Organização -->
                 <div v-else-if="tab == 'I'">
                     <div v-if="stepInstituicao == 0">
-                        <form>
+                        <form id="formInstiStep0" @submit="checkForm">
                             <div class="form-group">
                                 <label for="txtIdentificacao">Identificação</label>
-                                <input type="text" class="form-control" id="txtIdentificacao">
+                                <input v-model="formData.nome" type="text" class="form-control" required id="txtIdentificacao">
                             </div>
                             <div class="form-group">
                                 <label for="txtCNPJ">CNPJ</label>
-                                <input type="text" class="form-control" id="txtCNPJ">
+                                <input v-model="formData.cnpj" v-mask="['##.###.###/####-##']" type="text" required class="form-control" id="txtCNPJ">
                             </div>
                             <div class="row">
-                                <div class="col-5">
+                                <div class="col-12 col-md-5">
                                     <div class="form-group">
                                         <label>Estado</label>
-                                        <select class="form-control">
+                                        <select v-model="formData.uf" class="form-control" required>
                                             <option value="AC">Acre</option>
                                             <option value="AL">Alagoas</option>
                                             <option value="AP">Amapá</option>
@@ -68,16 +68,16 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-7">
+                                <div class="col-12 col-md-7">
                                     <div class="form-group">
                                         <label for="txtCidade">Cidade</label>
-                                        <input type="text" class="form-control" id="txtCidade">
+                                        <input v-model="formData.cidade" type="text" required class="form-control" id="txtCidade">
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="txtDescricao">Descrição</label>
-                                <textarea class="form-control auth-container-textarea" id="txtDescricao" />
+                                <textarea v-model="formData.descricao" class="form-control auth-container-textarea" id="txtDescricao" />
                             </div>
                             <button type="button" class="btn btn-primary float-right" @click="stepInstituicao = 1">
                                 Próximo Passo
@@ -89,18 +89,18 @@
                         <form>
                             <div class="form-group">
                                 <label for="txtNome">Nome</label>
-                                <input type="text" class="form-control" id="txtNome">
+                                <input v-model="formData.usuario_nome" type="text" class="form-control" id="txtNome">
                             </div>
                             <div class="form-group">
                                 <label for="txtEmail">E-Mail</label>
-                                <input type="email" class="form-control" id="txtEmail">
+                                <input v-model="formData.usuario_email" type="email" class="form-control" id="txtEmail">
                             </div>
                             <div class="form-group">
                                 <label for="txtSenha">Senha</label>
                                 <div class="input-group">
-                                    <input type="password" class="form-control" id="txtSenha">
+                                    <input v-model="formData.usuario_senha" :type="instPasswordShow ? 'text' : 'password'" class="form-control" id="txtSenha">
                                     <div class="input-group-append">
-                                        <button class="btn btn-outline-secondary" type="button">
+                                        <button class="btn btn-outline-secondary" type="button" @click="instPasswordShow = !instPasswordShow">
                                             <i class="fas fa-eye"></i>
                                         </button>
                                     </div>
@@ -109,7 +109,7 @@
                             <button type="button" class="btn btn-outline-secondary" @click="stepInstituicao = 0">
                                 Voltar
                             </button>
-                            <button type="button" class="btn btn-primary float-right" @click="stepInstituicao = 0">
+                            <button type="button" class="btn btn-primary float-right" @click="checkForm">
                                 Cadastrar
                             </button>
                         </form>
@@ -121,14 +121,36 @@
 </template>
 
 <script>
+import {mask} from 'vue-the-mask'
 export default {
+    directives: {mask},
     data(){
         return {
             tab: 'F',
-            stepInstituicao: 0
+            stepInstituicao: 0,
+            formData: {
+                nome: null,
+                descricao: null,
+                cnpj: null,
+                uf: null,
+                cidade: null,
+                usuario_nome: null,
+                usuario_senha: null,
+                usuario_email: null
+            },
+            instPasswordShow: false
         }
     },
-    methods: {}
+    methods: {
+        checkForm(){
+            if(!this.formData.nome || !this.formData.descricao || !this.formData.cnpj || !this.formData.uf || !this.formData.cidade || !this.formData.usuario_nome || !this.formData.usuario_email || !this.formData.usuario_senha) {
+                alert('Todos os campos são obrigatórios')
+            } else {
+                const res = this.$http.post('/api/organizacao', this.formData)
+                alert('Organização cadastrada')
+            }
+        }
+    }
 }
 </script>
 
@@ -147,6 +169,12 @@ export default {
         background: white;
         margin: 100px auto 100px auto;
         border-radius: 5px;
+    }
+    @media only screen and (max-width: 600px) {
+        .auth-container{
+            width: 98%;
+            margin: 1%;
+        }
     }
     .auth-container-title{
         font-family: 'Tillana', cursive;
