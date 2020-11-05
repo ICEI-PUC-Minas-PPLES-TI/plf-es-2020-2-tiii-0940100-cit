@@ -2,8 +2,8 @@
     <div>
         <div class="auth-background">
             <div class="auth-container d-block">
-                <img src="@/assets/img/citlogo.svg" width="150px" alt="CIT Logo" class="d-block m-auto">
-                <h3 class="auth-container-title text-center">CIT</h3>
+                <a href="/"><img src="@/assets/img/citlogo.svg" width="150px" alt="CIT Logo" class="d-block m-auto">
+                <h3 class="auth-container-title text-center">CIT</h3></a>
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
                         <a class="nav-link" :class="tab == 'F' ? 'active': ''" @click="tab = 'F'">
@@ -19,7 +19,34 @@
                 <br>
                 <!-- Pessoa Física -->
                 <div v-if="tab == 'F'">
-                    pessoa
+                        <form id="formCidadao">
+                            <div class="form-group">
+                                <label for="txtNomeCidadao">Nome completo</label>
+                                <input v-model="formDataCidadao.cidadao_nome" type="text" class="form-control" id="txtNomeCidadao">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtEmailCidadao">E-Mail</label>
+                                <input v-model="formDataCidadao.cidadao_email" type="email" class="form-control" id="txtEmailCidadao">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtCPF">CPF</label>
+                                <input v-model="formDataCidadao.cidadao_cpf" v-mask="['###.###.###-##']" type="text" required class="form-control" id="txtCPF">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtSenhaCidadao">Senha</label>
+                                <div class="input-group">
+                                    <input v-model="formDataCidadao.cidadao_senha" :type="instPasswordShow ? 'text' : 'password'" class="form-control" id="txtSenhaCidadao">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button" @click="instPasswordShow = !instPasswordShow">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-primary float-right" @click="checkFormCidadao">
+                                Cadastrar
+                            </button>
+                        </form>
                 </div>
                 <!-- Usuário de Organização -->
                 <div v-else-if="tab == 'I'">
@@ -138,6 +165,12 @@ export default {
                 usuario_senha: null,
                 usuario_email: null
             },
+            formDataCidadao: {
+                cidadao_nome: null,
+                cidadao_email: null,
+                cidadao_senha: null,
+                cidadao_cpf: null
+            },
             instPasswordShow: false
         }
     },
@@ -149,12 +182,33 @@ export default {
                 const res = this.$http.post('/api/organizacao', this.formData)
                 alert('Organização cadastrada')
             }
+        },
+        checkFormCidadao(){
+            if(!this.formDataCidadao.cidadao_nome) {
+                alert('Campo nome obrigatório!')
+            } else if (!this.formDataCidadao.cidadao_email){
+                alert('Campo email obrigatório!')
+            } else if (!this.formDataCidadao.cidadao_senha){
+                alert('Campo senha obrigatório!')
+            } else {
+                const res = this.$http.post('/api/cidadao', this.formDataCidadao)
+                alert('Cidadão cadastrado com sucesso!')
+            }
         }
     }
 }
 </script>
 
 <style scoped>
+
+    #formCidadao{
+        height: 400px;
+    }
+
+    a{
+        text-decoration: none;
+    }
+
     .auth-background{
         background: #38AE90;
         position: absolute;
