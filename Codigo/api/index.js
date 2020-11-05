@@ -12,12 +12,14 @@ const cidadao = require('./routes/cidadao')
 const denuncia = require('./routes/denuncia')
 const organizacao = require('./routes/organizacao')
 const test = require('./routes/test')
+const totalDenuncias = require('./routes/totalDenuncias')
 
 // Import API Routes
 app.use(cidadao)
 app.use(denuncia)
 app.use(organizacao)
 app.use(test)
+app.use(totalDenuncias)
 
 // Export express app
 module.exports = app
