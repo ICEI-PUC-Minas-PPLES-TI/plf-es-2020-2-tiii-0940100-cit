@@ -32,7 +32,9 @@ export default {
   ** Global CSS
   */
   css: [
-    '@/assets/css/bootstrap.min.css'
+    '@/assets/css/bootstrap.min.css',
+    '@/assets/css/cit.css',
+    '@/assets/css/all.min.css',
   ],
 
   script: [

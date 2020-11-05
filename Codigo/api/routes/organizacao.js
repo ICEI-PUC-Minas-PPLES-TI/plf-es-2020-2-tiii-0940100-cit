@@ -40,7 +40,7 @@ router.post('/organizacao', (req, res, next) => {
             res.end();
         } else {
             // Inserir usuário da organização
-            connection.query(`INSERT INTO organizacao_usuario (nome, email, senha, organizacao_id) VALUES (?, ?, ?, ?);`,[req.body.usuario_nome, req.body.usuario_email, req.body.usuario_senha, results.insertId],  function (error2, results2) {
+            connection.query(`INSERT INTO organizacao_usuario (nome, email, senha, organizacao_id) VALUES (?, ?, MD5(?), ?);`,[req.body.usuario_nome, req.body.usuario_email, req.body.usuario_senha, results.insertId],  function (error2, results2) {
                 if (error2){
                     connection.query(`DELETE FROM organizacao WHERE id = ${results.insertId}`);
                     res.statusCode = 500;
