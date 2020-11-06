@@ -37,10 +37,7 @@ export default {
     '@/assets/css/all.min.css',
   ],
 
-  script: [
-    { src: '@assets/js/jquery-3.2.1.min.js' },
-    { src: '@assets/js/bootstrap.min.js' }
-  ],
+  
 
   /*
   ** Plugins to load before mounting the App
@@ -65,7 +62,7 @@ export default {
   */
   modules: [
     // Doc: https://http.nuxtjs.org
-    '@nuxt/http'
+    '@nuxtjs/axios'
   ],
 
   /*
