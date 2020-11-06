@@ -179,8 +179,22 @@ export default {
             if(!this.formData.nome || !this.formData.descricao || !this.formData.cnpj || !this.formData.uf || !this.formData.cidade || !this.formData.usuario_nome || !this.formData.usuario_email || !this.formData.usuario_senha) {
                 alert('Todos os campos são obrigatórios')
             } else {
-                const res = this.$http.post('/api/organizacao', this.formData)
-                alert('Organização cadastrada')
+                const res = this.$axios.post('/api/organizacao', this.formData).then(res => {
+                    alert('Organização cadastrada')
+                    this.formData = {
+                        nome: null,
+                        descricao: null,
+                        cnpj: null,
+                        uf: null,
+                        cidade: null,
+                        usuario_nome: null,
+                        usuario_senha: null,
+                        usuario_email: null
+                    }
+                }).catch(error => {
+                    alert("Erro")
+                })
+                
             }
         },
         checkFormCidadao(){
@@ -191,8 +205,17 @@ export default {
             } else if (!this.formDataCidadao.cidadao_senha){
                 alert('Campo senha obrigatório!')
             } else {
-                const res = this.$http.post('/api/cidadao', this.formDataCidadao)
-                alert('Cidadão cadastrado com sucesso!')
+                this.$axios.post('/api/cidadao', this.formDataCidadao).then(res => {
+                    alert('Cidadão cadastrado com sucesso!')
+                    this.formDataCidadao = {
+                        cidadao_nome: null,
+                        cidadao_email: null,
+                        cidadao_senha: null,
+                        cidadao_cpf: null
+                    }
+                }).catch(error => {
+                    alert("Erro")
+                })
             }
         }
     }

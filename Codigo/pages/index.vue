@@ -8,7 +8,24 @@
 
                 <div class="row">
                     <div class="col-12">
-                        <p id="auth" class="text-right" ><a href="/login">Login</a> | <a href="/register">Registro</a></p>
+                        <span id="auth" class="text-right d-block">
+                            <div class="dropdown">
+                                <span>Login</span>
+                                <div class="dropdown-content">
+                                    <ul>
+                                        <router-link tag="li" to="/login/cidadao">
+                                            <i class="fas fa-user"></i>
+                                            Pessoa Física
+                                        </router-link>
+                                        <router-link tag="li" to="/login/organizacao">
+                                            <i class="fas fa-users"></i>
+                                            Organização
+                                        </router-link>
+                                    </ul>
+                                </div>
+                            </div> |
+                            <a href="/register">Registro</a>
+                        </span>
                     </div>
                 </div>
 
@@ -66,8 +83,8 @@
 
 <script>
 export default {
-    async asyncData ({ $http }) {
-        const totalDenuncias = await $http.$get('/api/totalDenuncias')
+    async asyncData ({ $axios  }) {
+        const totalDenuncias = await $axios.$get('/api/totalDenuncias')
         return {
             totalDenuncias
         }
@@ -184,6 +201,46 @@ export default {
 
     #totalDenuncias {
         margin-top: 75px;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown span:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        right: 0;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        padding: 4px;
+        z-index: 1;
+    }
+
+    .dropdown-content ul{
+        list-style: none;
+        padding: 0;
+    }
+
+    .dropdown-content li{
+        padding: 5px 10px;
+        text-align: left;
+    }
+    .dropdown-content li:hover{
+        background: white;
+        color: #333;
+        cursor: pointer;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
     }
 
 
