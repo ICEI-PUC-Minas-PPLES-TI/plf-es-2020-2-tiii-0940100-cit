@@ -1,64 +1,44 @@
 <template>
-   
-    <div class="container-fluid">
+    <div id="home_container">
+
+        <p id="auth" class="text-right" ><a href="/login">Login</a> | <a href="/register">Registro</a></p>
+                
         
-        <div class="row">
 
-            <div class="col-12">
+        <div class="logo-slogan-imagem">
 
-                <div class="row">
-                    <div class="col-12">
-                        <p id="auth" class="text-right" ><a href="/login">Login</a> | <a href="/register">Registro</a></p>
-                    </div>
+            <div class="logo-slogan">
+
+                <div id="logo-text">
+                    <img src="@/assets/img/citlogo.svg" width="128px" height="128px" alt="">
+                    <h1 >CIT</h1>
                 </div>
 
-                <div class="row">
-
-                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                        
-                        <div class="row">
-                            <div class="col-sm-0 col-md-0 col-lg-2 col-xl-2"></div>
-                            <div class="col-sm-12 col-md-12 col-lg-10 col-xl-10">
-                                <div id="logo-text">
-                                    <img class="d-inline" src="@/assets/img/citlogo.svg" width="128px" height="128px" alt="">
-                                    <h1 class="d-inline">CIT</h1>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-sm-0 col-md-0 col-lg-3 col-xl-3"></div>
-                            <div class="col-sm-12 col-md-12 col-lg-9 col-xl-9">
-                                <p id="slogan"> <a> Todos juntos<br> por cidades<br> melhores! </a> </p>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                            <img id="home-image" src="@/assets/img/home-image.png" width="100%" height="450px" alt="home image">
-                    </div>
-
-                </div>
-
-                <div class="row">
-
-                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                        <p class="d-block text-center">
-                            <button class="btn denunciar"><i class="fas fa-exclamation-triangle"></i> Denunciar</button>
-                            <button class="btn verDenuncias"> <i class="far fa-eye"></i> Ver denúncias</button>
-                        </p>
-                    </div>
-
-                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                        <p id="totalDenuncias" class="d-block text-center"> Total de {{ totalDenuncias.qtd }} denúncias já efetuadas!</p>
-                    </div>
-
-                </div>
+                <p id="slogan"> <a> Todos juntos por cidades melhores! </a> </p>
 
             </div>
 
+           
+            <img id="home-image" src="@/assets/img/home-image.png" alt="home image">
+            
+        
         </div>
+
+        <div>
+
+            <div class="footer">
+
+                <div class="buttons">
+                        <button class="btn denunciar"><i class="fas fa-exclamation-triangle"></i> Denunciar</button>
+                        <button class="btn verDenuncias"> <i class="far fa-eye"></i> Ver denúncias</button>
+                </div>
+
+                
+                <p id="totalDenuncias" class="d-block text-center"> Total de {{ totalDenuncias.qtd }} denúncias já efetuadas!</p>
+
+            </div>
+        </div>
+
 
     </div>
    
@@ -81,31 +61,26 @@ export default {
     * {
         margin: 0;
         padding: 0;
-        background-color: #264445;
     }
 
-    .container-fluid{
+    #home_container{
         color: #ffffff;
         height: 100vh;
         width: 100vw;
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
         text-align: center;
-    }
-
-    .row {
-        width: 100%;
-    }
-
-    i{
-        background: none;
+        flex-direction: column;
+        margin: 0 auto;
+        background-color: #264445;
     }
 
     #auth{
+        position: absolute;
+        right: 5px;
+        top: 0;
         font-family: 'Roboto', sans-serif;
-        margin: 16px;
-        text-decoration: none;
-        color: white;
+        z-index: 999;
     }
 
     #auth a{
@@ -114,395 +89,126 @@ export default {
     }
 
     #logo-text{
-        margin-right: 300px;
         font-family: 'Tillana', cursive;
-        margin-top: 40px;
-        text-align: left;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
-
+    
     #slogan{
-        margin-right: 200px;
+        margin-left: 30px;
         font-size: 3.25rem;
         font-family: 'Rum Raisin', sans-serif;
         text-align: left;
+        max-width: 250px;
+    }
+
+    .logo-slogan{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
     }
 
     #home-image{
-        padding-right: 80px;
-        padding-top: 40px;
+        max-height: 450px;
+        max-width: 550px;
     }
 
+    .logo-slogan-imagem{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .buttons{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
     .denunciar, .verDenuncias{
-        margin-top: 50px;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         font-family: 'Roboto', sans-serif;
         color: white;
-        width: 240px;
-        height: 80px;
+        width: 180px;
+        height: 70px;
     }
 
     .denunciar {
-        margin-left: 40px;
         background: #38AE90;
     }
 
     .verDenuncias {
-        margin-left: 60px;
+        margin-left: 20px;
         background: #7EE34D;
     }
 
-    #totalDenuncias {
-        margin-top: 75px;
+    .footer{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
     }
 
-
-    /* Surface Duo */
-    @media (min--moz-device-pixel-ratio: 1.5),
-       (-o-min-device-pixel-ratio: 3/2),
-       (-webkit-min-device-pixel-ratio: 1.5),
-       (min-device-pixel-ratio: 1.5),
-       (min-resolution: 144dpi),
-       (min-resolution: 1.5dppx) {
-
-        #logo-text{
-            margin-right: 0;
-            margin-top: 0;
-            text-align: center;
+    @media screen and (max-height: 560px){
+        #home-image{
+            max-height: 220px;
+            max-width: 380px;
         }
-
         #slogan{
-            margin-right: 0;
+            font-size: 2rem;
+        }
+        .buttons button{
+            height: 50px;
+        }
+        .verDenuncias{
+            margin-left: 5px;
+        }
+    }
+
+    @media screen and (max-width: 760px){
+        #home-image{
+            max-height: 220px;
+            max-width: 380px;
+        }
+    }
+
+    @media screen and (max-width: 550px){
+        #home_container{
+            justify-content: space-evenly;
+        }
+        #home-image{
+            max-height: 100%;
+            max-width: 100%;
+        }
+        #logo-text{
+            justify-content: center;
+        }
+        #slogan{
             font-size: 2rem;
             text-align: center;
-        }
-
-        #home-image{
-            padding-right: 0;
-            padding-top: 0;
-        }
-
-        .denunciar, .verDenuncias{
-            margin-top: 30px;
-            font-size: 1.5rem;
-            width: 240px;
-            height: 80px;
-        }
-
-        .denunciar {
-            margin-left: 40px;
-            background: #38AE90;
-        }
-
-        .verDenuncias {
-            margin-left: 60px;
-            background: #7EE34D;
-        }
-
-        #totalDenuncias {
-            margin-top: 30px;
-            margin-bottom: 30px;
-        }
-
-    }
-
-    /* Pixel XL Landscape */
-    @media
-    only screen and (-webkit-min-device-pixel-ratio: 2.625),
-    only screen and (   min--moz-device-pixel-ratio: 2.625),
-    only screen and (     -o-min-device-pixel-ratio: 2.625/1),
-    only screen and (        min-device-pixel-ratio: 2.625),
-    only screen and (                min-resolution: 441dpi),
-    only screen and (                min-resolution: 2.625dppx) { 
-
-        #logo-text{
-            margin-right: 0;
-            margin-top: 0;
-            text-align: center;
-        }
-
-        #slogan{
-            margin-right: 0;
-            font-size: 2rem;
-            text-align: center;
-        }
-
-        #home-image{
-            padding-right: 0;
-            padding-top: 0;
-        }
-
-        .denunciar, .verDenuncias{
-            margin-top: 30px;
-            font-size: 1.5rem;
-            width: 240px;
-            height: 80px;
-        }
-
-        .denunciar {
-            margin-left: 40px;
-            background: #38AE90;
-        }
-
-        .verDenuncias {
-            margin-left: 60px;
-            background: #7EE34D;
-        }
-
-        #totalDenuncias {
-            margin-top: 30px;
-            margin-bottom: 30px;
-        }
-
-    }
-
-    /* iPhone X Portrait */
-    @media only screen 
-    and (min-device-width: 375px) 
-    and (max-device-width: 812px) 
-    and (-webkit-min-device-pixel-ratio: 3)
-    and (orientation: portrait) { 
-
-        #logo-text{
-            margin-right: 0;
-            margin-top: 0;
-            text-align: center;
-        }
-
-        #slogan{
-            margin-right: 0;
-            font-size: 3rem;
-            text-align: center;
-        }
-
-        #home-image{
-            padding-right: 0;
-            padding-top: 0;
-            height: 400px;
-        }
-
-        .denunciar, .verDenuncias{
-            margin-top: 0;
-            font-size: 1.5rem;
-            font-family: 'Roboto', sans-serif;
-            color: white;
-            width: 240px;
-            height: 80px;
-        }
-
-        .denunciar {
-            margin-top: 30px;
             margin-left: 0;
-            margin-bottom: 10px;
-            background: #38AE90;
         }
-
-        .verDenuncias {
+        .logo-slogan{
+            justify-content: center;
+        }
+        .logo-slogan-imagem{
+            flex-direction: column;
+        }
+        .buttons{
+            justify-content: space-around;
+            width: 100%;
+        }
+        .buttons button{
+            height: 50px;
+            width: 150px;
+        }
+        .verDenuncias, .denunciar{
             margin-left: 0;
-            background: #7EE34D;
+            margin-top: 5px;
         }
-
-        #totalDenuncias {
-            margin-top: 30px;
-            margin-bottom: 30px;
-        }
-
-    }
-
-    /* iPhone X Landscape */
-    @media only screen 
-    and (min-device-width: 375px) 
-    and (max-device-width: 812px) 
-    and (-webkit-min-device-pixel-ratio: 3)
-    and (orientation: landscape) { 
-
-        #logo-text{
-            margin-right: 0;
-            margin-top: 0;
-            text-align: center;
-        }
-
-        #slogan{
-            margin-right: 0;
-            font-size: 2rem;
-            text-align: center;
-        }
-
-        #home-image{
-            padding-right: 0;
-            padding-top: 0;
-        }
-
-        .denunciar, .verDenuncias{
-            margin-top: 30px;
-            font-size: 1.5rem;
-            width: 240px;
-            height: 80px;
-        }
-
-        .denunciar {
-            margin-left: 40px;
-            background: #38AE90;
-        }
-
-        .verDenuncias {
-            margin-left: 60px;
-            background: #7EE34D;
-        }
-
-        #totalDenuncias {
-            margin-top: 30px;
-            margin-bottom: 30px;
-        }
-
-    }
-
-   /* iPhone 5 Portrait */
-    @media only screen 
-    and (min-device-width: 320px) 
-    and (max-device-width: 568px)
-    and (-webkit-min-device-pixel-ratio: 2)
-    and (orientation: portrait) {
-
-        #logo-text{
-            margin-right: 0;
-            margin-top: 0;
-            text-align: center;
-        }
-
-        #slogan{
-            margin-right: 0;
-            font-size: 3rem;
-            text-align: center;
-        }
-
-        #home-image{
-            padding-right: 0;
-            padding-top: 0;
-            height: 400px;
-        }
-
-        .denunciar, .verDenuncias{
-            margin-top: 0;
-            font-size: 1.5rem;
-            font-family: 'Roboto', sans-serif;
-            color: white;
-            width: 240px;
-            height: 80px;
-        }
-
-        .denunciar {
-            margin-top: 10px;
-            margin-left: 0;
-            margin-bottom: 10px;
-            background: #38AE90;
-        }
-
-        .verDenuncias {
-            margin-left: 0;
-            background: #7EE34D;
-        }
-
-        #totalDenuncias {
-            margin-top: 30px;
-            margin-bottom: 30px;
-        }
-
-    }
-
-    /* iPhone 6 Landscape */
-    @media only screen 
-    and (min-device-width: 375px) 
-    and (max-device-width: 667px) 
-    and (-webkit-min-device-pixel-ratio: 2)
-    and (orientation: landscape) { 
-
-        #logo-text{
-            margin-right: 0;
-            margin-top: 0;
-            text-align: center;
-        }
-
-        #slogan{
-            margin-right: 0;
-            font-size: 2rem;
-            text-align: center;
-        }
-
-        #home-image{
-            padding-right: 0;
-            padding-top: 0;
-        }
-
-        .denunciar, .verDenuncias{
-            margin-top: 30px;
-            font-size: 1.5rem;
-            width: 240px;
-            height: 80px;
-        }
-
-        .denunciar {
-            margin-left: 40px;
-            background: #38AE90;
-        }
-
-        .verDenuncias {
-            margin-left: 60px;
-            background: #7EE34D;
-        }
-
-        #totalDenuncias {
-            margin-top: 30px;
-            margin-bottom: 30px;
-        }
-
-    }
-
-        /* iPhone 5 Landscape */
-    @media only screen 
-    and (min-device-width: 320px) 
-    and (max-device-width: 568px)
-    and (-webkit-min-device-pixel-ratio: 2)
-    and (orientation: landscape) {
-
-        #logo-text{
-            margin-right: 0;
-            margin-top: 0;
-            text-align: center;
-        }
-
-        #slogan{
-            margin-right: 0;
-            font-size: 2rem;
-            text-align: center;
-        }
-
-        #home-image{
-            padding-right: 0;
-            padding-top: 0;
-        }
-
-        .denunciar, .verDenuncias{
-            margin-top: 30px;
-            font-size: 1.5rem;
-            width: 240px;
-            height: 80px;
-        }
-
-        .denunciar {
-            margin-left: 0px;
-            background: #38AE90;
-        }
-
-        .verDenuncias {
-            margin-left: 0px;
-            background: #7EE34D;
-        }
-
-        #totalDenuncias {
-            margin-top: 30px;
-            margin-bottom: 30px;
-        }
-
     }
 
 
