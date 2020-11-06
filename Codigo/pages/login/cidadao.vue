@@ -60,6 +60,7 @@ export default {
                         senha: null,
                         email: null
                     }
+                    this.$router.push('/dashboard/cidadao')
                 }).catch(error => {
                     alert('Usuário ou senha incorretos')
                 })

@@ -1,0 +1,245 @@
+<template>
+  <div class="auth-background">
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-3">
+        <div id="lateral">
+          <div class="row">
+            <a
+              style="color: white"
+              class="btn btn-outline-success position-absolute m-2"
+              href="/"
+            >
+              <i class="fas fa-arrow-left"></i>
+            </a>
+          </div>
+
+          <div class="row justify-content-center align-items-center">
+            <img
+              class="d-inline"
+              src="@/assets/img/citlogo.svg"
+              width="128px"
+              height="128px"
+              alt=""
+            />
+            <h1 class="d-inline auth-container-title text-center mb-4">CIT</h1>
+          </div>
+
+          <div class="row justify-content-center align-items-center">
+            <div class="col-12">
+              <hr
+                style="margin-left: 5%; width: 90%; border: 0.5px solid white;"
+              />
+              <p class="m-2 ml-4" style="color: white; font-size: 1.5em;">
+                Número de denúncias: 1
+              </p>
+              <hr
+                style="margin-left: 5%; width: 90%; border: 0.5px solid white;"
+              />
+            </div>
+          </div>
+
+          <div class="row" style="position:absolute; bottom:0;%; width: 100%">
+            <div class="col-12">
+              <hr
+                style="margin-left: 2.5%; margin-bottom: 2.5%; width: 95%; border: 0.5px solid white;"
+              />
+              <p
+                style="color: white; font-size: 1.15em; text-align: center; margin-bottom: 5%;"
+              >
+                <i
+                  class="fas fa-user"
+                  style="color: white; font-size: 1.5em;"
+                ></i>
+                Lucas Ângelo Oliveira Martins Rocha
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-12 col-md-12 col-lg-9 col-xl-9">
+        <div class="row justify-content-center align-items-center mt-2 mb-2">
+          <div class="col-xs-1"></div>
+          <div class="col-xs-10">
+            <h1>Suas últimas denúncias</h1>
+          </div>
+          <div class="col-xs-1"></div>
+        </div>
+
+        <hr class="mb-4" style="width: 100%; border-color: black;" />
+
+        <div class="row">
+          <div class="col-12">
+            <div class="card ml-5 mb-3 mr-5">
+              <div class="card-horizontal">
+                <div class="img-square-wrapper">
+                  <img
+                    class=""
+                    src="http://via.placeholder.com/100x100"
+                    alt="Card image cap"
+                  />
+                </div>
+                <div class="card-body" style="color: #5C8599">
+                  <h4 class="card-title ml-2 p-2">
+                    R. Mestre Donana Pompéu-MG
+                  </h4>
+                  <p class="card-text ml-2">
+                    "Por favor, arrumem esse buraco na rua, todos os dias quebro
+                    a mola do meu carro nele..."
+                  </p>
+                </div>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted p-2"
+                  >Contribuição feita em: 09/12/2020</small
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <div class="card ml-5 mb-3 mr-5">
+              <div class="card-horizontal">
+                <div class="img-square-wrapper">
+                  <img
+                    class=""
+                    src="http://via.placeholder.com/100x100"
+                    alt="Card image cap"
+                  />
+                </div>
+                <div class="card-body" style="color: #5C8599">
+                  <h4 class="card-title ml-2 p-2">
+                    R. Mestre Donana Pompéu-MG
+                  </h4>
+                  <p class="card-text ml-2">
+                    "Por favor, arrumem esse buraco na rua, todos os dias quebro
+                    a mola do meu carro nele..."
+                  </p>
+                </div>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted p-2"
+                  >Contribuição feita em: 09/12/2020</small
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <div class="card ml-5 mb-3 mr-5">
+              <div class="card-horizontal">
+                <div class="img-square-wrapper">
+                  <img
+                    class=""
+                    src="http://via.placeholder.com/100x100"
+                    alt="Card image cap"
+                  />
+                </div>
+                <div class="card-body" style="color: #5C8599">
+                  <h4 class="card-title ml-2 p-2">
+                    R. Mestre Donana Pompéu-MG
+                  </h4>
+                  <p class="card-text ml-2">
+                    "Por favor, arrumem esse buraco na rua, todos os dias quebro
+                    a mola do meu carro nele..."
+                  </p>
+                </div>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted p-2"
+                  >Contribuição feita em: 09/12/2020</small
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <div class="card ml-5 mb-3 mr-5">
+              <div class="card-horizontal">
+                <div class="img-square-wrapper">
+                  <img
+                    class=""
+                    src="http://via.placeholder.com/100x100"
+                    alt="Card image cap"
+                  />
+                </div>
+                <div class="card-body" style="color: #5C8599">
+                  <h4 class="card-title ml-2 p-2">
+                    R. Mestre Donana Pompéu-MG
+                  </h4>
+                  <p class="card-text ml-2">
+                    "Por favor, arrumem esse buraco na rua, todos os dias quebro
+                    a mola do meu carro nele..."
+                  </p>
+                </div>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted p-2"
+                  >Contribuição feita em: 09/12/2020</small
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row justify-content-center align-items-center mt-2 mb-2">
+          <div class="col-xs-1"></div>
+          <div class="col-xs-10">
+            <nav aria-label="...">
+              <ul class="pagination">
+                <li class="page-item disabled">
+                  <span class="page-link">Previous</span>
+                </li>
+                <li class="page-item active">
+                  <span class="page-link">1<span class="sr-only">(current)</span></span>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#">Next</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div class="col-xs-1"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {};
+</script>
+
+<style scoped>
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.auth-background {
+  height: 100vh;
+  background-color: #ffffff;
+}
+
+#lateral {
+  height: 100vh;
+  background: #38ae90;
+}
+
+.card-horizontal {
+  display: flex;
+  flex: 1 1 auto;
+}
+
+.page-link {
+  padding: 10px;
+}
+</style>
