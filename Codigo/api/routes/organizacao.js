@@ -32,7 +32,7 @@ router.post('/organizacao', (req, res, next) => {
     let db = new Database();
     var connection = db.connect(); // Abrir conexão com o banco
     connection.query(`INSERT INTO organizacao (nome, descricao, cnpj, uf, cidade)
-                        VALUES (?, ?, ?,?,?);`,[req.body.nome, req.body.descricao, req.body.cnpj, req.body.uf, req.body.cidade],  function (error, results) {
+                        VALUES (?, ?, ?,?,?);`,[req.body.nome, req.body.descricao, req.body.cnpj.replace(/\D/g,''), req.body.uf, req.body.cidade],  function (error, results) {
         if (error){
             res.statusCode = 500;
             res.setHeader("Content-Type", "application/json");

@@ -2,8 +2,11 @@
     <div>
         <div class="auth-background">
             <div class="auth-container d-block">
-                <a href="/"><img src="@/assets/img/citlogo.svg" width="150px" alt="CIT Logo" class="d-block m-auto">
-                <h3 class="auth-container-title text-center">CIT</h3></a>
+                <a class="btn btn-outline-success position-absolute" href="/">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+                <img src="@/assets/img/citlogo.svg" width="150px" alt="CIT Logo" class="d-block m-auto">
+                <h3 class="auth-container-title text-center">CIT</h3>
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
                         <a class="nav-link" :class="tab == 'F' ? 'active': ''" @click="tab = 'F'">
@@ -179,8 +182,22 @@ export default {
             if(!this.formData.nome || !this.formData.descricao || !this.formData.cnpj || !this.formData.uf || !this.formData.cidade || !this.formData.usuario_nome || !this.formData.usuario_email || !this.formData.usuario_senha) {
                 alert('Todos os campos são obrigatórios')
             } else {
-                const res = this.$http.post('/api/organizacao', this.formData)
-                alert('Organização cadastrada')
+                const res = this.$axios.post('/api/organizacao', this.formData).then(res => {
+                    alert('Organização cadastrada')
+                    this.formData = {
+                        nome: null,
+                        descricao: null,
+                        cnpj: null,
+                        uf: null,
+                        cidade: null,
+                        usuario_nome: null,
+                        usuario_senha: null,
+                        usuario_email: null
+                    }
+                }).catch(error => {
+                    alert("Erro")
+                })
+                
             }
         },
         checkFormCidadao(){
@@ -191,8 +208,17 @@ export default {
             } else if (!this.formDataCidadao.cidadao_senha){
                 alert('Campo senha obrigatório!')
             } else {
-                const res = this.$http.post('/api/cidadao', this.formDataCidadao)
-                alert('Cidadão cadastrado com sucesso!')
+                this.$axios.post('/api/cidadao', this.formDataCidadao).then(res => {
+                    alert('Cidadão cadastrado com sucesso!')
+                    this.formDataCidadao = {
+                        cidadao_nome: null,
+                        cidadao_email: null,
+                        cidadao_senha: null,
+                        cidadao_cpf: null
+                    }
+                }).catch(error => {
+                    alert("Erro")
+                })
             }
         }
     }

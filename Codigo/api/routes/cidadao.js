@@ -36,10 +36,10 @@ router.post('/cidadao', (req, res, next) => {
     var connection = db.connect(); // Abrir conexão com o banco
 
     let cidadao_cpf
-    if ( (req.body.cidadao_cpf.trim() === '') || (req.body.cidadao_cpf === null) ) {
+    if ( (req.body.cidadao_cpf === null) || (req.body.cidadao_cpf.trim() === '') ) {
         cidadao_cpf = null;
     } else {
-        cidadao_cpf = req.body.cidadao_cpf;
+        cidadao_cpf = req.body.cidadao_cpf.replace(/\D/g,'');
     }
 
     connection.query(`INSERT INTO cidadao (nome, email, senha, cpf) VALUES (?, ?, MD5(?), ?);`,[req.body.cidadao_nome, req.body.cidadao_email, req.body.cidadao_senha, cidadao_cpf],  function (error, results) {
