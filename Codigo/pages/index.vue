@@ -24,7 +24,7 @@
                                     </ul>
                                 </div>
                             </div> |
-                            <a href="/register">Registro</a>
+                            <a href="/register">Cadastrar</a>
                         </span>
                     </div>
                 </div>

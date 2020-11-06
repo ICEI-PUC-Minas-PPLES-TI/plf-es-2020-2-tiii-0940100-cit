@@ -2,8 +2,11 @@
     <div>
         <div class="auth-background">
             <div class="auth-container d-block">
-                <a href="/"><img src="@/assets/img/citlogo.svg" width="150px" alt="CIT Logo" class="d-block m-auto">
-                <h3 class="auth-container-title text-center">CIT</h3></a>
+                <a class="btn btn-outline-success position-absolute" href="/">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+                <img src="@/assets/img/citlogo.svg" width="150px" alt="CIT Logo" class="d-block m-auto">
+                <h3 class="auth-container-title text-center">CIT</h3>
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
                         <a class="nav-link" :class="tab == 'F' ? 'active': ''" @click="tab = 'F'">
