@@ -20,10 +20,33 @@
 
     <div id="home_container">
 
+<<<<<<< HEAD:Codigo/pages/index.html
         <p id="auth" class="text-right"><a href="../pages/login/cidadao.html">Login</a> | <a
                 href="../pages/register.html">Registro</a></p>
 
 
+=======
+        <span id="auth" class="text-right d-block">
+            <div class="dropdown">
+                <span>Login</span>
+                <div class="dropdown-content">
+                    <ul>
+                        <router-link tag="li" to="/login/cidadao">
+                            <i class="fas fa-user"></i>
+                            Pessoa Física
+                        </router-link>
+                        <router-link tag="li" to="/login/organizacao">
+                            <i class="fas fa-users"></i>
+                            Organização
+                        </router-link>
+                    </ul>
+                </div>
+            </div> |
+            <a href="/register">Cadastrar</a>
+        </span>
+                
+        
+>>>>>>> b5b0af35a14b3c2aa6b7829152923fe286f7e711:Codigo/pages/base.vue
 
         <div class="logo-slogan-imagem">
 
@@ -62,6 +85,23 @@
 
 
     </div>
+<<<<<<< HEAD:Codigo/pages/index.html
+=======
+   
+</template>
+
+<script>
+export default {
+    async asyncData ({ $axios  }) {
+        const totalDenuncias = await $axios.$get('/api/totalDenuncias')
+        return {
+            totalDenuncias
+        }
+    },
+    methods:{}
+}
+</script>
+>>>>>>> b5b0af35a14b3c2aa6b7829152923fe286f7e711:Codigo/pages/base.vue
 
 </body>
 
@@ -75,6 +115,7 @@
         color: #ffffff;
         height: 100vh;
         width: 100vw;
+        padding: 10vh 10vw;
         display: flex;
         justify-content: space-around;
         text-align: center;
@@ -83,7 +124,13 @@
         background-color: #264445;
     }
 
+<<<<<<< HEAD:Codigo/pages/index.html
     #auth {
+=======
+    /* Menu de Login/Cadastro */
+
+    #auth{
+>>>>>>> b5b0af35a14b3c2aa6b7829152923fe286f7e711:Codigo/pages/base.vue
         position: absolute;
         right: 5px;
         top: 0;
@@ -96,7 +143,113 @@
         color: white;
     }
 
+<<<<<<< HEAD:Codigo/pages/index.html
     #logo-text {
+=======
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown span:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        right: 0;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        padding: 4px;
+        z-index: 1;
+    }
+
+    .dropdown-content ul{
+        list-style: none;
+        padding: 0;
+    }
+
+    .dropdown-content li{
+        padding: 5px 10px;
+        text-align: left;
+        background: #264445;
+    }
+    .dropdown-content li:hover{
+        background: white;
+        color: #333;
+        cursor: pointer;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    /* Botões */
+
+    .buttons{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .denunciar, .verDenuncias{
+        font-size: 1.4rem;
+        font-family: 'Roboto', sans-serif;
+        color: white;
+        width: 200px;
+        height: 80px;
+        border-radius: 10px;
+    }
+
+    .denunciar {
+        background: #38AE90;
+    }
+
+    .verDenuncias {
+        margin-left: 20px;
+        background: #7EE34D;
+    }
+
+    .denunciar {
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .denunciar:hover:before {
+        transform: scale(1.2);
+        box-shadow: 0 0 15px #ffffff54;
+        filter: blur(3px);
+    }
+
+    .denunciar:hover{
+        background: #2bc9a1;
+        box-shadow: 0 0 15px #ffffff54;
+    } 
+
+    .verDenuncias {
+        transition: .5s;
+    }
+
+    .verDenuncias:hover:before {
+        transform: scale(1.2);
+        box-shadow: 0 0 15px #ffffff54;
+        filter: blur(3px);
+    }
+
+    .verDenuncias:hover{
+        background: #5fd823;
+        box-shadow: 0 0 15px #ffffff54;
+    } 
+
+    /* Demais estilizações */
+
+    #logo-text{
+>>>>>>> b5b0af35a14b3c2aa6b7829152923fe286f7e711:Codigo/pages/base.vue
         font-family: 'Tillana', cursive;
         display: flex;
         justify-content: center;
@@ -118,13 +271,20 @@
         justify-content: center;
     }
 
+<<<<<<< HEAD:Codigo/pages/index.html
     #home-image {
         max-height: 450px;
         max-width: 550px;
+=======
+    #home-image{
+        max-height: 500px;
+        max-width: 650px;
+>>>>>>> b5b0af35a14b3c2aa6b7829152923fe286f7e711:Codigo/pages/base.vue
     }
 
     .logo-slogan-imagem {
         display: flex;
+<<<<<<< HEAD:Codigo/pages/index.html
         justify-content: space-around;
         align-items: center;
     }
@@ -144,25 +304,36 @@
         width: 180px;
         height: 70px;
     }
-
-    .denunciar {
-        background: #38AE90;
+=======
+        justify-content: space-between;
+        align-items: center;
     }
+>>>>>>> b5b0af35a14b3c2aa6b7829152923fe286f7e711:Codigo/pages/base.vue
 
-    .verDenuncias {
-        margin-left: 20px;
-        background: #7EE34D;
+    
+
+    #totalDenuncias{
+        font-size: 0.8rem;
+        margin-right: 25px;
+        color: #D4C2FF;
     }
 
     .footer {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
     }
 
+<<<<<<< HEAD:Codigo/pages/index.html
     @media screen and (max-height: 560px) {
         #home-image {
+=======
+    /* Responsividade */
+
+    @media screen and (max-height: 600px){
+        #home-image{
+>>>>>>> b5b0af35a14b3c2aa6b7829152923fe286f7e711:Codigo/pages/base.vue
             max-height: 220px;
             max-width: 380px;
         }
@@ -173,10 +344,29 @@
 
         .buttons button {
             height: 50px;
+            width: 140px;
+            font-size: 1rem;
         }
 
         .verDenuncias {
             margin-left: 5px;
+        }
+        #totalDenuncias{
+            margin-right: 0;
+        }
+        #logo-text img{
+            width: 78px;
+            height: 78px;
+        }
+    }
+
+    @media screen and (max-width: 970px){
+        #home-image{
+            max-height: 320px;
+            max-width: 420px;
+        }
+        #totalDenuncias{
+            margin-right: 0;
         }
     }
 
@@ -187,8 +377,20 @@
         }
     }
 
+<<<<<<< HEAD:Codigo/pages/index.html
     @media screen and (max-width: 550px) {
         #home_container {
+=======
+    @media screen and (max-width: 620px){
+        #home-image{
+            max-height: 180px;
+            max-width: 300px;
+        }
+    }
+
+    @media screen and (max-width: 550px){
+        #home_container{
+>>>>>>> b5b0af35a14b3c2aa6b7829152923fe286f7e711:Codigo/pages/base.vue
             justify-content: space-evenly;
         }
 
@@ -209,6 +411,7 @@
 
         .logo-slogan {
             justify-content: center;
+            align-items: center;
         }
 
         .logo-slogan-imagem {
@@ -223,12 +426,19 @@
         .buttons button {
             height: 50px;
             width: 150px;
+            font-size: 1.2rem;
         }
 
         .verDenuncias,
         .denunciar {
             margin-left: 0;
             margin-top: 5px;
+        }
+        #totalDenuncias{
+            margin-right: 0;
+        }
+        .footer{
+            justify-content: center;
         }
     }
 </style>
