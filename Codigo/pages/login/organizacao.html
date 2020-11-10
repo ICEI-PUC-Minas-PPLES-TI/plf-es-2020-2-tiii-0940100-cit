@@ -1,14 +1,31 @@
-<template>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIT</title>
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../assets/css/all.min.css" crossorigin="anonymous">
+    <script src="../../assets/js/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="../../assets/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <link rel="icon" href="../static/favicon.ico" />
+</head>
+<body>
+    
     <div>
         <div class="auth-background">
             <div class="auth-container d-block">
-                <a class="btn btn-outline-success position-absolute" href="/">
+                <a class="btn btn-outline-success position-absolute" href="../index.html">
                     <i class="fas fa-arrow-left"></i>
                 </a>
                 <p class="text-center font-roboto ml-4">
                     Login de Organização
                 </p>
-                <img src="@/assets/img/citlogo.svg" width="150px" alt="CIT Logo" class="d-block m-auto">
+                <img src="../../assets/img/citlogo.svg" width="150px" alt="CIT Logo" class="d-block m-auto">
                 <h3 class="auth-container-title text-center">CIT</h3>
                 <br>
                 <!-- Login Usuário de Organização -->
@@ -40,42 +57,10 @@
             </div>
         </div>
     </div>
-</template>
 
-<script>
-export default {
-    data(){
-        return {
-            formData: {
-                organizacao_id: null,
-                senha: null,
-                email: null
-            },
-            instPasswordShow: false
-        }
-    },
-    methods: {
-        login(){
-            if(!this.formData.organizacao_id || !this.formData.email || !this.formData.senha) {
-                alert('Todos os campos são obrigatórios')
-            } else {
-                this.$axios.post('/api/organizacaousuario',this.formData).then(res => {
-                    alert('Usuario de organização logada')
-                    this.formData = {
-                        organizacao_id: null,
-                        senha: null,
-                        email: null
-                    }
-                }).catch(error => {
-                    alert('Usuário ou senha incorretos')
-                })
-            }
-        }
-    }
-}
-</script>
+</body>
 
-<style scoped>
+<style>
     .auth-background{
         background: #38AE90;
         position: absolute;
@@ -108,3 +93,5 @@ export default {
         cursor: pointer;
     }
 </style>
+
+</html>

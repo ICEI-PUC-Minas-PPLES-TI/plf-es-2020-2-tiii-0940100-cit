@@ -1,27 +1,47 @@
-<template>
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIT</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/css/all.min.css" crossorigin="anonymous">
+    <script src="../assets/js/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="../assets/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+        <link rel="icon" href="../static/favicon.ico" />
+</head>
+
+<body>
+
     <div id="home_container">
 
-        <p id="auth" class="text-right" ><a href="/login">Login</a> | <a href="/register">Registro</a></p>
-                
-        
+        <p id="auth" class="text-right"><a href="../pages/login/cidadao.html">Login</a> | <a
+                href="../pages/register.html">Registro</a></p>
+
+
 
         <div class="logo-slogan-imagem">
 
             <div class="logo-slogan">
 
                 <div id="logo-text">
-                    <img src="@/assets/img/citlogo.svg" width="128px" height="128px" alt="">
-                    <h1 >CIT</h1>
+                    <img src="../assets/img/citlogo.svg" width="128px" height="128px" alt="">
+                    <h1>CIT</h1>
                 </div>
 
                 <p id="slogan"> <a> Todos juntos por cidades melhores! </a> </p>
 
             </div>
 
-           
-            <img id="home-image" src="@/assets/img/home-image.png" alt="home image">
-            
-        
+
+            <img id="home-image" src="../assets/img/home-image.png" alt="home image">
+
+
         </div>
 
         <div>
@@ -29,41 +49,29 @@
             <div class="footer">
 
                 <div class="buttons">
-                        <button class="btn denunciar"><i class="fas fa-exclamation-triangle"></i> Denunciar</button>
-                        <button class="btn verDenuncias"> <i class="far fa-eye"></i> Ver denúncias</button>
+                    <button class="btn denunciar"><i class="fas fa-exclamation-triangle"></i> Denunciar</button>
+                    <button class="btn verDenuncias"> <i class="far fa-eye"></i> Ver denúncias</button>
                 </div>
 
-                
-                <p id="totalDenuncias" class="d-block text-center"> Total de {{ totalDenuncias.qtd }} denúncias já efetuadas!</p>
+
+                <p id="totalDenuncias" class="d-block text-center"> Total de 32 denúncias já
+                    efetuadas!</p>
 
             </div>
         </div>
 
 
     </div>
-   
-</template>
 
-<script>
-export default {
-    async asyncData ({ $http }) {
-        const totalDenuncias = await $http.$get('/api/totalDenuncias')
-        return {
-            totalDenuncias
-        }
-    },
-    methods: {}
-}
-</script>
+</body>
 
-<style scoped>
-
+<style>
     * {
         margin: 0;
         padding: 0;
     }
 
-    #home_container{
+    #home_container {
         color: #ffffff;
         height: 100vh;
         width: 100vw;
@@ -75,7 +83,7 @@ export default {
         background-color: #264445;
     }
 
-    #auth{
+    #auth {
         position: absolute;
         right: 5px;
         top: 0;
@@ -83,19 +91,19 @@ export default {
         z-index: 999;
     }
 
-    #auth a{
+    #auth a {
         text-decoration: none;
         color: white;
     }
 
-    #logo-text{
+    #logo-text {
         font-family: 'Tillana', cursive;
         display: flex;
         justify-content: center;
         align-items: center;
     }
-    
-    #slogan{
+
+    #slogan {
         margin-left: 30px;
         font-size: 3.25rem;
         font-family: 'Rum Raisin', sans-serif;
@@ -103,32 +111,33 @@ export default {
         max-width: 250px;
     }
 
-    .logo-slogan{
+    .logo-slogan {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         justify-content: center;
     }
 
-    #home-image{
+    #home-image {
         max-height: 450px;
         max-width: 550px;
     }
 
-    .logo-slogan-imagem{
+    .logo-slogan-imagem {
         display: flex;
         justify-content: space-around;
         align-items: center;
     }
 
-    .buttons{
+    .buttons {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
     }
-    
-    .denunciar, .verDenuncias{
+
+    .denunciar,
+    .verDenuncias {
         font-size: 1.2rem;
         font-family: 'Roboto', sans-serif;
         color: white;
@@ -145,71 +154,83 @@ export default {
         background: #7EE34D;
     }
 
-    .footer{
+    .footer {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
         align-items: center;
     }
 
-    @media screen and (max-height: 560px){
-        #home-image{
+    @media screen and (max-height: 560px) {
+        #home-image {
             max-height: 220px;
             max-width: 380px;
         }
-        #slogan{
+
+        #slogan {
             font-size: 2rem;
         }
-        .buttons button{
+
+        .buttons button {
             height: 50px;
         }
-        .verDenuncias{
+
+        .verDenuncias {
             margin-left: 5px;
         }
     }
 
-    @media screen and (max-width: 760px){
-        #home-image{
+    @media screen and (max-width: 760px) {
+        #home-image {
             max-height: 220px;
             max-width: 380px;
         }
     }
 
-    @media screen and (max-width: 550px){
-        #home_container{
+    @media screen and (max-width: 550px) {
+        #home_container {
             justify-content: space-evenly;
         }
-        #home-image{
+
+        #home-image {
             max-height: 100%;
             max-width: 100%;
         }
-        #logo-text{
+
+        #logo-text {
             justify-content: center;
         }
-        #slogan{
+
+        #slogan {
             font-size: 2rem;
             text-align: center;
             margin-left: 0;
         }
-        .logo-slogan{
+
+        .logo-slogan {
             justify-content: center;
         }
-        .logo-slogan-imagem{
+
+        .logo-slogan-imagem {
             flex-direction: column;
         }
-        .buttons{
+
+        .buttons {
             justify-content: space-around;
             width: 100%;
         }
-        .buttons button{
+
+        .buttons button {
             height: 50px;
             width: 150px;
         }
-        .verDenuncias, .denunciar{
+
+        .verDenuncias,
+        .denunciar {
             margin-left: 0;
             margin-top: 5px;
         }
     }
-
-
 </style>
+
+</html>
