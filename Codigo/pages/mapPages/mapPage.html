@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIT</title>
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/all.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/cit.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+    <script src="/assets/js/jquery-3.2.1.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="/assets/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <link rel="icon" href="/static/favicon.ico" />
+</head>
+
+<body>
+
+    <div id="mapPageContainer">
+
+        <div class="side">
+            <div class="imageDiv">
+                <img src="/assets/img/citlogo.svg" alt="">
+            </div>
+            
+            <h1>
+                Escolha o local do problema
+            </h1>
+            <p>
+                Muitos políticos vão ficar com raiva de ti :)
+            </p>
+        </div>
+
+        <main class="mapDiv">
+            <div class="searchDiv">
+                <p class="font-roboto">Pesquisar Localização:</p>
+                <div class="inputDiv">
+                    <input type="text">
+                </div>
+                
+            </div>
+
+            <div id="map"></div>
+
+        </main>
+
+        
+
+    </div>
+
+</body>
+
+<style>
+
+    #mapPageContainer{
+        display: flex;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .side{
+        background: linear-gradient(329.54deg, #38AE90 0%, #4DCBAB 100%);
+        height:  100vh;
+        padding: 50px 6.5%;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+    }
+    .side .imageDiv{
+        margin: 0 0 50px -20px;
+    }
+    .imageDiv img{
+        width: 128px;
+        height: 128px;
+    }
+    .side h1{
+        font-size: 2.4rem;
+        font-family: 'Nunito', sans-serif;
+        text-align: left;
+        max-width: 200px;
+        color: white;
+    }
+    .side p{
+        font-size: 1rem;
+        font-family: 'Roboto', sans-serif;
+        text-align: left;
+        max-width: 200px;
+        color: white;
+        margin: 0;
+    }
+
+    .mapDiv{
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+    #map{
+        width: 100%;
+        height: 100%;
+    }
+
+    .searchDiv{
+        width: 100%;
+        position: absolute;
+        top: 10px;
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .searchDiv p{
+        width: 70%;
+        margin: 0;
+    }
+    .searchDiv .inputDiv{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .searchDiv input{
+        box-sizing: border-box;
+        border-width: 1px;
+        border-radius: 20px;
+        width: 75%;
+        height: 2.5rem;
+        padding: 0 2.5%;
+    }
+
+    @media screen and (max-height: 435px){
+        .side{
+            padding: 20px 8%;
+        }
+        .side .imageDiv{
+            margin-bottom: 0;
+        }
+        .side .imageDiv img{
+            width: 89px;
+            height: 89px;
+        }
+        .side h1{
+            font-size: 1.8rem;
+            max-width: 100px;
+            color: white;
+        }
+        .side p{
+            font-size: 0.8rem;
+            font-family: 'Roboto', sans-serif;
+            text-align: left;
+            max-width: 100px;
+            color: white;
+        }
+    }
+    @media screen and (max-height: 312px){
+        .side p{
+            display: none;
+        }
+    }
+    @media screen and (max-width: 500px){
+        #mapPageContainer{
+            flex-direction: column;
+        }
+        .side{
+            height:  100vh;
+            padding: 20px;
+            height: inherit;
+            max-height: 35vh;
+            justify-content: center;
+            align-items: center;
+        }
+        .side .imageDiv{
+            margin-bottom: 0;
+        }
+        .side .imageDiv img{
+            width: 83px;
+            height: 83px;
+        }
+        .side h1{
+            font-size: 1.6rem;
+            max-width: 100%;
+            color: white;
+            text-align: center;
+        }
+        .side p{
+            font-size: 0.8rem;
+            font-family: 'Roboto', sans-serif;
+            text-align: left;
+            max-width: 100%;
+            color: white;
+            text-align: center;
+        }
+    }
+
+</style>
+
+<script>
+    var map = L.map('map').setView([-12.5, -50], 4);
+
+    /*L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);*/
+
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken: 'pk.eyJ1IjoiZ3Vpem9tYmFzIiwiYSI6ImNrZzh3NGp6bjA1enMzMHBscG9zdDczZXMifQ.8ULeoifXn389Szz2H9QMAQ'
+    }).addTo(map);
+
+    const icon = L.icon({
+        iconUrl: '/assets/img/citlogo.svg',
+
+        iconSize:     [38, 95], // size of the icon
+        iconAnchor:   [20, 62], // point of the icon which will correspond to marker's location
+        popupAnchor:  [0, -30] // point from which the popup should open relative to the iconAnchor
+    })
+
+    var marker = L.marker([-19.23, -45], {icon});
+    marker.addTo(map)
+    marker.bindPopup('Cano estourado<br>Rua Oliveiras n99');
+
+    L.marker([-19.9, -43.9], {icon})
+        .addTo(map)
+        .bindPopup('Buraco no pavimento<br>Rua Monteiro Lobato n548');
+
+
+
+</script>
+
+</html>
