@@ -7,9 +7,7 @@
     <title>CIT</title>
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/css/all.min.css" crossorigin="anonymous">
-    <script src="../assets/js/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="../assets/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
@@ -26,75 +24,63 @@
                 </a>
                 <img src="../assets/img/citlogo.svg" width="150px" alt="CIT Logo" class="d-block m-auto">
                 <h3 class="auth-container-title text-center">CIT</h3>
-                <ul class="nav nav-tabs">
-                    <li class="nav-item">
-                        <a class="nav-link" :class="tab == 'F' ? 'active': ''" @click="tab = 'F'">
-                            Sou Pessoa Física
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" :class="tab == 'I' ? 'active': ''" @click="tab = 'I'">
-                            Sou uma instituição
-                        </a>
-                    </li>
-                </ul>
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link active" id="nav-fisica-tab" data-toggle="tab" href="#nav-fisica" role="tab" aria-controls="nav-fisica" aria-selected="true">Sou Pessoa Física</a>
+                        <a class="nav-item nav-link" id="nav-instituicao-tab" data-toggle="tab" href="#nav-instituicao" role="tab" aria-controls="nav-instituicao" aria-selected="false">Sou uma instituição</a>
+                    </div>
+                </nav>
+                
                 <br>
-                <!-- Pessoa Física -->
-                <div v-if="tab == 'F'">
-                    <form id="formCidadao">
-                        <div class="form-group">
-                            <label for="txtNomeCidadao">Nome completo</label>
-                            <input v-model="formDataCidadao.cidadao_nome" type="text" class="form-control"
-                                id="txtNomeCidadao">
-                        </div>
-                        <div class="form-group">
-                            <label for="txtEmailCidadao">E-Mail</label>
-                            <input v-model="formDataCidadao.cidadao_email" type="email" class="form-control"
-                                id="txtEmailCidadao">
-                        </div>
-                        <div class="form-group">
-                            <label for="txtCPF">CPF</label>
-                            <input v-model="formDataCidadao.cidadao_cpf" v-mask="['###.###.###-##']" type="text"
-                                required class="form-control" id="txtCPF">
-                        </div>
-                        <div class="form-group">
-                            <label for="txtSenhaCidadao">Senha</label>
-                            <div class="input-group">
-                                <input v-model="formDataCidadao.cidadao_senha"
-                                    :type="instPasswordShow ? 'text' : 'password'" class="form-control"
-                                    id="txtSenhaCidadao">
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="button"
-                                        @click="instPasswordShow = !instPasswordShow">
-                                        <i class="fas fa-eye"></i>
-                                    </button>
+
+                <div class="tab-content" id="nav-tabContent">
+                    <!-- Pessoa Física -->
+                    <div class="tab-pane fade show active" id="nav-fisica" role="tabpanel" aria-labelledby="nav-fisica-tab">
+                        <form id="formCidadao">
+                            <div class="form-group">
+                                <label for="txtNomeCidadao">Nome completo</label>
+                                <input type="text" class="form-control" id="txtNomeCidadao">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtEmailCidadao">E-Mail</label>
+                                <input type="email" class="form-control" id="txtEmailCidadao">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtCPF">CPF</label>
+                                <input type="text" required class="form-control" id="txtCPF">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtSenhaCidadao">Senha</label>
+                                <div class="input-group">
+                                    <input type="password" class="form-control txtPasswords" id="txtSenhaCidadao">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary btnShowPassword" type="button">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <button type="button" class="btn btn-primary float-right" @click="checkFormCidadao">
-                            Cadastrar
-                        </button>
-                    </form>
-                </div>
-                <!-- Usuário de Organização -->
-                <div v-else-if="tab == 'I'">
-                    <div v-if="stepInstituicao == 0">
-                        <form id="formInstiStep0" @submit="checkForm">
+                            <button type="button" class="btn btn-primary float-right" id="btnSubmitCidadao">
+                                Cadastrar
+                            </button>
+                        </form>
+                    </div>
+                    <!-- Usuário de Organização -->
+                    <div class="tab-pane fade" id="nav-instituicao" role="tabpanel" aria-labelledby="nav-instituicao-tab">
+                        <form id="formInstiStep0">
                             <div class="form-group">
                                 <label for="txtIdentificacao">Identificação</label>
-                                <input v-model="formData.nome" type="text" class="form-control" required
-                                    id="txtIdentificacao">
+                                <input type="text" class="form-control" required id="txtIdentificacao">
                             </div>
                             <div class="form-group">
                                 <label for="txtCNPJ">CNPJ</label>
-                                <input v-model="formData.cnpj" v-mask="['##.###.###/####-##']" type="text" required
-                                    class="form-control" id="txtCNPJ">
+                                <input v-model="formData.cnpj" type="text" required class="form-control" id="txtCNPJ">
                             </div>
                             <div class="row">
                                 <div class="col-12 col-md-5">
                                     <div class="form-group">
                                         <label>Estado</label>
-                                        <select v-model="formData.uf" class="form-control" required>
+                                        <select id="cbEstado" class="form-control" required>
                                             <option value="AC">Acre</option>
                                             <option value="AL">Alagoas</option>
                                             <option value="AP">Amapá</option>
@@ -128,47 +114,43 @@
                                 <div class="col-12 col-md-7">
                                     <div class="form-group">
                                         <label for="txtCidade">Cidade</label>
-                                        <input v-model="formData.cidade" type="text" required class="form-control"
-                                            id="txtCidade">
+                                        <input type="text" required class="form-control" id="txtCidade">
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="txtDescricao">Descrição</label>
-                                <textarea v-model="formData.descricao" class="form-control auth-container-textarea"
-                                    id="txtDescricao"></textarea>
+                                <textarea class="form-control auth-container-textarea" id="txtDescricao"></textarea>
                                 </div>
-                            <button type="button" class="btn btn-primary float-right" @click="stepInstituicao = 1">
+                            <button type="button" class="btn btn-primary float-right" id="btnInstituicaoNextStep">
                                 Próximo Passo
                             </button>
                             <br><br>
-                        </form>    
-                    </div>
-                    <div v-else-if="stepInstituicao == 1">
-                        <form>
+                        </form>
+                        <form id="formInstiStep1">
                             <div class="form-group">
                                 <label for="txtNome">Nome</label>
-                                <input v-model="formData.usuario_nome" type="text" class="form-control" id="txtNome">
+                                <input type="text" class="form-control" id="txtNome">
                             </div>
                             <div class="form-group">
                                 <label for="txtEmail">E-Mail</label>
-                                <input v-model="formData.usuario_email" type="email" class="form-control" id="txtEmail">
+                                <input type="email" class="form-control" id="txtEmail">
                             </div>
                             <div class="form-group">
                                 <label for="txtSenha">Senha</label>
                                 <div class="input-group">
-                                    <input v-model="formData.usuario_senha" :type="instPasswordShow ? 'text' : 'password'" class="form-control" id="txtSenha">
+                                    <input type="password" class="form-control txtPasswords" id="txtSenha">
                                     <div class="input-group-append">
-                                        <button class="btn btn-outline-secondary" type="button" @click="instPasswordShow = !instPasswordShow">
+                                        <button class="btn btn-outline-secondary btnShowPassword" type="button">
                                             <i class="fas fa-eye"></i>
                                         </button>
                                     </div>
                                 </div>
                             </div>
-                            <button type="button" class="btn btn-outline-secondary" @click="stepInstituicao = 0">
+                            <button type="button" class="btn btn-outline-secondary" id="btnInstituicaoVoltar">
                                 Voltar
                             </button>
-                            <button type="button" class="btn btn-primary float-right" @click="checkForm">
+                            <button type="button" class="btn btn-primary float-right" id="btnInstituicaoSubmit">
                                 Cadastrar
                             </button>
                         </form>
@@ -180,10 +162,91 @@
 
 </body>
 
+<script>
+    $(function() { // Linha equivalente a:  document.addEventListener("DOMContentLoaded", function(event) { });
+        $("#btnInstituicaoNextStep").click(function() { // Equivalente a: document.getElementById("btnInstituicaoNextStep").addEventListener("click", function(){});
+            $("#formInstiStep0").hide(); //Equivalente a: document.getElementById("formInstiStep0").style.display = "none";
+            $("#formInstiStep1").show(); //Equivalente a: document.getElementById("formInstiStep1").style.display = "block";
+        });
+        $("#btnInstituicaoVoltar").click(function() {
+            $("#formInstiStep1").hide();
+            $("#formInstiStep0").show();
+        });
+        $(".btnShowPassword").click(function() { // Equivalente a: document.querySelectorAll("btnShowPassword").addEventListener("click", function(){});
+            if($(".txtPasswords").first().attr('type') == 'text') $(".txtPasswords").attr('type', 'password');
+            else $(".txtPasswords").attr('type', 'text');
+        });
+        $("#btnSubmitCidadao").click(function() {
+            // Requisição Jquery Ajax, equivalente ao método fetch do js puro
+            if(!$("#txtNomeCidadao").val() || !$("#txtEmailCidadao").val() || !$("#txtSenhaCidadao").val()) {
+                alert("Campo nome, email e senha obrigatórios!");
+                return;
+            }
+            $.ajax({
+                url: "http://52.188.152.85:81/cidadao",
+                type: "POST",
+                data: {
+                    cidadao_nome: $("#txtNomeCidadao").val(),
+                    cidadao_email: $("#txtEmailCidadao").val(),
+                    cidadao_cpf: $("#txtCPF").val(),
+                    cidadao_senha: $("#txtSenhaCidadao").val()
+                },
+                success: function(data, status){
+                    alert("Cidadao cadastrado");
+                    $("#txtNomeCidadao").val(""); //Equivalente a: document.getElementById("txtNomeCidadao").value = "";
+                    $("#txtEmailCidadao").val("");
+                    $("#txtCPF").val("");
+                    $("#txtSenhaCidadao").val("");
+                },
+                error: function(data, status){
+                    alert("Erro ao cadastrar");
+                },
+            });
+        });
+        $("#btnInstituicaoSubmit").click(function() {
+            if(!$("#txtIdentificacao").val() || !$("#txtCNPJ").val() || !$("#cbEstado").val() || !$("#txtSenha").val() || !$("#txtCidade").val() || !$("#txtNome").val() || !$("#txtEmail").val() ) {
+                alert("Todos os campos são obrigatórios!");
+                return;
+            }
+            $.ajax({
+                url: "http://52.188.152.85:81/organizacao",
+                type: "POST",
+                data: {
+                    nome: $("#txtIdentificacao").val(),
+                    descricao: $("#txtDescricao").val(),
+                    cnpj: $("#txtCNPJ").val(),
+                    uf: $("#cbEstado").val(),
+                    cidade: $("#txtCidade").val(),
+                    usuario_email: $("#txtEmail").val(),
+                    usuario_nome: $("#txtNome").val(),
+                    usuario_senha: $("#txtSenha").val()
+                },
+                success: function(data, status){
+                    alert("Instituição cadastrada");
+                    $("#txtIdentificacao").val(""),
+                    $("#txtDescricao").val(""),
+                    $("#txtCNPJ").val(""),
+                    $("#cbEstado").val(""),
+                    $("#txtCidade").val(""),
+                    $("#txtEmail").val(""),
+                    $("#txtNome").val(""),
+                    $("#txtSenha").val("")
+                },
+                error: function(data, status){
+                    alert("Erro ao cadastrar");
+                },
+            });
+        })
+    });
+</script>
+
 <style>
 
     #formCidadao{
         height: 400px;
+    }
+    #formInstiStep1{
+        display: none;
     }
 
     a{
