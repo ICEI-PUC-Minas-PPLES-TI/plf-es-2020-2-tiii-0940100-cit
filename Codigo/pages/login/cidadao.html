@@ -76,6 +76,7 @@
                         alert("Cidadao logado");
                         $("#txtEmail").val(""); //Equivalente a: document.getElementById("txtEmail").value = "";
                         $("#txtSenha").val("");
+                        window.location.href = "../dashboard/cidadao.html";
                     },
                     error: function(data, status){
                         alert("Erro ao fazer login");
