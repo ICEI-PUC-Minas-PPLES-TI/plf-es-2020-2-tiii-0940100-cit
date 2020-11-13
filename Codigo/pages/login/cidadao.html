@@ -6,9 +6,7 @@
     <title>CIT</title>
     <link rel="stylesheet" href="../../assets/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="../../assets/css/all.min.css" crossorigin="anonymous">
-    <script src="../../assets/js/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="../../assets/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
@@ -32,20 +30,20 @@
                 <form>
                     <div class="form-group">
                         <label for="txtEmail">E-Mail</label>
-                        <input v-model="formData.email" type="email" class="form-control" id="txtEmail">
+                        <input type="email" class="form-control" id="txtEmail">
                     </div>
                     <div class="form-group">
                         <label for="txtSenha">Senha</label>
                         <div class="input-group">
-                            <input v-model="formData.senha" :type="instPasswordShow ? 'text' : 'password'" class="form-control" id="txtSenha">
+                            <input type="password" class="form-control txtPasswords" id="txtSenha">
                             <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="button" @click="instPasswordShow = !instPasswordShow">
+                                <button class="btn btn-outline-secondary btnShowPassword" type="button">
                                     <i class="fas fa-eye"></i>
                                 </button>
                             </div>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-primary float-right" @click="login">
+                    <button type="button" class="btn btn-primary float-right" id="btnSubmit">
                         Entrar
                     </button>
                     <br><br>
@@ -55,6 +53,38 @@
     </div>
 
 </body>
+
+<script>
+    $(function() {
+        $(".btnShowPassword").click(function() { // Equivalente a: document.querySelectorAll("btnShowPassword").addEventListener("click", function(){});
+            if($(".txtPasswords").first().attr('type') == 'text') $(".txtPasswords").attr('type', 'password');
+            else $(".txtPasswords").attr('type', 'text');
+        });
+
+        $("#btnSubmit").click(function() {
+            if(!$("#txtEmail").val() && !$("#txtSenha").val()){
+                alert("Todos os campos são obrigatórios!")
+            } else {
+                $.ajax({
+                    url: "http://52.188.152.85:81/cidadaousuario",
+                    type: "POST",
+                    data: {
+                        email: $("#txtEmail").val(),
+                        senha: $("#txtSenha").val()
+                    },
+                    success: function(data, status){
+                        alert("Cidadao logado");
+                        $("#txtEmail").val(""); //Equivalente a: document.getElementById("txtEmail").value = "";
+                        $("#txtSenha").val("");
+                    },
+                    error: function(data, status){
+                        alert("Erro ao fazer login");
+                    },
+                });
+            }
+        });
+    })
+</script>
 
 <style>
     .auth-background{
