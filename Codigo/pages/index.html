@@ -8,9 +8,7 @@
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/css/all.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/css/cit.css">
-    <script src="../assets/js/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="../assets/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
@@ -21,7 +19,23 @@
 
     <div id="home_container">
 
-        <p id="auth" class="text-right" ><a href="../pages/login/cidadao.html">Login</a> | <a href="../pages/register.html">Registro</a></p>
+        <span id="auth" class="text-right">
+            <div class="cit-dropdown">
+                <a class="cit-dropbtn">Login</a>
+                <div class="cit-dropdown-content">
+                    <a href="../pages/login/cidadao.html"> 
+                        <i class="fas fa-user"></i>
+                        Cidadão
+                    </a>
+                    <a href="../pages/login/organizacao.html">
+                        <i class="fas fa-users"></i>
+                        Instituição
+                    </a>
+                </div>
+            </div>
+            |
+            <a href="../pages/register.html">Registro</a>
+        </span>
                 
         
 
@@ -54,7 +68,7 @@
                 </div>
 
                 
-                <p id="totalDenuncias" class="d-block text-center"> Total de {{ totalDenuncias.qtd }} denúncias já efetuadas!</p>
+                <p id="totalDenuncias" class="d-block text-center"> Total de <span id="lblCountDenuncia"> 0 </span> denúncias já efetuadas!</p>
 
             </div>
         </div>
@@ -63,6 +77,21 @@
     </div>
 
 </body>
+
+<script>
+    $(function() {
+        $.ajax({
+            url: "http://52.188.152.85:81/test",
+            type: "GET",
+            success: function(data, status){
+                $("#lblCountDenuncia").text(data.cnt);
+            },
+            error: function(data, status){
+                console.log("Erro ao buscar denuncias");
+            },
+        });
+    })
+</script>
 
 <style>
 
@@ -85,8 +114,8 @@
 
     #auth{
         position: absolute;
-        right: 5px;
-        top: 0;
+        right: 25px;
+        top: 10px;
         font-family: 'Roboto', sans-serif;
         z-index: 999;
     }
@@ -159,6 +188,42 @@
         justify-content: space-around;
         align-items: center;
     }
+
+    /* Dropdown Button */
+    .cit-dropbtn {
+        color: white;
+    }
+
+    /* The container <div> - needed to position the dropdown content */
+    .cit-dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    /* Dropdown Content (Hidden by Default) */
+    .cit-dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 130px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+    /* Links inside the dropdown */
+    .cit-dropdown-content a {
+        color: #333 !important;
+        text-align: left;
+        padding: 12px 8px;
+        text-decoration: none;
+        display: block;
+    }
+
+    /* Change color of dropdown links on hover */
+    .cit-dropdown-content a:hover {background-color: #ddd;}
+
+    /* Show the dropdown menu on hover */
+    .cit-dropdown:hover .cit-dropdown-content {display: block;}
 
     @media screen and (max-height: 560px){
         #home-image{
