@@ -14,12 +14,8 @@
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
     crossorigin=""></script>
-    <script src="/assets/js/jquery-3.2.1.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="/assets/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+    <script src="/assets/js/jquery-3.2.1.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
     <link rel="icon" href="/static/favicon.ico" />
 </head>
 
@@ -33,7 +29,7 @@
             </div>
             
             <h1>
-                Escolha o local do problema
+                Escolha o local do problema 
             </h1>
             <p>
                 Muitos políticos vão ficar com raiva de ti :)
@@ -44,7 +40,8 @@
             <div class="searchDiv">
                 <p class="font-roboto">Pesquisar Localização:</p>
                 <div class="inputDiv">
-                    <input type="text">
+                    <input type="text" id="searchRegion">
+                    <i id="searchButton" class="fas fa-search-location"></i>
                 </div>
                 
             </div>
@@ -125,7 +122,7 @@
         width: 100%;
         display: flex;
         align-items: center;
-        flex-direction: column;
+        justify-content: center;
     }
     .searchDiv input{
         box-sizing: border-box;
@@ -134,6 +131,10 @@
         width: 75%;
         height: 2.5rem;
         padding: 0 2.5%;
+    }
+    .searchDiv i{
+        margin-left: -40px;
+        font-size: 1.8rem;
     }
 
     @media screen and (max-height: 435px){
@@ -203,7 +204,61 @@
 </style>
 
 <script>
+
+
+    //Funções
+    const handleSearch = () =>{
+
+        const busca = document.getElementById('searchRegion').value
+
+        //requisição ao map box
+        fetch(
+            'https://api.mapbox.com/geocoding/v5/mapbox.places/' + busca + '.json?country=br&access_token=pk.eyJ1IjoiZ3Vpem9tYmFzIiwiYSI6ImNrZzh3NGp6bjA1enMzMHBscG9zdDczZXMifQ.8ULeoifXn389Szz2H9QMAQ', 
+            {method: 'GET',
+             mode:'cors'}
+        )
+        .then ( fullRes => fullRes.json() )
+        .then ( res => {
+
+            //pegando coordenadas retornadas no primeiro resultado apresentado
+            let [lat,lng] = res.features[0].center;
+            // o zoom depende do lugar que está sendo pedido
+            let zoom;
+            switch (res.features[0].place_type[0]){
+                case "place":
+                case "region":
+                case "district":
+                    zoom = 14
+                    break;
+                case "locality":
+                case "neighborhood":
+                    zoom = 15
+                    break;
+                default:
+                    zoom = 17
+            }
+
+            map.setView([lng, lat], zoom);
+            //Talvez eu faça esse negócio de mostrar todas as respostas pro user e pedir p escolher
+            //Por enquanto só to pegando o primeiro resultado e fodas msm
+            /*res.features.forEach( place =>{
+
+                //formatar dados
+                console.log(place);
+
+            })*/
+        })
+        .catch ( error =>{console.log(error);})
+    }
+
+
+    // Atribuição de funções para eventos
+    $('#searchButton').click( handleSearch )
+
+    // Configuração do mapa com Leaflet
+
     var map = L.map('map').setView([-12.5, -50], 4);
+
 
     /*L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
