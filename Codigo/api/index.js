@@ -3,6 +3,11 @@ const express = require('express')
 // Create express instance
 const app = express()
 
+//configuração de cors
+//coloquei isso p poder testar, em produção acho q podemos tirar
+const cors = require('cors');
+app.use(cors());
+
 
 app.use(express.json());       // to support JSON-encoded bodies
 app.use(express.urlencoded());

@@ -24,6 +24,9 @@
     <div id="mapPageContainer">
 
         <div class="side">
+            <a class="btn btn-outline-success backbtn" href="../../pages/index.html">
+                <i class="fas fa-arrow-left"></i>
+            </a>
             <div class="imageDiv">
                 <img src="/assets/img/citlogo.svg" alt="">
             </div>
@@ -37,16 +40,32 @@
         </div>
 
         <main class="mapDiv">
+
             <div class="searchDiv">
+
                 <p class="font-roboto">Pesquisar Localização:</p>
-                <div class="inputDiv">
-                    <input type="text" id="searchRegion">
-                    <i id="searchButton" class="fas fa-search-location"></i>
-                </div>
+
+                <form id="searchForm">
+                    <div class="inputDiv">
+
+                        <input type="text" id="searchRegion">
+
+                        <button type="submit" class="nobtn">
+                            <i id="searchButton" class="fas fa-search-location"></i>
+                        </button>
+
+                    </div>
+                </form>
                 
             </div>
 
+
             <div id="map"></div>
+
+
+            <a href="#" class="addDenuncia btn btn-outline-success">
+                <i class="fas fa-plus"></i>
+            </a>
 
         </main>
 
@@ -118,6 +137,9 @@
         width: 70%;
         margin: 0;
     }
+    .searchDiv #searchForm{
+        width: 100%;
+    }
     .searchDiv .inputDiv{
         width: 100%;
         display: flex;
@@ -132,9 +154,71 @@
         height: 2.5rem;
         padding: 0 2.5%;
     }
-    .searchDiv i{
+    .searchDiv .nobtn{
+        border: none;
         margin-left: -40px;
+    }
+    .searchDiv i{
         font-size: 1.8rem;
+    }
+
+    /* Estilização do popup de marcação do mapa */
+    .leaflet-popup-content{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .leaflet-popup-content .popupText{
+        display: flex;
+        flex-direction: column;
+    }
+    .leaflet-popup-content .popupButton{
+        color: black;
+        background-color: #4DCBAB;
+        margin-left: 15px;
+        padding: 10px 12px;
+        border-radius: 10px;
+        transition: background-color 0.3s;
+    }
+    .leaflet-popup-content .popupButton:hover{
+        background-color: #38AE90;
+    }
+    .leaflet-popup-content .popupButton i{
+        font-size: larger;
+    }
+    a.leaflet-popup-close-button {
+        display: none;
+    }
+
+    .backbtn{
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        color:#046444;
+        border-color: #046444;
+    }
+    .backbtn:hover{
+        background-color: #046444;
+        border-color: #046444;
+        color: #4DCBAB;
+    }
+
+    .addDenuncia{
+        position: absolute;
+        z-index: 999;
+        bottom: 40px;
+        right: 15px;
+        background-color: #38AE90;
+        border-color: #38AE90;
+        color: white;
+    }
+    .addDenuncia:hover{
+        background-color: rgba(0, 0, 0, 0);
+        border-color: #046444;
+        color: #046444;
+    }
+    .addDenuncia i{
+        font-size: 2.4rem;
     }
 
     @media screen and (max-height: 435px){
@@ -207,8 +291,9 @@
 
 
     //Funções
-    const handleSearch = () =>{
-
+    const handleSearch = (event) =>{
+        event.preventDefault();
+        
         const busca = document.getElementById('searchRegion').value
 
         //requisição ao map box
@@ -253,17 +338,18 @@
 
 
     // Atribuição de funções para eventos
-    $('#searchButton').click( handleSearch )
+    $('#searchForm').submit( handleSearch );
 
     // Configuração do mapa com Leaflet
 
     var map = L.map('map').setView([-12.5, -50], 4);
 
-
+    //estilização gratuita mas esteticamente menos agradável
     /*L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);*/
 
+    //importando estilização do mapa do mapbox
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
         maxZoom: 18,
@@ -273,6 +359,7 @@
         accessToken: 'pk.eyJ1IjoiZ3Vpem9tYmFzIiwiYSI6ImNrZzh3NGp6bjA1enMzMHBscG9zdDczZXMifQ.8ULeoifXn389Szz2H9QMAQ'
     }).addTo(map);
 
+    //definindo icone personalizado para marcadores
     const icon = L.icon({
         iconUrl: '/assets/img/citlogo.svg',
 
@@ -281,13 +368,26 @@
         popupAnchor:  [0, -30] // point from which the popup should open relative to the iconAnchor
     })
 
-    var marker = L.marker([-19.23, -45], {icon});
-    marker.addTo(map)
-    marker.bindPopup('Cano estourado<br>Rua Oliveiras n99');
+    //requisição de todas denuncias para fazer um marcador de mapa para cada
+    fetch ('http://http://52.188.152.85:81/todasDenuncias', {method: 'GET'})
+    .then ( res => res.json())
+    .then ( jsonRes =>{
+        jsonRes.forEach(location => {
+            L.marker([location.latitude, location.longitude], {icon})
+                .addTo(map)
+                .bindPopup(
+                    `<div class="popupText">
+                        <span>${location.descricao}</span>
+                        <span>${location.logradouro}</span>
+                     </div>
+                     <a href="#" class="popupButton"> <i class="fas fa-arrow-right"></i> </a>`);
+        });
+    })
+    .catch ( error => {
+        console.log(error);
+    })
 
-    L.marker([-19.9, -43.9], {icon})
-        .addTo(map)
-        .bindPopup('Buraco no pavimento<br>Rua Monteiro Lobato n548');
+    
 
 
 
