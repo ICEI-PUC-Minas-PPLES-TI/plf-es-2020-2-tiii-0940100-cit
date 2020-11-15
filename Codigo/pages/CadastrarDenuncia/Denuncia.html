@@ -18,7 +18,7 @@
 <body>
 
     <div class="row p-0">
-        <div class="col-md-1">
+        <div class="col-md-2">
             <div class="side">
                 <a class="btn btn-outline-success backbtn" href="../../pages/index.html">
                     <i class="fas fa-arrow-left"></i>
@@ -26,86 +26,87 @@
                 <div class="imageDiv">
                     <img src="/assets/img/citlogo.svg" alt="">
                 </div>
-
-
                 <img src="../../assets/img/citlogo.svg" width="128px" height="128px" alt="">
             </div>
 
         </div>
 
-        <div class="col-md-6">
-            <div class="row">
-                <h1>Denunciar</h1>
-            </div>
-            <!--Localização do Problema-->
-            <div class="row">
-                <h3>Localização do Problema</h3>
-            </div>
-            <hr>
-            <div class="row">
-                <!--Colocar mapa aqui-->
-            </div>
-            <div class="row">
-                <label>Endereço</label>
-            </div>
-            <div class="row">
-                <input class="Endereco" type="text" disabled="">
-            </div>
-            <!--Sobere o Problema-->
-            <div class="row">
-                <h3>Sobere o Problema</h3>
-            </div>
-            <hr>
+            <div class="col-md-10">
+                <div class="row">
+                    <h1>Denunciar</h1>
+                </div>
+                <!--Localização do Problema-->
+                <div class="row">
+                    <h3>Localização do Problema</h3>
+                </div>
+                <hr>
+                <div class="row">
+                    <!--Colocar mapa aqui-->
+                </div>
+                <div class="row">
+                    <label>Endereço</label>
+                </div>
+                <div class="row">
+                    <input class="Endereco" type="text" disabled="">
+                </div>
+                <!--Sobere o Problema-->
+                <div class="row">
+                    <h3>Sobere o Problema</h3>
+                </div>
+                <hr>
 
-            <div class="row">
-                <label>Categoria</label>
-            </div>
-            <div class="row">
-                <select id="cboCidades">
-                    <option value=""></option>
-                    <option value="scs">teste 1</option>
-                    <option value="sa">teste 3</option>
-                    <option value="sbc">teste 2</option>
-                </select>
-            </div>
+                <div class="row">
+                    <label>Categoria</label>
+                </div>
+                <div class="row">
+                    <select id="cboCidades">
+                        <option value=""></option>
+                        <option value="scs">teste 1</option>
+                        <option value="sa">teste 3</option>
+                        <option value="sbc">teste 2</option>
+                    </select>
+                </div>
 
-            <div class="row">
-                <label>Descrição</label>
-            </div>
-            <div class="row">
-                <textarea class="Desc" type="text"></textarea>
-            </div>
+                <div class="row">
+                    <label>Descrição</label>
+                </div>
+                <div class="row">
+                    <textarea class="Desc" type="text"></textarea>
+                </div>
 
-            <div class="row">
-                <label>Foto</label>
-            </div>
-            <div class="row">
-                <input type="file" class="foto" />
-            </div>
+                <div class="row">
+                    <label>Foto</label>
+                </div>
+                <div class="row">
+                    <input type="file" class="foto" />
+                </div>
 
-            <div class="row">
-                <label>Fazer Denúncia de Forma Anônima</label>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-               <Button class="btn btn-outline-success backbtn">Sim</Button>
-              </div>
-              <div class="col-md-6">
-                <Button class="btn btn-outline-success backbtn">Não</Button>
-            </div>
-            </div>
+                <div class="row">
+                    <label>Fazer Denúncia de Forma Anônima</label>
+                </div>
 
+                <div class="row">
+                    <Button class="btn btn-outline-success sim">Sim</Button>
+                    <Button class="btn btn-outline-danger nao">Não</Button>
+                </div>
+
+                <label>
+                    <!--Apenas espaco--></label>
+
+                <div class="row">
+                    <Button class="btn btn-outline-success Confirmar">Confirmar</Button>
+                </div>
         </div>
 
-    <div>
+        <div>
 </body>
 
 </html>
 <style>
-    .foto{
+    .foto {
         border-radius: 20px;
     }
-    
+
     .side {
         background: linear-gradient(329.54deg, #38AE90 0%, #4DCBAB 100%);
         height: 100vh;
@@ -116,6 +117,21 @@
 
     hr {
         border-width: 2px;
+    }
+
+    .Confirmar {
+        height: 40px;
+        width: 30%;
+    }
+
+    .sim {
+        height: 40px;
+        width: 15%;
+    }
+
+    .nao {
+        height: 40px;
+        width: 15%;
     }
 
     .Endereco {
