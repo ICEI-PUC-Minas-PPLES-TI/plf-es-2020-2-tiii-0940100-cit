@@ -20,9 +20,12 @@
     
     <div class="row m-0 p-0">
 
-      <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 m-0 p-0">
-        <div id="lateral">
-          <img src="../../../assets/img/citlogo.svg" width="150px" alt="CIT Logo" class="d-block m-auto">
+      <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 m-0 p-0 position-relative">
+        <div id="lateral" class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+          <a id="voltar" class="btn btn-outline-secondary position-absolute m-1" href="../index.html">
+            <i class="fas fa-arrow-left"></i>
+          </a>
+          <img src="../../assets/img/citlogo.svg" width="150px" alt="CIT Logo" class="d-block m-auto">
           <hr>
           <h3>Número de denúncias: 3</h3>
           <hr>
@@ -40,9 +43,12 @@
 
           <div class="lista mb-5">
 
-            <div class="denuncia">
+            <div class="denuncia mb-2">
                   <div class="card-horizontal m-0 p-0" style="display: flex; background-color: #dadada;">
-                      <img class="p-2" src="http://via.placeholder.com/100x100" alt="Card image cap"/>
+                      <div class="dashboard-photos">
+                        <img class="p-2" src="https://picsum.photos/100" alt="Card image cap"/>
+                        <img class="p-2" src="https://picsum.photos/100" alt="Card image cap"/>
+                      </div>
                       <div class="card-body">
                         <h4 class="card-title"> R. Mestre Donana Pompéu-MG </h4>
                         <p class="card-text">"Por favor, arrumem esse buraco na rua, todos os dias quebro
@@ -56,7 +62,10 @@
 
               <div class="denuncia mb-2">
                 <div class="card-horizontal m-0 p-0" style="display: flex; background-color: #dadada;">
-                    <img class="p-2" src="http://via.placeholder.com/100x100" alt="Card image cap"/>
+                    <div class="dashboard-photos">
+                      <img class="p-2" src="https://picsum.photos/100" alt="Card image cap"/>
+                      <img class="p-2" src="https://picsum.photos/100" alt="Card image cap"/>
+                    </div>
                     <div class="card-body">
                       <h4 class="card-title"> R. Mestre Donana Pompéu-MG </h4>
                       <p class="card-text">"Por favor, arrumem esse buraco na rua, todos os dias quebro
@@ -70,7 +79,10 @@
 
             <div class="denuncia">
               <div class="card-horizontal m-0 p-0" style="display: flex; background-color: #dadada;">
-                  <img class="p-2" src="http://via.placeholder.com/100x100" alt="Card image cap"/>
+                  <div class="dashboard-photos">
+                    <img class="p-2" src="https://picsum.photos/100" alt="Card image cap"/>
+                    <img class="p-2" src="https://picsum.photos/100" alt="Card image cap"/>
+                  </div>
                   <div class="card-body">
                     <h4 class="card-title"> R. Mestre Donana Pompéu-MG </h4>
                     <p class="card-text">"Por favor, arrumem esse buraco na rua, todos os dias quebro
@@ -122,6 +134,7 @@
 #lateral {
   height: 100vh;
   background: #38ae90;
+  position: fixed;
 }
 
 #lateral hr{
@@ -131,6 +144,7 @@
 
 #lateral h3{
   padding: 8px 0;
+  font-size: 1.4rem;
   color: white;
   margin: auto;
   text-align: center;
@@ -159,6 +173,48 @@
   width: 100%;
 }
 
+.dashboard-photos{
+  position: relative;
+  height: 125px;
+  width: 125px;
+}
+.dashboard-photos img{
+  height: 80px;
+  width: 80px;
+  border-radius: 20px;
+}
+
+.dashboard-photos :first-child{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.dashboard-photos :last-child{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+@media only screen and (max-width: 768px) {
+  #lateral{
+    height: 350px;
+    position: relative;
+  }
+  .denuncia{
+    align-items: center;
+    text-align: center;
+  }
+  .card-horizontal{
+    align-items: center;
+    text-align: center;
+  }
+  .dashboard-photos :first-child,  .dashboard-photos :last-child {
+    position: relative;
+  }
+  .dashboard-photos{
+    height: auto;
+  }
+}
 
 </style>
 
