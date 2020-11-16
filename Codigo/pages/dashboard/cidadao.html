@@ -22,6 +22,9 @@
 
       <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 m-0 p-0">
         <div id="lateral">
+          <a id="voltar" class="btn btn-outline-secondary position-absolute m-1" href="../index.html">
+            <i class="fas fa-arrow-left"></i>
+          </a>
           <img src="../../../assets/img/citlogo.svg" width="150px" alt="CIT Logo" class="d-block m-auto">
           <hr>
           <h3>Número de denúncias: 3</h3>
@@ -40,9 +43,9 @@
 
           <div class="lista mb-5">
 
-            <div class="denuncia">
+            <div class="denuncia mb-2">
                   <div class="card-horizontal m-0 p-0" style="display: flex; background-color: #dadada;">
-                      <img class="p-2" src="http://via.placeholder.com/100x100" alt="Card image cap"/>
+                      <img class="p-2" src="http://via.placeholder.com/100x100" alt="Card image cap" width="116px" height="116px"/>
                       <div class="card-body">
                         <h4 class="card-title"> R. Mestre Donana Pompéu-MG </h4>
                         <p class="card-text">"Por favor, arrumem esse buraco na rua, todos os dias quebro
@@ -56,7 +59,7 @@
 
               <div class="denuncia mb-2">
                 <div class="card-horizontal m-0 p-0" style="display: flex; background-color: #dadada;">
-                    <img class="p-2" src="http://via.placeholder.com/100x100" alt="Card image cap"/>
+                    <img class="p-2" src="http://via.placeholder.com/100x100" alt="Card image cap" width="116px" height="116px"/>
                     <div class="card-body">
                       <h4 class="card-title"> R. Mestre Donana Pompéu-MG </h4>
                       <p class="card-text">"Por favor, arrumem esse buraco na rua, todos os dias quebro
@@ -70,7 +73,7 @@
 
             <div class="denuncia">
               <div class="card-horizontal m-0 p-0" style="display: flex; background-color: #dadada;">
-                  <img class="p-2" src="http://via.placeholder.com/100x100" alt="Card image cap"/>
+                  <img class="p-2" src="http://via.placeholder.com/100x100" alt="Card image cap" width="116px" height="116px"/>
                   <div class="card-body">
                     <h4 class="card-title"> R. Mestre Donana Pompéu-MG </h4>
                     <p class="card-text">"Por favor, arrumem esse buraco na rua, todos os dias quebro
@@ -159,6 +162,24 @@
   width: 100%;
 }
 
+@media only screen and (max-width: 768px) {
+  #lateral{
+    height: 350px;
+  }
+  .denuncia{
+    align-items: center;
+    text-align: center;
+  }
+  .card-horizontal{
+    align-items: center;
+    text-align: center;
+  }
+  .denuncia img{
+    margin-left: 5%;
+    height: 150px;
+    width: 150px;
+  }
+}
 
 </style>
 
