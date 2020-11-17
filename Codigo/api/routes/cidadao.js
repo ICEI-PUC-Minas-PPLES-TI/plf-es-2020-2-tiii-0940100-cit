@@ -12,19 +12,13 @@ router.post('/cidadaousuario', (req, res, next) => { // Não entendi e coloquei 
                         WHERE email = ?
                             AND senha = MD5(?)`,[req.body.email, req.body.senha],  // Acho que só precisa disso, o que é esses body?
                             function (error, results, fields) {
-        if (error){
-            res.writeHead(500, { 'Content-Type': 'application/json' });
-            res.write(JSON.stringify({ error: error.message }));
-        } else {
-            if(results.length == 0) {
-                res.writeHead(404, { 'Content-Type': 'application/json' });
-                res.write(JSON.stringify({ message: 'User not found!' }));
-            } else {
-                res.writeHead(200, { 'Content-Type': 'application/json' });
-                res.write(JSON.stringify(results[0])); // Se der errado e vier mais de 1 cidadão resposta, pega só os dados do primeiro?
-            }
-        }
-        res.end();
+        if (error)
+            res.status(500).json({ error: error.message });
+        else
+            if(results.length == 0)
+                res.status(404).json({ message: 'User not found!' });
+            else
+                res.json(results[0]);
     });
     connection.end();
 
@@ -44,20 +38,19 @@ router.post('/cidadao', (req, res, next) => {
 
     connection.query(`INSERT INTO cidadao (nome, email, senha, cpf) VALUES (?, ?, MD5(?), ?);`,[req.body.cidadao_nome, req.body.cidadao_email, req.body.cidadao_senha, cidadao_cpf],  function (error, results) {
         if (error){
-            res.statusCode = 500;
-            res.setHeader("Content-Type", "application/json");
-            res.write(JSON.stringify({ error: error.message }));
             connection.end();
+            res.status(500).json({ error: error.message });
         } else {
-            res.setHeader("Content-Type", "application/json");
-            res.statusCode = 200;
-            res.write(JSON.stringify({
+            connection.end();
+            res.json({
                 message: 'success',
                 created: true
-            }));
-            connection.end();
+            });
         }
-        res.end();
+        res.end({
+            message: 'success',
+            created: true
+        });
         
     })
 
