@@ -14,7 +14,7 @@ router.get('/todasDenuncias', async (req, res) => {
     const connection = await db.connect();
 
     // Retorna o error se houver, se não retorna o resultado
-    connection.query( query, (error, results, fields) => error?res.json(error):res.json(results))
+    connection.query( query, (error, results, fields) => error?res.status(500).json(error):res.json(results))
     connection.end();
 })
 

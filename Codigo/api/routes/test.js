@@ -10,9 +10,7 @@ router.get('/test', (req, res, next) => { // caminho da rota, ver resultado em p
   var connection = db.connect(); // Abrir conexão com o banco
   connection.query('SELECT COUNT(denuncia.id) AS cnt FROM denuncia', function (error, results, fields) {
     if (error) console.log(error);
-    res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.write(JSON.stringify(results[0]));
-    res.end();
+    res.json(results[0])
   });
   connection.end(); // Fechar conexão com o banco (Dá ruim se ficar só abrindo)
 })
