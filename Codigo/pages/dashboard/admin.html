@@ -6,11 +6,12 @@
     <title>CIT</title>
     <link rel="stylesheet" href="../../assets/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="../../assets/css/all.min.css" crossorigin="anonymous">
-    <script src="../../assets/js/jquery-3.2.1.min.js"
-        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../assets/css/cit.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="../../assets/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <link rel="icon" href="../../static/favicon.ico" />
+    <link rel="icon" href="../../../static/favicon.ico" />
 
 </head>
 <body>
@@ -20,14 +21,15 @@
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li class="sidebar-brand d-inline-flex">
+                <li class="sidebar-brand d-inline-flex pl-3 mt-2">
                     <img class="mt-2" src="../../assets/img/citlogo.svg" width="50px" height="50px" alt="">
-                    <a href="#">
-                        CIT
-                    </a>
+                    <a href="#">CIT</a>
                 </li>
                 <li>
                     <a href="#"><i class="fas fa-info-circle"></i> Visão Geral</a>
+                </li>
+                <li>
+                    <a href="../index.html"><i class="fas fa-exclamation-triangle"></i> Monitorar</a>
                 </li>
                 <li>
                     <a href="../index.html"><i class="fas fa-sign-out-alt"></i> Sair</a>
@@ -41,9 +43,40 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1>Indicadores</h1>
+                        <a href="#menu-toggle" class="btn btn-default m-0 p-0" style="color: black; font-size: 1.5rem;" id="menu-toggle"><i class="fas fa-bars"></i> Abrir Menu</a>
+                        <hr style="border-color: black; margin-left: 0;">
+                        <h1 class="mt-2 mb-3">Indicadores</h1>
                         
-                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Abrir</a>
+                        <div class="card mb-3">
+                            <div class="card-header">
+                              Denúncias
+                            </div>
+                            <div class="card-body">
+                              <h5 class="card-title">Denúncias efetuadas hoje</h5>
+                              <p class="card-text">Total: <span id="lblCountDenuncia"> 0 </span></p>
+                            </div>
+                        </div>
+
+                        <div class="card mb-3">
+                            <div class="card-header">
+                              Denúncias
+                            </div>
+                            <div class="card-body">
+                              <h5 class="card-title">Denúncias solucionadas</h5>
+                              <p class="card-text">Total: 0</p>
+                            </div>
+                        </div>
+
+                        <div class="card mb-3">
+                            <div class="card-header">
+                              Denúncias
+                            </div>
+                            <div class="card-body">
+                              <h5 class="card-title">Tempo médio para solução de denúncias</h5>
+                              <p class="card-text">Média: 1 dia(s)</p>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -58,6 +91,22 @@
   e.preventDefault();
   $("#wrapper").toggleClass("toggled");
 });
+</script>
+
+<script>
+    $(function() {
+        let today = new Date().toLocaleDateString()
+        $.ajax({
+            url: "http://52.188.152.85:81/test",
+            type: "GET",
+            success: function(data, status){
+                $("#lblCountDenuncia").text(data.cnt);
+            },
+            error: function(data, status){
+                console.log("Erro ao buscar denuncias");
+            },
+        });
+    })
 </script>
 
 </body>
