@@ -1,12 +1,17 @@
+require('dotenv').config()
 const express = require('express')
+var session = require('express-session')
 
 // Create express instance
 const app = express()
+
 
 //configuração de cors
 //coloquei isso p poder testar, em produção acho q podemos tirar
 const cors = require('cors');
 app.use(cors());
+
+app.use(session({ secret: process.env.SESSION_SECRET, cookie: { maxAge: 60000 }}))
 
 
 app.use(express.json());       // to support JSON-encoded bodies
