@@ -37,7 +37,6 @@ router.get('/denunciasProximas/:lat/:lng', async (req, res) => {
 
     await connection.query(query, (error, results, fields) => error?res.json(error):res.json(results))
     await connection.end()
-
 })
 
 module.exports = router
