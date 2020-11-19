@@ -5,18 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CIT</title>
-    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../assets/css/all.min.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../assets/css/cit.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/css/all.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/css/cit.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
     integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
     crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
     crossorigin=""></script>
-    <script src="../../assets/js/jquery-3.2.1.min.js"></script>
-    <script src="../../assets/js/bootstrap.min.js"></script>
-    <link rel="icon" href="../../static/favicon.ico" />
+    <script src="../assets/js/jquery-3.5.1.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <link rel="icon" href="../assets/icons/favicon.ico" />
 </head>
 
 <body>
@@ -24,11 +24,11 @@
     <div id="mapPageContainer">
 
         <div class="side">
-            <a class="btn btn-outline-success backbtn" href="../../pages/index.html">
+            <a class="btn btn-outline-success backbtn" href="../index.html">
                 <i class="fas fa-arrow-left"></i>
             </a>
             <div class="imageDiv">
-                <img src="../../assets/img/citlogo.svg" alt="">
+                <img src="../assets/img/citlogo.svg" alt="">
             </div>
             
             <h1>
@@ -63,7 +63,7 @@
             <div id="map"></div>
 
 
-            <a href="../CadastrarDenuncia/Denuncia.html" class="addDenuncia btn btn-outline-success">
+            <a href="cadastro.html" class="addDenuncia btn btn-outline-success">
                 <i class="fas fa-plus"></i>
             </a>
 
@@ -415,13 +415,13 @@
         .then( res => res.json() )
         .then( jsonRes => {
             if (jsonRes.length == 0)
-                window.location.href = `../CadastrarDenuncia/Denuncia.html?lat=${lat}&lng=${lng}`
+                window.location.href = `cadastro.html?lat=${lat}&lng=${lng}`
             else{
                 
                 $('#myModal .modal-body').html('<p>Alguma delas pode corresponder ao problema que você deseja denunciar</p>');
                 preencherModal(jsonRes)
                 $('#btnCriarDenunciaModal').click( () => {
-                    window.location.href = `../CadastrarDenuncia/Denuncia.html?lat=${lat}&lng=${lng}`
+                    window.location.href = `cadastro.html?lat=${lat}&lng=${lng}`
                 })
                 $('#myModal').modal('show')
             }
@@ -451,7 +451,7 @@
 
             $('#myModal .modal-body').append( content );
             $('#denuncia' + denuncia.id).click( () =>{
-                window.location.href = '../verDenuncia.html?id='+ denuncia.id
+                window.location.href = 'cadastro.html?id='+ denuncia.id
             })
 
         } )

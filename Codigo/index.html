@@ -5,77 +5,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CIT</title>
-    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="../assets/css/all.min.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="../assets/css/cit.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <script src="../assets/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-    <link rel="icon" href="../static/favicon.ico" />
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/all.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/cit.css">
+    <script src="./assets/js/jquery-3.5.1.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <link rel="icon" href="./assets/icons/favicon.ico" />
 </head>
 
 <body>
-
     <div id="home_container">
-
         <span id="auth" class="text-right">
             <div class="cit-dropdown">
                 <a class="cit-dropbtn">Login</a>
                 <div class="cit-dropdown-content">
-                    <a href="../pages/login/cidadao.html"> 
+                    <a href="./login/cidadao.html"> 
                         <i class="fas fa-user"></i>
                         Cidadão
                     </a>
-                    <a href="../pages/login/organizacao.html">
+                    <a href="./login/organizacao.html">
                         <i class="fas fa-users"></i>
                         Instituição
                     </a>
                 </div>
             </div>
             |
-            <a href="../pages/register.html">Registro</a>
+            <a href="register.html">Registro</a>
         </span>
-                
-        
-
         <div class="logo-slogan-imagem">
-
             <div class="logo-slogan">
-
                 <div id="logo-text">
                     <img src="../assets/img/citlogo.svg" width="128px" height="128px" alt="">
                     <h1 >CIT</h1>
                 </div>
-
                 <p id="slogan"> Todos juntos por cidades melhores! </p>
-
             </div>
-
-           
             <img id="home-image" src="../assets/img/home-image.png" alt="home image">
-            
-        
         </div>
-
         <div>
-
             <div class="footer">
-
                 <div class="buttons">
-                        <a href="./denunciar.html"><button class="btn denunciar"><i class="fas fa-exclamation-triangle"></i> Denunciar</button></a>
-                        <a href="./mapPages/mapPage.html"><button class="btn verDenuncias"> <i class="far fa-eye"></i> Ver denúncias</button></a>
+                    <a href="./denuncia/cadastro.html"><button class="btn denunciar"><i class="fas fa-exclamation-triangle"></i> Denunciar</button></a>
+                    <a href="./denuncia/mapadenuncia.html"><button class="btn verDenuncias"> <i class="far fa-eye"></i> Ver denúncias</button></a>
                 </div>
-
-                
                 <p id="totalDenuncias" class="d-block text-center"> Total de <span id="lblCountDenuncia"> 0 </span> denúncias já efetuadas!</p>
-
             </div>
         </div>
-
-
     </div>
-
 </body>
 
 <script>
