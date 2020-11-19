@@ -38,7 +38,7 @@
                         <a>
                             <img class="card-img-top" src="https://picsum.photos/720" alt="Card image cap" style="max-height: 250px;">
                             <div class="card-body">
-                                <h5 class="card-title">Clique para adicionar a localização</h5>
+                                <h5 class="card-title" id="addLoc">Clique para adicionar a localização</h5>
                             </div>
                         </a>
                     </div>
@@ -138,13 +138,19 @@ $(function() {
     background-color: #54D0B1;
 }
 
+#addLoc{
+    color: #66ccff;
+}
+
 #main{
     background-color: #EBF2F5;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
+#endereco{
+    background-color: lightgray;  
+}
 #main>#navegacao{
     position: absolute;
     top: 0;
