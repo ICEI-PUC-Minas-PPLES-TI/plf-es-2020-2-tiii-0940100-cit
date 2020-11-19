@@ -39,4 +39,30 @@ router.get('/denunciasProximas/:lat/:lng', async (req, res) => {
     await connection.end()
 })
 
+router.get('/denuncia/ranking', async (req, res) => {
+    let dtBegin, dtEnd, filtroEstado;
+    dtBegin = (req.query.dt_inicio)? req.query.dt_inicio: 'NOW() - INTERVAL 7 DAY'
+    dtEnd = (req.query.dt_fim)? req.query.dt_fim: 'NOW()'
+    filtroEstado = (req.query.uf)? `AND uf = '${req.query.uf}'`: ''
+
+    
+    const query = 
+    `SELECT municipio, COUNT(*) AS cnt
+        FROM denuncia
+        WHERE criado_em BETWEEN ${dtBegin} AND ${dtEnd} ${filtroEstado}
+        GROUP BY uf,municipio;`
+    const db = new Database();
+    const connection = await db.connect();
+
+    connection.query(query,[],  function (error, results, fields) {
+        if (error){
+            res.status(500).json({ error: error.message });
+        } else {
+            res.json(results);
+        }
+        res.end();
+    });
+    connection.end();
+})
+
 module.exports = router
