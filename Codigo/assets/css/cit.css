@@ -12,3 +12,25 @@
 .font-roboto{
     font-family: 'Roboto', sans-serif;
 }
+
+.cit-breadcrumb ol{
+    background: #f1f1f1;
+}
+
+.cit-lateral{
+    background: #38ae90;
+    min-height: 100vh;
+    padding: 0;
+}
+
+@media only screen and (max-width: 768px) {
+    .cit-lateral{
+        min-height: 350px;
+    }
+}
+
+/*Boostrap fix*/
+.row{
+    margin-left: 0;
+    margin-right: 0;
+}
