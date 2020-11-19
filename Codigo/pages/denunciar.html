@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Denunciar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/css/all.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/css/cit.css">
+    <link rel="icon" href="../static/favicon.ico" />
+</head>
+
+<body>
+
+    <div class="row m-0 p-0" style="background-color: #EBF2F5;">
+
+        <div id="lateral" class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2 m-0 p-0">
+            <img class="d-block pt-2 m-auto" src="../assets/img/citlogo.svg" width="128px" height="128px" alt="">
+        </div>
+        
+        <div id="main" class="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 m-0 p-0">
+
+            <div id="navegacao" class="row">
+                <nav class="cit-breadcrumb" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="./index.html"><i class="fas fa-home"></i> &nbsp; Início</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Denunciar</li>
+                    </ol>
+                </nav>
+            </div>
+            
+            <div class="row" id="formulario">
+                <h2>Denunciar</h2>
+                <h4>Localização do problema</h4>
+                <div id="mapa">
+                    <div class="card" style="width: 100%; border-radius: 16px;">
+                        <a>
+                            <img class="card-img-top" src="https://picsum.photos/720" alt="Card image cap" style="max-height: 250px;">
+                            <div class="card-body">
+                                <h5 class="card-title">Clique para adicionar a localização</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <label>Endereço</label>
+                <input id="endereco" class="d-block" type="text" disabled="">
+                <h4>Sobre o problema</h4>
+                <label>Categoria</label>
+                <div class="categorias">
+                    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                        <option selected>Escolha...</option>
+                        <option value="1">Hídrica</option>
+                        <option value="2">Elétrica</option>
+                        <option value="3">Estrutural</option>
+                      </select>
+                </div>
+                <label>Descrição</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <label style="margin-top: 5%; margin-bottom: 0; padding-bottom: 0;">Foto</label>
+                <div class="form-group" style="margin-left: 5%; padding-top: 0%; margin-top: 0; margin-bottom: 2%;">
+                    <div class="input-group input-file" name="Fichier1">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default btn-choose" type="button">Escolher</button>
+                        </span>
+                        <input type="text" class="form-control" placeholder='Selecione uma foto...' style="max-width: 50%; margin-left: 0; margin-right: 0;">
+                        <span class="input-group-btn">
+                            <button class="btn btn-warning btn-reset" type="button">Apagar</button>
+                        </span>
+                    </div>
+                </div>
+
+                <label class="d-block" id="anonimaL">Fazer Denúncia de Forma Anônima</label>
+                
+                <div id="anonimaB">
+                    <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-success active primeiro">
+                          <input type="radio" name="options" id="option1" autocomplete="off" checked> Não 
+                        </label>
+                        <label class="btn btn-success">
+                            <input type="radio" name="options" id="option2" autocomplete="off"> Sim
+                          </label>
+                      </div>
+                </div>
+
+                <div id="finalizar">
+                    <Button class="btn btn-outline-success Confirmar">Confirmar</Button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
+
+<script>
+    function bs_input_file() {
+	$(".input-file").before(
+		function() {
+			if ( ! $(this).prev().hasClass('input-ghost') ) {
+				var element = $("<input type='file' class='input-ghost' style='visibility:hidden; height:0'>");
+				element.attr("name",$(this).attr("name"));
+				element.change(function(){
+					element.next(element).find('input').val((element.val()).split('\\').pop());
+				});
+				$(this).find("button.btn-choose").click(function(){
+					element.click();
+				});
+				$(this).find("button.btn-reset").click(function(){
+					element.val(null);
+					$(this).parents(".input-file").find('input').val('');
+				});
+				$(this).find('input').css("cursor","pointer");
+				$(this).find('input').mousedown(function() {
+					$(this).parents('.input-file').prev().click();
+					return false;
+				});
+				return element;
+			}
+		}
+	);
+}
+$(function() {
+	bs_input_file();
+});
+</script>
+
+<style>
+    
+#lateral{
+    background-color: #54D0B1;
+}
+
+#main{
+    background-color: #EBF2F5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#main>#navegacao{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 2%;
+}
+
+#formulario{
+    background-color: white;
+    width: 50%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border: 1px solid #D3E2E5;
+    border-radius: 16px;
+    display: block;
+    /*align-items: center;
+    justify-content: center;*/
+    color: #4D6F80;
+}
+
+#formulario h2, h4{
+    margin: 0;
+    padding: 5% 0 1% 5%;
+    text-decoration: none;
+}
+
+#formulario>#mapa{
+    display: flex;
+    justify-content: center;
+    padding-right: 5%;
+    text-align: center;
+    padding: 5% 5% 1% 5%;
+}
+
+#formulario>label{
+    margin: 0;
+    padding: 2% 0 1% 5%;
+}
+
+#formulario input{
+    margin-left: 5%;
+    width: 89%;
+    margin-bottom: 5%;
+}
+
+#formulario select{
+    margin-left: 5%;
+    width: 88%;
+    margin-bottom: 5%;
+    padding-right: 0;
+}
+
+#formulario>textarea{
+    margin-left: 5%;
+    width: 89%;
+    resize: none;
+    padding-right: 0;
+}
+
+#formulario #foto{
+    margin-left: 5%;
+    width: 91%;
+}
+
+#formulario>#anonimaL{
+    padding-top: 0;
+    margin-bottom: 2.5%;
+}
+
+#formulario>#anonimaB{
+    display: flex;
+    margin-left: 5%;
+    align-items: center;
+    justify-content: right;
+}
+
+#anonimaB label{
+    display: flex;
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+#anonimaB .primeiro{
+    margin-right: 25%;
+}
+
+#finalizar{
+    margin-top: 8%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#finalizar>button{
+    margin: 0;
+    width: 90%;
+    margin-bottom: 40px;
+}
+
+
+</style>
