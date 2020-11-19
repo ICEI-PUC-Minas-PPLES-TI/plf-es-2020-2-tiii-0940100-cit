@@ -5,18 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CIT</title>
-    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="/assets/css/all.min.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="/assets/css/cit.css">
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../assets/css/all.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../assets/css/cit.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
     integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
     crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
     crossorigin=""></script>
-    <script src="/assets/js/jquery-3.2.1.min.js"></script>
-    <script src="/assets/js/bootstrap.min.js"></script>
-    <link rel="icon" href="/static/favicon.ico" />
+    <script src="../../assets/js/jquery-3.2.1.min.js"></script>
+    <script src="../../assets/js/bootstrap.min.js"></script>
+    <link rel="icon" href="../../static/favicon.ico" />
 </head>
 
 <body>
@@ -28,7 +28,7 @@
                 <i class="fas fa-arrow-left"></i>
             </a>
             <div class="imageDiv">
-                <img src="/assets/img/citlogo.svg" alt="">
+                <img src="../../assets/img/citlogo.svg" alt="">
             </div>
             
             <h1>
@@ -63,7 +63,7 @@
             <div id="map"></div>
 
 
-            <a href="#" class="addDenuncia btn btn-outline-success">
+            <a href="../CadastrarDenuncia/Denuncia.html" class="addDenuncia btn btn-outline-success">
                 <i class="fas fa-plus"></i>
             </a>
 
@@ -72,6 +72,29 @@
         
 
     </div>
+
+    <div id="myModal" class="modal modal-dialog-scrollable" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        Denúncias próximas desta localidade
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+            </div>
+            <div class="modal-body">
+              <p>Alguma delas pode corresponder ao problema que você deseja denunciar</p>
+            </div>
+            <footer class="modal-footer">
+                <small>Nenhuma delas corresponde ao seu problema?</small>
+                <button id="btnCriarDenunciaModal" type="button" class="btn btn-primary">Criar nova Denúncia</button>
+            </footer>
+          </div>
+        </div>
+    </div>
+    
 
 </body>
 
@@ -157,6 +180,7 @@
     .searchDiv .nobtn{
         border: none;
         margin-left: -40px;
+        background-color: rgba(0, 0, 0, 0);
     }
     .searchDiv i{
         font-size: 1.8rem;
@@ -208,6 +232,7 @@
         z-index: 999;
         bottom: 40px;
         right: 15px;
+        padding: 8px 10px;
         background-color: #38AE90;
         border-color: #38AE90;
         color: white;
@@ -218,8 +243,38 @@
         color: #046444;
     }
     .addDenuncia i{
-        font-size: 2.4rem;
+        font-size: 1.4rem;
     }
+
+    /*modal*/
+    .denunciaProxima+.denunciaProxima{
+        margin-top: 20px;
+    }
+    .denunciaProxima img{
+        width: 100px;
+        height: 100px;
+        border-radius: 25px;
+        padding: 0px;
+    }
+    .denunciaProxima .denunciaCard{
+        color: white;
+        border-radius: 10px;
+        background-color: #4DCBAB;
+        transition: background-color 0.3s;
+    }
+    .denunciaProxima .denunciaCard:hover{
+        background-color: #38AE90;
+        cursor: pointer;
+    }
+    #myModal footer button{
+        background-color: #4DCBAB;
+        border-color: #4DCBAB;
+    }
+    #myModal footer button:hover{
+        background-color: #38AE90;
+        border-color: #38AE90;
+    }
+
 
     @media screen and (max-height: 435px){
         .side{
@@ -289,7 +344,6 @@
 
 <script>
 
-
     //Funções
     const handleSearch = (event) =>{
         event.preventDefault();
@@ -322,7 +376,6 @@
                 default:
                     zoom = 17
             }
-
             map.setView([lng, lat], zoom);
             //Talvez eu faça esse negócio de mostrar todas as respostas pro user e pedir p escolher
             //Por enquanto só to pegando o primeiro resultado e fodas msm
@@ -336,13 +389,90 @@
         .catch ( error =>{console.log(error);})
     }
 
+    const handleClick = event =>{
+        //exclui popup se ja existir
+        if (popup){
+            map.closePopup(popup)
+            popup = null
+        }
+        else{
+            popup = map.openPopup(`
+            <div>Denunciar problema nesse local?
+                <a href="#" class="popupButton" id="btnCriarDenuncia">
+                    <i class="fas fa-plus"></i>
+                </a> 
+            </div>`, event.latlng)
+            createlatlng = event.latlng
+            $('#btnCriarDenuncia').click( criarDenuncia );
+        }
+        
+    }
 
+    const criarDenuncia = event =>{
+        const {lat,lng} = createlatlng;
+
+        fetch(`http://52.188.152.85:81/denunciasProximas/${lat}/${lng}`, {method:'GET'})
+        .then( res => res.json() )
+        .then( jsonRes => {
+            if (jsonRes.length == 0)
+                window.location.href = `../CadastrarDenuncia/Denuncia.html?lat=${lat}&lng=${lng}`
+            else{
+                
+                $('#myModal .modal-body').html('<p>Alguma delas pode corresponder ao problema que você deseja denunciar</p>');
+                preencherModal(jsonRes)
+                $('#btnCriarDenunciaModal').click( () => {
+                    window.location.href = `../CadastrarDenuncia/Denuncia.html?lat=${lat}&lng=${lng}`
+                })
+                $('#myModal').modal('show')
+            }
+        } )
+        .catch( error => console.log(error) )
+
+    }
+
+    const preencherModal = denuncias => {
+
+        denuncias.forEach( denuncia =>{
+            let content = `
+            <div class="denunciaProxima">
+            <div class="denuncia">
+                <div id="denuncia${denuncia.id}" class="denunciaCard card-horizontal m-0 p-0" style="display: flex;">
+                    <div class="dashboard-photos">
+                        <img class="p-2" src="${denuncia.url}" alt="Card image cap"/>
+                    </div>
+                    <div class="card-body infoDenuncia">
+                        <p class="card-title"> ${denuncia.logradouro} </p>
+                        <p> ${denuncia.descricao} </p>
+                    </div>
+                </div>
+            </div>
+            </div>
+            ` 
+
+            $('#myModal .modal-body').append( content );
+            $('#denuncia' + denuncia.id).click( () =>{
+                window.location.href = '../verDenuncia.html?id='+ denuncia.id
+            })
+
+        } )
+    }
+
+    var createlatlng;
+    var popup;
     // Atribuição de funções para eventos
     $('#searchForm').submit( handleSearch );
 
     // Configuração do mapa com Leaflet
 
     var map = L.map('map').setView([-12.5, -50], 4);
+    map.on('click', handleClick)
+
+    //acessar localização
+    map.locate();
+    map.on('locationfound', res =>{
+        map.setView([res.latitude, res.longitude], 16)
+    })
+    map.on('locationerror', error => console.log(error))
 
     //estilização gratuita mas esteticamente menos agradável
     /*L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -361,7 +491,7 @@
 
     //definindo icone personalizado para marcadores
     const icon = L.icon({
-        iconUrl: '/assets/img/citlogo.svg',
+        iconUrl: '../../assets/img/citlogo.svg',
 
         iconSize:     [38, 95], // size of the icon
         iconAnchor:   [20, 62], // point of the icon which will correspond to marker's location
@@ -369,7 +499,7 @@
     })
 
     //requisição de todas denuncias para fazer um marcador de mapa para cada
-    fetch ('http://http://52.188.152.85:81/todasDenuncias', {method: 'GET'})
+    fetch ('http://52.188.152.85:81/todasDenuncias', {method: 'GET'})
     .then ( res => res.json())
     .then ( jsonRes =>{
         jsonRes.forEach(location => {
@@ -380,7 +510,7 @@
                         <span>${location.descricao}</span>
                         <span>${location.logradouro}</span>
                      </div>
-                     <a href="#" class="popupButton"> <i class="fas fa-arrow-right"></i> </a>`);
+                     <a href="../verDenuncias.html?id=${location.id}" class="popupButton"> <i class="fas fa-arrow-right"></i> </a>`);
         });
     })
     .catch ( error => {
