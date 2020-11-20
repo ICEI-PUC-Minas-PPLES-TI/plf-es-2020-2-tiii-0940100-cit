@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contribuir</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/css/all.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/css/cit.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="../assets/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <link rel="icon" href="../static/favicon.ico" />
+</head>
+
+<body>
+
+    <div class="row">
+        
+        <div id="lateral" class="col-12 col-sm-12 col-md-1 col-lg-1 col-xl-1">
+            <img src="../assets/img/citlogo.svg" width="128px" height="128px" alt="">
+        </div>
+        
+        <div id="main" class="col-12 col-sm-12 col-md-11 col-lg-11 col-xl-11">
+            
+            <div id="breadcrumb" class="row">
+                <nav class="cit-breadcrumb" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="./index.html"><i class="fas fa-home"></i> &nbsp; Início</a></li>
+                        <li class="breadcrumb-item"><a href="./mapPages/mapPage.html"> <i class="fas fa-bullhorn"></i> &nbsp; Mapa Denúncias</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Denúncia</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="row">
+                <div class="col-3"></div>
+                <div id="formulario" class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" style="margin-bottom: 10%; padding-bottom: 5%">
+                    <h3 class="mb-3">Contribuição de Denúncia</h3>
+                    <label>Descrição</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+
+                    <label style="margin-top: 2%; margin-bottom: 0; padding-bottom: 0;">Foto</label>
+                <div class="form-group" style="padding-top: 0%;">
+                    <div class="input-group input-file" name="Fichier1">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default btn-choose" type="button">Escolher</button>
+                        </span>
+                        <input type="text" class="form-control" placeholder='Selecione uma foto...' style="max-width: 50%; margin-left: 0; margin-right: 0;">
+                        <span class="input-group-btn">
+                            <button class="btn btn-warning btn-reset" type="button">Apagar</button>
+                        </span>
+                    </div>
+                </div>
+
+
+                <label class="d-block" id="anonimaL">Colaborar com a Denúncia de Forma Anônima</label>
+                
+                <div id="anonimaB">
+                    <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-success primeiro">
+                           Não 
+                        </label>
+                        <label class="btn btn-success">
+                            Sim
+                          </label>
+                      </div>
+                </div>
+
+                <div id="finalizar">
+                    <Button class="btn btn-outline-success Confirmar">Confirmar</Button>
+                </div>
+
+            </div>
+                <div class="col-3"></div>
+            </div>
+            
+        </div>
+
+    </div>
+
+</body>
+
+<style>
+
+#lateral{
+    background-color: #38ae90;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+#main{
+    background-color: #e3e6e7;
+    margin: 0;
+    padding: 0;
+}
+
+#formulario{
+    background-color: white;
+    border-radius: 8px;
+    padding-top: 10px;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+    padding-bottom: 10px;
+    max-width: 95%;
+}
+
+#fotogrande{
+    width: 100%;
+    border-radius: 16px;
+    height: 330px;
+}
+
+#pequenas{
+    display:inline-flex;
+}
+
+#pequenas img{
+    margin: 0;
+    padding: 0;
+    width: 18%;
+    height: 100px;
+    padding: 1%;
+}
+
+#titulo, #ultimas{
+    color: #4d6f80;
+    margin-left: 5%;
+    margin-top: 50px;
+}
+
+#mapa{
+    margin-right: 5%;
+}
+
+#mapa .card{
+    border-radius: 8px;
+    padding: 1%;
+}
+
+#mapa img{
+    border-radius: 8px;
+    height: 200px;
+}
+
+.card{
+    background-color: #c6e0e6;
+    display: flex;
+}
+
+.card-body{
+    text-align: center;
+    border-radius: 8px;
+    margin: 0;
+}
+
+.card-body h5{
+    color: #0089A5;
+}
+
+#categoria{
+    margin-top: 20px;
+    color: #5C8599;
+}
+
+#contribuicoes{
+    margin-top: 10px;
+    color: #5C8599;
+}
+
+#formulario>#anonimaL{
+    padding-top: 0;
+    margin-bottom: 2.5%;
+}
+
+#formulario>#anonimaB{
+    display: flex;
+    margin-left: 5%;
+    align-items: center;
+    justify-content: right;
+}
+
+#formulario>#anonimaB label{
+    display: flex;
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+#formulario>#anonimaB .primeiro{
+    margin-right: 25%;
+}
+
+#finalizar{
+    margin-top: 32%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#finalizar>button{
+    margin-top: -20%;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+</style>
+
+<script>
+    function bs_input_file() {
+	$(".input-file").before(
+		function() {
+			if ( ! $(this).prev().hasClass('input-ghost') ) {
+				var element = $("<input type='file' class='input-ghost' style='visibility:hidden; height:0'>");
+				element.attr("name",$(this).attr("name"));
+				element.change(function(){
+					element.next(element).find('input').val((element.val()).split('\\').pop());
+				});
+				$(this).find("button.btn-choose").click(function(){
+					element.click();
+				});
+				$(this).find("button.btn-reset").click(function(){
+					element.val(null);
+					$(this).parents(".input-file").find('input').val('');
+				});
+				$(this).find('input').css("cursor","pointer");
+				$(this).find('input').mousedown(function() {
+					$(this).parents('.input-file').prev().click();
+					return false;
+				});
+				return element;
+			}
+		}
+	);
+}
+$(function() {
+	bs_input_file();
+});
+</script>
+
+</html>
