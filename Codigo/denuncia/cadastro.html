@@ -16,6 +16,17 @@
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
     crossorigin=""></script>
+    <!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.5.0/dist/esri-leaflet.js"
+  integrity="sha512-ucw7Grpc+iEQZa711gcjgMBnmd9qju1CICsRaryvX7HJklK0pGl/prxKvtHwpgm5ZHdvAil7YPxI1oWPOWK3UQ=="
+  crossorigin=""></script>
+    <!-- Load Esri Leaflet Geocoder from CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.3.3/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-IM3Hs+feyi40yZhDH6kV8vQMg4Fh20s9OzInIIAc4nx7aMYMfo+IenRUekoYsHZqGkREUgx0VvlEsgm7nCDW9g=="
+    crossorigin="">
+    <script src="https://unpkg.com/esri-leaflet-geocoder@2.3.3/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-HrFUyCEtIpxZloTgEKKMq4RFYhxjJkCiF5sDxuAokklOeZ68U2NPfh4MFtyIVWlsKtVbK5GD2/JzFyAfvT5ejA=="
+    crossorigin=""></script>
 </head>
 
 <body>
@@ -184,15 +195,15 @@ const handleClick = event =>{
     } )
     .catch( error => console.log(error) )
 
-    /*  GEOCODING REVERSO não está funcionando (api só é boa nos eua)
-    fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${lat},${lng}.json?access_token=pk.eyJ1IjoiZ3Vpem9tYmFzIiwiYSI6ImNrZzh3NGp6bjA1enMzMHBscG9zdDczZXMifQ.8ULeoifXn389Szz2H9QMAQ`)
-    .then( res => res.json() )
-    .then( jsonRes => {
-        console.log(jsonRes)
-        /*const logradouro = jsonRes.features[0].place_name;
-        $('#endereco').val( logradouro )
+    /*  GEOCODING REVERSO */
+    geocodeService.reverse().latlng(event.latlng).run( (error, results) =>{
+        if (error)
+            console.log(error);
+        else{
+            const logradouro = results.address.LongLabel;
+            $('#endereco').val( logradouro )
+        }
     } )
-    .catch( error => console.log(error));*/
     
 }
 
@@ -228,6 +239,7 @@ const preencherModal = denuncias => {
 //Configuração de mapa
 var map = L.map('map').setView([-12.5, -50], 4);
 map.on('click', handleClick)
+var geocodeService = L.esri.Geocoding.geocodeService();
 
 //definindo icone personalizado para marcadores
 const icon = L.icon({
@@ -247,7 +259,6 @@ if (lat && lng){
     map.setView({lat:+lat+0.002,lng:+lng-0.002}, 16)//correção pq tava ficando torto (???)
     marker = L.marker({lat,lng}, {icon})
     .addTo(map)
-    console.log(marker)
 }
 else{
 //acessar localização
