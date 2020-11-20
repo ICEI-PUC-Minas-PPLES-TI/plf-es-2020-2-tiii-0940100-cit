@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ver Denúncia</title>
+    <title>Contribuir</title>
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/css/all.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/css/cit.css">
@@ -54,17 +54,22 @@
                 </div>
 
 
+                <label class="d-block" id="anonimaL">Colaborar com a Denúncia de Forma Anônima</label>
+                
                 <div id="anonimaB">
                     <div class="btn-group" data-toggle="buttons">
-                        <label class="btn btn-success active primeiro">
-                          <input type="button" name="options" id="option1" autocomplete="off"> Não 
+                        <label class="btn btn-success primeiro">
+                          <input type="radio" name="options" id="option1"> Não 
                         </label>
                         <label class="btn btn-success">
-                            <input type="button" name="options" id="option2" autocomplete="off"> Sim
+                            <input type="radio" name="options" id="option2"> Sim
                           </label>
                       </div>
                 </div>
 
+                <div id="finalizar">
+                    <Button class="btn btn-outline-success Confirmar">Confirmar</Button>
+                </div>
 
                 </div>
                 <div class="col-3"></div>
@@ -167,13 +172,17 @@
     color: #5C8599;
 }
 
+#anonimaL{
+    padding-top: 0;
+    margin-bottom: 2.5%;
+}
+
 #anonimaB{
     display: flex;
     margin-left: 5%;
     align-items: center;
     justify-content: right;
 }
-
 
 #anonimaB label{
     display: flex;
@@ -183,6 +192,19 @@
 
 #anonimaB .primeiro{
     margin-right: 25%;
+}
+
+#finalizar{
+    margin-top: 8%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#finalizar>button{
+    margin: 0;
+    width: 90%;
+    margin-bottom: 40px;
 }
 
 </style>
