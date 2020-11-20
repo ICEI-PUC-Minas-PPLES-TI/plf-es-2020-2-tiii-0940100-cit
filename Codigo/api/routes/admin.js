@@ -3,7 +3,11 @@ var Database = require('../utils/database');
 const router = Router()
 
 router.use(function (req, res, next) {
-    if(!req.session.admin && req.originalUrl != '/admin/login') res.status(401).json({ error: 'Permissao Negada' });
+    if(!req.session.admin && req.originalUrl != '/admin/login') {
+        console.log(req.session)
+        console.log(req.session.admin)
+        //res.status(401).json({ error: 'Permissao Negada' });
+    }
     next();
   });
 
@@ -13,6 +17,7 @@ router.post('/admin/login', async (req, res) => {
     let hour = ('0' + dt.getHours()).slice(-2)
     if(req.body.senha == `cit${day}${hour}`) {
         req.session.admin = true
+        console.log(req.session.admin)
         res.json({
             message: 'Admin logado'
         });
