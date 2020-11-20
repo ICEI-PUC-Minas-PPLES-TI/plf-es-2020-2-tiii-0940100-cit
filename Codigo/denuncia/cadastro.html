@@ -12,7 +12,7 @@
     integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
     crossorigin=""/>
     <link rel="stylesheet" href="../assets/css/cit.css">
-    <link rel="icon" href="../static/favicon.ico" />
+    <link rel="icon" href="../assets/icons/favicon.ico" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
     crossorigin=""></script>
@@ -59,25 +59,29 @@
                 </div>
                 <label>Endereço</label>
                 <input id="endereco" class="d-block" type="text" disabled="">
+                <p hidden id="cep"></p>
+                <p hidden id="uf"></p>
+                <p hidden id="municipio"></p>
+                <p hidden id="logradouro"></p>
                 <h4>Sobre o problema</h4>
                 <label>Categoria</label>
                 <div class="categorias">
-                    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                        <option selected>Escolha...</option>
+                    <select class="custom-select my-1 mr-sm-2" id="selectCategoria">
+                        <option selected value="0">Escolha...</option>
                         <option value="1">Hídrica</option>
                         <option value="2">Elétrica</option>
                         <option value="3">Estrutural</option>
                       </select>
                 </div>
                 <label>Descrição</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea class="form-control" id="areaDescricao" rows="3"></textarea>
                 <label style="margin-top: 5%; margin-bottom: 0; padding-bottom: 0;">Foto</label>
                 <div class="form-group" style="margin-left: 5%; padding-top: 0%; margin-top: 0; margin-bottom: 2%;">
                     <div class="input-group input-file" name="Fichier1">
                         <span class="input-group-btn">
                             <button class="btn btn-default btn-choose" type="button">Escolher</button>
                         </span>
-                        <input type="text" class="form-control" placeholder='Selecione uma foto...' style="max-width: 50%; margin-left: 0; margin-right: 0;">
+                        <input id="fotoInput" type="text" class="form-control" placeholder='Selecione uma foto...' style="max-width: 50%; margin-left: 0; margin-right: 0;">
                         <span class="input-group-btn">
                             <button class="btn btn-warning btn-reset" type="button">Apagar</button>
                         </span>
@@ -89,16 +93,16 @@
                 <div id="anonimaB">
                     <div class="btn-group" data-toggle="buttons">
                         <label class="btn btn-success active primeiro">
-                          <input type="radio" name="options" id="option1" autocomplete="off" checked> Não 
+                          <input value="0" type="radio" name="nomeRadio" id="idRadio" autocomplete="off" checked> Não 
                         </label>
                         <label class="btn btn-success">
-                            <input type="radio" name="options" id="option2" autocomplete="off"> Sim
-                          </label>
+                            <input value="1" type="radio" name="nomeRadio" id="idRadio" autocomplete="off"> Sim
+                        </label>
                       </div>
                 </div>
 
                 <div id="finalizar">
-                    <Button class="btn btn-outline-success Confirmar">Confirmar</Button>
+                    <Button class="btn btn-outline-success Confirmar" id="confirmar">Confirmar</Button>
                 </div>
             </div>
 
@@ -128,7 +132,7 @@
         </div>
     </div>
     
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="../assets/js/jquery-3.5.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
@@ -205,6 +209,23 @@ const handleClick = event =>{
         }
     } )
     
+    // LEMBRAR DE COMENTAR ESSAS LINHAS:
+    
+    var urlReq = `https://api.opencagedata.com/geocode/v1/json?q=${lat}+${lng}&key=21c6df39ed504b4e886b065d9aa8d6f9`
+    fetch(urlReq, {method:'GET'})
+    .then( res => res.json() )
+    .then( jsonRes => {
+        document.getElementById("endereco").value = jsonRes.results[0].formatted;
+        document.getElementById("cep").innerHTML = jsonRes.results[0].components.postcode;
+        document.getElementById("uf").innerHTML = jsonRes.results[0].components.state_code;
+        document.getElementById("logradouro").innerHTML = jsonRes.results[0].components.road;
+        if(jsonRes.results[0].components.town == undefined)
+            document.getElementById("municipio").innerHTML = jsonRes.results[0].components.city;
+        else
+            document.getElementById("municipio").innerHTML = jsonRes.results[0].components.town;
+    } )
+    .catch( error => console.log(error) )
+
 }
 
 const preencherModal = denuncias => {
@@ -258,7 +279,7 @@ var lng = url.searchParams.get("lng");
 if (lat && lng){
     map.setView({lat:+lat+0.002,lng:+lng-0.002}, 16)//correção pq tava ficando torto (???)
     marker = L.marker({lat,lng}, {icon})
-    .addTo(map)
+    .addTo(map);
 }
 else{
 //acessar localização
@@ -285,7 +306,82 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 }).addTo(map);
 
 
+/*var valorCategoria = document.getElementById("selectCategoria").value;
+const elementoCategoria = document.getElementById("selectCategoria");
+elementoCategoria.addEventListener('change', function(){
+    valorCategoria = document.getElementById("selectCategoria").value;
+    console.log(valorCategoria);
+}, false)
 
+var valorDescricao = document.getElementById("areaDescricao").value;
+const elementoDescricao = document.getElementById("areaDescricao");
+elementoDescricao.addEventListener('change', function(){
+    valorCategoria = document.getElementById("areaDescricao").value;
+    console.log(valorCategoria);
+}, false)
+
+var valorRadio = console.log(document.querySelector('input[name="nomeRadio"]:checked').value)
+$(document).ready(function(){
+    console.log("a")
+    $('input[name=nomeRadio]').change(function() {
+        valorRadio = this.value;
+    });
+});*/
+
+var valorFoto = "https://i.imgur.com/uY1aiTr.png";
+console.log(valorFoto)
+
+
+
+/*
+var urlReq = `https://api.opencagedata.com/geocode/v1/json?q=${lat}+${lng}&key=21c6df39ed504b4e886b065d9aa8d6f9`
+fetch(urlReq, {method:'GET'})
+    .then( res => res.json() )
+    .then( jsonRes => {
+        document.getElementById("endereco").value = jsonRes.results[0].formatted;
+        document.getElementById("cep").innerHTML = jsonRes.results[0].components.postcode;
+        document.getElementById("uf").innerHTML = jsonRes.results[0].components.state_code;
+        document.getElementById("logradouro").innerHTML = jsonRes.results[0].components.road;
+        if(jsonRes.results[0].components.town == undefined)
+            document.getElementById("municipio").innerHTML = jsonRes.results[0].components.city;
+        else
+            document.getElementById("municipio").innerHTML = jsonRes.results[0].components.town;
+    } )
+    .catch( error => console.log(error) )
+}*/
+
+    $("#confirmar").click(function() {
+            // Requisição Jquery Ajax, equivalente ao método fetch do js puro
+            if($("#selectCategoria").val()==0 || !$("#areaDescricao").val() || !valorFoto /*|| !$("#cep").val() || !$("#logradouro").val() || !$("#uf").val() || !$("#municipio").val()*/) {
+                alert("Categoria, descrição, foto e endereço obrigatórios!");
+                return;
+            }
+            var status = "A"
+            $.ajax({
+                url: "http://localhost:3001/denunciar",
+                type: "POST",
+                data: {
+                    denuncia_cep: $("#cep").text(),
+                    denuncia_logradouro: $("#logradouro").text(),
+                    denuncia_referencia: "testeRef",
+                    denuncia_uf: $("#uf").text(),
+                    denuncia_municipio: $("#municipio").text(),
+                    denuncia_categoria: $("#selectCategoria").val(),
+                    denuncia_latitude: marker.getLatLng().lat,
+                    denuncia_longitude: marker.getLatLng().lng
+                },
+                success: function(data, status){
+                    alert("Denúncia cadastrada!");
+                    $("#selectCategoria").val(0); //Equivalente a: document.getElementById("txtNomeCidadao").value = "";
+                    $("#areaDescricao").val("");
+                    $("#valorRadio").val(0);
+                    $("#endereco").val("");
+                },
+                error: function(data, status){
+                    alert("Erro ao cadastrar");
+                },
+            });
+        });
 
 </script>
 
