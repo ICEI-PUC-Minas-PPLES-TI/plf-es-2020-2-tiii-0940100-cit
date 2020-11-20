@@ -119,7 +119,7 @@ router.get('/admin/indicadores/tabela', async (req, res) => {
             WHEN \`status\` = 'S'
             THEN ROUND(AVG(TIMESTAMPDIFF(MINUTE, criado_em, solucionado_em)), 2)
             ELSE 0
-        END solucao
+        END media
     FROM denuncia
     WHERE DATE(criado_em) BETWEEN DATE(NOW()) - INTERVAL 1 MONTH AND DATE(NOW())
     GROUP BY uf,municipio
