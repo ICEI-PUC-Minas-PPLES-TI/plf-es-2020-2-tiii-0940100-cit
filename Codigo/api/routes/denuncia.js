@@ -74,7 +74,7 @@ router.post('/denunciar', (req, res, next) => {
             connection.end();
             res.status(500).json({ error: error.message });
         } else {
-            connection.query('INSERT INTO denuncia_has_categoria (denuncia_id, categoria_id) VALUES (1, 2);');
+            connection.query('INSERT INTO denuncia_has_categoria (denuncia_id, categoria_id) VALUES (?, ?);', [ results.insertId, req.body.denuncia_categoria]);
             connection.end();
             res.json({
                 message: 'success',

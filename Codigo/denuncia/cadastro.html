@@ -211,7 +211,7 @@ const handleClick = event =>{
     
     // LEMBRAR DE COMENTAR ESSAS LINHAS:
     
-    /*var urlReq = `https://api.opencagedata.com/geocode/v1/json?q=${lat}+${lng}&key=21c6df39ed504b4e886b065d9aa8d6f9`
+    var urlReq = `https://api.opencagedata.com/geocode/v1/json?q=${lat}+${lng}&key=21c6df39ed504b4e886b065d9aa8d6f9`
     fetch(urlReq, {method:'GET'})
     .then( res => res.json() )
     .then( jsonRes => {
@@ -224,7 +224,7 @@ const handleClick = event =>{
         else
             document.getElementById("municipio").innerHTML = jsonRes.results[0].components.town;
     } )
-    .catch( error => console.log(error) )*/
+    .catch( error => console.log(error) )
 
 }
 
@@ -358,17 +358,17 @@ fetch(urlReq, {method:'GET'})
             }
             var status = "A"
             $.ajax({
-                url: "http://52.188.152.85:81/denunciar",
+                url: "http://localhost:3001/denunciar",
                 type: "POST",
                 data: {
-                    denuncia_status: "A",
-                    denuncia_cep: $("#cep").val(),
-                    denuncia_logradouro: $("#logradouro").val(),
+                    denuncia_cep: $("#cep").text(),
+                    denuncia_logradouro: $("#logradouro").text(),
                     denuncia_referencia: "testeRef",
-                    denuncia_uf: $("#uf").val(),
-                    denuncia_municipio: $("#municipio").val(),
-                    denuncia_latitude: lat,
-                    denuncia_longitude: lng
+                    denuncia_uf: $("#uf").text(),
+                    denuncia_municipio: $("#municipio").text(),
+                    denuncia_categoria: $("#selectCategoria").val(),
+                    denuncia_latitude: marker.getLatLng().lat,
+                    denuncia_longitude: marker.getLatLng().lng
                 },
                 success: function(data, status){
                     alert("Denúncia cadastrada!");
