@@ -11,239 +11,330 @@
     <script src="../../assets/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <link rel="icon" href="../../../static/favicon.ico" />
+    <link rel="icon" href="../../assets/icons/favicon.ico" />
 
 </head>
 <body>
 
-    <div id="wrapper">
-
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand d-inline-flex pl-3 mt-2">
-                    <img class="mt-2" src="../../assets/img/citlogo.svg" width="50px" height="50px" alt="">
-                    <a href="#">CIT</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fas fa-info-circle"></i> Visão Geral</a>
-                </li>
-                <li>
-                    <a href="../index.html"><i class="fas fa-exclamation-triangle"></i> Monitorar</a>
-                </li>
-                <li>
-                    <a href="../index.html"><i class="fas fa-sign-out-alt"></i> Sair</a>
-                </li>
-            </ul>
-        </div>
-        <!-- /#sidebar-wrapper -->
-
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <a href="#menu-toggle" class="btn btn-default m-0 p-0" style="color: black; font-size: 1.5rem;" id="menu-toggle"><i class="fas fa-bars"></i> Abrir Menu</a>
-                        <hr style="border-color: black; margin-left: 0;">
-                        <h1 class="mt-2 mb-3">Indicadores</h1>
-                        
-                        <div class="card mb-3">
-                            <div class="card-header">
-                              Denúncias
-                            </div>
-                            <div class="card-body">
-                              <h5 class="card-title">Denúncias efetuadas hoje</h5>
-                              <p class="card-text">Total: <span id="lblCountDenuncia"> 0 </span></p>
+    <div>
+        <div class="row m-0">
+            <div class="col-12 col-md-1 cit-lateral">
+                <div class="sticky-top">
+                    <div class="row">
+                        <a href="/">
+                            <img src="../../assets/img/citlogo.svg" width="50px" alt="CIT Logo" class="d-inline mt-2 ml-2">
+                            <h6 class="text-white text-roboto d-inline-block">CIT</h6>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-11 p-0" id="main">
+                <div class="p-3">
+                    <nav class="cit-breadcrumb" aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item"><a href="../"><i class="fas fa-home"></i> &nbsp; Início</a></li>
+                          <li class="breadcrumb-item active" aria-current="page">Dashboard Admin</li>
+                        </ol>
+                    </nav>
+                    <h3 class="mt-2 mb-3 text-roboto">Indicadores</h3>
+                    <br>
+                    <!-- Gráficos -->
+                    <div class="row">
+                        <div class="col-md-4 col-12 p-0">
+                            <small class="text-roboto text-center d-block">Denúncias realizdas no último mês</small>
+                            <div id="chart1"></div>
+                        </div>
+                        <div class="col-md-4 col-12 p-0">
+                            <small class="text-roboto text-center d-block">Denúncias solucionadas no último mês</small>
+                            <div id="chart2"></div>
+                        </div>
+                        <div class="col-md-4 col-12 p-0">
+                            <small class="text-roboto text-center d-block">Tempo média da solução de denúncias no último mês</small>
+                            <div id="chart3"></div>
+                        </div>
+                    </div>
+                    <br>
+                    <!-- Cards -->
+                    <div class="row">
+                        <div class="col-md-4 col-12 p-0">
+                            <div class="p-2">
+                                <div class="card mb-3">
+                                    <div class="card-header">
+                                        Denúncias
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Denúncias efetuadas</h5>
+                                        <p class="card-text">Total: <span id="cit-lbl1"> 0 </span></p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-
-                        <div class="card mb-3">
-                            <div class="card-header">
-                              Denúncias
-                            </div>
-                            <div class="card-body">
-                              <h5 class="card-title">Denúncias solucionadas</h5>
-                              <p class="card-text">Total: 0</p>
-                            </div>
-                        </div>
-
-                        <div class="card mb-3">
-                            <div class="card-header">
-                              Denúncias
-                            </div>
-                            <div class="card-body">
-                              <h5 class="card-title">Tempo médio para solução de denúncias</h5>
-                              <p class="card-text">Média: 1 dia(s)</p>
+                        <div class="col-md-4 col-12 p-0">
+                            <div class="p-2">
+                                <div class="card mb-3">
+                                    <div class="card-header">
+                                        Denúncias
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Denúncias solucionadas</h5>
+                                        <p class="card-text">Total: <span id="cit-lbl2"> 0 </span></p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        
+                        <div class="col-md-4 col-12 p-0">
+                            <div class="p-2">
+                                <div class="card mb-3">
+                                    <div class="card-header">
+                                        Denúncias
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Tempo médio para solução</h5>
+                                        <p class="card-text">Média: <span id="cit-lbl3"> 0 </span></p>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <!-- Tabela -->
+                    <div class="row">
+                        <table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">Cidade</th>
+                                <th scope="col">Estado</th>
+                                <th scope="col">QTD Denuncias Novas</th>
+                                <th scope="col">QTD Denuncias Solucionadas</th>
+                                <th scope="col">Tempo médio de Solução</th>
+                              </tr>
+                            </thead>
+                            <tbody id="cit-dashboard-table">
+                              <tr>
+                                <td colspan="5">Carregando</td>
+                              </tr>
+                            </tbody>
+                          </table>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- /#page-content-wrapper -->
-
     </div>
-    <!-- /#wrapper -->
 
-<script>
-    $("#menu-toggle").click(function(e) {
-  e.preventDefault();
-  $("#wrapper").toggleClass("toggled");
-});
-</script>
+    <script src="../assets/js/apexcharts.min.js"></script>
 
-<script>
-    $(function() {
-        let today = new Date().toLocaleDateString()
-        $.ajax({
-            url: "http://52.188.152.85:81/test",
-            type: "GET",
-            success: function(data, status){
-                $("#lblCountDenuncia").text(data.cnt);
-            },
-            error: function(data, status){
-                console.log("Erro ao buscar denuncias");
-            },
-        });
-    })
-</script>
+    <script>
+        $(function() {
+            // Gráfico 1 - Denuncias criadas
+            $.ajax({
+                url: "http://52.188.152.85:81/admin/indicadores/grafico/1",
+                type: "GET",
+                success: function(data, status){
+                    let values = []
+                    let labels = []
+                    for(let i=0;i<data.length;i++) {
+                        values.push(data[i].cnt)
+                        labels.push(new Date(data[i].dt).toLocaleDateString())
+                    }
+                    var options = {
+                        series: [{
+                            name: 'Denuncias',
+                            data: values
+                        }],
+                        colors: ['#2bad8d'],
+                        chart: {
+                            height: 300,
+                            type: 'bar',
+                            toolbar: {
+                                show: false
+                            }
+                        },
+                        plotOptions: {
+                            bar: {
+                                dataLabels: {
+                                    position: 'top', // top, center, bottom
+                                },
+                            }
+                        },
+                        dataLabels: {
+                            enabled: true,
+                            offsetY: -20,
+                            style: {
+                                fontSize: '12px',
+                                colors: ["#304758"]
+                            }
+                        },
+                        xaxis: {
+                            categories: labels
+                        },
+                        yaxis: {
+                            show:false
+                        }
+                    };
+                    var chart = new ApexCharts(document.querySelector("#chart1"), options);
+                    chart.render();
+                },
+                error: function(data, status){
+                    console.log("Erro ao buscar denuncias");
+                },
+            });
+
+            // Gráfico 2 - Denuncias solucionadas
+            $.ajax({
+                url: "http://52.188.152.85:81/admin/indicadores/grafico/2",
+                type: "GET",
+                success: function(data, status){
+                    let values = []
+                    let labels = []
+                    for(let i=0;i<data.length;i++) {
+                        values.push(data[i].cnt)
+                        labels.push(new Date(data[i].dt).toLocaleDateString())
+                    }
+                    var options = {
+                        series: [{
+                            name: 'Denuncias',
+                            data: values
+                        }],
+                        chart: {
+                            height: 300,
+                            type: 'bar',
+                            toolbar: {
+                                show: false
+                            }
+                        },
+                        colors: ['#5be3c1'],
+                        plotOptions: {
+                            bar: {
+                                dataLabels: {
+                                    position: 'top', // top, center, bottom
+                                },
+                            }
+                        },
+                        dataLabels: {
+                            enabled: true,
+                            offsetY: -20,
+                            style: {
+                                fontSize: '12px',
+                                colors: ["#304758"]
+                            }
+                        },
+                        xaxis: {
+                            categories: labels
+                        },
+                        yaxis: {
+                            show:false
+                        }
+                    };
+                    var chart = new ApexCharts(document.querySelector("#chart2"), options);
+                    chart.render();
+                },
+                error: function(data, status){
+                    console.log("Erro ao buscar denuncias");
+                },
+            });
+
+            // Gráfico 3 - Media de tempo para solucionar
+            $.ajax({
+                url: "http://52.188.152.85:81/admin/indicadores/grafico/3",
+                type: "GET",
+                success: function(data, status){
+                    let values = []
+                    let labels = []
+                    for(let i=0;i<data.length;i++) {
+                        values.push(data[i].media)
+                        labels.push(new Date(data[i].dt).toLocaleDateString())
+                    }
+                    var options = {
+                        series: [{
+                            name: 'Denuncias',
+                            data: values
+                        }],
+                        chart: {
+                            height: 300,
+                            type: 'bar',
+                            toolbar: {
+                                show: false
+                            }
+                        },
+                        colors: ['#5bcae3'],
+                        plotOptions: {
+                            bar: {
+                                dataLabels: {
+                                    position: 'top', // top, center, bottom
+                                },
+                            }
+                        },
+                        dataLabels: {
+                            enabled: true,
+                            offsetY: -20,
+                            formatter: function (val) {
+                                return secondsToDhms(val);
+                            },
+                            style: {
+                                fontSize: '12px',
+                                colors: ["#304758"]
+                            }
+                        },
+                        xaxis: {
+                            categories: labels
+                        },
+                        yaxis: {
+                            show:false
+                        }
+                    };
+                    var chart = new ApexCharts(document.querySelector("#chart3"), options);
+                    chart.render();
+                },
+                error: function(data, status){
+                    console.log("Erro ao buscar denuncias");
+                },
+            });
+
+            // Registro cartões
+            $.ajax({
+                url: "http://52.188.152.85:81/admin/indicadores/cartoes",
+                type: "GET",
+                success: function(data, status){
+                    $("#cit-lbl1").text(data.count_criadas)
+                    $("#cit-lbl2").text(data.count_solucionadas)
+                    $("#cit-lbl3").text(secondsToDhms(data.media_solucao))
+                },
+                error: function(data, status){
+                    console.log("Erro ao buscar denuncias");
+                },
+            });
+            // Consulta tabela
+            $.ajax({
+                url: "http://52.188.152.85:81/admin/indicadores/tabela",
+                type: "GET",
+                success: function(data, status){
+                    $("#cit-dashboard-table").html("")
+                    for(let i=0;i<data.length;i++) {
+                        $("#cit-dashboard-table").append("<tr><td>"+data[i].municipio+"</td><td>"+data[i].uf+"</td><td>"+data[i].dia+"</td><td>"+data[i].solucao+"</td><td>"+secondsToDhms(data[i].media)+"</td></tr>")
+                    }
+                },
+                error: function(data, status){
+                    console.log("Erro ao buscar denuncias");
+                },
+            });
+        })
+
+        function secondsToDhms(minutes) {
+                seconds = Number(minutes * 60);
+                var d = Math.floor(seconds / (3600 * 24));
+                var h = Math.floor(seconds % (3600 * 24) / 3600);
+                var m = Math.floor(seconds % 3600 / 60);
+                var s = Math.floor(seconds % 60);
+
+                var dDisplay = d > 0 ? d + (d == 1 ? " dia, " : " dias, ") : "";
+                var hDisplay = h > 0 ? h + (h == 1 ? " hora, " : " horas, ") : "";
+                var mDisplay = m > 0 ? m + (m == 1 ? " minuto, " : " minutos, ") : "";
+                var sDisplay = s > 0 ? s + (s == 1 ? " segundo" : " segundos") : "";
+                return dDisplay + hDisplay + mDisplay + sDisplay;
+            }
+    </script>
 
 </body>
 
-<style>
-
-/*!
- * Start Bootstrap - Simple Sidebar (https://startbootstrap.com/)
- * Copyright 2013-2016 Start Bootstrap
- * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
- */
-
- body {
-    overflow-x: hidden;
- }
-
-/* Toggle Styles */
-
-#wrapper {
-    padding-left: 0;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-}
-
-#wrapper.toggled {
-    padding-left: 250px;
-}
-
-#sidebar-wrapper {
-    z-index: 1000;
-    position: fixed;
-    left: 250px;
-    width: 0;
-    height: 100%;
-    margin-left: -250px;
-    overflow-y: auto;
-    background: #38ae90;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-}
-
-#wrapper.toggled #sidebar-wrapper {
-    width: 250px;
-}
-
-#page-content-wrapper {
-    width: 100%;
-    position: absolute;
-    padding: 15px;
-}
-
-#wrapper.toggled #page-content-wrapper {
-    position: absolute;
-    margin-right: -250px;
-}
-
-/* Sidebar Styles */
-
-.sidebar-nav {
-    position: absolute;
-    top: 0;
-    width: 250px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.sidebar-nav li {
-    text-indent: 20px;
-    line-height: 40px;
-}
-
-.sidebar-nav li a {
-    display: block;
-    text-decoration: none;
-    color: #000000;
-}
-
-.sidebar-nav li a:hover {
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-    background: rgba(255,255,255,0.2);
-}
-
-.sidebar-nav li a:active,
-.sidebar-nav li a:focus {
-    text-decoration: none;
-}
-
-.sidebar-nav > .sidebar-brand {
-    height: 65px;
-    font-size: 18px;
-    line-height: 60px;
-}
-
-.sidebar-nav > .sidebar-brand a {
-    color: #000000;
-    font-weight: bold;
-}
-
-.sidebar-nav > .sidebar-brand a:hover {
-    color: rgb(0, 0, 0);
-    background: none;
-}
-
-@media(min-width:768px) {
-    #wrapper {
-        padding-left: 250px;
-    }
-
-    #wrapper.toggled {
-        padding-left: 0;
-    }
-
-    #sidebar-wrapper {
-        width: 250px;
-    }
-
-    #wrapper.toggled #sidebar-wrapper {
-        width: 0;
-    }
-
-    #page-content-wrapper {
-        padding: 20px;
-        position: relative;
-    }
-
-    #wrapper.toggled #page-content-wrapper {
-        position: relative;
-        margin-right: 0;
-    }
-}
-
-</style>
 
 </html>
