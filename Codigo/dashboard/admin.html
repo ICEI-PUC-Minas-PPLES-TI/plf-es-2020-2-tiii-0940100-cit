@@ -11,238 +11,234 @@
     <script src="../../assets/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <link rel="icon" href="../../../static/favicon.ico" />
+    <link rel="icon" href="../../assets/icons/favicon.ico" />
 
 </head>
 <body>
 
-    <div id="wrapper">
-
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand d-inline-flex pl-3 mt-2">
-                    <img class="mt-2" src="../../assets/img/citlogo.svg" width="50px" height="50px" alt="">
-                    <a href="#">CIT</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fas fa-info-circle"></i> Visão Geral</a>
-                </li>
-                <li>
-                    <a href="../index.html"><i class="fas fa-exclamation-triangle"></i> Monitorar</a>
-                </li>
-                <li>
-                    <a href="../index.html"><i class="fas fa-sign-out-alt"></i> Sair</a>
-                </li>
-            </ul>
-        </div>
-        <!-- /#sidebar-wrapper -->
-
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <a href="#menu-toggle" class="btn btn-default m-0 p-0" style="color: black; font-size: 1.5rem;" id="menu-toggle"><i class="fas fa-bars"></i> Abrir Menu</a>
-                        <hr style="border-color: black; margin-left: 0;">
-                        <h1 class="mt-2 mb-3">Indicadores</h1>
-                        
-                        <div class="card mb-3">
-                            <div class="card-header">
-                              Denúncias
-                            </div>
-                            <div class="card-body">
-                              <h5 class="card-title">Denúncias efetuadas hoje</h5>
-                              <p class="card-text">Total: <span id="lblCountDenuncia"> 0 </span></p>
+    <div>
+        <div class="row m-0">
+            <div class="col-12 col-md-1 cit-lateral">
+                <div class="sticky-top">
+                    <div class="row">
+                        <a href="/">
+                            <img src="../../assets/img/citlogo.svg" width="50px" alt="CIT Logo" class="d-inline mt-2 ml-2">
+                            <h6 class="text-white text-roboto d-inline-block">CIT</h6>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-11 p-0" id="main">
+                <div class="p-3">
+                    <h1 class="mt-2 mb-3">Indicadores</h1>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-4 col-12 p-0">
+                            <div id="chart1"></div>
+                        </div>
+                        <div class="col-md-4 col-12 p-0">
+                            <div id="chart2"></div>
+                        </div>
+                        <div class="col-md-4 col-12 p-0">
+                            <div id="chart3"></div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-4 col-12 p-0">
+                            <div class="p-2">
+                                <div class="card mb-3">
+                                    <div class="card-header">
+                                        Denúncias
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Denúncias efetuadas hoje</h5>
+                                        <p class="card-text">Total: <span id="lblCountDenuncia"> 0 </span></p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-
-                        <div class="card mb-3">
-                            <div class="card-header">
-                              Denúncias
-                            </div>
-                            <div class="card-body">
-                              <h5 class="card-title">Denúncias solucionadas</h5>
-                              <p class="card-text">Total: 0</p>
-                            </div>
-                        </div>
-
-                        <div class="card mb-3">
-                            <div class="card-header">
-                              Denúncias
-                            </div>
-                            <div class="card-body">
-                              <h5 class="card-title">Tempo médio para solução de denúncias</h5>
-                              <p class="card-text">Média: 1 dia(s)</p>
+                        <div class="col-md-4 col-12 p-0">
+                            <div class="p-2">
+                                <div class="card mb-3">
+                                    <div class="card-header">
+                                        Denúncias
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Denúncias solucionadas</h5>
+                                        <p class="card-text">Total: 0</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        
+                        <div class="col-md-4 col-12 p-0">
+                            <div class="p-2">
+                                <div class="card mb-3">
+                                    <div class="card-header">
+                                        Denúncias
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Tempo médio para solução de denúncias</h5>
+                                        <p class="card-text">Média: 1 dia(s)</p>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">Cidade</th>
+                                <th scope="col">Estado</th>
+                                <th scope="col">QTD Denuncias Novas</th>
+                                <th scope="col">QTD Denuncias Solucionadas</th>
+                                <th scope="col">Tempo médio de Solução</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>Belo Horizonte</td>
+                                <td>MG</td>
+                                <td>5</td>
+                                <td>8</td>
+                                <td>1 dia, 4 horas</td>
+                              </tr>
+                              <tr>
+                                <td>Pompéu</td>
+                                <td>MG</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>1 dia, 4 horas</td>
+                              </tr>
+                              <tr>
+                                <td>Rio Branco</td>
+                                <td>AC</td>
+                                <td>13</td>
+                                <td>41</td>
+                                <td>1 dia, 4 horas</td>
+                              </tr>
+                            </tbody>
+                          </table>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- /#page-content-wrapper -->
-
     </div>
-    <!-- /#wrapper -->
 
-<script>
-    $("#menu-toggle").click(function(e) {
-  e.preventDefault();
-  $("#wrapper").toggleClass("toggled");
-});
-</script>
+    <script src="../assets/js/apexcharts.min.js"></script>
 
-<script>
-    $(function() {
-        let today = new Date().toLocaleDateString()
-        $.ajax({
-            url: "http://52.188.152.85:81/test",
-            type: "GET",
-            success: function(data, status){
-                $("#lblCountDenuncia").text(data.cnt);
-            },
-            error: function(data, status){
-                console.log("Erro ao buscar denuncias");
-            },
-        });
-    })
-</script>
+    <script>
+        $(function() {
+            let today = new Date().toLocaleDateString()
+            $.ajax({
+                url: "http://52.188.152.85:81/test",
+                type: "GET",
+                success: function(data, status){
+                    $("#lblCountDenuncia").text(data.cnt);
+                },
+                error: function(data, status){
+                    console.log("Erro ao buscar denuncias");
+                },
+            });
+        })
+
+        // chart2
+        var options2 = {
+                series: [{
+                    name: 'Inflation',
+                    data: [2.3, 3.1, 4.0, 10.1, 4.0, 3.6, 3.2, 2.3, 1.4, 0.8, 0.5, 0.2]
+                }],
+                chart: {
+                    height: 300,
+                    type: 'bar',
+                    toolbar: {
+                        show: false
+                    }
+                },
+                plotOptions: {
+                    bar: {
+                        dataLabels: {
+                            position: 'top', // top, center, bottom
+                        },
+                    }
+                },
+                dataLabels: {
+                    enabled: true,
+                    formatter: function (val) {
+                        return val + "%";
+                    },
+                    offsetY: -20,
+                    style: {
+                        fontSize: '12px',
+                        colors: ["#304758"]
+                    }
+                },
+
+                xaxis: {
+                    categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                    position: 'top',
+                    axisBorder: {
+                        show: false
+                    },
+                    axisTicks: {
+                        show: false
+                    },
+                    crosshairs: {
+                        fill: {
+                            type: 'gradient',
+                            gradient: {
+                                colorFrom: '#D8E3F0',
+                                colorTo: '#BED1E6',
+                                stops: [0, 100],
+                                opacityFrom: 0.4,
+                                opacityTo: 0.5,
+                            }
+                        }
+                    },
+                    tooltip: {
+                        enabled: true,
+                    }
+                },
+                yaxis: {
+                    axisBorder: {
+                        show: false
+                    },
+                    axisTicks: {
+                        show: false,
+                    },
+                    labels: {
+                        show: false,
+                        formatter: function (val) {
+                            return val + "%";
+                        }
+                    }
+
+                },
+                title: {
+                    text: 'Monthly Inflation in Argentina, 2002',
+                    floating: true,
+                    offsetY: 330,
+                    align: 'center',
+                    style: {
+                        color: '#444'
+                    }
+                }
+            };
+
+        var chart = new ApexCharts(document.querySelector("#chart1"), options2);
+        var chart2 = new ApexCharts(document.querySelector("#chart2"), options2);
+        var chart3 = new ApexCharts(document.querySelector("#chart3"), options2);
+        chart.render();
+        chart2.render();
+        chart3.render();
+    </script>
 
 </body>
 
 <style>
 
-/*!
- * Start Bootstrap - Simple Sidebar (https://startbootstrap.com/)
- * Copyright 2013-2016 Start Bootstrap
- * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
- */
-
- body {
-    overflow-x: hidden;
- }
-
-/* Toggle Styles */
-
-#wrapper {
-    padding-left: 0;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-}
-
-#wrapper.toggled {
-    padding-left: 250px;
-}
-
-#sidebar-wrapper {
-    z-index: 1000;
-    position: fixed;
-    left: 250px;
-    width: 0;
-    height: 100%;
-    margin-left: -250px;
-    overflow-y: auto;
-    background: #38ae90;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-}
-
-#wrapper.toggled #sidebar-wrapper {
-    width: 250px;
-}
-
-#page-content-wrapper {
-    width: 100%;
-    position: absolute;
-    padding: 15px;
-}
-
-#wrapper.toggled #page-content-wrapper {
-    position: absolute;
-    margin-right: -250px;
-}
-
-/* Sidebar Styles */
-
-.sidebar-nav {
-    position: absolute;
-    top: 0;
-    width: 250px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.sidebar-nav li {
-    text-indent: 20px;
-    line-height: 40px;
-}
-
-.sidebar-nav li a {
-    display: block;
-    text-decoration: none;
-    color: #000000;
-}
-
-.sidebar-nav li a:hover {
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-    background: rgba(255,255,255,0.2);
-}
-
-.sidebar-nav li a:active,
-.sidebar-nav li a:focus {
-    text-decoration: none;
-}
-
-.sidebar-nav > .sidebar-brand {
-    height: 65px;
-    font-size: 18px;
-    line-height: 60px;
-}
-
-.sidebar-nav > .sidebar-brand a {
-    color: #000000;
-    font-weight: bold;
-}
-
-.sidebar-nav > .sidebar-brand a:hover {
-    color: rgb(0, 0, 0);
-    background: none;
-}
-
-@media(min-width:768px) {
-    #wrapper {
-        padding-left: 250px;
-    }
-
-    #wrapper.toggled {
-        padding-left: 0;
-    }
-
-    #sidebar-wrapper {
-        width: 250px;
-    }
-
-    #wrapper.toggled #sidebar-wrapper {
-        width: 0;
-    }
-
-    #page-content-wrapper {
-        padding: 20px;
-        position: relative;
-    }
-
-    #wrapper.toggled #page-content-wrapper {
-        position: relative;
-        margin-right: 0;
-    }
-}
 
 </style>
 
