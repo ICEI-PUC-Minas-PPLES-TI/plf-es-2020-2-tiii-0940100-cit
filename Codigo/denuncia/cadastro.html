@@ -6,9 +6,16 @@
     <title>Denunciar</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
     <link rel="stylesheet" href="../assets/css/all.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
     <link rel="stylesheet" href="../assets/css/cit.css">
     <link rel="icon" href="../static/favicon.ico" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
 </head>
 
 <body>
@@ -34,13 +41,9 @@
                 <h2>Denunciar</h2>
                 <h4>Localização do problema</h4>
                 <div id="mapa">
-                    <div class="card" style="width: 100%; border-radius: 16px;">
-                        <a>
-                            <img class="card-img-top" src="https://picsum.photos/720" alt="Card image cap" style="max-height: 250px;">
-                            <div class="card-body">
-                                <h5 class="card-title">Clique para adicionar a localização</h5>
-                            </div>
-                        </a>
+                    <div class="card" style="width: 100%; border-radius: 16px;overflow: hidden;">
+                        <div id="map"></div>
+                        <h5 class="card-title" style="padding: 10px 0;">Clique para adicionar a localização</h5>
                     </div>
                 </div>
                 <label>Endereço</label>
@@ -91,6 +94,28 @@
         </div>
 
     </div>
+
+    <div id="myModal" class="modal modal-dialog-scrollable" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        Denúncias próximas desta localidade
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+            </div>
+            <div class="modal-body">
+              <p>Alguma delas pode corresponder ao problema que você deseja denunciar</p>
+            </div>
+            <footer class="modal-footer">
+                <small>Nenhuma delas corresponde ao seu problema?</small>
+                <button id="btnContinuar" type="button" class="btn btn-primary">Continuar com Denúncia</button>
+            </footer>
+          </div>
+        </div>
+    </div>
     
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -130,6 +155,127 @@
 $(function() {
 	bs_input_file();
 });
+
+//funções que envolvem o mapa
+var marker
+
+const handleClick = event =>{
+
+    //seta marker se ja existir, senao cria
+    if (marker)
+        marker.setLatLng( event.latlng );
+    else
+        marker = L.marker(event.latlng, {icon}).addTo(map)
+
+    const {lat,lng} = event.latlng;
+
+    fetch(`http://52.188.152.85:81/denunciasProximas/${lat}/${lng}`, {method:'GET'})
+    .then( res => res.json() )
+    .then( jsonRes => {
+        if (jsonRes.length > 0){
+            
+            $('#myModal .modal-body').html('<p>Alguma delas pode corresponder ao problema que você deseja denunciar</p>');
+            preencherModal(jsonRes)
+            $('#btnContinuar').click( () => {
+                $('#myModal').modal('hide')
+            })
+            $('#myModal').modal('show');
+        }
+    } )
+    .catch( error => console.log(error) )
+
+    /*  GEOCODING REVERSO não está funcionando (api só é boa nos eua)
+    fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${lat},${lng}.json?access_token=pk.eyJ1IjoiZ3Vpem9tYmFzIiwiYSI6ImNrZzh3NGp6bjA1enMzMHBscG9zdDczZXMifQ.8ULeoifXn389Szz2H9QMAQ`)
+    .then( res => res.json() )
+    .then( jsonRes => {
+        console.log(jsonRes)
+        /*const logradouro = jsonRes.features[0].place_name;
+        $('#endereco').val( logradouro )
+    } )
+    .catch( error => console.log(error));*/
+    
+}
+
+const preencherModal = denuncias => {
+
+    denuncias.forEach( denuncia =>{
+        let content = `
+        <div class="denunciaProxima">
+        <div class="denuncia">
+            <div id="denuncia${denuncia.id}" class="denunciaCard card-horizontal m-0 p-0" style="display: flex;">
+                <div class="dashboard-photos">
+                    <img class="p-2" src="${denuncia.url}" alt="Card image cap"/>
+                </div>
+                <div class="card-body infoDenuncia">
+                    <p class="card-title"> ${denuncia.logradouro} </p>
+                    <p> ${denuncia.descricao} </p>
+                </div>
+            </div>
+        </div>
+        </div>
+        ` 
+
+        $('#myModal .modal-body').append( content );
+        $('#denuncia' + denuncia.id).click( () =>{
+            window.location.href = 'visualizar.html?id='+ denuncia.id
+        })
+
+    } )
+}
+
+
+
+//Configuração de mapa
+var map = L.map('map').setView([-12.5, -50], 4);
+map.on('click', handleClick)
+
+//definindo icone personalizado para marcadores
+const icon = L.icon({
+    iconUrl: '../../assets/img/citlogo.svg',
+
+    iconSize:     [38, 95], // size of the icon
+    iconAnchor:   [20, 62], // point of the icon which will correspond to marker's location
+    popupAnchor:  [0, -30] // point from which the popup should open relative to the iconAnchor
+})
+
+var url_string = window.location.href;
+var url = new URL(url_string);
+var lat = url.searchParams.get("lat");
+var lng = url.searchParams.get("lng");
+
+if (lat && lng){
+    map.setView({lat:+lat+0.002,lng:+lng-0.002}, 16)//correção pq tava ficando torto (???)
+    marker = L.marker({lat,lng}, {icon})
+    .addTo(map)
+    console.log(marker)
+}
+else{
+//acessar localização
+    map.locate();
+    map.on('locationfound', res =>{
+        map.setView([res.latitude, res.longitude], 16)
+    })
+    map.on('locationerror', error => console.log(error))
+}
+
+//estilização gratuita mas esteticamente menos agradável
+/*L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);*/
+
+//importando estilização do mapa do mapbox
+L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox/streets-v11',
+    tileSize: 512,
+    zoomOffset: -1,
+    accessToken: 'pk.eyJ1IjoiZ3Vpem9tYmFzIiwiYSI6ImNrZzh3NGp6bjA1enMzMHBscG9zdDczZXMifQ.8ULeoifXn389Szz2H9QMAQ'
+}).addTo(map);
+
+
+
+
 </script>
 
 <style>
@@ -243,6 +389,38 @@ $(function() {
     width: 90%;
     margin-bottom: 40px;
 }
+#map{
+    width: 100%;
+    min-height: 200px;
+}
 
+/*modal*/
+.denunciaProxima+.denunciaProxima{
+    margin-top: 20px;
+}
+.denunciaProxima img{
+    width: 100px;
+    height: 100px;
+    border-radius: 25px;
+    padding: 0px;
+}
+.denunciaProxima .denunciaCard{
+    color: white;
+    border-radius: 10px;
+    background-color: #4DCBAB;
+    transition: background-color 0.3s;
+}
+.denunciaProxima .denunciaCard:hover{
+    background-color: #38AE90;
+    cursor: pointer;
+}
+#myModal footer button{
+    background-color: #4DCBAB;
+    border-color: #4DCBAB;
+}
+#myModal footer button:hover{
+    background-color: #38AE90;
+    border-color: #38AE90;
+}
 
 </style>

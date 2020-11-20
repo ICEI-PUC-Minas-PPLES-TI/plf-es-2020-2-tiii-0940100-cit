@@ -451,7 +451,7 @@
 
             $('#myModal .modal-body').append( content );
             $('#denuncia' + denuncia.id).click( () =>{
-                window.location.href = 'cadastro.html?id='+ denuncia.id
+                window.location.href = 'visualizar.html?id='+ denuncia.id
             })
 
         } )
@@ -510,7 +510,7 @@
                         <span>${location.descricao}</span>
                         <span>${location.logradouro}</span>
                      </div>
-                     <a href="../verDenuncias.html?id=${location.id}" class="popupButton"> <i class="fas fa-arrow-right"></i> </a>`);
+                     <a href="./visualizar.html?id=${location.id}" class="popupButton"> <i class="fas fa-arrow-right"></i> </a>`);
         });
     })
     .catch ( error => {
