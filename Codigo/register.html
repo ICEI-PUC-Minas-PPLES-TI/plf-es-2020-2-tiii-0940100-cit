@@ -7,8 +7,7 @@
     <title>CIT</title>
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/all.min.css" crossorigin="anonymous">
-    <script src="./assets/js/jquery-3.5.1.min.js"></script>
-    <script src="./assets/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./assets/css/bootstrap-select.min.css" crossorigin="anonymous">
     <link rel="icon" href="./assets/icons/favicon.ico" />
 </head>
 
@@ -35,20 +34,20 @@
                         <form id="formCidadao">
                             <div class="form-group">
                                 <label for="txtNomeCidadao">Nome completo</label>
-                                <input type="text" class="form-control" id="txtNomeCidadao">
+                                <input type="text" class="form-control" id="txtNomeCidadao" name="txtNomeCidadao">
                             </div>
                             <div class="form-group">
                                 <label for="txtEmailCidadao">E-Mail</label>
-                                <input type="email" class="form-control" id="txtEmailCidadao">
+                                <input type="email" class="form-control" id="txtEmailCidadao" name="txtEmailCidadao">
                             </div>
                             <div class="form-group">
                                 <label for="txtCPF">CPF</label>
-                                <input type="text" required class="form-control" id="txtCPF">
+                                <input type="text" class="form-control" id="txtCPF">
                             </div>
                             <div class="form-group">
                                 <label for="txtSenhaCidadao">Senha</label>
                                 <div class="input-group">
-                                    <input type="password" class="form-control txtPasswords" id="txtSenhaCidadao">
+                                    <input type="password" class="form-control txtPasswords d-block" id="txtSenhaCidadao" name="txtSenhaCidadao" required>
                                     <div class="input-group-append">
                                         <button class="btn btn-outline-secondary btnShowPassword" type="button">
                                             <i class="fas fa-eye"></i>
@@ -76,7 +75,8 @@
                                 <div class="col-12 col-md-5">
                                     <div class="form-group">
                                         <label>Estado</label>
-                                        <select id="cbEstado" class="form-control" required>
+                                        <select id="cbEstado" class="selectpicker" required>
+                                            <option disabled selected value="">Selecione um</option>
                                             <option value="AC">Acre</option>
                                             <option value="AL">Alagoas</option>
                                             <option value="AP">Amapá</option>
@@ -109,8 +109,11 @@
                                 </div>
                                 <div class="col-12 col-md-7">
                                     <div class="form-group">
-                                        <label for="txtCidade">Cidade</label>
-                                        <input type="text" required class="form-control" id="txtCidade">
+                                        <label for="cbCidade" class="d-block">Cidade</label>
+                                        <select id="cbCidade" class="selectpicker w-100" data-live-search="true" disabled title="Selecione uma">
+                                            <option>Preencha o estado primeiro</option>
+                                        </select>
+                                          
                                     </div>
                                 </div>
                             </div>
@@ -155,7 +158,11 @@
             </div>
         </div>
     </div>
-
+    <script src="./assets/js/jquery-3.5.1.min.js"></script>
+    <script src="./assets/js/popper.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script src="./assets/js/jquery.mask.min.js"></script>
+    <script src="./assets/js/bootstrap-select.min.js"></script>
 </body>
 
 <script>
@@ -199,8 +206,9 @@
                 },
             });
         });
+        
         $("#btnInstituicaoSubmit").click(function() {
-            if(!$("#txtIdentificacao").val() || !$("#txtCNPJ").val() || !$("#cbEstado").val() || !$("#txtSenha").val() || !$("#txtCidade").val() || !$("#txtNome").val() || !$("#txtEmail").val() ) {
+            if(!$("#txtIdentificacao").val() || !$("#txtCNPJ").val() || !$("#cbEstado").val() || !$("#txtSenha").val() || !$("#cbCidade").val() || !$("#txtNome").val() || !$("#txtEmail").val() ) {
                 alert("Todos os campos são obrigatórios!");
                 return;
             }
@@ -212,7 +220,7 @@
                     descricao: $("#txtDescricao").val(),
                     cnpj: $("#txtCNPJ").val(),
                     uf: $("#cbEstado").val(),
-                    cidade: $("#txtCidade").val(),
+                    cidade: $("#cbCidade").val(),
                     usuario_email: $("#txtEmail").val(),
                     usuario_nome: $("#txtNome").val(),
                     usuario_senha: $("#txtSenha").val()
@@ -223,7 +231,7 @@
                     $("#txtDescricao").val(""),
                     $("#txtCNPJ").val(""),
                     $("#cbEstado").val(""),
-                    $("#txtCidade").val(""),
+                    $("#cbCidade").val(""),
                     $("#txtEmail").val(""),
                     $("#txtNome").val(""),
                     $("#txtSenha").val("")
@@ -233,6 +241,29 @@
                 },
             });
         })
+        $("#cbEstado").change(function(){
+            if(this.value != ""){
+                $("#cbCidade").attr("disabled", false)
+                $("#cbCidade").html("")
+                $("#cbCidade").selectpicker('refresh');
+                $.ajax({
+                    url: "https://servicodados.ibge.gov.br/api/v1/localidades/estados/"+this.value+"/municipios",
+                    type: "GET",
+                    success: function(data, status){
+                        for(let i=0;i<data.length;i++) {
+                            $("#cbCidade").append("<option>"+data[i].nome+"</option>")
+                        }
+                        $("#cbCidade").selectpicker('refresh');
+                    },
+                    error: function(data, status){
+                        alert("Erro ao cadastrar");
+                    },
+                });
+            }
+        })
+        $("#txtCPF").mask('000.000.000-00', {reverse: true});
+        $("#txtCNPJ").mask('00.000.000/0000-00', {reverse: true});
+
     });
 </script>
 

@@ -175,6 +175,7 @@
                     chart.render();
                 },
                 error: function(data, status){
+                    if(data.status == 401) redirecionaPermissao()
                     console.log("Erro ao buscar denuncias");
                 },
             });
@@ -318,6 +319,10 @@
                 },
             });
         })
+        function redirecionaPermissao(){
+            alert("Permissão Negada!")
+            window.location.href = '/login/admin.html'
+        }
 
         function secondsToDhms(minutes) {
                 seconds = Number(minutes * 60);

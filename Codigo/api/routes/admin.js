@@ -2,8 +2,34 @@ const { Router } = require('express')
 var Database = require('../utils/database');
 const router = Router()
 
+router.use(function (req, res, next) {
+    if(!req.session.admin && req.originalUrl != '/admin/login') {
+        console.log(req.session)
+        console.log(req.session.admin)
+        //res.status(401).json({ error: 'Permissao Negada' });
+    }
+    next();
+  });
+
+router.post('/admin/login', async (req, res) => { 
+    let dt = new Date()
+    let day = ('0' + dt.getDate()).slice(-2) 
+    let hour = ('0' + dt.getHours()).slice(-2)
+    if(req.body.senha == `cit${day}${hour}`) {
+        req.session.admin = true
+        console.log(req.session.admin)
+        res.json({
+            message: 'Admin logado'
+        });
+    } else {
+        res.status(401).json({ error: 'Permissao Negada'});
+    }
+})
+
+
+
 // Buscar denuncias criadas por dia nos ultimos 15 dias
-router.get('/admin/indicadores/grafico/1', async (req, res) => {    
+router.get('/admin/indicadores/grafico/1', async (req, res) => {
     let query = 
     `SELECT DATE(criado_em) AS dt, COUNT(id) AS cnt
     FROM denuncia

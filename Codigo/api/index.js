@@ -2,6 +2,11 @@ require('dotenv').config()
 const express = require('express')
 var session = require('express-session')
 
+process.on('uncaughtException', function (err) {
+  console.error(err);
+  console.log("Node NOT Exiting...");
+});
+
 // Create express instance
 const app = express()
 
