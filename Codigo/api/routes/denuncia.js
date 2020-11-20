@@ -65,4 +65,28 @@ router.get('/denuncia/ranking', async (req, res) => {
     connection.end();
 })
 
+router.post('/denuncia', (req, res, next) => {
+    let db = new Database();
+    var connection = db.connect(); // Abrir conexão com o banco
+
+    connection.query(`INSERT INTO denuncia (status, cep, logradouro, referencia, uf, municipio, latitude, longitude) VALUES (?, ?, ?, ?, ?, ?, ?, ?);`,[req.body.denuncia_status, req.body.denuncia_cep, req.body.denuncia_logradouro, req.body.referencia, req.body.denuncia_uf, req.body.denuncia_municipio, req.body.denuncia_latitude, req.body.denuncia_longitude],  function (error, results) {
+        if (error){
+            connection.end();
+            res.status(500).json({ error: error.message });
+        } else {
+            connection.end();
+            res.json({
+                message: 'success',
+                created: true
+            });
+        }
+        res.end({
+            message: 'success',
+            created: true
+        });
+        
+    })
+
+})
+
 module.exports = router
