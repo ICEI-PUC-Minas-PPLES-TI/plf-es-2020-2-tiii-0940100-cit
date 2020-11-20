@@ -69,11 +69,12 @@ router.post('/denunciar', (req, res, next) => {
     let db = new Database();
     var connection = db.connect(); // Abrir conexão com o banco
 
-    connection.query(`INSERT INTO denuncia (status, cep, logradouro, referencia, uf, municipio, latitude, longitude) VALUES (?, ?, ?, ?, ?, ?, ?, ?); INSERT INTO denuncia_has_categoria (denuncia_id, categoria_id) VALUES (1, 2);`,[req.body.denuncia_status, req.body.denuncia_cep, req.body.denuncia_logradouro, req.body.referencia, req.body.denuncia_uf, req.body.denuncia_municipio, req.body.denuncia_latitude, req.body.denuncia_longitude],  function (error, results) {
+    connection.query(`INSERT INTO denuncia (status, cep, logradouro, referencia, uf, municipio, latitude, longitude) VALUES (?, ?, ?, ?, ?, ?, ?, ?);`,['A',req.body.denuncia_cep, req.body.denuncia_logradouro, req.body.referencia, req.body.denuncia_uf, req.body.denuncia_municipio, req.body.denuncia_latitude, req.body.denuncia_longitude],  function (error, results) {
         if (error){
             connection.end();
             res.status(500).json({ error: error.message });
         } else {
+            connection.query('INSERT INTO denuncia_has_categoria (denuncia_id, categoria_id) VALUES (1, 2);');
             connection.end();
             res.json({
                 message: 'success',
