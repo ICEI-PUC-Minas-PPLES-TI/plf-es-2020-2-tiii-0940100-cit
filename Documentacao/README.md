@@ -422,7 +422,7 @@ Será desenvolvida uma aplicação web, diante disso, é necessário definir lin
 |:--:| 
 | *<sub>Imagem 13 - Interações entre usuário e tecnologia.</sub>* |
 
-***6. Tecnologias***
+***6. Indicadores***
 | Indicador    | Objetivos | Descrição             | Cálculo                               | Fonte de Dados | Perspectiva |
 | :----------- |:--------- | :---------------------| :-------------------------------------| :--------------| :----------:|
 | Ranking das cidades com melhor índice de soluções | Incentivar as organizações das cidades a solucionarem mais denúncias diariamente | Apresentar para todos quais são as cidades que estão mais empenhadas em solucionar denúncias. | (denunciasSolucionadas/totalDeDenuncias)*100 | Tabela de denuncias do banco de dados | Visualizar o ranking ordenado |
