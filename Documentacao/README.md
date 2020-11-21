@@ -422,6 +422,15 @@ Será desenvolvida uma aplicação web, diante disso, é necessário definir lin
 |:--:| 
 | *<sub>Imagem 13 - Interações entre usuário e tecnologia.</sub>* |
 
+***6. Tecnologias***
+| Indicador    | Objetivos | Descrição             | Cálculo                               | Fonte de Dados | Perspectiva |
+| :----------- |:--------- | :---------------------| :-------------------------------------| :--------------| :----------:|
+| Ranking das cidades com melhor índice de soluções | Incentivar as organizações das cidades a solucionarem mais denúncias diariamente | Apresentar para todos quais são as cidades que estão mais empenhadas em solucionar denúncias. | (denunciasSolucionadas/totalDeDenuncias)*100 | Tabela de denuncias do banco de dados | Visualizar o ranking ordenado |
+| Média tempo pra solução | Verificar se o tempo gasto semanalmente pelas organizações para solucionarem denúncias é aceitável | Apresentar para os admins a média de tempo que uma denúncia leva para ser solucionada. | SOMA(tempocriado-temposolucionado)/totaldedenuncias | Tabela de denuncias do banco de dados | Visualizar o gráfico por semana x média dos dias |
+| Denuncias criadas por mês | Analisar se a aplicação esta consideravelmente útil para cidadãos | Apresentar para os admins a quantidade de denúncias efetuadas por mês. | SOMA(denunciasNoMes)/for(qtdDeMeses) | Tabela de denuncias do banco de dados | Visualizar o gráfico por denúncias x a cada mês |
+| Denuncias solucionadas por mês | Analisar se as organizações estão sendo consideravelmente úteis para os cidadãos | Apresentar para os admins a quantidade de solucionadas efetuadas por mês. | SOMA(denunciasSolucionadasNoMes)/for(qtdDeMeses) | Tabela de denuncias do banco de dados | Visualizar o gráfico por denúncias solucionadas x a cada mês |
+| Média tempo para solução de denúncias de cada categoria | Descobrir quais são as categorias que mais demoram para serem solucionadas | Apresentar para os admins o tempo para solucionar as solucionadas de cada categorias. | SOMA(tempocriado-temposolucionado)/totaldedenunciasDaCategorialAtual | Tabela de denuncias e categorias do banco de dados | Visualizar o gráfico por denúncias da média |
+
 
 **REFERÊNCIAS**
 
