@@ -8,10 +8,9 @@
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/css/all.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/css/cit.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <script src="../assets/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+    <script src="../assets/js/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link rel="icon" href="../assets/icons/favicon.ico" />
 </head>
 
@@ -38,13 +37,10 @@
                 <div id="formulario" class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" style="margin-bottom: 10%; padding-bottom: 5%;">
                     <div id="fotos">
                         <img id="fotogrande" src="https://picsum.photos/720" alt="">
-                        <div id="pequenas">
-                            <img id="fotogrande" src="https://picsum.photos/720" alt="">
-                            <img id="fotogrande" src="https://picsum.photos/720" alt="">
-                            <img id="fotogrande" src="https://picsum.photos/720" alt="">
-                            <img id="fotogrande" src="https://picsum.photos/720" alt="">
-                            <img id="fotogrande" src="https://picsum.photos/720" alt="">
-                        </div>
+                        <table class="fotos-pequenas-table">
+                            <tbody id="fotos-pequenas-tbody">
+                            </tbody>
+                        </table> 
                     </div>
                     <div id="informacoes" style="margin-left: 5%;">
                         <h2 id="titulo">Dados da Denúncia</h2>
@@ -110,7 +106,16 @@
                     else
                         $("#cit-descDenuncias-tbody").append("<tr><td>" + "<h6>" + data[i].nome + ": </h6>" + "<p>" + data[i].descricao + "</p>" + "</td></tr>")
                 }
+
                 $("#qtdContri").text(data.length)
+
+                var fotos = data[0].url.split(",")
+                document.getElementById("fotogrande").src=fotos[0];
+                $("#fotos-pequenas-table").html("")
+                for(let i=1; i<fotos.length;i++) {
+                    $("#fotos-pequenas-tbody").append(`<img id="" src="${fotos[i]}">`)
+                }
+
             },
             error: function(data, status){
                 console.log("Erro ao buscar denuncias");
@@ -134,13 +139,12 @@
 
                 if(data[0].status=='S')
                     $("#statusText").html("<a style='color: #90ee90;'>Solucionada</a>");
-                else if(data[0].status=='A')
-                    ("#statusText").html("<a style='color: #ffffa1;'>Em andamento</a>");
-                else if(data[0].status=='N')
-                    ("#statusText").html("<a style='color: red;'>Não solucionada</a>");
-                else
-                ("#statusText").html("ERRO");
-                
+
+                if(data[0].status=='A')
+                    $("#statusText").html("<a style='color: #fafa00;'>Em andamento</a>");
+
+                if(data[0].status=='N')
+                    $("#statusText").html("<a style='color: red;'>Não solucionada</a>");
 
             },
             error: function(data, status){
@@ -186,12 +190,17 @@
     display:inline-flex;
 }
 
-#pequenas img{
+
+
+#fotos-pequenas-tbody img{
     margin: 0;
     padding: 0;
     width: 18%;
     height: 100px;
     padding: 1%;
+    border-radius: 16px;
+    display: inline-flex;
+
 }
 
 #titulo, #ultimas{
