@@ -12,7 +12,7 @@
     <script src="../assets/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <link rel="icon" href="../static/favicon.ico" />
+    <link rel="icon" href="../assets/icons/favicon.ico" />
 </head>
 
 <body>
@@ -27,8 +27,8 @@
             <div id="breadcrumb" class="row">
                 <nav class="cit-breadcrumb" aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="./index.html"><i class="fas fa-home"></i> &nbsp; Início</a></li>
-                        <li class="breadcrumb-item"><a href="./mapPages/mapPage.html"> <i class="fas fa-bullhorn"></i> &nbsp; Mapa Denúncias</a></li>
+                        <li class="breadcrumb-item"><a href="../index.html"><i class="fas fa-home"></i> &nbsp; Início</a></li>
+                        <li class="breadcrumb-item"><a href="./mapadenuncia.html"> <i class="fas fa-bullhorn"></i> &nbsp; Mapa Denúncias</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Denúncia</li>
                     </ol>
                 </nav>
@@ -57,24 +57,31 @@
                             </div>
                         </div>
                         <div id="categoria">
-                            <h5 class="d-inline" style="font-size: 1.6em;">Categoria:</h6> <p  class="d-inline" style="font-size: 1.4em;">Estrutural</p>
+                            <h5 class="d-inline" style="font-size: 1.6em;">Categoria:</h6> <p  class="d-inline" style="font-size: 1.4em;" id="cateText">Estrutural</p>
                         </div>
                         <div id="contribuicoes">
-                            <h5 class="d-inline" style="font-size: 1.6em;">Quantidade de contribuições:</h6> <p  class="d-inline" style="font-size: 1.4em;">8</p>
+                            <h5 class="d-inline" style="font-size: 1.6em;">Quantidade de contribuições:</h6> <p id="qtdContri"  class="d-inline" style="font-size: 1.4em;">8</p>
                         </div>
                         <hr>
                         <div id="status" style="text-align: center;">
-                            <h5 class="d-inline" style="font-size: 1.6em; color: #5C8599;">Status: </h6> <p  class="d-inline" style="font-size: 1.4em; color: red; font-weight: 700;">Não solucionada</p>
+                            <h5 class="d-inline" style="font-size: 1.6em; color: #5C8599;">Status: </h6> <p id="statusText"  class="d-inline" style="font-size: 1.4em; color: #c6e0e6; font-weight: 700;">Carregando</p>
                         </div>
                         <hr>
                         <h2 id="ultimas">Ultimas contribuicões</h2>
                         <div id="lista" style="margin-left: 5%;">
-                            <div class="contri d-block" style="margin-top: 2%;">
+                            <!-- <div class="contri d-block" style="margin-top: 2%;">
                                 <h5 id="nome" class="d-inline" style="font-size: 1.2em; color: #5C8599; margin-top: 2%;">Usuário anônimo: </h6> <p  class="d-inline" style="font-size: 1em;font-weight: 700; color: #5C8599; margin-bottom: 2%;">Não aguento mais essa rua esburacada, todo dia acordo e caio no buraco como está na foto!</p>
                             </div>
                             <div class="contri d-block" style="margin-top: 2%;">
                                 <h5 id="nome" class="d-inline" style="font-size: 1.2em; color: #5C8599;">José Maurício: </h6> <p  class="d-inline" style="font-size: 1em;font-weight: 700; color: #5C8599;">Por favor, arrumem esse buraco na rua, todos os dias quebro a mola do meu carro nele...</p>
-                            </div>
+                            </div> -->
+                            <table class="cit-descDenuncias-table">
+                                <tbody id="cit-descDenuncias-tbody">
+                                    <tr>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table> 
                         </div>
                     </div>
                 </div>
@@ -87,6 +94,60 @@
 </body>
 
 <script>
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var idDenuncia = url.searchParams.get("id");
+
+     $(function() {
+        $.ajax({
+            url: `http://localhost:3001/denunciaContri/ver?id=${idDenuncia}`,
+            type: "GET",
+            success: function(data, status){
+                $("#cit-descDenuncias-table").html("")
+                for(let i=0; i<data.length;i++) {
+                    if(data[i].anonimo==1)
+                        $("#cit-descDenuncias-tbody").append("<tr><td>" + "<h6>Anônimo: </h6>" + "<p>" + data[i].descricao + "</p>" + "</td></tr>")
+                    else
+                        $("#cit-descDenuncias-tbody").append("<tr><td>" + "<h6>" + data[i].nome + ": </h6>" + "<p>" + data[i].descricao + "</p>" + "</td></tr>")
+                }
+                $("#qtdContri").text(data.length)
+            },
+            error: function(data, status){
+                console.log("Erro ao buscar denuncias");
+            },
+        });
+    })
+
+    $(function() {
+        $.ajax({
+            url: `http://localhost:3001/denuncia/ver?id=${idDenuncia}`,
+            type: "GET",
+            success: function(data, status){
+                $("#cit-descDenuncias-table").html("")
+                /*for(let i=0; i<data.length;i++) {
+                    if(data[i].anonimo==1)
+                        $("#cit-descDenuncias-tbody").append("<tr><td>" + "<h6>Anônimo: </h6>" + "<p>" + data[i].descricao + "</p>" + "</td></tr>")
+                    else
+                        $("#cit-descDenuncias-tbody").append("<tr><td>" + "<h6>" + data[i].nome + ": </h6>" + "<p>" + data[i].descricao + "</p>" + "</td></tr>")
+                }*/
+                $("#cateText").text(data[0].descricao)
+
+                if(data[0].status=='S')
+                    $("#statusText").html("<a style='color: #90ee90;'>Solucionada</a>");
+                else if(data[0].status=='A')
+                    ("#statusText").html("<a style='color: #ffffa1;'>Em andamento</a>");
+                else if(data[0].status=='N')
+                    ("#statusText").html("<a style='color: red;'>Não solucionada</a>");
+                else
+                ("#statusText").html("ERRO");
+                
+
+            },
+            error: function(data, status){
+                console.log("Erro ao buscar denuncias");
+            },
+        });
+    })
 </script>
 
 <style>
@@ -176,6 +237,19 @@
 #contribuicoes{
     margin-top: 10px;
     color: #5C8599;
+}
+
+#lista h6{
+    display: inline;
+    font-size: 1.2em; 
+    color: #5C8599; 
+}
+
+#lista p{
+    display: inline;
+    font-size: 1em;
+    font-weight: 700; 
+    color: #5C8599; 
 }
 
 </style>
