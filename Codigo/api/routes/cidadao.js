@@ -110,8 +110,6 @@ router.get('/dashboard/nome', async (req, res) => {
     `SELECT nome
     FROM cidadao
     WHERE id = ?;`
-    console.log("aboa")
-
     
     const db = new Database();
     const connection = await db.connect();

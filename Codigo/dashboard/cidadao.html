@@ -45,26 +45,6 @@
 
           </table>
 
-          <nav class="d-flex justify-content-center">
-            <ul class="pagination">
-              <li class="page-item">
-                <a class="page-link" href="#" aria-label="Anterior">
-                  <span aria-hidden="true">&laquo;</span>
-                  <span class="sr-only">Anterior</span>
-                </a>
-              </li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item">
-                <a class="page-link" href="#" aria-label="Próximo">
-                  <span aria-hidden="true">&raquo;</span>
-                  <span class="sr-only">Próximo</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-
         </div>
       </div>
     </div>
@@ -80,7 +60,7 @@
 
    $(function() {
       $.ajax({
-          url: `http://localhost:3001/dashboard/qtdDenuncias?id=${idCidadao}`,
+          url: `http://52.188.152.85:81/dashboard/qtdDenuncias?id=${idCidadao}`,
           type: "GET",
           success: function(data, status){
 
@@ -95,7 +75,7 @@
 
   $(function() {
       $.ajax({
-          url: `http://localhost:3001/dashboard/nome?id=${idCidadao}`,
+          url: `http://52.188.152.85:81/dashboard/nome?id=${idCidadao}`,
           type: "GET",
           success: function(data, status){
               $("#nomeCidadao").text(data[0].nome)
@@ -108,7 +88,7 @@
 
   $(function() {
         $.ajax({
-            url: `http://localhost:3001/dashboard/verContri?id=${idCidadao}`,
+            url: `http://52.188.152.85:81/dashboard/verContri?id=${idCidadao}`,
             type: "GET",
             success: function(data, status){
 
