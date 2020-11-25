@@ -198,17 +198,19 @@ const handleClick = event =>{
         }
     } )
     .catch( error => console.log(error) )
-
+    
+    geocode(lat,lng);
     /*  GEOCODING REVERSO */
-    geocodeService.reverse().latlng(event.latlng).run( (error, results) =>{
+    /*geocodeService.reverse().latlng(event.latlng).run( (error, results) =>{
         if (error)
             console.log(error);
         else{
+            console.log(results)
             const logradouro = results.address.LongLabel;
             $('#endereco').val( logradouro )
         }
     } )
-    
+
     // LEMBRAR DE COMENTAR ESSAS LINHAS:
     
     var urlReq = `https://api.opencagedata.com/geocode/v1/json?q=${lat}+${lng}&key=21c6df39ed504b4e886b065d9aa8d6f9`
@@ -224,7 +226,7 @@ const handleClick = event =>{
         else
             document.getElementById("municipio").innerHTML = jsonRes.results[0].components.town;
     } )
-    .catch( error => console.log(error) )
+    .catch( error => console.log(error) )*/
 
 }
 
@@ -255,6 +257,37 @@ const preencherModal = denuncias => {
     } )
 }
 
+const geocode = (lat,lng) => {
+    console.log("lalau")
+    /*  GEOCODING REVERSO */
+    geocodeService.reverse().latlng({lat,lng}).run( (error, results) =>{
+        if (error)
+            console.log(error);
+        else{
+            console.log(results)
+            const logradouro = results.address.LongLabel;
+            $('#endereco').val( logradouro )
+        }
+    } )
+
+    // LEMBRAR DE COMENTAR ESSAS LINHAS:
+    
+    var urlReq = `https://api.opencagedata.com/geocode/v1/json?q=${lat}+${lng}&key=21c6df39ed504b4e886b065d9aa8d6f9`
+    fetch(urlReq, {method:'GET'})
+    .then( res => res.json() )
+    .then( jsonRes => {
+        document.getElementById("endereco").value = jsonRes.results[0].formatted;
+        document.getElementById("cep").innerHTML = jsonRes.results[0].components.postcode;
+        document.getElementById("uf").innerHTML = jsonRes.results[0].components.state_code;
+        document.getElementById("logradouro").innerHTML = jsonRes.results[0].components.road;
+        if(jsonRes.results[0].components.town == undefined)
+            document.getElementById("municipio").innerHTML = jsonRes.results[0].components.city;
+        else
+            document.getElementById("municipio").innerHTML = jsonRes.results[0].components.town;
+    } )
+    .catch( error => console.log(error) )
+}
+
 
 
 //Configuração de mapa
@@ -280,6 +313,8 @@ if (lat && lng){
     map.setView({lat:+lat+0.002,lng:+lng-0.002}, 16)//correção pq tava ficando torto (???)
     marker = L.marker({lat,lng}, {icon})
     .addTo(map);
+
+    geocode(lat,lng)
 }
 else{
 //acessar localização
@@ -291,19 +326,19 @@ else{
 }
 
 //estilização gratuita mas esteticamente menos agradável
-/*L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);*/
+}).addTo(map);
 
 //importando estilização do mapa do mapbox
-L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+/*L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
     id: 'mapbox/streets-v11',
     tileSize: 512,
     zoomOffset: -1,
     accessToken: 'pk.eyJ1IjoiZ3Vpem9tYmFzIiwiYSI6ImNrZzh3NGp6bjA1enMzMHBscG9zdDczZXMifQ.8ULeoifXn389Szz2H9QMAQ'
-}).addTo(map);
+}).addTo(map);*/
 
 
 /*var valorCategoria = document.getElementById("selectCategoria").value;

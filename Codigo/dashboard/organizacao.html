@@ -5,15 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CIT</title>
-  <link rel="stylesheet" href="../../assets/css/bootstrap.min.css" crossorigin="anonymous">
-  <link rel="stylesheet" href="../../assets/css/all.min.css" crossorigin="anonymous">
-  <script src="../../assets/js/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-  <script src="../assets/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
-  <link rel="icon" href="../../static/favicon.ico" />
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/all.min.css" >
+  <script src="../assets/js/jquery-3.2.1.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <link rel="icon" href="../assets/icons/favicon.ico" />
 </head>
 
 <body>
@@ -32,6 +28,7 @@
           <h3>Número de denúncias: 3</h3>
           <hr>
           <div class="final">
+            <h4 id="createUser"> Criar usuário <i class="fas fa-plus"></i> </h4>
             <hr>
             <h4><i class="fas fa-university text-white d-inline"></i>Organização</h3>
           </div>
@@ -216,6 +213,14 @@
     right: 0;
   }
 
+  #createUser{
+    transition: color 0.3s;
+  }
+  #createUser:hover{
+    color: #c2c2c2;
+    cursor: pointer;
+  }
+
   @media only screen and (max-width: 768px) {
     #lateral {
       height: 350px;
@@ -241,6 +246,15 @@
       height: auto;
     }
   }
+
 </style>
+
+<script>
+
+$('#createUser').click( () =>{
+  location.href = "./criarUsuario.html?org_id=" + 1 // id da organização
+} )
+
+</script>
 
 </html>
