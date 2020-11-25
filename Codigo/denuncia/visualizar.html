@@ -85,6 +85,7 @@
                                 </tbody>
                             </table> 
                         </div>
+                        <div type="button" id="addCont" class="btn btn-primary">Adicionar Contribuição a Denúncia</div>
                     </div>
                 </div>
                 <div class="col-3"></div>
@@ -170,7 +171,7 @@
 
     $(function() {
         $.ajax({
-            url: `http://52.188.152.85:81:3001/denuncia/ver?id=${idDenuncia}`,
+            url: `http://52.188.152.85:81/denuncia/ver?id=${idDenuncia}`,
             type: "GET",
             success: function(data, status){
                 const lat = data[0].latitude
@@ -208,6 +209,10 @@
             },
         });
     })
+
+    $('#addCont').click( ()=>{
+        location.href = "./contribuir.html?id="+idDenuncia 
+    } )
 </script>
 
 <style>
@@ -329,6 +334,20 @@
 }
 #mapa .card:hover{
     background-color: #38ae90;
+}
+
+#addCont{
+    margin-top: 30px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #38ae90;
+    border-color: #38ae90;
+    transition: background-color border-color 0.3s;
+    font-weight: 700;
+}
+#addCont:hover{
+    background-color: #046444;
+    border-color: #046444;
 }
 
 </style>
