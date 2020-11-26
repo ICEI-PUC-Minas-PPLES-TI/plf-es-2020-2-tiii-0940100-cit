@@ -90,24 +90,51 @@ router.get('/dashorganizacao/nome', async (req, res) => {
     connection.end();
 })
 
-router.get('/dashorganizacao/denuncia', async (req, res) => {
+router.get('/dashorganizacao/qtdDenuncia', async (req, res) => {
     
     const query = 
-    `SELECT d.*, MIN(dco.descricao) AS contribuicao, MIN(dco.criado_em) AS feita_em, COUNT(DISTINCT d.id) as qtd_Denuncias, dco.descricao, GROUP_CONCAT(f.url) as 'urls_fotos'
+    `SELECT COUNT(DISTINCT dc.denuncia_id) as qtd_Denuncias
     FROM denuncia_has_categoria dc
     INNER JOIN organizacao_has_categoria oc ON oc.categoria_id=dc.categoria_id
     INNER JOIN denuncia d ON d.id=dc.denuncia_id
     INNER JOIN categoria c ON c.id=dc.categoria_id
     INNER JOIN organizacao o ON o.uf=d.uf AND o.cidade=d.municipio
     INNER JOIN denuncia_contribuicao dco ON dco.denuncia_id=d.id
-    LEFT JOIN denuncia_contribuicao_foto f ON d.id = f.denuncia_contribuicao_id
+    WHERE o.id=?;`
+    
+    const db = new Database();
+    const connection = await db.connect();
+
+    connection.query(query, [req.query.id], function (error, results, fields) {
+        if (error){
+            res.status(500).json({ error: error.message });
+        } else {
+            res.json(results);
+        }
+        res.end();
+    });
+    connection.end();
+})
+
+router.get('/dashorganizacao/denuncia', async (req, res) => {
+    
+    const query = 
+    `SELECT d.*, MIN(dco.descricao) AS contribuicao, MIN(dco.criado_em) AS feita_em, COUNT(DISTINCT d.id) as qtd_Denuncias, dco.descricao, GROUP_CONCAT(f.url) as url_fotos
+    FROM denuncia_has_categoria dc
+    INNER JOIN organizacao_has_categoria oc ON oc.categoria_id=dc.categoria_id
+    INNER JOIN denuncia d ON d.id=dc.denuncia_id
+    INNER JOIN categoria c ON c.id=dc.categoria_id
+    INNER JOIN organizacao o ON o.uf=d.uf AND o.cidade=d.municipio
+    INNER JOIN denuncia_contribuicao dco ON dco.denuncia_id=d.id
+    LEFT JOIN denuncia_contribuicao_foto f ON dco.id = f.denuncia_contribuicao_id
     WHERE o.id=?
+    GROUP BY d.id
     ORDER BY d.criado_em DESC;`
     
     const db = new Database();
     const connection = await db.connect();
 
-    connection.query(query,[req.query.id],  function (error, results, fields) {
+    connection.query(query, [req.query.id], function (error, results, fields) {
         if (error){
             res.status(500).json({ error: error.message });
         } else {

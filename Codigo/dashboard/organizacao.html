@@ -82,6 +82,7 @@
   var url_string = window.location.href;
   var url = new URL(url_string);
   var idOrganizacao = url.searchParams.get("id");
+  var qopcao = url.searchParams.get("opcao");
 
 $(function() {
       $.ajax({
@@ -97,12 +98,28 @@ $(function() {
   })
 
   $(function() {
+      $.ajax({
+          url: `http://localhost:3001/dashorganizacao/qtdDenuncia?id=${idOrganizacao}`,
+          type: "GET",
+          success: function(data, status){
+              $("#qtdDenuncias").text(data[0].qtd_Denuncias)
+          },
+          error: function(data, status){
+              console.log("Erro ao buscar nome");
+          },
+      });
+  })
+
+
+  function carregarDenuncias(){
+    
+  }
+
+  $(function() {
         $.ajax({
             url: `http://localhost:3001/dashorganizacao/denuncia?id=${idOrganizacao}`,
             type: "GET",
             success: function(data, status){
-
-                $("#qtdDenuncias").text(data[0].qtd_Denuncias)
 
                 $("#denuncia").html("")
 
@@ -118,8 +135,8 @@ $(function() {
                   else 
                     statusTf = `<a style='color: red;'>Não solucionada</a>`
 
-                    if(data[i].urls_fotos!=null){
-                    var fotos = data[i].urls_fotos.split(",")
+                    if(data[i].url_fotos!=null){
+                    var fotos = data[i].url_fotos.split(",")
                     if(fotos[1]==null)
                       fotos[1] = "../assets/img/semimg.png"
                   } else
