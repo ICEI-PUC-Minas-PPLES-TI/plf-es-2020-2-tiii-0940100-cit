@@ -49,8 +49,9 @@ router.get('/denuncia/ranking', async (req, res) => {
     const query = 
     `SELECT municipio, COUNT(*) AS cnt
         FROM denuncia
-        WHERE criado_em BETWEEN ${dtBegin} AND ${dtEnd} ${filtroEstado}
-        GROUP BY uf,municipio;`
+        WHERE \`status\` = 'S' AND criado_em BETWEEN ${dtBegin} AND ${dtEnd} ${filtroEstado}
+        GROUP BY uf,municipio
+        ORDER BY COUNT(*) DESC;`
     const db = new Database();
     const connection = await db.connect();
 
