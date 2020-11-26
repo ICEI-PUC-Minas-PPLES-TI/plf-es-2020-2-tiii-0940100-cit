@@ -3,18 +3,6 @@ var Database = require('../utils/database');
 const router = Router()
 var jwt = require('jsonwebtoken');
 
-/*router.use(function (req, res, next) {
-    if(!['/cidadaousuario','/cidadao'].includes(req.originalUrl)) {
-        try{
-            var decoded = jwt.verify(req.headers['x-cidadao'], process.env.SESSION_SECRET);
-            req.auth = decoded
-            next();
-        } catch(e) {
-            console.log(e)
-            res.status(401).json({ error: 'Permissao Negada' });
-        }
-    } else next();
-});*/
 
 const middlewareCidadao = (req,res,next) => {
     try{
@@ -29,14 +17,13 @@ const middlewareCidadao = (req,res,next) => {
 
 
 // Fazer login como cidadão
-router.post('/cidadaousuario', (req, res, next) => { // Não entendi e coloquei qualquer coisa
+router.post('/cidadaousuario', (req, res, next) => {
     let db = new Database();
     var connection = db.connect(); // Abrir conexão com o banco
-
     connection.query(`SELECT id,nome,email
                         FROM cidadao
                         WHERE email = ?
-                            AND senha = MD5(?)`,[req.body.email, req.body.senha],  // Acho que só precisa disso, o que é esses body?
+                            AND senha = MD5(?)`,[req.body.email, req.body.senha],
                             function (error, results, fields) {
         if (error)
             res.status(500).json({ error: error.message });
