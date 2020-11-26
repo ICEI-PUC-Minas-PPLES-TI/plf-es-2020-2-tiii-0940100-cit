@@ -32,7 +32,7 @@ router.post('/organizacao', (req, res, next) => {
             res.status(500).json({ error: error.message });
         } else {
             // Inserir usuário da organização
-            connection.query(`INSERT INTO organizacao_usuario (nome, email, senha, organizacao_id) VALUES (?, ?, MD5(?), ?);`,[req.body.usuario_nome, req.body.usuario_email, req.body.usuario_senha, results.insertId],  function (error2, results2) {
+            connection.query(`INSERT INTO organizacao_usuario (nome, email, senha, organizacao_id) VALUES (?, ?, MD5(?), ?);`,[req.body.usuario_nome, req.body.usuario_email, req.body.usuario_senha, results.insertId],  function (error2, results) {
                 if (error2){
                     connection.query(`DELETE FROM organizacao WHERE id = ${results.insertId}`);
                     connection.end();
@@ -49,6 +49,25 @@ router.post('/organizacao', (req, res, next) => {
     });
 })
 
+router.post('/criarUsuario', (req, res, next) => {
+    let query = `INSERT INTO organizacao_usuario (nome, email, senha, organizacao_id) VALUES (?, ?, MD5(?), ?);`
+
+    let db = new Database();
+    var connection = db.connect(); // Abrir conexão com o banco
+    // Inserir usuário da organização
+    connection.query(query,[req.body.usuario_nome, req.body.usuario_email, req.body.usuario_senha, req.body.org_id],  function (error, results) {
+        if (error){
+            res.status(500).json({ error });
+            connection.end();
+        } else {
+            connection.end();
+            res.json({
+                message: 'success',
+                created: true
+            });
+        }
+    })
+})
 
 
 module.exports = router

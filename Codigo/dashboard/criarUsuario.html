@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIT</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/all.min.css" >
+    <script src="../assets/js/jquery-3.5.1.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <link rel="icon" href="../assets/icons/favicon.ico" />
+</head>
+
+<body>
+
+    <div>
+        <div class="auth-background">
+            <div class="auth-container d-block">
+                <a class="btn btn-outline-success position-absolute" href="../index.html">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+                <img src="../assets/img/citlogo.svg" width="150px" alt="CIT Logo" class="d-block m-auto">
+                <h3 class="auth-container-title text-center">CIT</h3>
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <p class="nav-item nav-link active" id="nav-fisica-tab" data-toggle="tab" href="#nav-fisica" role="tab" aria-controls="nav-fisica" aria-selected="true">Cadastro de Usuário da Organização</a>
+                    </div>
+                </nav>
+                <br>
+                <div class="tab-content" id="nav-tabContent">
+                    
+                    <!-- Usuário de Organização -->
+                        <form id="formUser">
+                            <div class="form-group">
+                                <label for="txtNome">Nome</label>
+                                <input type="text" class="form-control" id="txtNome">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtEmail">E-Mail</label>
+                                <input type="email" class="form-control" id="txtEmail">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtSenha">Senha</label>
+                                <div class="input-group">
+                                    <input type="password" class="form-control txtPasswords" id="txtSenha">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary btnShowPassword" type="button">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary float-right" id="btnInstituicaoSubmit">
+                                Cadastrar
+                            </button>
+                        </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    $(function() { // Linha equivalente a:  document.addEventListener("DOMContentLoaded", function(event) { });
+        $(".btnShowPassword").click(function() { // Equivalente a: document.querySelectorAll("btnShowPassword").addEventListener("click", function(){});
+            if($(".txtPasswords").first().attr('type') == 'text') $(".txtPasswords").attr('type', 'password');
+            else $(".txtPasswords").attr('type', 'text');
+        });
+
+        var url_string = window.location.href;
+        var url = new URL(url_string);
+        var org_id = url.searchParams.get("org_id");
+        
+        $("#formUser").submit(function() {
+            if(!$("#txtNome").val() || !$("#txtEmail").val() || !$("#txtSenha").val() ) {
+                alert("Todos os campos são obrigatórios!");
+                return false;
+            }
+            $.ajax({
+                url: "http://"+ "52.188.152.85:81"/*"localhost:3001"*/ +"/criarUsuario",
+                type: "POST",
+                data: {
+                    usuario_email: $("#txtEmail").val(),
+                    usuario_nome: $("#txtNome").val(),
+                    usuario_senha: $("#txtSenha").val(),
+                    org_id
+                },
+                success: function(data, status){
+                    alert("usuario criado")
+                    location.href = "./organizacao.html"
+                    return false
+                },
+                error: function(data, status){
+                    alert("Erro ao cadastrar");
+                    return false
+                },
+            });
+            return false
+        })
+
+    });
+</script>
+
+<style>
+
+    a{
+        text-decoration: none;
+    }
+
+    .auth-background{
+        background: #38AE90;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        min-height: 100%;
+    }
+    .auth-container{
+        width: 600px;
+        padding: 20px;
+        padding-bottom: 50px;
+        background: white;
+        margin: 100px auto 100px auto;
+        border-radius: 5px;
+    }
+    @media only screen and (max-width: 600px) {
+        .auth-container{
+            width: 98%;
+            margin: 1%;
+        }
+    }
+
+</style>
+
+</html>
