@@ -106,7 +106,7 @@
                   let dataConvertida = new Date(data[i].feita_em).toLocaleString()
 
                     $("#denuncia").append(`
-                      <a href="/denuncia/visualizar.html?id=3" style="text-decoration:none; color: 	#1C1C1C;"><div class="card-horizontal m-0 p-0" style="display: flex; background-color: #dadada;">
+                      <a href="/denuncia/visualizar.html?id=${data[i].id}" style="text-decoration:none; color: 	#1C1C1C;"><div class="card-horizontal m-0 p-0" style="display: flex; background-color: #dadada;">
                         <div class="dashboard-photos">
                           <img class="p-2" src="${fotos[0]}" alt="Card image cap"/>
                           <img class="p-2" src="${fotos[1]}" alt="Card image cap"/>
