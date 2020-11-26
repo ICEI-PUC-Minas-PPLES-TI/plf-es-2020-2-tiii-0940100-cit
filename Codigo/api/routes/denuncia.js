@@ -91,4 +91,53 @@ router.post('/denunciar', (req, res, next) => {
 
 })
 
+router.get('/denunciaContri/ver', async (req, res) => {
+    
+    const query = 
+    `SELECT dc.id, dc.descricao, dc.criado_em, dc.anonimo, dc.cidadao_id, dc.organizacao_usuario_id,  GROUP_CONCAT(url) as url, c.nome
+    FROM denuncia_contribuicao dc
+    LEFT JOIN denuncia_contribuicao_foto dcf ON dc.id = dcf.denuncia_contribuicao_id
+    INNER JOIN cidadao c ON c.id=dc.cidadao_id
+    WHERE dc.denuncia_id = ?
+    GROUP BY dc.id;`
+
+    
+    const db = new Database();
+    const connection = await db.connect();
+
+    connection.query(query,[req.query.id],  function (error, results, fields) {
+        if (error){
+            res.status(500).json({ error: error.message });
+        } else {
+            res.json(results);
+        }
+        res.end();
+    });
+    connection.end();
+})
+
+router.get('/denuncia/ver', async (req, res) => {
+    
+    const query = 
+    `SELECT d.id, d.status, d.cep, d.logradouro, d.referencia, d.uf, d.municipio, d.latitude, d.longitude, d.criado_em, d.solucionado_em, c.descricao
+    FROM denuncia d
+    INNER JOIN denuncia_has_categoria dhc ON dhc.denuncia_id = d.id
+    INNER JOIN categoria c ON c.id = dhc.categoria_id
+    WHERE d.id = ?`
+
+    
+    const db = new Database();
+    const connection = await db.connect();
+
+    connection.query(query,[req.query.id],  function (error, results, fields) {
+        if (error){
+            res.status(500).json({ error: error.message });
+        } else {
+            res.json(results);
+        }
+        res.end();
+    });
+    connection.end();
+})
+
 module.exports = router
