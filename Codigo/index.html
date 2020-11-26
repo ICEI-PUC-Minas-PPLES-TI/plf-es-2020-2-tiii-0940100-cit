@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./assets/css/cit.css">
     <script src="./assets/js/jquery-3.5.1.min.js"></script>
     <script src="./assets/js/bootstrap.min.js"></script>
+    <script src="./assets/js/cit.js"></script>
     <link rel="icon" href="./assets/icons/favicon.ico" />
 </head>
 
@@ -57,7 +58,7 @@
 <script>
     $(function() {
         $.ajax({
-            url: "http://52.188.152.85:81/test",
+            url: "/test",
             type: "GET",
             success: function(data, status){
                 $("#lblCountDenuncia").text(data.cnt);

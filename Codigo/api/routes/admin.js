@@ -1,14 +1,21 @@
 const { Router } = require('express')
 var Database = require('../utils/database');
+var jwt = require('jsonwebtoken');
 const router = Router()
 
 router.use(function (req, res, next) {
-    if(!req.session.admin && req.originalUrl != '/admin/login') {
-        console.log(req.session)
-        console.log(req.session.admin)
-        //res.status(401).json({ error: 'Permissao Negada' });
-    }
-    next();
+    if(req.originalUrl != '/admin/login') {
+        try{
+            var decoded = jwt.verify(req.headers['x-admin'], process.env.SESSION_SECRET);
+            req.auth = decoded
+            console.log(decoded)
+            next();
+        } catch(e) {
+            console.log(e)
+            res.status(401).json({ error: 'Permissao Negada' });
+        }
+    } else next();
+    
   });
 
 router.post('/admin/login', async (req, res) => { 
@@ -16,12 +23,13 @@ router.post('/admin/login', async (req, res) => {
     let day = ('0' + dt.getDate()).slice(-2) 
     let hour = ('0' + dt.getHours()).slice(-2)
     if(req.body.senha == `cit${day}${hour}`) {
-        req.session.admin = true
-        console.log(req.session.admin)
+        var token = jwt.sign({ admin: true, iat: (Math.floor(Date.now() / 1000) - 30) }, process.env.SESSION_SECRET);
         res.json({
-            message: 'Admin logado'
+            message: 'Admin logado',
+            token: token
         });
     } else {
+        console.log(req.session.admin, 'here')
         res.status(401).json({ error: 'Permissao Negada'});
     }
 })
