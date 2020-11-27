@@ -217,7 +217,9 @@ router.post('/organizacao/contribuir', middlewareOrgao, async (req, res) => {
             connection.end();
             res.status(500).json({ error: error.message });
         } else {
-            connection.query('UPDATE denuncia d SET d.status=? WHERE d.id=?;', [ req.body.status, req.body.idDaDenuncia]);
+            let field = '';
+            if(req.body.status == 'S') field = ', solucionado_em = NOW() '
+            connection.query(`UPDATE denuncia d SET d.status=? ${field} WHERE d.id=?`, [ req.body.status, req.body.idDaDenuncia]);
             connection.query('INSERT INTO denuncia_contribuicao_foto VALUES (?, ?);', [ req.body.linkFoto, req.body.idDaDenuncia]);
             connection.end();
             res.json({
