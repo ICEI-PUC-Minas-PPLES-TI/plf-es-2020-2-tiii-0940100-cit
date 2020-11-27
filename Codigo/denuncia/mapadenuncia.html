@@ -368,7 +368,7 @@
         .then ( res => {
 
             //pegando coordenadas retornadas no primeiro resultado apresentado
-            let [lat,lng] = res.features[0].center;
+            let [lng,lat] = res.features[0].center;
             // o zoom depende do lugar que está sendo pedido
             let zoom;
             switch (res.features[0].place_type[0]){
@@ -384,15 +384,8 @@
                 default:
                     zoom = 17
             }
-            map.setView([lng, lat], zoom);
-            //Talvez eu faça esse negócio de mostrar todas as respostas pro user e pedir p escolher
-            //Por enquanto só to pegando o primeiro resultado e fodas msm
-            /*res.features.forEach( place =>{
-
-                //formatar dados
-                console.log(place);
-
-            })*/
+            map.setView([lat, lng], zoom);
+            
         })
         .catch ( error =>{console.log(error);})
     }
@@ -419,7 +412,7 @@
     const criarDenuncia = event =>{
         const {lat,lng} = createlatlng;
 
-        fetch(`http://52.188.152.85:81/denunciasProximas/${lat}/${lng}`, {method:'GET'})
+        fetch(`http://${"52.188.152.85:81"/*"localhost:3001"*/}/denunciasProximas/${lat}/${lng}`, {method:'GET'})
         .then( res => res.json() )
         .then( jsonRes => {
             if (jsonRes.length == 0)
@@ -465,6 +458,7 @@
         } )
     }
 
+
     var createlatlng;
     var popup;
     // Atribuição de funções para eventos
@@ -472,9 +466,11 @@
 
     // Configuração do mapa com Leaflet
 
-    var map = L.map('map').setView([-12.5, -50], 4);
+    var map = L.map('map')
     map.on('click', handleClick)
 
+$(function(){
+    map.setView([-12.5, -50], 4);
     //acessar localização
     map.locate();
     map.on('locationfound', res =>{
@@ -525,8 +521,7 @@
         console.log(error);
     })
 
-    
-
+})
 
 
 </script>
