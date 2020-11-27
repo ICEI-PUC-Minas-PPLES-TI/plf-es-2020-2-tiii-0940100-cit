@@ -127,12 +127,13 @@
     </div>
 
     <script src="../assets/js/apexcharts.min.js"></script>
+    <script src="/assets/js/cit.js"></script>
 
     <script>
         $(function() {
             // Gráfico 1 - Denuncias criadas
             $.ajax({
-                url: "http://52.188.152.85:81/admin/indicadores/grafico/1",
+                url: "/admin/indicadores/grafico/1",
                 type: "GET",
                 success: function(data, status){
                     let values = []
@@ -187,7 +188,7 @@
 
             // Gráfico 2 - Denuncias solucionadas
             $.ajax({
-                url: "http://52.188.152.85:81/admin/indicadores/grafico/2",
+                url: "/admin/indicadores/grafico/2",
                 type: "GET",
                 success: function(data, status){
                     let values = []
@@ -241,7 +242,7 @@
 
             // Gráfico 3 - Media de tempo para solucionar
             $.ajax({
-                url: "http://52.188.152.85:81/admin/indicadores/grafico/3",
+                url: "/admin/indicadores/grafico/3",
                 type: "GET",
                 success: function(data, status){
                     let values = []
@@ -298,7 +299,7 @@
 
             // Registro cartões
             $.ajax({
-                url: "http://52.188.152.85:81/admin/indicadores/cartoes",
+                url: "/admin/indicadores/cartoes",
                 type: "GET",
                 success: function(data, status){
                     $("#cit-lbl1").text(data.count_criadas)
@@ -311,7 +312,7 @@
             });
             // Consulta tabela
             $.ajax({
-                url: "http://52.188.152.85:81/admin/indicadores/tabela",
+                url: "/admin/indicadores/tabela",
                 type: "GET",
                 success: function(data, status){
                     $("#cit-dashboard-table").html("")

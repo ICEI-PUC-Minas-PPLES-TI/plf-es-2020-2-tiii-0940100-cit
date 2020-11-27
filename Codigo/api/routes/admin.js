@@ -1,15 +1,18 @@
 const { Router } = require('express')
 var Database = require('../utils/database');
+var jwt = require('jsonwebtoken');
 const router = Router()
 
-router.use(function (req, res, next) {
-    if(!req.session.admin && req.originalUrl != '/admin/login') {
-        console.log(req.session)
-        console.log(req.session.admin)
-        //res.status(401).json({ error: 'Permissao Negada' });
+
+const middlewareAdmin = (req,res,next) => {
+    try{
+        var decoded = jwt.verify(req.headers['x-admin'], process.env.SESSION_SECRET);
+        req.auth = decoded
+        next();
+    } catch(e) {
+        console.log(e)
+        res.status(401).json({ error: 'Permissao Negada' });
     }
-    console.log(req.session.admin)
-    next();
   });
 
 router.post('/admin/login', async (req, res) => { 
@@ -17,10 +20,10 @@ router.post('/admin/login', async (req, res) => {
     let day = ('0' + dt.getDate()).slice(-2) 
     let hour = ('0' + dt.getHours()).slice(-2)
     if(req.body.senha == `cit${day}${hour}`) {
-        req.session.admin = 1
-        console.log(req.session.admin)
+        var token = jwt.sign({ admin: true, iat: (Math.floor(Date.now() / 1000) - 30) }, process.env.SESSION_SECRET);
         res.json({
-            message: 'Admin logado'
+            message: 'Admin logado',
+            token: token
         });
     } else {
         res.status(401).json({ error: 'Permissao Negada'});
@@ -30,7 +33,7 @@ router.post('/admin/login', async (req, res) => {
 
 
 // Buscar denuncias criadas por dia nos ultimos 15 dias
-router.get('/admin/indicadores/grafico/1', async (req, res) => {
+router.get('/admin/indicadores/grafico/1',middlewareAdmin, async (req, res) => {
     let query = 
     `SELECT DATE(criado_em) AS dt, COUNT(id) AS cnt
     FROM denuncia
@@ -52,7 +55,7 @@ router.get('/admin/indicadores/grafico/1', async (req, res) => {
 })
 
 // Buscar denuncias solucionadas por dia nos ultimos 15 dias
-router.get('/admin/indicadores/grafico/2', async (req, res) => {    
+router.get('/admin/indicadores/grafico/2', middlewareAdmin, async (req, res) => {    
     let query = 
     `SELECT DATE(solucionado_em) AS dt, COUNT(id) AS cnt
     FROM denuncia
@@ -74,7 +77,7 @@ router.get('/admin/indicadores/grafico/2', async (req, res) => {
 })
 
 // Buscar media de tempo de denuncias solucionadas por dia nos ultimos 15 dias
-router.get('/admin/indicadores/grafico/3', async (req, res) => {    
+router.get('/admin/indicadores/grafico/3', middlewareAdmin, async (req, res) => {    
     let query = 
     `SELECT DATE(criado_em) AS dt, ROUND(AVG(TIMESTAMPDIFF(MINUTE, criado_em, solucionado_em)), 2) AS media -- nao tenho tanta certeza sobre essa
     FROM denuncia
@@ -96,7 +99,7 @@ router.get('/admin/indicadores/grafico/3', async (req, res) => {
 })
 
 
-router.get('/admin/indicadores/cartoes', async (req, res) => {
+router.get('/admin/indicadores/cartoes', middlewareAdmin, async (req, res) => {
     
     let query = 
     `-- MEDIA de novas denuncias
@@ -132,7 +135,7 @@ router.get('/admin/indicadores/cartoes', async (req, res) => {
     connection.end();
 })
 
-router.get('/admin/indicadores/tabela', async (req, res) => {    
+router.get('/admin/indicadores/tabela',middlewareAdmin, async (req, res) => {    
     let query = 
     `SELECT uf,
         municipio, 
@@ -232,6 +235,5 @@ router.delete('/admin/denuncia/:id/contribuicao', async (req, res) => {
     });
     connection.end();
 })
-
 
 module.exports = router

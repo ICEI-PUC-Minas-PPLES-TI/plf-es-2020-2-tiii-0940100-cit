@@ -1,28 +1,49 @@
 const { Router } = require('express')
 var Database = require('../utils/database');
 const router = Router()
+var jwt = require('jsonwebtoken');
+
+
+const middlewareCidadao = (req,res,next) => {
+    try{
+        var decoded = jwt.verify(req.headers['x-cidadao'], process.env.SESSION_SECRET);
+        req.auth = decoded
+        next();
+    } catch(e) {
+        console.log(e)
+        res.status(401).json({ error: 'Permissao Negada' });
+    }
+}
+
 
 // Fazer login como cidadão
-router.post('/cidadaousuario', (req, res, next) => { // Não entendi e coloquei qualquer coisa
+router.post('/cidadaousuario', (req, res, next) => {
     let db = new Database();
     var connection = db.connect(); // Abrir conexão com o banco
-
     connection.query(`SELECT id,nome,email
                         FROM cidadao
                         WHERE email = ?
-                            AND senha = MD5(?)`,[req.body.email, req.body.senha],  // Acho que só precisa disso, o que é esses body?
+                            AND senha = MD5(?)`,[req.body.email, req.body.senha],
                             function (error, results, fields) {
         if (error)
             res.status(500).json({ error: error.message });
         else
             if(results.length == 0)
                 res.status(404).json({ message: 'User not found!' });
-            else
-                res.json(results[0]);
+            else {
+                var token = jwt.sign({ id: results[0].id, nome: results[0].nome , iat: (Math.floor(Date.now() / 1000) - 30) }, process.env.SESSION_SECRET);
+                res.json({
+                    message: 'Usuário logado',
+                    token: token
+                });
+            }
     });
     connection.end();
 
 })
+
+
+
 
 // Cadastrar cidadão
 router.post('/cidadao', (req, res, next) => {
@@ -42,21 +63,19 @@ router.post('/cidadao', (req, res, next) => {
             res.status(500).json({ error: error.message });
         } else {
             connection.end();
+            var token = jwt.sign({ id: results.insertId, nome: req.body.cidadao_nome , iat: (Math.floor(Date.now() / 1000) - 30) }, process.env.SESSION_SECRET);
             res.json({
                 message: 'success',
-                created: true
+                created: true,
+                token: token
             });
         }
-        res.end({
-            message: 'success',
-            created: true
-        });
         
     })
 
 })
 
-router.get('/dashboard/verContri', async (req, res) => {
+router.get('/dashboard/verContri',middlewareCidadao, async (req, res) => {
     
     const query = 
     `SELECT d.id, d.descricao, d.criado_em as "feita_em", d.anonimo, d.denuncia_id, d.cidadao_id, d.organizacao_usuario_id, GROUP_CONCAT(f.url) as 'urls_fotos', den.status, den.cep, den.logradouro, den.uf, den.municipio, den.criado_em, den.solucionado_em
@@ -71,7 +90,7 @@ router.get('/dashboard/verContri', async (req, res) => {
     const db = new Database();
     const connection = await db.connect();
 
-    connection.query(query,[req.query.id],  function (error, results, fields) {
+    connection.query(query,[req.auth.id],  function (error, results, fields) {
         if (error){
             res.status(500).json({ error: error.message });
         } else {
@@ -82,7 +101,7 @@ router.get('/dashboard/verContri', async (req, res) => {
     connection.end();
 })
 
-router.get('/dashboard/qtdDenuncias', async (req, res) => {
+router.get('/dashboard/qtdDenuncias',middlewareCidadao, async (req, res) => {
     
     const query = 
     `SELECT COUNT(DISTINCT d.denuncia_id) as 'qtd_denuncias'
@@ -93,7 +112,7 @@ router.get('/dashboard/qtdDenuncias', async (req, res) => {
     const db = new Database();
     const connection = await db.connect();
 
-    connection.query(query,[req.query.id],  function (error, results, fields) {
+    connection.query(query,[req.auth.id],  function (error, results, fields) {
         if (error){
             res.status(500).json({ error: error.message });
         } else {
@@ -104,25 +123,10 @@ router.get('/dashboard/qtdDenuncias', async (req, res) => {
     connection.end();
 })
 
-router.get('/dashboard/nome', async (req, res) => {
-    
-    const query = 
-    `SELECT nome
-    FROM cidadao
-    WHERE id = ?;`
-    
-    const db = new Database();
-    const connection = await db.connect();
-
-    connection.query(query,[req.query.id],  function (error, results, fields) {
-        if (error){
-            res.status(500).json({ error: error.message });
-        } else {
-            res.json(results);
-        }
-        res.end();
-    });
-    connection.end();
+router.get('/dashboard/nome', middlewareCidadao, async (req, res) => {
+    res.json([{
+        nome: req.auth.nome
+    }]);
 })
 
 module.exports = router

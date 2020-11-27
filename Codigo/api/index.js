@@ -1,6 +1,5 @@
 require('dotenv').config()
 const express = require('express')
-var session = require('express-session')
 
 process.on('uncaughtException', function (err) {
   console.error(err);
@@ -16,15 +15,13 @@ const app = express()
 const cors = require('cors');
 app.use(cors());
 
-app.use(session({ secret: process.env.SESSION_SECRET, cookie: { maxAge: 60000 }}))
-
-
 app.use(express.json());       // to support JSON-encoded bodies
 app.use(express.urlencoded());
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, X-Admin, X-Orgao, X-Cidadao');
     app.use(cors());
     next();
 });
