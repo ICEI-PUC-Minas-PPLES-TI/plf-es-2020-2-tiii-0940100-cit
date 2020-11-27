@@ -12,7 +12,7 @@
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
         <script src="../assets/js/bootstrap.min.js">
     </script>
-    <link rel="icon" href="../static/favicon.ico" />
+    <link rel="icon" href="../assets/icons/favicon.ico" />
 </head>
 
 <body>
@@ -30,9 +30,15 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="./index.html"><i class="fas fa-home"></i> &nbsp; Início</a>
                         </li>
-                        <li class="breadcrumb-item"><a href="./mapPages/mapPage.html"> <i class="fas fa-bullhorn"></i>
-                                &nbsp; Mapa Denúncias</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Denúncia</li>
+                        <li class="breadcrumb-item">
+                            <a href="./mapPages/mapPage.html">&nbsp; Mapa Denúncias</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            <a href="/denuncia/visualizar.html">&nbsp; Denúncia</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            Contribuição
+                        </li>
                     </ol>
                 </nav>
             </div>
@@ -45,20 +51,9 @@
                     <label>Descrição</label>
                     <textarea class="form-control" id="areaDescricao" rows="3"></textarea>
 
-                    <label style="margin-top: 2%; margin-bottom: 0; padding-bottom: 0;">Foto</label>
-                    <div class="form-group" style="padding-top: 0%;">
-                        <div class="input-group input-file" name="Fichier1">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default btn-choose" type="button">Escolher</button>
-                            </span>
-                            <input type="text" class="form-control" placeholder='Selecione uma foto...'
-                                style="max-width: 50%; margin-left: 0; margin-right: 0;">
-                            <span class="input-group-btn">
-                                <button class="btn btn-warning btn-reset" type="button">Apagar</button>
-                            </span>
-                        </div>
-                    </div>
-
+                    <label for="inputFile">Foto</label>
+                    <input type="file" class="form-control-file" id="inputFile" accept="image/x-png,image/jpeg">
+                    <br>
 
                     <label class="d-block" id="anonimaL">Colaborar com a Denúncia de Forma Anônima</label>
 
@@ -217,57 +212,36 @@
 </style>
 
 <script>
-    function bs_input_file() {
-        $(".input-file").before(
-            function () {
-                if (!$(this).prev().hasClass('input-ghost')) {
-                    var element = $("<input type='file' class='input-ghost' style='visibility:hidden; height:0'>");
-                    element.attr("name", $(this).attr("name"));
-                    element.change(function () {
-                        element.next(element).find('input').val((element.val()).split('\\').pop());
-                    });
-                    $(this).find("button.btn-choose").click(function () {
-                        element.click();
-                    });
-                    $(this).find("button.btn-reset").click(function () {
-                        element.val(null);
-                        $(this).parents(".input-file").find('input').val('');
-                    });
-                    $(this).find('input').css("cursor", "pointer");
-                    $(this).find('input').mousedown(function () {
-                        $(this).parents('.input-file').prev().click();
-                        return false;
-                    });
-                    return element;
-                }
-            }
-        );
-    }
-    $(function () {
-        bs_input_file();
-    });
-
-
-    var valorFoto = "https://i.imgur.com/uY1aiTr.png";
     var url_string = window.location.href;
     var url = new URL(url_string);
     var idDenuncia = url.searchParams.get("id");
+
+    var file;
+    $('#inputFile').change(function (event) {
+        console.log(event.target.files)
+        file = event.target.files[0]
+    });
                
     $("#confirmar").click(function () {
         // Requisição Jquery Ajax, equivalente ao método fetch do js puro
-        if (!$("#areaDescricao").val() || !valorFoto) {
+        if (!$("#areaDescricao").val()) {
             alert("Descrição e foto obrigatórios!");
             return;
         }
+
+        let form = new FormData();
+        form.append('descricao', $("#areaDescricao").val());
+        form.append('anonimo', $('input[name=nomeRadio]:checked' ).val());
+        form.append('idDaDenuncia', idDenuncia);
+        if(file) form.append('file', file);
         
         $.ajax({
             url: "/contribuir",
             type: "POST",
-            data: {
-                descricao: $("#areaDescricao").val(),
-                anonimo: $('input[name=nomeRadio]:checked' ).val(),
-                idDaDenuncia: idDenuncia
-            },
+            enctype: 'multipart/form-data',
+            processData: false,
+            contentType: false,
+            data: form,
             success: function (data, status) {
                 alert("Contribuição cadastrada!");
                 $("#areaDescricao").val("")

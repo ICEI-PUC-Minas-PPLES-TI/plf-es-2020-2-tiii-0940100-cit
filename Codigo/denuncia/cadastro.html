@@ -64,18 +64,8 @@
                 </div>
                 <label>Descrição</label>
                 <textarea class="form-control" id="areaDescricao" rows="3"></textarea>
-                <label style="margin-top: 5%; margin-bottom: 0; padding-bottom: 0;">Foto</label>
-                <div class="form-group" style="margin-left: 5%; padding-top: 0%; margin-top: 0; margin-bottom: 2%;">
-                    <div class="input-group input-file" name="Fichier1">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default btn-choose" type="button">Escolher</button>
-                        </span>
-                        <input id="fotoInput" type="text" class="form-control" placeholder='Selecione uma foto...' style="max-width: 50%; margin-left: 0; margin-right: 0;">
-                        <span class="input-group-btn">
-                            <button class="btn btn-warning btn-reset" type="button">Apagar</button>
-                        </span>
-                    </div>
-                </div>
+                <label for="inputFile">Foto</label>
+                <input type="file" class="form-control-file" id="inputFile" accept="image/x-png,image/jpeg">
 
                 <label class="d-block" id="anonimaL">Fazer Denúncia de Forma Anônima?</label>
                 
@@ -325,7 +315,11 @@ fetch(urlReq, {method:'GET'})
     } )
     .catch( error => console.log(error) )
 }*/
-
+    var file;
+    $('#inputFile').change(function (event) {
+        console.log(event.target.files)
+        file = event.target.files[0]
+    });
 
     $("#confirmar").click(function() {
         var today = new Date();
@@ -337,22 +331,27 @@ fetch(urlReq, {method:'GET'})
                 alert("Categoria, preencha todos os campos e marque um endereço válido!!");
                 return;
             }
-            var status = "A"
+            console.log($('#fotoInput').prop('files'))
+            let form = new FormData();
+            form.append('denuncia_cep', $("#cep").text());
+            form.append('denuncia_logradouro', $("#logradouro").text());
+            form.append('denuncia_referencia', "testeRef");
+            form.append('denuncia_uf', $("#uf").text());
+            form.append('denuncia_municipio', $("#municipio").text());
+            form.append('denuncia_categoria', $("#selectCategoria").val());
+            form.append('denuncia_latitude', marker.getLatLng().lat);
+            form.append('denuncia_longitude', marker.getLatLng().lng);
+            form.append('contribuicao_descricao', $("#areaDescricao").val());
+            form.append('contribuicao_anonimo', $('input[name=nomeRadio]:checked' ).val());
+            form.append('file', file);
+            //form.append('fileUpload', );
             $.ajax({
                 url: "/denunciar",//
+                enctype: 'multipart/form-data',
+                processData: false,
+                contentType: false,
                 type: "POST",
-                data: {
-                    denuncia_cep: $("#cep").text(),
-                    denuncia_logradouro: $("#logradouro").text(),
-                    denuncia_referencia: "testeRef",
-                    denuncia_uf: $("#uf").text(),
-                    denuncia_municipio: $("#municipio").text(),
-                    denuncia_categoria: $("#selectCategoria").val(),
-                    denuncia_latitude: marker.getLatLng().lat,
-                    denuncia_longitude: marker.getLatLng().lng,
-                    contribuicao_descricao: $("#areaDescricao").val(),
-                    contribuicao_anonimo: $('input[name=nomeRadio]:checked' ).val()
-                },
+                data: form,
                 success: function(data, status){
                     alert("Denúncia cadastrada!");
                     $("#selectCategoria").val(0); //Equivalente a: document.getElementById("txtNomeCidadao").value = "";

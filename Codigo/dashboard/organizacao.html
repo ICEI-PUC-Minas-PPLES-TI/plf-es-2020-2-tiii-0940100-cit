@@ -42,7 +42,7 @@
 
           <div class="row">
             <div class="input-group mb-3 col-md-8">
-              <input id="pesquisaInput" type="text" class="form-control" placeholder="Pesquisar" aria-describedby="basic-addon2">
+              <input id="pesquisaInput" type="text" class="form-control" placeholder="Pesquisar por descrição" aria-describedby="basic-addon2">
               <div class="input-group-append"> <button id="btnPesquisa" class="btn btn-outline-success"><i
                     class="fas fa-search"></i></button>
               </div>
@@ -86,12 +86,13 @@
 
 $(function() {
       $.ajax({
-          url: `http://52.188.152.85:81/dashorganizacao/nome?id=${idOrganizacao}`,
+          url: `/dashorganizacao/nome?id=${idOrganizacao}`,
           type: "GET",
           success: function(data, status){
               $("#orgNome").text(data[0].nome)
           },
           error: function(data, status){
+              if(data.status == 401) redirecionaPermissao()
               console.log("Erro ao buscar nome");
           },
       });
@@ -99,7 +100,7 @@ $(function() {
 
   $(function() {
       $.ajax({
-          url: `http://52.188.152.85:81/dashorganizacao/qtdDenuncia?id=${idOrganizacao}`,
+          url: `/dashorganizacao/qtdDenuncia?id=${idOrganizacao}`,
           type: "GET",
           success: function(data, status){
               $("#qtdDenuncias").text(data[0].qtd_Denuncias)
@@ -139,7 +140,7 @@ $(function() {
 
   function carregarDenuncias(){
     $.ajax({
-            url: `http://52.188.152.85:81/dashorganizacao/denuncia?id=${idOrganizacao}&opcao=${opcaoSelect}&texto=${pesquisaText}`,
+            url: `/dashorganizacao/denuncia?id=${idOrganizacao}&opcao=${opcaoSelect}&texto=${pesquisaText}`,
             type: "GET",
             success: function(data, status){
 
@@ -191,6 +192,11 @@ $(function() {
                 console.log("Erro ao buscar denuncias");
             },
         });
+  }
+
+  function redirecionaPermissao(){
+    alert("Permissão Negada!")
+    window.location.href = '/login/organizacao.html'
   }
 
   $(function() {

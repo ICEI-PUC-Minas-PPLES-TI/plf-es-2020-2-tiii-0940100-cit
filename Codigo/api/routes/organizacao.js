@@ -18,8 +18,9 @@ const middlewareOrgao = (req,res,next) => {
 router.post('/organizacaousuario', (req, res, next) => {  // Rota com id dinamico, para consultas com filtros, tipo buscar as contribuições de uma denuncia com o id
     let db = new Database();
     var connection = db.connect(); // Abrir conexão com o banco
-    connection.query(`SELECT id,nome,email,organizacao_id
+    connection.query(`SELECT organizacao_usuario.id,organizacao_usuario.nome,organizacao_usuario.email,organizacao_id, o.nome AS organizacao_nome
                         FROM organizacao_usuario
+                        INNER JOIN organizacao o ON o.id=organizacao_id
                         WHERE email = ?
                             AND organizacao_id = ?
                             AND senha = MD5(?)`,[req.body.email, req.body.organizacao_id, req.body.senha],  function (error, results, fields) {
@@ -29,7 +30,7 @@ router.post('/organizacaousuario', (req, res, next) => {  // Rota com id dinamic
             if(results.length == 0)
                 res.status(404).json({ message: 'User not found!' });
             else {
-                var token = jwt.sign({ id: results[0].id, nome: results[0].nome , organizacao_id: results[0].organizacao_id , iat: (Math.floor(Date.now() / 1000) - 30) }, process.env.SESSION_SECRET);
+                var token = jwt.sign({ id: results[0].id, nome: results[0].nome , organizacao_id: results[0].organizacao_id, organizacao_nome: results[0].organizacao_nome , iat: (Math.floor(Date.now() / 1000) - 30) }, process.env.SESSION_SECRET);
                 res.json({
                     message: 'Usuário logado',
                     token: token
@@ -56,7 +57,7 @@ router.post('/organizacao', (req, res, next) => {
                     res.status(500).json({ error: error2.message });
                 } else {
                     connection.end();
-                    var token = jwt.sign({ id: results2.insertId, nome: req.body.usuario_nome , organizacao_id: results.insertId , iat: (Math.floor(Date.now() / 1000) - 30) }, process.env.SESSION_SECRET);
+                    var token = jwt.sign({ id: results2.insertId, nome: req.body.usuario_nome , organizacao_id: results.insertId, organizacao_nome: req.body.nome , iat: (Math.floor(Date.now() / 1000) - 30) }, process.env.SESSION_SECRET);
                     res.json({
                         message: 'success',
                         created: true,
@@ -88,28 +89,14 @@ router.post('/criarUsuario', middlewareOrgao, (req, res, next) => {
     })
 })
 
-router.get('/dashorganizacao/nome', async (req, res) => {
+router.get('/dashorganizacao/nome', middlewareOrgao , async (req, res) => {
     
-    const query = 
-    `SELECT nome
-    FROM organizacao
-    WHERE id = ?;`
-    
-    const db = new Database();
-    const connection = await db.connect();
-
-    connection.query(query,[req.query.id],  function (error, results, fields) {
-        if (error){
-            res.status(500).json({ error: error.message });
-        } else {
-            res.json(results);
-        }
-        res.end();
-    });
-    connection.end();
+    res.json([{
+        nome: req.auth.organizacao_nome
+    }]);
 })
 
-router.get('/dashorganizacao/qtdDenuncia', async (req, res) => {
+router.get('/dashorganizacao/qtdDenuncia',middlewareOrgao, async (req, res) => {
     
     const query = 
     `SELECT COUNT(DISTINCT dc.denuncia_id) as qtd_Denuncias
@@ -135,7 +122,7 @@ router.get('/dashorganizacao/qtdDenuncia', async (req, res) => {
     connection.end();
 })
 
-router.get('/dashorganizacao/denuncia', async (req, res) => {
+router.get('/dashorganizacao/denuncia',middlewareOrgao, async (req, res) => {
     
     var opcao = req.query.opcao;
     var query
