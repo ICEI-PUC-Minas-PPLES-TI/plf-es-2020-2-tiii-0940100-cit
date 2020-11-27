@@ -139,5 +139,6 @@ router.get('/denuncia/ver', async (req, res) => {
     });
     connection.end();
 })
+//Fazer os inserts
 
 module.exports = router
