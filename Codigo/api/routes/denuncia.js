@@ -141,4 +141,22 @@ router.get('/denuncia/ver', async (req, res) => {
     connection.end();
 })
 
+router.get('/denuncia/categorias', async (req, res) => {
+    const query = 
+    `SELECT c.id, c.descricao
+    FROM categoria c;`
+    const db = new Database();
+    const connection = await db.connect();
+
+    connection.query(query,[],  function (error, results, fields) {
+        if (error){
+            res.status(500).json({ error: error.message });
+        } else {
+            res.json(results);
+        }
+        res.end();
+    });
+    connection.end();
+})
+
 module.exports = router
