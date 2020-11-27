@@ -29,8 +29,9 @@ router.get('/denunciasProximas/:lat/:lng', async (req, res) => {
      INNER JOIN categoria c ON dhc.categoria_id = c.id
      INNER JOIN denuncia_contribuicao dc ON d.id = dc.denuncia_id
      LEFT  JOIN denuncia_contribuicao_foto dcf ON dc.id = dcf.denuncia_contribuicao_id
-     WHERE latitude BETWEEN (${lat}-0.015) AND (${lat}+0.0015)
-     AND longitude BETWEEN (${lng}-0.015) AND (${lng}+0.0015); `
+     WHERE (d.latitude BETWEEN (${lat}-0.00225) AND (${lat}+0.00225))
+     AND (d.longitude BETWEEN (${lng}-0.00225) AND (${lng}+0.00225))
+     GROUP BY d.id; `
 
     const db = new Database();
     const connection = await db.connect();
