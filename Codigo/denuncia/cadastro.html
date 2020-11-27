@@ -56,10 +56,10 @@
                 <label>Categoria</label>
                 <div class="categorias">
                     <select class="custom-select my-1 mr-sm-2" id="selectCategoria">
-                        <option selected value="0">Escolha...</option>
-                        <option value="1">Hídrica</option>
+                        <option id="selectCatOp" selected value="0">Escolha...</option>
+                    <!--   <option value="1">Hídrica</option>
                         <option value="2">Elétrica</option>
-                        <option value="3">Estrutural</option>
+                        <option value="3">Estrutural</option> -->
                       </select>
                 </div>
                 <label>Descrição</label>
@@ -366,6 +366,27 @@ fetch(urlReq, {method:'GET'})
             });
         });
 
+        $(function() {
+        $.ajax({
+            url: `http://localhost:3001/denuncia/categorias`,
+            type: "GET",
+            success: function(data, status){
+
+                for (i = 0; i < data.length; i++)
+                { 
+                    $('#selectCategoria').append($('<option>',
+                    {
+                        value: i,
+                        text : data[i].descricao
+                    }));
+                }
+
+            },
+            error: function(data, status){
+                console.log("Erro ao buscar denuncias");
+            },
+        });
+    })
 
 </script>
 
