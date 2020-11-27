@@ -354,6 +354,7 @@ fetch(urlReq, {method:'GET'})
                 data: form,
                 success: function(data, status){
                     alert("Denúncia cadastrada!");
+                    window.location.href = "./mapadenuncia.html"
                     $("#selectCategoria").val(0); //Equivalente a: document.getElementById("txtNomeCidadao").value = "";
                     $("#areaDescricao").val("");
                     $("#valorRadio").val(0);

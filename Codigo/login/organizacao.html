@@ -79,6 +79,7 @@
                     },
                     success: function(data, status){
                         document.cookie = "xorgao="+data.token+";path=/";
+                        window.location.href = "../dashboard/organizacao.html"
                         alert("Usuário de organização logado");
                         $("#txtEmail").val(""); //Equivalente a: document.getElementById("txtEmail").value = "";
                         $("#txtSenha").val("");
