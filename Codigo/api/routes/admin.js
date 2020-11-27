@@ -26,7 +26,6 @@ router.post('/admin/login', async (req, res) => {
             token: token
         });
     } else {
-        console.log(req.session.admin, 'here')
         res.status(401).json({ error: 'Permissao Negada'});
     }
 })
