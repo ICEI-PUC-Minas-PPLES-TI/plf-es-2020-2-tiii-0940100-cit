@@ -50,7 +50,7 @@
     </div>
 
   </div>
-
+  <script src="/assets/js/cit.js"></script>
 </body>
 
 <script>
@@ -60,7 +60,7 @@
 
    $(function() {
       $.ajax({
-          url: `http://52.188.152.85:81/dashboard/qtdDenuncias?id=${idCidadao}`,
+          url: `/dashboard/qtdDenuncias?id=${idCidadao}`,
           type: "GET",
           success: function(data, status){
 
@@ -68,6 +68,7 @@
 
           },
           error: function(data, status){
+              if(data.status == 401) redirecionaPermissao()
               console.log("Erro ao buscar denuncias");
           },
       });
@@ -75,7 +76,7 @@
 
   $(function() {
       $.ajax({
-          url: `http://52.188.152.85:81/dashboard/nome?id=${idCidadao}`,
+          url: `/dashboard/nome?id=${idCidadao}`,
           type: "GET",
           success: function(data, status){
               $("#nomeCidadao").text(data[0].nome)
@@ -88,7 +89,7 @@
 
   $(function() {
         $.ajax({
-            url: `http://52.188.152.85:81/dashboard/verContri?id=${idCidadao}`,
+            url: `/dashboard/verContri?id=${idCidadao}`,
             type: "GET",
             success: function(data, status){
 
@@ -106,7 +107,7 @@
                   let dataConvertida = new Date(data[i].feita_em).toLocaleString()
 
                     $("#denuncia").append(`
-                      <a href="/denuncia/visualizar.html?id=3" style="text-decoration:none; color: 	#1C1C1C;"><div class="card-horizontal m-0 p-0" style="display: flex; background-color: #dadada;">
+                      <a href="/denuncia/visualizar.html?id=${data[i].id}" style="text-decoration:none; color: 	#1C1C1C;"><div class="card-horizontal m-0 p-0" style="display: flex; background-color: #dadada;">
                         <div class="dashboard-photos">
                           <img class="p-2" src="${fotos[0]}" alt="Card image cap"/>
                           <img class="p-2" src="${fotos[1]}" alt="Card image cap"/>
@@ -129,6 +130,11 @@
             },
         });
   })
+
+  function redirecionaPermissao(){
+    alert("Permissão Negada!")
+    window.location.href = '/login/cidadao.html'
+  }
 </script>
 
 <style>

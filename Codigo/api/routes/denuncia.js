@@ -2,6 +2,19 @@ const { Router } = require('express')
 var Database = require('../utils/database');
 
 const router = Router();
+var jwt = require('jsonwebtoken');
+
+const middlewareCidadao = (req,res,next) => {
+    try{
+        var decoded = jwt.verify(req.headers['x-cidadao'], process.env.SESSION_SECRET);
+        req.auth = decoded
+        next();
+    } catch(e) {
+        console.log(e)
+        res.status(401).json({ error: 'Permissao Negada' });
+    }
+}
+
 router.get('/todasDenuncias', async (req, res) => {
 
     const query = 
@@ -29,8 +42,9 @@ router.get('/denunciasProximas/:lat/:lng', async (req, res) => {
      INNER JOIN categoria c ON dhc.categoria_id = c.id
      INNER JOIN denuncia_contribuicao dc ON d.id = dc.denuncia_id
      LEFT  JOIN denuncia_contribuicao_foto dcf ON dc.id = dcf.denuncia_contribuicao_id
-     WHERE latitude BETWEEN (${lat}-0.015) AND (${lat}+0.0015)
-     AND longitude BETWEEN (${lng}-0.015) AND (${lng}+0.0015); `
+     WHERE (d.latitude BETWEEN (${lat}-0.00225) AND (${lat}+0.00225))
+     AND (d.longitude BETWEEN (${lng}-0.00225) AND (${lng}+0.00225))
+     GROUP BY d.id; `
 
     const db = new Database();
     const connection = await db.connect();
@@ -66,7 +80,7 @@ router.get('/denuncia/ranking', async (req, res) => {
     connection.end();
 })
 
-router.post('/denunciar', (req, res, next) => {
+router.post('/denunciar', middlewareCidadao, (req, res, next) => {
     let db = new Database();
     var connection = db.connect(); // Abrir conexão com o banco
 
@@ -75,6 +89,7 @@ router.post('/denunciar', (req, res, next) => {
             connection.end();
             res.status(500).json({ error: error.message });
         } else {
+            connection.query('INSERT INTO denuncia_contribuicao (descricao, anonimo, denuncia_id, cidadao_id) VALUES (?, ?, ?, ?)', [req.body.contribuicao_descricao, req.body.contribuicao_anonimo, results.insertId, req.auth.id])
             connection.query('INSERT INTO denuncia_has_categoria (denuncia_id, categoria_id) VALUES (?, ?);', [ results.insertId, req.body.denuncia_categoria]);
             connection.end();
             res.json({

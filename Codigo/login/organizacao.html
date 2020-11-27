@@ -55,7 +55,7 @@
             </div>
         </div>
     </div>
-
+    <script src="/assets/js/cit.js"></script>
 </body>
 
 <script>
@@ -70,7 +70,7 @@
                 alert("Todos os campos são obrigatórios!")
             } else {
                 $.ajax({
-                    url: "http://52.188.152.85:81/organizacaousuario",
+                    url: "/organizacaousuario",
                     type: "POST",
                     data: {
                         organizacao_id: $("#txtId").val(),
@@ -78,6 +78,7 @@
                         senha: $("#txtSenha").val()
                     },
                     success: function(data, status){
+                        document.cookie = "xorgao="+data.token+";path=/";
                         alert("Usuário de organização logado");
                         $("#txtEmail").val(""); //Equivalente a: document.getElementById("txtEmail").value = "";
                         $("#txtSenha").val("");

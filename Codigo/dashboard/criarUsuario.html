@@ -59,6 +59,7 @@
             </div>
         </div>
     </div>
+    <script src="/assets/js/cit.js"></script>
 </body>
 
 <script>
@@ -78,7 +79,7 @@
                 return false;
             }
             $.ajax({
-                url: "http://"+ "52.188.152.85:81"/*"localhost:3001"*/ +"/criarUsuario",
+                url: "/criarUsuario",
                 type: "POST",
                 data: {
                     usuario_email: $("#txtEmail").val(),
@@ -92,6 +93,10 @@
                     return false
                 },
                 error: function(data, status){
+                    if(data.status == 401) {
+                        alert("Permissão Negada!")
+                        window.location.href = '/login/organizacao.html'
+                    }
                     alert("Erro ao cadastrar");
                     return false
                 },
