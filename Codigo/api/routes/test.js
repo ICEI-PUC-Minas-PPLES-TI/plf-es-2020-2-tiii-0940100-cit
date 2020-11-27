@@ -39,23 +39,26 @@ router.post("/upload", upload.single("file"), (req, res) => {
     const tempPath = req.file.path;
     const targetPath = path.join(__dirname, "../uploads/image.png");
 
-    if (path.extname(req.file.originalname).toLowerCase() === ".png") {
+    if (['.png','.jpg','.jpeg'].includes(path.extname(req.file.originalname).toLowerCase())) {
       fs.rename(tempPath, targetPath, (err) => {
         if (err) return handleError(err, res);
-
         res.status(200).contentType("text/plain").end("File uploaded!");
       });
     } else {
       fs.unlink(tempPath, (err) => {
         if (err) return handleError(err, res);
-
         res
           .status(403)
           .contentType("text/plain")
-          .end("Only .png files are allowed!");
+          .end("Only image files are allowed!");
       });
     }
   }
 );
+
+router.get("/image/:file", (req, res) => {
+  const file = req.params.file
+  res.sendFile(path.join(__dirname, "../uploads/" + file));
+});
 
 module.exports = router

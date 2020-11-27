@@ -96,18 +96,42 @@ router.get('/denuncia/ranking', async (req, res) => {
     connection.end();
 })
 
-router.post('/denunciar', middlewareCidadao, (req, res, next) => {
+router.post('/denunciar', middlewareCidadao, upload.single("file"), (req, res, next) => {
     let db = new Database();
     var connection = db.connect(); // Abrir conexão com o banco
-
+    console.log(req.body)
     connection.query(`INSERT INTO denuncia (status, cep, logradouro, referencia, uf, municipio, latitude, longitude) VALUES (?, ?, ?, ?, ?, ?, ?, ?);`,['A',req.body.denuncia_cep, req.body.denuncia_logradouro, req.body.referencia, req.body.denuncia_uf, req.body.denuncia_municipio, req.body.denuncia_latitude, req.body.denuncia_longitude],  function (error, results) {
         if (error){
             connection.end();
             res.status(500).json({ error: error.message });
         } else {
-            connection.query('INSERT INTO denuncia_contribuicao (descricao, anonimo, denuncia_id, cidadao_id) VALUES (?, ?, ?, ?)', [req.body.contribuicao_descricao, req.body.contribuicao_anonimo, results.insertId, req.auth.id])
             connection.query('INSERT INTO denuncia_has_categoria (denuncia_id, categoria_id) VALUES (?, ?);', [ results.insertId, req.body.denuncia_categoria]);
-            connection.end();
+            connection.query('INSERT INTO denuncia_contribuicao (descricao, anonimo, denuncia_id, cidadao_id) VALUES (?, ?, ?, ?)', [req.body.contribuicao_descricao, req.body.contribuicao_anonimo, results.insertId, req.auth.id],  function (errCont, resCont){
+                // Upar imagem
+                const tempPath = req.file.path;
+                let fileName = "image_" + resCont.insertId + path.extname(req.file.originalname).toLowerCase()
+                const targetPath = path.join(__dirname, "../uploads/" + fileName);
+
+                if (['.png','.jpg','.jpeg'].includes(path.extname(req.file.originalname).toLowerCase())) {
+                    fs.rename(tempPath, targetPath, (err) => {
+                        connection.query('INSERT INTO denuncia_contribuicao_foto (denuncia_contribuicao_id, url) VALUES (?, ?);', [ resCont.insertId, `http://${process.env.HOST}:${process.env.PORT}/image/${fileName}`]);
+                        connection.end();
+                        if (err) return handleError(err, res);
+                        res.status(200).contentType("text/plain").end("File uploaded!");
+                    });
+                } else {
+                    connection.end();
+                    fs.unlink(tempPath, (err) => {
+                        if (err) return handleError(err, res);
+                        res
+                        .status(403)
+                        .contentType("text/plain")
+                        .end("Only image files are allowed!");
+                    });
+                }
+            })
+            
+
             res.json({
                 message: 'success',
                 created: true
