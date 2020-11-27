@@ -88,28 +88,14 @@ router.post('/criarUsuario', middlewareOrgao, (req, res, next) => {
     })
 })
 
-router.get('/dashorganizacao/nome', async (req, res) => {
+router.get('/dashorganizacao/nome', middlewareOrgao , async (req, res) => {
     
-    const query = 
-    `SELECT nome
-    FROM organizacao
-    WHERE id = ?;`
-    
-    const db = new Database();
-    const connection = await db.connect();
-
-    connection.query(query,[req.query.id],  function (error, results, fields) {
-        if (error){
-            res.status(500).json({ error: error.message });
-        } else {
-            res.json(results);
-        }
-        res.end();
-    });
-    connection.end();
+    res.json([{
+        nome: req.auth.nome
+    }]);
 })
 
-router.get('/dashorganizacao/qtdDenuncia', async (req, res) => {
+router.get('/dashorganizacao/qtdDenuncia',middlewareOrgao, async (req, res) => {
     
     const query = 
     `SELECT COUNT(DISTINCT dc.denuncia_id) as qtd_Denuncias
@@ -135,7 +121,7 @@ router.get('/dashorganizacao/qtdDenuncia', async (req, res) => {
     connection.end();
 })
 
-router.get('/dashorganizacao/denuncia', async (req, res) => {
+router.get('/dashorganizacao/denuncia',middlewareOrgao, async (req, res) => {
     
     var opcao = req.query.opcao;
     var query
