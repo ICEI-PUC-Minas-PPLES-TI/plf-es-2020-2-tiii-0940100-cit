@@ -155,6 +155,37 @@ router.get('/denuncia/ver', async (req, res) => {
     connection.end();
 })
 
+router.post('/organizacao/contribuir', middlewareCidadao, async (req, res) => {
+    
+    let db = new Database();
+    var connection = db.connect(); // Abrir conexão com o banco
+
+    connection.query(`
+        INSERT INTO denuncia_contribuicao
+        (descricao, anonimo, denuncia_id, organizacao_usuario_id)
+        VALUES (?, ?, ?, ?);
+    `,[req.body.descricao, 0, req.body.idDaDenuncia, req.auth.id],  function (error, results) {
+        if (error){
+            connection.end();
+            res.status(500).json({ error: error.message });
+        } else {
+            connection.query('UPDATE denuncia d SET d.status=? WHERE d.id=?;', [ req.body.status, req.body.idDaDenuncia]);
+            connection.query('INSERT INTO denuncia_contribuicao_foto VALUES (?, ?);', [ req.body.linkFoto, req.body.idDaDenuncia]);
+            connection.end();
+            res.json({
+                message: 'success',
+                created: true
+            });
+        }
+        res.end({
+            message: 'success',
+            created: true
+        });
+        
+    })
+    
+})
+
 router.post('/contribuir', middlewareCidadao, async (req, res) => {
     
     const db = new Database();
