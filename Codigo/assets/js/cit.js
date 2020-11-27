@@ -1,4 +1,4 @@
-var baseUrl = 'http://52.188.152.85:81'; //http://52.188.152.85:81
+var baseUrl = 'http://localhost:3001'; //http://52.188.152.85:81
 $.ajaxSetup({
     headers: { 
         'X-Admin': getCookie('xadmin'),

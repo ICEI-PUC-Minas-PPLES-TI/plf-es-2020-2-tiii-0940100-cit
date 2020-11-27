@@ -2,6 +2,19 @@ const { Router } = require('express')
 var Database = require('../utils/database');
 
 const router = Router();
+var jwt = require('jsonwebtoken');
+
+const middlewareCidadao = (req,res,next) => {
+    try{
+        var decoded = jwt.verify(req.headers['x-cidadao'], process.env.SESSION_SECRET);
+        req.auth = decoded
+        next();
+    } catch(e) {
+        console.log(e)
+        res.status(401).json({ error: 'Permissao Negada' });
+    }
+}
+
 router.get('/todasDenuncias', async (req, res) => {
 
     const query = 
@@ -139,6 +152,37 @@ router.get('/denuncia/ver', async (req, res) => {
         res.end();
     });
     connection.end();
+})
+
+router.post('/organizacao/contribuir', middlewareCidadao, async (req, res) => {
+    
+    let db = new Database();
+    var connection = db.connect(); // Abrir conexão com o banco
+
+    connection.query(`
+        INSERT INTO denuncia_contribuicao
+        (descricao, anonimo, denuncia_id, organizacao_usuario_id)
+        VALUES (?, ?, ?, ?);
+    `,[req.body.descricao, 0, req.body.idDaDenuncia, req.auth.id],  function (error, results) {
+        if (error){
+            connection.end();
+            res.status(500).json({ error: error.message });
+        } else {
+            connection.query('UPDATE denuncia d SET d.status=? WHERE d.id=?;', [ req.body.status, req.body.idDaDenuncia]);
+            connection.query('INSERT INTO denuncia_contribuicao_foto VALUES (?, ?);', [ req.body.linkFoto, req.body.idDaDenuncia]);
+            connection.end();
+            res.json({
+                message: 'success',
+                created: true
+            });
+        }
+        res.end({
+            message: 'success',
+            created: true
+        });
+        
+    })
+    
 })
 
 module.exports = router
