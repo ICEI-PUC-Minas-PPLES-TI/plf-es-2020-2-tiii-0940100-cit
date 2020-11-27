@@ -77,7 +77,7 @@
                     </div>
                 </div>
 
-                <label class="d-block" id="anonimaL">Fazer Denúncia de Forma Anônima</label>
+                <label class="d-block" id="anonimaL">Fazer Denúncia de Forma Anônima?</label>
                 
                 <div id="anonimaB">
                     <div class="btn-group" data-toggle="buttons">
@@ -125,6 +125,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+    <script src="/assets/js/cit.js"></script>
 </body>
 
 </html>
@@ -325,15 +326,20 @@ fetch(urlReq, {method:'GET'})
     .catch( error => console.log(error) )
 }*/
 
+
     $("#confirmar").click(function() {
+        var today = new Date();
+        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var tempoAtual = date+' '+time;
             // Requisição Jquery Ajax, equivalente ao método fetch do js puro
-            if($("#selectCategoria").val()==0 || !$("#areaDescricao").val() || !valorFoto /*|| !$("#cep").val() || !$("#logradouro").val() || !$("#uf").val() || !$("#municipio").val()*/) {
-                alert("Categoria, descrição, foto e endereço obrigatórios!");
+            if($("#selectCategoria").val()==0 || !$("#areaDescricao").val() || !valorFoto || !$("#cep").text() || !$("#logradouro").text() || !$("#uf").text() || !$("#municipio").text()) {
+                alert("Categoria, preencha todos os campos e marque um endereço válido!!");
                 return;
             }
             var status = "A"
             $.ajax({
-                url: "http://52.188.152.85:81/denunciar",//
+                url: "/denunciar",//
                 type: "POST",
                 data: {
                     denuncia_cep: $("#cep").text(),
@@ -343,7 +349,9 @@ fetch(urlReq, {method:'GET'})
                     denuncia_municipio: $("#municipio").text(),
                     denuncia_categoria: $("#selectCategoria").val(),
                     denuncia_latitude: marker.getLatLng().lat,
-                    denuncia_longitude: marker.getLatLng().lng
+                    denuncia_longitude: marker.getLatLng().lng,
+                    contribuicao_descricao: $("#areaDescricao").val(),
+                    contribuicao_anonimo: $('input[name=nomeRadio]:checked' ).val()
                 },
                 success: function(data, status){
                     alert("Denúncia cadastrada!");
@@ -357,6 +365,8 @@ fetch(urlReq, {method:'GET'})
                 },
             });
         });
+
+
 </script>
 
 <style>
