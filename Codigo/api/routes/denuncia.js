@@ -1,5 +1,21 @@
 const { Router } = require('express')
+const path = require("path");
+const fs = require("fs");
 var Database = require('../utils/database');
+
+const multer = require("multer");
+
+const handleError = (err, res) => {
+  console.log(err)
+  res
+    .status(500)
+    .contentType("text/plain")
+    .end("Oops! Something went wrong!");
+};
+
+const upload = multer({
+  dest: "/imgtemp"
+});
 
 const router = Router();
 router.get('/todasDenuncias', async (req, res) => {
