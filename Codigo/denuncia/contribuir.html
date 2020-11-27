@@ -246,10 +246,10 @@
     });
 
 
-    var valorFoto = "https://i.imgur.com/uY1aiTr.png";    
-    console.log(valorFoto);   
-    var valorRadio = document.querySelector('input[name="nomeRadio"]:checked').value;
-
+    var valorFoto = "https://i.imgur.com/uY1aiTr.png";
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var idDenuncia = url.searchParams.get("id");
                
     $("#confirmar").click(function () {
         // Requisição Jquery Ajax, equivalente ao método fetch do js puro
@@ -257,18 +257,18 @@
             alert("Descrição e foto obrigatórios!");
             return;
         }
-        var status = "A"
+        
         $.ajax({
             url: "http://127.0.0.1:3001/contribuir",
             type: "POST",
             data: {
                 descricao: $("#areaDescricao").val(),
                 anonimo: $('input[name=nomeRadio]:checked' ).val(),
+                idDaDenuncia: idDenuncia
             },
             success: function (data, status) {
                 alert("Contribuição cadastrada!");
-                $("#areaDescricao").val("");
-                $('input[name=nomeRadio]:checked' ).val()
+                $("#areaDescricao").val("")
             },
             error: function (data, status) {
                 alert("Erro ao cadastrar");

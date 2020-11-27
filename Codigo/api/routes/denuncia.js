@@ -146,7 +146,7 @@ router.post('/contribuir', async (req, res) => {
     const db = new Database();
     const connection = await db.connect();
 
-    connection.query(`INSERT INTO denuncia_contribuicao (descricao, anonimo, denuncia_id, cidadao_id) VALUES (?, ?, ?, ?);`,[req.body.descricao, req.body.anonimo, req.body.denuncia_id, req.body.cidadao_id], function (error, results, fields) {
+    connection.query(`INSERT INTO denuncia_contribuicao (descricao, anonimo, denuncia_id, cidadao_id) VALUES (?, ?, ?, ?);`,[req.body.descricao, req.body.anonimo, req.body.idDaDenuncia, 1], function (error, results, fields) {
         if (error){
             res.status(500).json({ error: error.message });
         } else {
