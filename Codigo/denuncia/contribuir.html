@@ -259,16 +259,16 @@
         }
         var status = "A"
         $.ajax({
-            // url: "http://52.188.152.85:81/denunciar",
-            url: "http://52.188.152.85:81/contribuir.html",//descobrir qual a URL
+            url: "http://127.0.0.1:3001/contribuir",
             type: "POST",
             data: {
-                denuncia_referencia: "testeRef",
+                descricao: $("#areaDescricao").val(),
+                anonimo: $('input[name=nomeRadio]:checked' ).val(),
             },
             success: function (data, status) {
                 alert("Contribuição cadastrada!");
                 $("#areaDescricao").val("");
-                //colocar o botao anonimo
+                $('input[name=nomeRadio]:checked' ).val()
             },
             error: function (data, status) {
                 alert("Erro ao cadastrar");
