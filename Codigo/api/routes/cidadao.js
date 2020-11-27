@@ -80,7 +80,7 @@ router.get('/dashboard/verContri',middlewareCidadao, async (req, res) => {
     const query = 
     `SELECT d.id, d.descricao, d.criado_em as "feita_em", d.anonimo, d.denuncia_id, d.cidadao_id, d.organizacao_usuario_id, GROUP_CONCAT(f.url) as 'urls_fotos', den.status, den.cep, den.logradouro, den.uf, den.municipio, den.criado_em, den.solucionado_em
     FROM denuncia_contribuicao d
-    LEFT JOIN denuncia_contribuicao_foto f ON d.denuncia_id = f.denuncia_contribuicao_id
+    LEFT JOIN denuncia_contribuicao_foto f ON d.id = f.denuncia_contribuicao_id
     INNER JOIN denuncia den ON den.id = d.denuncia_id
     WHERE d.cidadao_id = ?
     GROUP BY d.id

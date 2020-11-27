@@ -152,12 +152,18 @@
                 }
 
                 $("#qtdContri").text(data.length)
-
+                let urls2 = [];
+                for(let i=0; i<data.length; i++){
+                    let urls = data[i].url.split(",")
+                    for(let j=0; j<urls.length; j++){
+                        urls2.push(urls[j])
+                    }
+                }
                 var fotos = data[0].url.split(",")
                 document.getElementById("fotogrande").src=fotos[0];
                 $("#fotos-pequenas-table").html("")
-                for(let i=1; i<fotos.length&&i<=5;i++) {
-                    $("#fotos-pequenas-tbody").append(`<img id="" src="${fotos[i]}">`)
+                for(let i=1; i<urls2.length;i++) {
+                    $("#fotos-pequenas-tbody").append(`<img id="" src="${urls2[i]}">`)
                 }
 
             },
