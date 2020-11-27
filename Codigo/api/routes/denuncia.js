@@ -99,7 +99,6 @@ router.get('/denuncia/ranking', async (req, res) => {
 router.post('/denunciar', middlewareCidadao, upload.single("file"), (req, res, next) => {
     let db = new Database();
     var connection = db.connect(); // Abrir conexão com o banco
-    console.log(req.body)
     connection.query(`INSERT INTO denuncia (status, cep, logradouro, referencia, uf, municipio, latitude, longitude) VALUES (?, ?, ?, ?, ?, ?, ?, ?);`,['A',req.body.denuncia_cep, req.body.denuncia_logradouro, req.body.referencia, req.body.denuncia_uf, req.body.denuncia_municipio, req.body.denuncia_latitude, req.body.denuncia_longitude],  function (error, results) {
         if (error){
             connection.end();
@@ -195,7 +194,7 @@ router.get('/denuncia/ver', async (req, res) => {
     connection.end();
 })
 
-router.post('/contribuir', middlewareCidadao, async (req, res) => {
+router.post('/contribuir', middlewareCidadao, upload.single("file"), async (req, res) => {
     
     
     const db = new Database();
@@ -205,11 +204,32 @@ router.post('/contribuir', middlewareCidadao, async (req, res) => {
         if (error){
             res.status(500).json({ error: error.message });
         } else {
+            // Upar imagem
+            if(req.file) {
+                const tempPath = req.file.path;
+                let fileName = "image_" + results.insertId + path.extname(req.file.originalname).toLowerCase()
+                const targetPath = path.join(__dirname, "../uploads/" + fileName);
+                if (['.png','.jpg','.jpeg'].includes(path.extname(req.file.originalname).toLowerCase())) {
+                    fs.rename(tempPath, targetPath, (err) => {
+                        connection.query('INSERT INTO denuncia_contribuicao_foto (denuncia_contribuicao_id, url) VALUES (?, ?);', [ results.insertId, `http://${process.env.HOST}:${process.env.PORT}/image/${fileName}`]);
+                        connection.end();
+                        if (err) return handleError(err, res);
+                    });
+                } else {
+                    connection.end();
+                    fs.unlink(tempPath, (err) => {
+                        if (err) return handleError(err, res);
+                        res
+                        .status(403)
+                        .contentType("text/plain")
+                        .end("Only image files are allowed!");
+                    });
+                }
+            }
             res.json(results);
         }
         res.end();
     });
-    connection.end();
 })
 //Fazer os inserts
 
