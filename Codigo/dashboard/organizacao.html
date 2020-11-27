@@ -86,7 +86,7 @@
 
 $(function() {
       $.ajax({
-          url: `http://localhost:3001/dashorganizacao/nome?id=${idOrganizacao}`,
+          url: `http://52.188.152.85:81/dashorganizacao/nome?id=${idOrganizacao}`,
           type: "GET",
           success: function(data, status){
               $("#orgNome").text(data[0].nome)
@@ -99,7 +99,7 @@ $(function() {
 
   $(function() {
       $.ajax({
-          url: `http://localhost:3001/dashorganizacao/qtdDenuncia?id=${idOrganizacao}`,
+          url: `http://52.188.152.85:81/dashorganizacao/qtdDenuncia?id=${idOrganizacao}`,
           type: "GET",
           success: function(data, status){
               $("#qtdDenuncias").text(data[0].qtd_Denuncias)
@@ -139,7 +139,7 @@ $(function() {
 
   function carregarDenuncias(){
     $.ajax({
-            url: `http://localhost:3001/dashorganizacao/denuncia?id=${idOrganizacao}&opcao=${opcaoSelect}&texto=${pesquisaText}`,
+            url: `http://52.188.152.85:81/dashorganizacao/denuncia?id=${idOrganizacao}&opcao=${opcaoSelect}&texto=${pesquisaText}`,
             type: "GET",
             success: function(data, status){
 
