@@ -185,7 +185,7 @@ router.post('/organizacao/contribuir', middlewareCidadao, async (req, res) => {
     })
     
 })
-=======
+
 router.post('/contribuir', middlewareCidadao, async (req, res) => {
     
     
