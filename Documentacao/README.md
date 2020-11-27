@@ -411,7 +411,7 @@ Processo de suporte de média prioridade. Realiza a criação de um novo registr
 | Localização               | Sim              |                     | Informar onde a organização realiza suas operações|
 
 ***5.3 - Diagrama de Entidade-Relacionamento***
-| ![Imagem11](https://i.imgur.com/2oDJl20.png "Imagem12") |
+| ![Imagem11](https://i.imgur.com/WXSqtdu.png "Imagem12") |
 |:--:| 
 | *<sub>Imagem 12 - Diagrama de Entidade e Relacionamento CIT.</sub>* |
 

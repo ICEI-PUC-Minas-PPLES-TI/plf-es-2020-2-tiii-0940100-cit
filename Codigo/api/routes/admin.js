@@ -13,7 +13,7 @@ const middlewareAdmin = (req,res,next) => {
         console.log(e)
         res.status(401).json({ error: 'Permissao Negada' });
     }
-}
+  });
 
 router.post('/admin/login', async (req, res) => { 
     let dt = new Date()
@@ -169,5 +169,71 @@ router.get('/admin/indicadores/tabela',middlewareAdmin, async (req, res) => {
     connection.end();
 })
 
+
+router.get('/admin/spam', async (req, res) => {    
+    let filter = ''
+    if(req.query.uf) filter += ` AND uf='${req.query.uf}'`
+    if(req.query.cidade) filter += ` AND municipio='${req.query.cidade}'`
+    if(req.query.logradouro) filter += ` AND logradouro LIKE '%${req.query.logradouro}%'`
+    if(req.query.descricao) filter += ` AND descricao LIKE '%${req.query.descricao}%'`
+
+    let query = 
+    `SELECT d.id, \`status\`, logradouro, uf, municipio, d.criado_em, dc.criado_em AS atualizado_em, descricao, GROUP_CONCAT(url) AS urls
+    FROM denuncia d
+    INNER JOIN denuncia_contribuicao dc ON dc.denuncia_id=d.id
+    LEFT JOIN denuncia_contribuicao_foto dcf ON dcf.denuncia_contribuicao_id=dc.id
+    WHERE 1=1 ${filter}
+    GROUP BY d.id
+    `
+
+    const db = new Database();
+    const connection = await db.connect();
+
+    const results1 = connection.query(query,[],  function (error, results, fields) {
+        if (error){
+            res.status(500).json({ error: error.message });
+        } else {
+            res.json(results);
+        }
+    });
+    connection.end();
+})
+
+router.delete('/admin/denuncia', async (req, res) => {    
+    let filter = ''
+
+    const db = new Database();
+    const connection = await db.connect();
+
+    const results1 = connection.query(`DELETE FROM denuncia WHERE id = ?`,[req.query.id],  function (error, results, fields) {
+        if (error){
+            res.status(500).json({ error: error.message });
+        } else {
+            res.json({
+                deleted: true
+            });
+        }
+    });
+    connection.end();
+})
+
+router.delete('/admin/denuncia/:id/contribuicao', async (req, res) => {    
+    let filter = ''
+    const id = parseInt(req.params.id)
+
+    const db = new Database();
+    const connection = await db.connect();
+
+    const results1 = connection.query(`DELETE FROM denuncia_contribuicao WHERE id = ? AND denuncia_id=?`,[req.query.id, id],  function (error, results, fields) {
+        if (error){
+            res.status(500).json({ error: error.message });
+        } else {
+            res.json({
+                deleted: true
+            });
+        }
+    });
+    connection.end();
+})
 
 module.exports = router

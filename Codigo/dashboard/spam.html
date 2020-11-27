@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIT - Admin Caixa de Spam</title>
+
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/css/all.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/css/cit.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/css/bootstrap-select.min.css" crossorigin="anonymous">
+    <link rel="icon" href="../assets/icons/favicon.ico" />
+
+</head>
+<body>
+    
+  <div class="row m-0">
+
+    <div class="col-12 col-md-1 cit-lateral">
+      <div class="sticky-top">
+          <div class="row">
+              <a href="/">
+                  <img src="../../assets/img/citlogo.svg" width="50px" alt="CIT Logo" class="d-inline mt-2 ml-2">
+                  <h6 class="text-white text-roboto d-inline-block">CIT</h6>
+              </a>
+          </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-11 p-0">
+      <div id="denuncias" class="p-3">
+        <div class="row">
+          <nav class="cit-breadcrumb d-block w-100" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="../"><i class="fas fa-home"></i> &nbsp; Início</a></li>
+              <li class="breadcrumb-item"><a href="./admin.html">Dashboard Admin</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Caixa de Spam</li>
+            </ol>
+          </nav>
+        </div>
+
+        <div class="row">
+          <div class="col-12 col-md-2">
+              <div class="form-group">
+                  <label>Estado</label>
+                  <select id="cbEstado" class="selectpicker d-block w-100" required>
+                      <option selected value="">Qualquer</option>
+                      <option value="AC">Acre</option>
+                      <option value="AL">Alagoas</option>
+                      <option value="AP">Amapá</option>
+                      <option value="AM">Amazonas</option>
+                      <option value="BA">Bahia</option>
+                      <option value="CE">Ceará</option>
+                      <option value="DF">Distrito Federal</option>
+                      <option value="ES">Espírito Santo</option>
+                      <option value="GO">Goiás</option>
+                      <option value="MA">Maranhão</option>
+                      <option value="MT">Mato Grosso</option>
+                      <option value="MS">Mato Grosso do Sul</option>
+                      <option value="MG">Minas Gerais</option>
+                      <option value="PA">Pará</option>
+                      <option value="PB">Paraíba</option>
+                      <option value="PR">Paraná</option>
+                      <option value="PE">Pernambuco</option>
+                      <option value="PI">Piauí</option>
+                      <option value="RJ">Rio de Janeiro</option>
+                      <option value="RN">Rio Grande do Norte</option>
+                      <option value="RS">Rio Grande do Sul</option>
+                      <option value="RO">Rondônia</option>
+                      <option value="RR">Roraima</option>
+                      <option value="SC">Santa Catarina</option>
+                      <option value="SP">São Paulo</option>
+                      <option value="SE">Sergipe</option>
+                      <option value="TO">Tocantins</option>
+                  </select>
+              </div>
+          </div>
+          <div class="col-12 col-md-2">
+              <div class="form-group">
+                  <label for="cbCidade" class="d-block">Cidade</label>
+                  <select id="cbCidade" class="selectpicker w-100" data-live-search="true" disabled title="Selecione uma">
+                      <option value="">Preencha o estado primeiro</option>
+                  </select>
+              </div>
+          </div>
+          <div class="col-12 col-md-3">
+              <div class="form-group">
+                <label for="txtLogradouro">Logradouro</label>
+                <input type="text" class="form-control" required id="txtLogradouro">
+              </div>
+          </div>
+          <div class="col-12 col-md-2">
+              <div class="form-group">
+                <label for="txtDescricao">Descrição</label>
+                <input type="text" required class="form-control" id="txtDescricao">
+              </div>
+          </div>
+          <div class="col-md-1">
+            <br>
+            <button class="btn btn-outline-primary mt-2" id="btnPesquisar"><i class="fas fa-search"></i></button>
+          </div>
+        </div>
+        <small class="text-muted" id="txtCount"> Carregando... </small>
+        <div class="lista mb-5" id="pnlListaDenuncias">
+
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.5.1.min.js"></script>
+  <script src="../assets/js/popper.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mask.min.js"></script>
+  <script src="../assets/js/bootstrap-select.min.js"></script>
+  <script src="../assets/js/bootbox.min.js"></script>
+
+</body>
+
+<script>
+
+  $(function(){
+    carregarDenuncicas()
+    $("#btnPesquisar").click(function() { // Equivalente a: document.querySelectorAll("btnShowPassword").addEventListener("click", function(){});
+      carregarDenuncicas()
+    });
+    // Buscar cidades
+    $("#cbEstado").change(function () {
+      if (this.value != "") {
+        $("#cbCidade").attr("disabled", false)
+        $("#cbCidade").html("")
+        $("#cbCidade").selectpicker('refresh');
+        $.ajax({
+          url: "https://servicodados.ibge.gov.br/api/v1/localidades/estados/" + this.value + "/municipios",
+          type: "GET",
+          success: function (data, status) {
+            for (let i = 0; i < data.length; i++) {
+              $("#cbCidade").append("<option>" + data[i].nome + "</option>")
+            }
+            $("#cbCidade").selectpicker('refresh');
+          },
+          error: function (data, status) {
+            alert("Erro ao cadastrar");
+          },
+        });
+      } else {
+        $("#cbCidade").val(null)
+        $("#cbCidade").attr("disabled", true)
+        $("#cbCidade").selectpicker('refresh');
+      }
+    })
+  })
+
+  function carregarDenuncicas(){
+    let filter = ''
+    if($("#cbEstado").val() != null && $("#cbEstado").val() != "") filter += '&uf=' + $("#cbEstado").val()
+    if($("#cbCidade").val() != null && $("#cbCidade").val() != "") filter += '&cidade=' + $("#cbCidade").val()
+    if($("#txtLogradouro").val() != null && $("#txtLogradouro").val() != "") filter += '&logradouro=' + $("#txtLogradouro").val()
+    if($("#txtDescricao").val() != null && $("#txtDescricao").val() != "") filter += '&descricao=' + $("#txtDescricao").val()
+    $("#txtCount").text("Carregando")
+    $("#pnlListaDenuncias").html("")
+    $.ajax({
+      url: "http://52.188.152.85:81/admin/spam?1=1" + filter,
+      type: "GET",
+      success: function (data, status) {
+        if(data.length > 0) $("#txtCount").text( data.length + " itens encontrados.")
+        else $("#txtCount").text("Não foram encontrados resultados para a sua pesquisa!")
+        for(let i=0;i<data.length;i++) {
+          let photoDiv = ''
+          if(data[i].urls) {
+            let photos = data[i].urls.split(',')
+            for(let j=0;j<photos.length;j++){
+              photoDiv += `<img class="p-2" src="${photos[j]}" alt="Card image cap" />`
+            }
+          }
+          $("#pnlListaDenuncias").append(`
+              <div class="denuncia mb-2">
+                <div class="card-horizontal m-0 p-0" style="display: flex; background-color: #dadada;">
+                  <div class="dashboard-photos">
+                    ${photoDiv}
+                  </div>
+                  <div class="card-body">
+                    <h4 class="card-title"> ${data[i].logradouro} - ${data[i].municipio} - ${data[i].uf} </h4>
+                    <p class="card-text">${data[i].descricao}</p>
+                    <button type="button" class="btn btn-outline-danger" onclick="deletarDenuncia(${data[i].id})">
+                      <i class="fas fa-trash"></i>
+                      Deletar
+                    </button>
+                    <a href="/denuncia/visualizar.html?id=${data[i].id}"><button type="button" class="btn btn-outline-success">
+                      <i class="fas fa-eye"></i>
+                      Visualizar
+                    </button></a>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <small class="text-muted">Denúncia feita em: ${new Date(data[i].criado_em).toLocaleString()}</small>
+                </div>
+              </div>
+          `)
+        }
+      },
+      error: function (data, status) {
+        alert("Erro ao buscar denuncias");
+      },
+    });
+  }
+
+  function deletarDenuncia(denunciaId){
+    bootbox.confirm({
+      message: "Você tem certeza que quer deletar essa denúncia?",
+      buttons: {
+          confirm: {
+              label: 'Sim',
+              className: 'btn-danger'
+          },
+          cancel: {
+              label: 'Não',
+              className: 'btn'
+          }
+      },
+      callback: function (result) {
+        if(result) { // Apertou sim
+          $.ajax({
+            url: "http://52.188.152.85:81/admin/denuncia?id="+denunciaId,
+            type: "DELETE",
+            success: function (data, status) {
+              bootbox.alert({
+                message: "Denuncia Removida!",
+                size: 'small'
+              });
+              carregarDenuncicas() // recarregar denuncias
+            },
+            error: function (data, status) {
+              alert("Erro ao cadastrar");
+            },
+          });
+        }
+      }
+  });
+  }
+</script>
+
+<style>
+
+#denuncias h1 {
+  margin-top: 10px;
+  text-align: center;
+}
+
+#denuncias hr {
+  border: 0.5px solid black;
+  width: 100%;
+}
+
+.dashboard-photos{
+  position: relative;
+  height: 125px;
+  width: 125px;
+}
+.dashboard-photos img{
+  height: 80px;
+  width: 80px;
+  border-radius: 20px;
+}
+
+.dashboard-photos :first-child{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.dashboard-photos :last-child{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+@media only screen and (max-width: 768px) {
+  .denuncia{
+    align-items: center;
+    text-align: center;
+  }
+  .card-horizontal{
+    align-items: center;
+    text-align: center;
+  }
+  .dashboard-photos :first-child,  .dashboard-photos :last-child {
+    position: relative;
+  }
+  .dashboard-photos{
+    height: auto;
+  }
+}
+
+</style>
+
+</html>
