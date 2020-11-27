@@ -42,14 +42,14 @@
 
           <div class="row">
             <div class="input-group mb-3 col-md-8">
-              <input type="text" class="form-control" placeholder="Pesquisar" aria-describedby="basic-addon2">
-              <div class="input-group-append"> <button class="btn btn-outline-success"><i
+              <input id="pesquisaInput" type="text" class="form-control" placeholder="Pesquisar" aria-describedby="basic-addon2">
+              <div class="input-group-append"> <button id="btnPesquisa" class="btn btn-outline-success"><i
                     class="fas fa-search"></i></button>
               </div>
             </div>
 
             <div class="categorias col-md-4 mb-3 ml-10">
-              <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+              <select class="custom-select my-1 mr-sm-2" id="selectOpcao">
                 <option value="1">Mais Antigo</option>
                 <option value="2">Mais Recente</option>
                 <option value="3">Mais Relevante</option>
@@ -110,20 +110,42 @@ $(function() {
       });
   })
 
+  var opcaoSelect = 1;
+  $('#selectOpcao').on('change', function() {
+    if(this.value==1){
+      opcaoSelect=1
+      carregarDenuncias();
+    }
+    else if(this.value==2){
+      opcaoSelect=2
+      carregarDenuncias();
+    }
+    else if(this.value==3){
+      opcaoSelect=3
+      carregarDenuncias();
+    }
+    else{
+      opcaoSelect=1
+      carregarDenuncias();
+    }
+  });
+
+  var pesquisaText = "";
+  $("#btnPesquisa" ).click(function() {
+    pesquisaText = $("#pesquisaInput").val()
+    carregarDenuncias()
+  });
+
 
   function carregarDenuncias(){
-    
-  }
-
-  $(function() {
-        $.ajax({
-            url: `http://localhost:3001/dashorganizacao/denuncia?id=${idOrganizacao}`,
+    $.ajax({
+            url: `http://localhost:3001/dashorganizacao/denuncia?id=${idOrganizacao}&opcao=${opcaoSelect}&texto=${pesquisaText}`,
             type: "GET",
             success: function(data, status){
 
                 $("#denuncia").html("")
 
-                for(let i=0; i<data.length; i++){
+                for(let i=0; i<data.length; i++) {
 
                   let dataConvertida = new Date(data[i].criado_em).toLocaleString()
 
@@ -169,6 +191,10 @@ $(function() {
                 console.log("Erro ao buscar denuncias");
             },
         });
+  }
+
+  $(function() {
+    carregarDenuncias();
   })
 
 </script>

@@ -118,19 +118,67 @@ router.get('/dashorganizacao/qtdDenuncia', async (req, res) => {
 
 router.get('/dashorganizacao/denuncia', async (req, res) => {
     
-    const query = 
-    `SELECT d.*, MIN(dco.descricao) AS contribuicao, MIN(dco.criado_em) AS feita_em, COUNT(DISTINCT d.id) as qtd_Denuncias, dco.descricao, GROUP_CONCAT(f.url) as url_fotos
-    FROM denuncia_has_categoria dc
-    INNER JOIN organizacao_has_categoria oc ON oc.categoria_id=dc.categoria_id
-    INNER JOIN denuncia d ON d.id=dc.denuncia_id
-    INNER JOIN categoria c ON c.id=dc.categoria_id
-    INNER JOIN organizacao o ON o.uf=d.uf AND o.cidade=d.municipio
-    INNER JOIN denuncia_contribuicao dco ON dco.denuncia_id=d.id
-    LEFT JOIN denuncia_contribuicao_foto f ON dco.id = f.denuncia_contribuicao_id
-    WHERE o.id=?
-    GROUP BY d.id
-    ORDER BY d.criado_em DESC;`
-    
+    var opcao = req.query.opcao;
+    var query
+
+    if(opcao==1)    
+        query = 
+        `SELECT d.*, MIN(dco.descricao) AS contribuicao, MIN(dco.criado_em) AS feita_em, COUNT(DISTINCT d.id) as qtd_Denuncias, dco.descricao, GROUP_CONCAT(f.url) as url_fotos
+        FROM denuncia_has_categoria dc
+        INNER JOIN organizacao_has_categoria oc ON oc.categoria_id=dc.categoria_id
+        INNER JOIN denuncia d ON d.id=dc.denuncia_id
+        INNER JOIN categoria c ON c.id=dc.categoria_id
+        INNER JOIN organizacao o ON o.uf=d.uf AND o.cidade=d.municipio
+        INNER JOIN denuncia_contribuicao dco ON dco.denuncia_id=d.id
+        LEFT JOIN denuncia_contribuicao_foto f ON dco.id = f.denuncia_contribuicao_id
+        WHERE o.id=? AND dco.descricao LIKE '%${req.query.texto}%'
+        GROUP BY d.id
+        ORDER BY d.criado_em ASC;`
+    else if(opcao==2){
+        query = 
+        `SELECT d.*, MIN(dco.descricao) AS contribuicao, MIN(dco.criado_em) AS feita_em, COUNT(DISTINCT d.id) as qtd_Denuncias, dco.descricao, GROUP_CONCAT(f.url) as url_fotos
+        FROM denuncia_has_categoria dc
+        INNER JOIN organizacao_has_categoria oc ON oc.categoria_id=dc.categoria_id
+        INNER JOIN denuncia d ON d.id=dc.denuncia_id
+        INNER JOIN categoria c ON c.id=dc.categoria_id
+        INNER JOIN organizacao o ON o.uf=d.uf AND o.cidade=d.municipio
+        INNER JOIN denuncia_contribuicao dco ON dco.denuncia_id=d.id
+        LEFT JOIN denuncia_contribuicao_foto f ON dco.id = f.denuncia_contribuicao_id
+        WHERE o.id=? AND dco.descricao LIKE '%${req.query.texto}%'
+        GROUP BY d.id
+        ORDER BY d.criado_em DESC;`
+    }
+    else if(opcao==3){
+        query = 
+        `SELECT d.*, MIN(dco.descricao) AS contribuicao, MIN(dco.criado_em) AS feita_em, COUNT(DISTINCT d.id) as qtd_Denuncias, dco.descricao, GROUP_CONCAT(f.url) as url_fotos
+        FROM denuncia_has_categoria dc
+        INNER JOIN organizacao_has_categoria oc ON oc.categoria_id=dc.categoria_id
+        INNER JOIN denuncia d ON d.id=dc.denuncia_id
+        INNER JOIN categoria c ON c.id=dc.categoria_id
+        INNER JOIN organizacao o ON o.uf=d.uf AND o.cidade=d.municipio
+        INNER JOIN denuncia_contribuicao dco ON dco.denuncia_id=d.id
+        LEFT JOIN denuncia_contribuicao_foto f ON dco.id = f.denuncia_contribuicao_id
+        WHERE o.id=? AND dco.descricao LIKE '%${req.query.texto}%'
+        GROUP BY d.id
+        ORDER BY COUNT(dco.denuncia_id) DESC;`
+    }
+    else{
+        query = 
+        `SELECT d.*, MIN(dco.descricao) AS contribuicao, MIN(dco.criado_em) AS feita_em, COUNT(DISTINCT d.id) as qtd_Denuncias, dco.descricao, GROUP_CONCAT(f.url) as url_fotos
+        FROM denuncia_has_categoria dc
+        INNER JOIN organizacao_has_categoria oc ON oc.categoria_id=dc.categoria_id
+        INNER JOIN denuncia d ON d.id=dc.denuncia_id
+        INNER JOIN categoria c ON c.id=dc.categoria_id
+        INNER JOIN organizacao o ON o.uf=d.uf AND o.cidade=d.municipio
+        INNER JOIN denuncia_contribuicao dco ON dco.denuncia_id=d.id
+        LEFT JOIN denuncia_contribuicao_foto f ON dco.id = f.denuncia_contribuicao_id
+        WHERE o.id=? AND dco.descricao LIKE '%${req.query.texto}%'
+        GROUP BY d.id
+        ORDER BY d.criado_em ASC;`
+    }
+
+    console.log(req.query.id, req.query.texto, req.query.opcao)
+
     const db = new Database();
     const connection = await db.connect();
 
@@ -143,6 +191,7 @@ router.get('/dashorganizacao/denuncia', async (req, res) => {
         res.end();
     });
     connection.end();
+
 })
 
 
