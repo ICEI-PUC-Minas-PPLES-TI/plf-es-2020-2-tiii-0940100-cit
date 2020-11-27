@@ -368,7 +368,7 @@ fetch(urlReq, {method:'GET'})
 
         $(function() {
         $.ajax({
-            url: `http://localhost:3001/denuncia/categorias`,
+            url: `/denuncia/categorias`,
             type: "GET",
             success: function(data, status){
 
@@ -376,7 +376,7 @@ fetch(urlReq, {method:'GET'})
                 { 
                     $('#selectCategoria').append($('<option>',
                     {
-                        value: i,
+                        value: data[i].id,
                         text : data[i].descricao
                     }));
                 }
