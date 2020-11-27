@@ -111,7 +111,7 @@ router.get('/dashorganizacao/qtdDenuncia',middlewareOrgao, async (req, res) => {
     const db = new Database();
     const connection = await db.connect();
 
-    connection.query(query, [req.query.id], function (error, results, fields) {
+    connection.query(query, [req.auth.organizacao_id], function (error, results, fields) {
         if (error){
             res.status(500).json({ error: error.message });
         } else {
@@ -188,7 +188,7 @@ router.get('/dashorganizacao/denuncia',middlewareOrgao, async (req, res) => {
     const db = new Database();
     const connection = await db.connect();
 
-    connection.query(query, [req.query.id], function (error, results, fields) {
+    connection.query(query, [req.auth.organizacao_id], function (error, results, fields) {
         if (error){
             res.status(500).json({ error: error.message });
         } else {
