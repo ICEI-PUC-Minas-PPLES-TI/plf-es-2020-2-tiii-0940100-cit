@@ -187,7 +187,7 @@
                 return;
             }
             $.ajax({
-                url: "http://52.188.152.85:81/cidadao",
+                url: "/cidadao",
                 type: "POST",
                 data: {
                     cidadao_nome: $("#txtNomeCidadao").val(),
@@ -196,11 +196,13 @@
                     cidadao_senha: $("#txtSenhaCidadao").val()
                 },
                 success: function(data, status){
+                    document.cookie = "xcid="+data.token+";path=/";
                     alert("Cidadao cadastrado");
                     $("#txtNomeCidadao").val(""); //Equivalente a: document.getElementById("txtNomeCidadao").value = "";
                     $("#txtEmailCidadao").val("");
                     $("#txtCPF").val("");
                     $("#txtSenhaCidadao").val("");
+                    window.location.href = "../dashboard/cidadao.html";
                 },
                 error: function(data, status){
                     alert("Erro ao cadastrar");
@@ -214,7 +216,7 @@
                 return;
             }
             $.ajax({
-                url: "http://52.188.152.85:81/organizacao",
+                url: "/organizacao",
                 type: "POST",
                 data: {
                     nome: $("#txtIdentificacao").val(),
@@ -236,6 +238,7 @@
                     $("#txtEmail").val(""),
                     $("#txtNome").val(""),
                     $("#txtSenha").val("")
+                    document.cookie = "xorgao="+data.token+";path=/";
                 },
                 error: function(data, status){
                     alert("Erro ao cadastrar");

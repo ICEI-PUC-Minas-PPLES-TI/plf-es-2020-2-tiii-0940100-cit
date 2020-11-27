@@ -49,16 +49,18 @@ router.post('/organizacao', (req, res, next) => {
             res.status(500).json({ error: error.message });
         } else {
             // Inserir usuário da organização
-            connection.query(`INSERT INTO organizacao_usuario (nome, email, senha, organizacao_id) VALUES (?, ?, MD5(?), ?);`,[req.body.usuario_nome, req.body.usuario_email, req.body.usuario_senha, results.insertId],  function (error2, results) {
+            connection.query(`INSERT INTO organizacao_usuario (nome, email, senha, organizacao_id) VALUES (?, ?, MD5(?), ?);`,[req.body.usuario_nome, req.body.usuario_email, req.body.usuario_senha, results.insertId],  function (error2, results2) {
                 if (error2){
                     connection.query(`DELETE FROM organizacao WHERE id = ${results.insertId}`);
                     connection.end();
                     res.status(500).json({ error: error2.message });
                 } else {
                     connection.end();
+                    var token = jwt.sign({ id: results2.insertId, nome: req.body.usuario_nome , organizacao_id: results.insertId , iat: (Math.floor(Date.now() / 1000) - 30) }, process.env.SESSION_SECRET);
                     res.json({
                         message: 'success',
-                        created: true
+                        created: true,
+                        token: token
                     });
                 }
             })

@@ -63,15 +63,13 @@ router.post('/cidadao', (req, res, next) => {
             res.status(500).json({ error: error.message });
         } else {
             connection.end();
+            var token = jwt.sign({ id: results.insertId, nome: req.body.cidadao_nome , iat: (Math.floor(Date.now() / 1000) - 30) }, process.env.SESSION_SECRET);
             res.json({
                 message: 'success',
-                created: true
+                created: true,
+                token: token
             });
         }
-        res.end({
-            message: 'success',
-            created: true
-        });
         
     })
 
