@@ -13,7 +13,7 @@ const middlewareAdmin = (req,res,next) => {
         console.log(e)
         res.status(401).json({ error: 'Permissao Negada' });
     }
-  });
+  };
 
 router.post('/admin/login', async (req, res) => { 
     let dt = new Date()
