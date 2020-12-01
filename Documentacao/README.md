@@ -297,14 +297,12 @@ ___
 | No.    | Processo/tarefa      | Descrição                                                                             | Prioridade    |
 | :----- |:--------------------:| :------------------------------------------------------------------------------------:| -------------:|
 | 01     | Efetuar Denúncia     | Cidadão fazer a denúncia de um problema estrutural em área urbana.                    | Alta          |
-| 02     | Listar Denúncias     | Exibir denúncias feitas pelos cidadãos para o Órgão responsável gerenciá-las.           | Alta          |
-| 03     | Gerenciar Ranking    | Gerar um ranking dos municípios que mais solucionam problemas denunciados.            | Média         |
-| 04     | Monitorar Denúncia   | Monitorar as denúncias para impedir phishing e denúncias não corrigidas corretamente. | Baixa         |
-| 05     | Login Cidadão        | Possibilitar cidadão entrar em sua conta para fazer denúncias.                        | Média         |
-| 06     | Registro Cidadão     | Possibilitar cidadão criar sua conta para entrar nela.                                | Média         |
-| 07     | Login Organização    | Possibilitar organização entrar em sua conta para receber denúncias.                  | Média         |
-| 08     | Registro Organização | Possibilitar organização criar sua conta para entrar nela e gerar sub-usuários.       | Média         |
-| 09     | Notificar Status     | Notificar aos cidadões contribuintes da denúncia uma atualiação no status da mesma    | Alta          |
+| 02     | Gerenciar Denúncias  | Exibir denúncias feitas pelos cidadãos para o Órgão responsável gerenciá-las.           | Alta          |
+| 03     | Monitorar Denúncia   | Monitorar as denúncias para impedir phishing e denúncias não corrigidas corretamente. | Baixa         |
+| 04     | Login Cidadão        | Possibilitar cidadão entrar em sua conta para fazer denúncias.                        | Média         |
+| 05     | Registro Cidadão     | Possibilitar cidadão criar sua conta para entrar nela.                                | Média         |
+| 06     | Login Organização    | Possibilitar organização entrar em sua conta para receber denúncias.                  | Média         |
+| 07     | Registro Organização | Possibilitar organização criar sua conta para entrar nela e gerar sub-usuários.       | Média         |
 
 **5.2. Detalhamento das atividades**
 
@@ -343,29 +341,17 @@ Este Requisito Funcional, é classificado como um processo primário, de alta pr
 | qtdVotos                  | Sim | qtdVotos = qtdVotos+1              | Quantidade de cidadãos que afirmam a existência do problema.         |
 
 
-
 ***5.2.2 RF-02 - Gerenciar Denúncia***
 O segundo Requisito Funcional, relacionado ao processo com o mesmo nome, é classificado como Processo Primário, sendo de alta prioridade, pois ele tem um envolvimento direto com usuários (órgãos responsáveis), sendo uma etapa estritamente necessária na correção de um problema urbano com o uso da plataforma CIT. Nesse processo, o usuário logado na conta do órgão, poderá visualizar todas as denúncias feitas que são de responsabilidade do mesmo, podendo filtrá-los para organizar sua exibição, para assim escolher uma denúncia a ser gerenciada. Com uma denúncia escolhida, o usuário poderá reportar algum erro a equipe do CIT se aquele problema urbano não for de jurisdição do órgão em questão, se não for o caso, prossegue-se com a gerência da denúncia, enviando os dados para um engenheiro responsável, que irá avaliar o problema para agendar o censerto do mesmo e assim realizá-lo.
 
-****5.2.1.1 - Ordenar denúncias****
+****5.2.2.1 - Ordenar denúncias****
 
 | Propriedade (atributo)    | Requerido? (S/N) | Default  | Descrição                                                                                              |
 | :------------------------ |:---------------- | :--------| :-----------------------------------------------------------------------------------------------------:|
 | filtro                    | Sim | Relevância            | Filtro de ordenação de Denúncias, podendo ser de Relevância, Tempo(crescente e Decrescente) ou Urgência|
 
 
-***5.2.3 RF-03 - Gerenciar Ranking***
-Já este requisito funcional, é também um processo primário, de média prioridade, se trata de uma forma que evidenciará quais as prefeituras estão mais empenhadas em resolver os problemas apresentados no site da CIT. Com uma cidade estando no topo do ranking, o seu governo ganhará mais credibilidade e desta forma, promovendo os serviços que estão sendo realizados pela gestão. E ainda sim, existirá aquelas cidades que não estão se empenhando para solucionar os problemas da cidade, visto que, isto estará refletido no ranking da CIT, proporcionando que a gestão responsável fique má vista pelos cidadãos, promovendo negativamente os políticos responsáveis.
-
-| Propriedade (atributo)    | Requerido? (S/N) | Default             | Descrição                                                                    |
-| :------------------------ |:---------------- | :-------------------| :---------------------------------------------------------------------------:|
-| url                       | Sim | http://www.domain.com/ranking/   | Endereço de conexão para visualização do Ranking gerado.                     |
-| prefeito                  | Sim | (*Capturado com o cep)           | Nome do Prefeito do Município                                                |
-| uf                        | Sim | (*Capturado com o cep)           | Nome da Unidade Federativa.                                                  |
-| municipio                 | Sim | (*Capturado com o cep)           | Nome do Município.                                                           |
-| qtdDenúnciasSolucionadas  | Sim |                                  | Quantidade de Denúncias Solucionadas pelo Município                          |
-
-***5.2.4 RF-04 - Monitorar Denúncia***
+***5.2.3 RF-03 - Monitorar Denúncia***
 O último Requisito Funcional, sendo um processo de gerenciamento de baixa prioridade, refere-se ao processo de gerenciar as denúncias feitas pelos cidadãos no site da CIT, de forma a detectar e excluir aquelas com conteúdo que se desvia do objetivo do site, como imagens não relacionadas ao problema denunciado ou descrições contendo discursos de ódio. É importante também que os usuários que recorrentemente fazem essas denúncias mal-intensionadas sejam impossibilitadas de fazerem novas denúncias para reduzir a quantidade desse tipo de denúncia.
 
 | Propriedade (atributo)    | Requerido? (S/N) | Default             | Descrição                               |
@@ -373,7 +359,7 @@ O último Requisito Funcional, sendo um processo de gerenciamento de baixa prior
 | id                        | Sim              |                     | ID da denúncia a ser avaliada.          |
 | validade                  | Sim              |                     | Vai ser valida: Sim, ou inválida: não.  |
 
-****5.2.5 - Login Cidadão***
+****5.2.4 - Login Cidadão***
 Processo de suporte referente ao Efetuar Denúncia(RF-01).
 
 | Propriedade (atributo)    | Requerido? (S/N) | Default             | Descrição                               |
@@ -381,7 +367,7 @@ Processo de suporte referente ao Efetuar Denúncia(RF-01).
 | Usuario                   | Sim              |                     | Informar nome de Usuario/Email          |
 | Senha                     | Sim              |                     | Informar senha                          |      
 
-****5.2.6 - Registro Cidadão***
+****5.2.5 - Registro Cidadão***
 Processo de suporte referente ao Efetuar Denúncia(RF-01).
 
 | Propriedade (atributo)    | Requerido? (S/N) | Default             | Descrição                                                                    |
@@ -391,7 +377,7 @@ Processo de suporte referente ao Efetuar Denúncia(RF-01).
 | Email                     | Sim              |                     | Informar email                          |
 | Senha                     | Sim              |                     | Informar senha                          |
 
-***5.2.7 RF-07 - Login Organização***
+***5.2.6 RF-06 - Login Organização***
 Processo de suporte de média prioridade, referente ao processo de Gerenciar Denúncia (RF-02). Consiste em buscar os dados da instituição a qual confere os dados recebidos para que possam ser realizados os processos seguintes com um registro de autoria.
 | Propriedade (atributo)    | Requerido? (S/N) | Default             | Descrição                                                                    |
 | :------------------------ |:---------------- | :-------------------| :-----------------------------------------------------|
@@ -399,8 +385,8 @@ Processo de suporte de média prioridade, referente ao processo de Gerenciar Den
 | Nome de usuario           | Sim              |                     | Informar nome de de usuario                           |
 | Senha                     | Sim              |                     | Informar senha                                        |
 
-***5.2.8 RF-08 - Registro Organização***
-Processo de suporte de média prioridade. Realiza a criação de um novo registro necessário para o RF-07
+***5.2.7 RF-07 - Registro Organização***
+Processo de suporte de média prioridade. Realiza a criação de um novo registro necessário para o RF-06
 | Propriedade (atributo)    | Requerido? (S/N) | Default             | Descrição                                                                    |
 | :------------------------ |:---------------- | :-------------------| :-------------------------------------------------|
 | CNPJ Organização          | Sim              |                     | Informar CNPJ de instituição                      |
