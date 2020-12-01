@@ -297,12 +297,13 @@ ___
 | No.    | Processo/tarefa      | Descrição                                                                             | Prioridade    |
 | :----- |:--------------------:| :------------------------------------------------------------------------------------:| -------------:|
 | 01     | Efetuar Denúncia     | Cidadão fazer a denúncia de um problema estrutural em área urbana.                    | Alta          |
-| 02     | Gerenciar Denúncias  | Exibir denúncias feitas pelos cidadãos para o Órgão responsável gerenciá-las.           | Alta          |
+| 02     | Gerenciar Denúncias  | Exibir denúncias feitas pelos cidadãos para o Órgão responsável gerenciá-las.         | Alta          |
 | 03     | Monitorar Denúncia   | Monitorar as denúncias para impedir phishing e denúncias não corrigidas corretamente. | Baixa         |
 | 04     | Login Cidadão        | Possibilitar cidadão entrar em sua conta para fazer denúncias.                        | Média         |
 | 05     | Registro Cidadão     | Possibilitar cidadão criar sua conta para entrar nela.                                | Média         |
 | 06     | Login Organização    | Possibilitar organização entrar em sua conta para receber denúncias.                  | Média         |
 | 07     | Registro Organização | Possibilitar organização criar sua conta para entrar nela e gerar sub-usuários.       | Média         |
+| 08     | Notificar Status  | Notificar aos cidadãos contribuintes da denúncia uma atualização da mesma.                                                                                                                   | Média         |
 
 **5.2. Detalhamento das atividades**
 
@@ -386,7 +387,7 @@ Processo de suporte de média prioridade, referente ao processo de Gerenciar Den
 | Senha                     | Sim              |                     | Informar senha                                        |
 
 ***5.2.7 RF-07 - Registro Organização***
-Processo de suporte de média prioridade. Realiza a criação de um novo registro necessário para o RF-06
+Processo de suporte de média prioridade. Realiza a criação de um novo registro necessário para o RF-06.
 | Propriedade (atributo)    | Requerido? (S/N) | Default             | Descrição                                                                    |
 | :------------------------ |:---------------- | :-------------------| :-------------------------------------------------|
 | CNPJ Organização          | Sim              |                     | Informar CNPJ de instituição                      |
