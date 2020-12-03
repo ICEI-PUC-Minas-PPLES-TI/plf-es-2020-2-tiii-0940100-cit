@@ -9,7 +9,6 @@ const middlewareOrgao = (req,res,next) => {
         req.auth = decoded
         next();
     } catch(e) {
-        console.log(e)
         res.status(401).json({ error: 'Permissao Negada' });
     }
 }
