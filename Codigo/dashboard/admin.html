@@ -18,44 +18,54 @@
 
     <div>
         <div class="row m-0">
-            <div class="col-12 col-md-1 cit-lateral">
-                <div class="sticky-top">
-                    <div class="row">
+            <header class="col-12 cit-header">
+                <div class="row">
+                    <div class="col-12 p-0">
                         <a href="/">
                             <img src="../../assets/img/citlogo.svg" width="50px" alt="CIT Logo" class="d-inline mb-8 ml-2">
                             <h6 class="text-white text-roboto d-inline-block">CIT</h6>
                         </a>
+                        <button type="button" class="btn btn-outline-light btn-small float-right mr-3" id="btnLogout">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Sair
+                        </button>
                     </div>
-                </div>   
-            </div>
-            <div class="col-12 col-md-11 p-0" id="main">
+                </div>
+            </header>
+            <div class="col-12 col-md-12 p-0" id="main">
                 <div class="p-3">
                     <nav class="cit-breadcrumb" aria-label="breadcrumb">
-                        <ol class="breadcrumb">
+                        <ol class="breadcrumb bg-dark">
                           <li class="breadcrumb-item"><a href="../"><i class="fas fa-home"></i> &nbsp; Início</a></li>
-                          <li class="breadcrumb-item active" aria-current="page">Dashboard Admin</li>
+                          <li class="breadcrumb-item text-white active" aria-current="page">Dashboard Admin</li>
                         </ol>
                     </nav>
                     <div class="row">
-                        <div class="col-12 col-sm-10 col-md-10 col-lg-10 col-xl-10 m-0 p-0">
-                            <h3 class="text-roboto">Indicadores</h3>
+                        <div class="col-12 p-0">
+                            <a href="../dashboard/spam.html"><button type="button" class="btn btn-primary float-right">Monitoramento de Spam</button></a>
                         </div>
-                            <a href="../dashboard/spam.html"><button type="button" class="btn btn-primary">Monitoramento de Spam</button></a>
-                        <br>
                     </div>
                     <!-- Gráficos -->
-                    <div class="row">
-                        <div class="col-md-4 col-12 p-0">
-                            <small class="text-roboto text-center d-block">Denúncias realizdas no último mês</small>
-                            <div id="chart1"></div>
-                        </div>
-                        <div class="col-md-4 col-12 p-0">
-                            <small class="text-roboto text-center d-block">Denúncias solucionadas no último mês</small>
-                            <div id="chart2"></div>
-                        </div>
-                        <div class="col-md-4 col-12 p-0">
-                            <small class="text-roboto text-center d-block">Tempo média da solução de denúncias no último mês</small>
-                            <div id="chart3"></div>
+                    <div class="row mt-3">
+                        <div class="col-12 p-0">
+                            <div class="card bg-dark">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-4 col-12 p-0 m-0 mr-0">
+                                            <small class="text-roboto text-center d-block">Denúncias realizdas no último mês</small>
+                                            <div id="chart1"></div>
+                                        </div>
+                                        <div class="col-md-4 col-12 p-0 m-0 mr-0">
+                                            <small class="text-roboto text-center d-block">Denúncias solucionadas no último mês</small>
+                                            <div id="chart2"></div>
+                                        </div>
+                                        <div class="col-md-4 col-12 p-0 m-0 mr-0">
+                                            <small class="text-roboto text-center d-block">Tempo média da solução de denúncias no último mês</small>
+                                            <div id="chart3"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <br>
@@ -63,7 +73,7 @@
                     <div class="row">
                         <div class="col-md-4 col-12 p-0">
                             <div class="p-2">
-                                <div class="card mb-3">
+                                <div class="card bg-dark mb-3">
                                     <div class="card-header">
                                         Denúncias
                                     </div>
@@ -76,7 +86,7 @@
                         </div>
                         <div class="col-md-4 col-12 p-0">
                             <div class="p-2">
-                                <div class="card mb-3">
+                                <div class="card bg-dark mb-3">
                                     <div class="card-header">
                                         Denúncias
                                     </div>
@@ -89,7 +99,7 @@
                         </div>
                         <div class="col-md-4 col-12 p-0">
                             <div class="p-2">
-                                <div class="card mb-3">
+                                <div class="card bg-dark mb-3">
                                     <div class="card-header">
                                         Denúncias
                                     </div>
@@ -104,22 +114,24 @@
                     <br>
                     <!-- Tabela -->
                     <div class="row">
-                        <table class="table">
-                            <thead>
-                              <tr>
-                                <th scope="col">Cidade</th>
-                                <th scope="col">Estado</th>
-                                <th scope="col">QTD Denuncias Novas</th>
-                                <th scope="col">QTD Denuncias Solucionadas</th>
-                                <th scope="col">Tempo médio de Solução</th>
-                              </tr>
-                            </thead>
-                            <tbody id="cit-dashboard-table">
-                              <tr>
-                                <td colspan="5">Carregando</td>
-                              </tr>
-                            </tbody>
-                          </table>
+                        <div class="col-12 p-0">
+                            <table class="table table-border">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Cidade</th>
+                                    <th scope="col">Estado</th>
+                                    <th scope="col">QTD Denuncias Novas</th>
+                                    <th scope="col">QTD Denuncias Solucionadas</th>
+                                    <th scope="col">Tempo médio de Solução</th>
+                                  </tr>
+                                </thead>
+                                <tbody id="cit-dashboard-table">
+                                  <tr>
+                                    <td colspan="5">Carregando</td>
+                                  </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -324,6 +336,11 @@
                     console.log("Erro ao buscar denuncias");
                 },
             });
+        
+            $("#btnLogout").click(function() {
+                document.cookie = "xadmin=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                window.location.href = '/'
+            });
         })
         function redirecionaPermissao(){
             alert("Permissão Negada!")
@@ -348,6 +365,10 @@
 </body>
 
 <style>
+#main{
+    background: rgb(43, 44, 46);
+    color: white;
+}
 
 .spam {
     padding: 30%;
