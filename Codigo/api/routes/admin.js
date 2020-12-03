@@ -15,6 +15,10 @@ const middlewareAdmin = (req,res,next) => {
     }
   };
 
+router.get('/me/admin', middlewareAdmin, async (req, res) => {
+    res.json(req.auth);
+})
+
 router.post('/admin/login', async (req, res) => { 
     let dt = new Date()
     let day = ('0' + dt.getDate()).slice(-2) 

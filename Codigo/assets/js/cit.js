@@ -26,3 +26,11 @@ function getCookie(cname) {
     }
     return "";
 }
+
+function getUser(){
+  return {
+    cidadao: getCookie('xcid')? true: false,
+    organizacao: getCookie('xorgao')? true: false,
+    admin: getCookie('xadmin')? true: false,
+  }
+}

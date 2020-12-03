@@ -15,6 +15,9 @@ const middlewareCidadao = (req,res,next) => {
     }
 }
 
+router.get('/me/cidadao', middlewareCidadao, async (req, res) => {
+    res.json(req.auth);
+})
 
 // Fazer login como cidadão
 router.post('/cidadaousuario', (req, res, next) => {

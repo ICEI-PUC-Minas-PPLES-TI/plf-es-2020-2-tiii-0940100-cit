@@ -28,7 +28,9 @@
           <h3>Número de denúncias: <p id="qtdDenuncias" class="d-inline-flex"> ?</p></h3>
           <hr>
           <div class="final">
-            <h4 id="createUser"> Criar usuário <i class="fas fa-plus"></i> </h4>
+            <a href="./criarUsuario.html" id="createUser">
+              <h4 > Criar usuário <i class="fas fa-plus"></i> </h4>
+            </a>
             <hr>
             <h4><i class="fas fa-university text-white d-inline"></i> <p id="orgNome" class="d-inline-flex"> Carregando</p></h3>
           </div>
@@ -312,13 +314,5 @@ $(function() {
   }
 
 </style>
-
-<script>
-
-$('#createUser').click( () =>{
-  location.href = "./criarUsuario.html?org_id=" + 1 // id da organização
-} )
-
-</script>
 
 </html>

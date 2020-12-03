@@ -14,6 +14,10 @@ const middlewareOrgao = (req,res,next) => {
     }
 }
 
+router.get('/me/organizacao', middlewareOrgao, async (req, res) => {
+    res.json(req.auth);
+})
+
 // Fazer login como usuário de organização
 router.post('/organizacaousuario', (req, res, next) => {  // Rota com id dinamico, para consultas com filtros, tipo buscar as contribuições de uma denuncia com o id
     let db = new Database();
