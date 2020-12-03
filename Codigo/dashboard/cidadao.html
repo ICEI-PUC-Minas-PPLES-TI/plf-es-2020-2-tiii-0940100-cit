@@ -6,6 +6,7 @@
     <title>CIT</title>
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/css/all.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/css/cit.css" crossorigin="anonymous">
     <script src="../assets/js/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
     <script src="../assets/js/bootstrap.min.js" crossorigin="anonymous"></script>
     <link rel="icon" href="../assets/icons/favicon.ico" />
@@ -13,9 +14,48 @@
 <body>
     
   <div class="background">
-    
+    <header class="col-12 cit-header">
+      <div class="row">
+          <div class="col-12 p-0">
+              <a href="/">
+                  <img src="../../assets/img/citlogo.svg" width="50px" alt="CIT Logo" class="d-inline mb-8 ml-2">
+                  <h6 class="text-white text-roboto d-inline-block">CIT</h6>
+              </a>
+              <button type="button" class="btn btn-outline-light btn-small float-right mr-3" id="btnLogout">
+                  <i class="fas fa-sign-out-alt"></i>
+                  Sair
+              </button>
+              <span class="float-right mr-3 text-white border p-1 mt-1">
+                <i class="fas fa-user mr-2"></i>
+                <a id="nomeCidadao" class="d-inline-flex">Carregando</a>
+              </span>
+          </div>
+      </div>
+    </header>
+
+    <div class="row mt-3">
+      <div class="col-12 p-0">
+        <nav class="cit-breadcrumb px-2" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../"><i class="fas fa-home"></i> &nbsp; Início</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Últimas contribuições em denúncias</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 p-0">
+        <span class="text-muted float-right d-block mr-3">
+          Número de denúncias: <p class="d-inline-flex" id="qtdDenuncia">?</p>
+        </span>
+      </div>
+    </div>
+
     <div class="row m-0 p-0">
 
+
+      <!--
       <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 m-0 p-0 position-relative">
         <div id="lateral" class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
           <a id="voltar" class="btn btn-outline-secondary position-absolute m-1" href="../index.html">
@@ -23,28 +63,23 @@
           </a>
           <img src="../../assets/img/citlogo.svg" width="150px" alt="CIT Logo" class="d-block m-auto">
           <hr>
-          <h3>Número de denúncias: <p class="d-inline-flex" id="qtdDenuncia">?</p></h3>
+          <h3></h3>
           <hr>
           <div class="final">
             <hr class="mr-4">
-            <h4><i class="fas fa-user mr-2"></i> <a id="nomeCidadao" class="d-inline-flex">Carregando</a></h3>
+            <h4></h3>
           </div>
         </div>
       </div>
+    -->
 
-      <div class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9">
-        <div id="denuncias">
-          <h2 style="text-align: center;">Últimas contribuições em denúncias</h2>
-          <hr>
-
+      <div class="col-12 p-0">
+        <div id="denuncias" class="px-4">
           <table id="bodyDenuncias" class="lista mb-5">
-
             <div id="denuncia">
                   <h3 style="text-align: center;">Carregando...</h3>
               </div>
-
           </table>
-
         </div>
       </div>
     </div>
@@ -142,38 +177,6 @@
 .background {
   height: 100vh;
   background-color: #ffffff;
-}
-
-#lateral {
-  height: 100vh;
-  background: #38ae90;
-  position: fixed;
-}
-
-#lateral hr{
-  border: 0.5px solid white;
-  margin: 5px 10px;
-}
-
-#lateral h3{
-  padding: 8px 0;
-  font-size: 1.4rem;
-  color: white;
-  margin: auto;
-  text-align: center;
-}
-
-#lateral h4{
-  color: white;
-  font-size: 1.5rem;
-  text-align: center;
-  padding: 8px;
-}
-
-#lateral .final{
-  position: absolute; 
-  bottom: 0;
-  width: 100%;
 }
 
 #denuncias h1 {
