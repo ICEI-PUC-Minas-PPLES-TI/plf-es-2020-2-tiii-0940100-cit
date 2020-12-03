@@ -25,10 +25,10 @@
                   <i class="fas fa-sign-out-alt"></i>
                   Sair
               </button>
-              <span class="float-right mr-3 text-white border p-1 mt-1">
+              <button class="float-right mr-3 btn btn-outline-light border-0 btn-small" style="pointer-events: none;">
                 <i class="fas fa-user mr-2"></i>
                 <a id="nomeCidadao" class="d-inline-flex">Carregando</a>
-              </span>
+              </button>
           </div>
       </div>
     </header>
@@ -46,7 +46,7 @@
 
     <div class="row">
       <div class="col-12 p-0">
-        <span class="text-muted float-right d-block mr-3">
+        <span class="text-muted float-right d-block mr-4">
           Número de denúncias: <p class="d-inline-flex" id="qtdDenuncia">?</p>
         </span>
       </div>
@@ -98,13 +98,11 @@
           url: `/dashboard/qtdDenuncias?id=${idCidadao}`,
           type: "GET",
           success: function(data, status){
-
-              $("#qtdDenuncia").text(data[0].qtd_denuncias)
-
+            $("#qtdDenuncia").text(data[0].qtd_denuncias)
           },
           error: function(data, status){
-              if(data.status == 401) redirecionaPermissao()
-              console.log("Erro ao buscar denuncias");
+            if(data.status == 401) redirecionaPermissao()
+            console.log("Erro ao buscar denuncias");
           },
       });
   })
@@ -120,50 +118,59 @@
               console.log("Erro ao buscar denuncias");
           },
       });
+      
+      $("#btnLogout").click(function() {
+        document.cookie = "xcid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        window.location.href = '/'
+      });
   })
 
   $(function() {
-        $.ajax({
-            url: `/dashboard/verContri?id=${idCidadao}`,
-            type: "GET",
-            success: function(data, status){
+    $.ajax({
+        url: `/dashboard/verContri?id=${idCidadao}`,
+        type: "GET",
+        success: function(data, status){
+            $("#denuncia").html("");
+          
+            for(let i=0; i<data.length;i++) {
+              if(data[i].urls_fotos!=null){
+                var fotos = data[i].urls_fotos.split(",")
+                if(fotos[1]==null)
+                  fotos[1] = "../assets/img/semimg.png"
+              } else
+                var fotos = "../assets/img/semimg.png,../assets/img/semimg.png".split(",")
 
-                $("#denuncia").html("");
-                
-                for(let i=0; i<data.length;i++) {
+              let dataConvertida = new Date(data[i].feita_em).toLocaleString()
 
-                  if(data[i].urls_fotos!=null){
-                    var fotos = data[i].urls_fotos.split(",")
-                    if(fotos[1]==null)
-                      fotos[1] = "../assets/img/semimg.png"
-                  } else
-                    var fotos = "../assets/img/semimg.png,../assets/img/semimg.png".split(",")
-
-                  let dataConvertida = new Date(data[i].feita_em).toLocaleString()
-
-                    $("#denuncia").append(`
-                      <a href="/denuncia/visualizar.html?id=${data[i].denuncia_id}" style="text-decoration:none; color: 	#1C1C1C;"><div class="card-horizontal m-0 p-0" style="display: flex; background-color: #dadada;">
-                        <div class="dashboard-photos">
-                          <img class="p-2" src="${fotos[0]}" alt="Card image cap"/>
-                          <img class="p-2" src="${fotos[1]}" alt="Card image cap"/>
-                        </div>
-                        <div class="card-body">
-                          <h4 class="card-title"> ${data[i].logradouro}, ${data[i].municipio} - ${data[i].uf} <small>CEP: ${data[i].cep}</small> </h4>
-                          <p class="card-text">${data[i].descricao}</p>
-                        </div>
-                      </div>
-                      <div class="card-footer mb-2">
-                          <small class="text-muted">Contribuição feita em: ${dataConvertida}</small>
-                      </div></a>
-                    `)
-
+              let photoDiv = ''
+              if(data[i].urls_fotos) {
+                let photos = data[i].urls_fotos.split(',')
+                for(let j=0;j<photos.length;j++){
+                  photoDiv += `<img class="p-2" src="${photos[j]}" alt="Card image cap" />`
                 }
+                
+              }
 
-            },
-            error: function(data, status){
-                console.log("Erro ao buscar denuncias");
-            },
-        });
+              $("#denuncia").append(`
+                <a href="/denuncia/visualizar.html?id=${data[i].denuncia_id}" style="text-decoration:none; color: 	#1C1C1C;"><div class="card-horizontal m-0 p-0" style="display: flex; background-color: #dadada;">
+                  <div class="dashboard-photos">
+                    ${photoDiv}
+                  </div>
+                  <div class="card-body">
+                    <h4 class="card-title"> ${data[i].logradouro}, ${data[i].municipio} - ${data[i].uf} <small>CEP: ${data[i].cep}</small> </h4>
+                    <p class="card-text">${data[i].descricao}</p>
+                  </div>
+                </div>
+                <div class="card-footer mb-2">
+                    <small class="text-muted">Contribuição feita em: ${dataConvertida}</small>
+                </div></a>
+              `)
+            }
+        },
+        error: function(data, status){
+            console.log("Erro ao buscar denuncias");
+        },
+    });
   })
 
   function redirecionaPermissao(){
@@ -200,15 +207,21 @@
   border-radius: 20px;
 }
 
-.dashboard-photos :first-child{
+.dashboard-photos > img:first-child{
   position: absolute;
   top: 0;
   left: 0;
 }
-.dashboard-photos :last-child{
+.dashboard-photos > img:last-child{
   position: absolute;
   bottom: 0;
   right: 0;
+}
+
+.dashboard-photos > img:only-child{
+  position: relative;
+  width: 110px;
+  height: 110px;
 }
 
 @media only screen and (max-width: 768px) {
