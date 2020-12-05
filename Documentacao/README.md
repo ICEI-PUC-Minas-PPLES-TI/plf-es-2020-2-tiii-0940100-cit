@@ -398,14 +398,14 @@ Processo de suporte de média prioridade. Realiza a criação de um novo registr
 | Localização               | Sim              |                     | Informar onde a organização realiza suas operações|
 
 ***5.3 - Diagrama de Entidade-Relacionamento***
-| ![Imagem11](https://i.imgur.com/WXSqtdu.png "Imagem12") |
+| ![Imagem12](https://i.imgur.com/WXSqtdu.png "Imagem12") |
 |:--:| 
 | *<sub>Imagem 12 - Diagrama de Entidade e Relacionamento CIT.</sub>* |
 
 ***5.4. Tecnologias***
 Será desenvolvida uma aplicação web, diante disso, é necessário definir linguagens de marcação, estilização, de programação e um sistema de gerenciamento de banco de dados para suprir toda essa aplicação do CIT. Como linguagem de marcação de hipertexto foi escolhido o HTML5 para construção estrutural do site, para estilização utilizaremos CSS3, com auxilio do framework Bootstrap. Para programação será utilizado JavaScript no frontend e backend (Por meio do interpretador NodeJS, juntamente com o framework Nuxt.js para conectar o backend com o frontend.), e o SGBD selecionado foi o MariaDB por ser relacional e gratuito. A IDE de desenvolvimento escolhida foi o Visual Studio Code. Nuvem de hospedagem para a aplicação foi escolhida a Azure, para hospedar uma máquina virtual utilizando o SO Ubuntu.
 
-| ![Imagem11](https://i.imgur.com/mYCFwLB.png "Imagem13") |
+| ![Imagem13](https://i.imgur.com/mYCFwLB.png "Imagem13") |
 |:--:| 
 | *<sub>Imagem 13 - Interações entre usuário e tecnologia.</sub>* |
 
@@ -417,6 +417,30 @@ Será desenvolvida uma aplicação web, diante disso, é necessário definir lin
 | Denuncias criadas por mês | Analisar se a aplicação esta consideravelmente útil para cidadãos | Apresentar para os admins a quantidade de denúncias efetuadas por mês. | SOMA(denunciasNoMes)/for(qtdDeMeses) | Tabela de denuncias do banco de dados | Visualizar o gráfico por denúncias x a cada mês |
 | Denuncias solucionadas por mês | Analisar se as organizações estão sendo consideravelmente úteis para os cidadãos | Apresentar para os admins a quantidade de solucionadas efetuadas por mês. | SOMA(denunciasSolucionadasNoMes)/for(qtdDeMeses) | Tabela de denuncias do banco de dados | Visualizar o gráfico por denúncias solucionadas x a cada mês |
 | Média tempo para solução de denúncias de cada categoria | Descobrir quais são as categorias que mais demoram para serem solucionadas | Apresentar para os admins o tempo para solucionar as solucionadas de cada categorias. | SOMA(tempocriado-temposolucionado)/totaldedenunciasDaCategorialAtual | Tabela de denuncias e categorias do banco de dados | Visualizar o gráfico por denúncias da média |
+
+
+***7. Uso Software***
+O cidadão acessa o site por meio da url http://projetocit.com/ . Diante disso, ele verá a página index do site (Imagem 14), com as opções para se logar ou cadastrar e denunciar ou ver denúncias.
+| ![Imagem14](https://i.imgur.com/MIt30EY.jpg"Imagem14") |
+|:--:| 
+| *<sub>Imagem 14 - Index do CIT. Link: http://projetocit.com</sub>* |
+
+Logo, é necessário fazer o login do cidadão (Imagem 15) para poder efetuar denúncias por meio da página denunciar.
+| ![Imagem15](https://i.imgur.com/ClnKGdw.jpg"Imagem15") |
+|:--:| 
+| *<sub>Imagem 15 - Página login do cidadão. Link: http://projetocit.com/login/cidadao.html/</sub>* |
+
+Após isso, o cidadão já poderá preencher os dados do formulário para criar ou contribuir com uma denúncia. Isso é feito pela página de denunciar (Imagem 16), que solicitará o endereço, categorias, descrição, uma foto e se deseja fazer a denúncia anônimamente.
+Logo, é necessário fazer o login do cidadão (Imagem 15) para poder efetuar denúncias por meio da página denunciar.
+| ![Imagem16](https://i.imgur.com/ca3Fcd3.jpg"Imagem16") |
+|:--:| 
+| *<sub>Imagem 16 - Página de denúnciar. http://projetocit.com/denunciar/</sub>* |
+
+Por fim, é possível visualizar a denúncia cadastrada, por meio da página de ver denúncia (Imagem 17), que pode ser acessada pelo index e ver denúncias ou pela dashboard do cidadão.
+| ![Imagem17](https://i.imgur.com/PEkJvBq.jpg"Imagem17") |
+|:--:| 
+| *<sub>Imagem 17 - Página de ver a denúncia selecionada.</sub>* |
+
 
 
 **REFERÊNCIAS**
