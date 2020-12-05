@@ -330,7 +330,7 @@ Este Requisito Funcional, é classificado como um processo primário, de alta pr
 | referencia                | Não |                                  | Alguma referência para auxiliar na localização do problema.                  |
 | foto                      | Sim |                                  | Imagem para mostrar existência do problema.                                  |
 
-****5.2.1.2 - Votar em denúncia já existente****
+****5.2.1.2 - Contribuir em denúncia já existente****
 
 | Propriedade (atributo)    | Requerido? (S/N) | Default               | Descrição                                                            |
 | :------------------------ |:---------------- | :---------------------| :-------------------------------------------------------------------:|
@@ -446,6 +446,13 @@ A aplicação pode ser utilizada perfeitamente, todos os requisitos foram implem
 As organizações podem se cadastrar no site para suas determinadas localizações e categorias. Podendo assim visualizar todas as denúncias que ela poderá atuar.
 Diante disso, nota-se que o software é viável para cumprir os processos que foram modelados anteriormente. Possibilitando os usuários em geral utilizarem o site mobile, facilitando no processo dos usuários cadastrarem denúncias em qualquer local que estiverem.
 
+***9. Conclusão***
+O Cit foi uma aplicação web desenvolvida para possibilitar cidadãos de todas os municípios do Brasil efetuarem denúncias de problemas estruturais, hídricos, elétricos, entre outras categorias. Com isso, foram traçados alguns objetivos específicos baseados nesse problema, dentre eles, permitir cidadãos se cadastrarem no site para criarem ou contribuirem com denúncias; organizações se registrarem para receber as denúncias cadastradas para suas localizações e categorias de serviço.
+Dessa forma, foi possível modelar três processos primários, 1º Efetuar denúncias onde foi tracejado todas as tarefas que o cidadão poderá percorrer para criar suas denúncias de problemas, 2º Gerenciar Denúncia no qual as organizações recebem as denúncias que elas devem corrigir e o 3º Gerenciar Ranking que cria um ranking diariamente das cidades que possuem uma maior quantia de denúncias solucionadas por suas organizações. Além disso, foram desenhados os processos de suporte para Login e Cadastro dos cidadãos e organizações. Como processo de gerenciamento, foi criado o Monitorar Denúncias, onde se verifica manualmente a existência de spam ou denúncias com conteúdos impróprios.
+Diante disso, os requisitos funcionais foram delimitados e detalhados, para poder desenvolver a aplicação web Cit, que possibilitaria executar todos os processos modelados. Dando ênfase, nos requisitos principais que foram os de "Cadastrar denúncia pela primeira vez" e "Contribuir em denúncia já existente".
+Após isso, o sistema foi desenvolvido inicialmente por meio da criação de um Diagrama de Entidade-Relacionamente, para tratar todas as entidades, atributos e relações, possibilitando a criação do banco de dados para a aplicação.
+Desse modo, uma máquina virtual foi contratada na plataforma Azure, onde foram hospedados o banco de dados relacional MariaDB e a aplicação criada em HTML, CSS e JavaScript no frontend com o framework Bootstrap, já no backend para conexão com o banco de dados foi utilizado o interpretador NodeJS com o framework express, para ser possível a criação de uma API Restful.
+Diante das informações supracitadas, concluí-se que todos o processos foram entregues funcionando e sendo monitorados por meio de indicadores de desempenho. A aplicação encontra-se online por meio da URL: http://projetocit.com/ .
 
 
 **REFERÊNCIAS**
