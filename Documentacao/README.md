@@ -428,18 +428,23 @@ O cidadão acessa o site por meio da url http://projetocit.com/ . Diante disso, 
 Logo, é necessário fazer o login do cidadão (Imagem 15) para poder efetuar denúncias por meio da página denunciar.
 | ![Imagem15](https://i.imgur.com/ClnKGdw.jpg"Imagem15") |
 |:--:| 
-| *<sub>Imagem 15 - Página login do cidadão. Link: http://projetocit.com/login/cidadao.html/</sub>* |
+| *<sub>Imagem 15 - Página login do cidadão. Link: http://projetocit.com/login/cidadao/</sub>* |
 
 Após isso, o cidadão já poderá preencher os dados do formulário para criar ou contribuir com uma denúncia. Isso é feito pela página de denunciar (Imagem 16), que solicitará o endereço, categorias, descrição, uma foto e se deseja fazer a denúncia anônimamente.
 Logo, é necessário fazer o login do cidadão (Imagem 15) para poder efetuar denúncias por meio da página denunciar.
 | ![Imagem16](https://i.imgur.com/ca3Fcd3.jpg"Imagem16") |
 |:--:| 
-| *<sub>Imagem 16 - Página de denúnciar. http://projetocit.com/denunciar/</sub>* |
+| *<sub>Imagem 16 - Página de denúnciar. http://projetocit.com/denuncia/cadastro</sub>* |
 
 Por fim, é possível visualizar a denúncia cadastrada, por meio da página de ver denúncia (Imagem 17), que pode ser acessada pelo index e ver denúncias ou pela dashboard do cidadão.
 | ![Imagem17](https://i.imgur.com/PEkJvBq.jpg"Imagem17") |
 |:--:| 
 | *<sub>Imagem 17 - Página de ver a denúncia selecionada.</sub>* |
+
+***8. Avaliação***
+A aplicação pode ser utilizada perfeitamente, todos os requisitos foram implementados. Qualquer cidadão pode acessar o site, se cadastrar, entrar em sua conta, fazer denúncias, contribuir com denúncias de outros cidadãos e receberem o feedback por meio da dashboard do cidadão. 
+As organizações podem se cadastrar no site para suas determinadas localizações e categorias. Podendo assim visualizar todas as denúncias que ela poderá atuar.
+Diante disso, nota-se que o software é viável para cumprir os processos que foram modelados anteriormente. Possibilitando os usuários em geral utilizarem o site mobile, facilitando no processo dos usuários cadastrarem denúncias em qualquer local que estiverem.
 
 
 
