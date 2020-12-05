@@ -93,11 +93,11 @@ legitimação do projeto.
 impostos e esperam um retorno no que diz respeito a estruturas urbanísticas e serviços como
 saúde, segurança e educação. Porém, na prática, devido aos altos índices de corrupção do país
 e outros fatores, este dinheiro acaba sendo desviado e a população se sente impotente diante
-dos problemas, sem conseguir, se manifestar de forma efetiva. Desta forma,
+dos problemas, sem conseguir se manifestar de forma efetiva. Desta forma,
 o problema está situado na falta de uma plataforma na qual, os cidadãos possam se manifestar
 e assim, poder cobrar das entidades governamentais um retorno dos altos impostos pagos. A
 outra parte do problema, se trata das figuras públicas, que não conseguem encontrar uma
-plataforma onde possam divulgar os trabalhos realizados. O Cit, busca possibilitar os cidadãos de fazerem denúncias dos problemas estruturais
+plataforma onde possam divulgar os trabalhos realizados. O Cit, busca possibilitar aos cidadãos fazerem denúncias dos problemas estruturais
 de suas cidades, por meio do envio de provas(Ex: fotos de buracos no asfalto, rede elétrica no
 meio de árvores, entre outros.) e informando o endereço do problema. Dessa forma, outros
 usuários da região, podem assim, votar na existência e correção para aquele transtorno.
@@ -107,7 +107,7 @@ entidades aptas a receberem denúncias de problemas das respectivas localizaçõ
 prefeitura e/ou estado, que poderão corrigi-los, com isso, melhorando a qualidade de vida para
 todos. E os usuários comuns(os que fazem as denúncias), contam com a função de ver o
 ranking das melhores cidades, que poderia ser utilizado em diversas formas e ocasiões(Ex: um
-prefeito ser eleger por meio da divulgação dos seus resultados na cidade.).
+prefeito seria eleito por meio da divulgação dos seus resultados na cidade.).
 
 **1.3 Objetivo geral**
 
@@ -119,7 +119,7 @@ concorrência de melhora entre elas, por meio de comparações.
 
 ● Permitir o cadastro de pessoas físicas, que possibilitará o envio de denúncias.
 
-● Fornecer funcionalidades que permita a denúncia dos problemas por meio da
+● Fornecer funcionalidades que permitam a denúncia dos problemas por meio da
 localização e envio de provas(fotos).
 
 ● Permitir o cadastro de contas para entidades que receberam e corrigirem os problemas.
@@ -130,20 +130,20 @@ problemas solucionados.
 
 **1.3.2 Público-Alvo**
 
-● Criamos algumas personas, para exemplificar o público alvo dos nossos 2 processo.
+● Criamos algumas personas, para exemplificar o público alvo dos nossos 2 processos.
 
 * Primera persona: Cidadão
 
 
 
-| Figura z - Antônio | Antônio Eustáquio ||
+| Antônio | Antônio Eustáquio ||
 | ------------- |:-------------:| -----:|
 | ![Eustáquio](https://i.imgur.com/IFwUdsT.png "Eustáquio") |**Idade**: 55 anos <br>**Ocupação**: Caminhoneiro, possui caminhão próprio e trabalha com transporte de carga 5 dias na semana.| Aplicativos: <br> * Facebook <br> * Instagram
 |Motivações: <br> * Filhos|Frustrações: <br> *Falta de dinheiro <br> * Falta de canal rápido de denúncia de problemas nas vias públicas |Hobbies <br> * Tocar violão <br> * Culinária
 
-○ Primera persona: Entidades Governamentais
+A Primera persona: Entidades Governamentais
 
-| Fonte: Blog Gran Cursos Online [x], 2020. | Prefeitura Municipal de Belo Horizonte ||
+| Fonte: Blog Gran Cursos Online [x], 2020. | Prefeitura Municipal de Belo Horizonte|
 | ------------- |:-------------:| -----:|
 | ![Prefeitura BH](https://i.imgur.com/7JkkxSQ.png "Prefeitura BH") |**Idade**: 123 anos <br>**Ocupação**: Possui diversos setores, inclusive específico para correção de problemas estruturais do município.| Aplicativos: <br> * Website <br> * Instagram <br> * Facebook
 |Motivações: <br> * Resolver problemas dos cidadãos belo horizontinos |Frustrações <br> * Falta de dinheiro <br> * Não conseguir localizar todos os problemas dos cidadãos |Responsabilidades <br>* Cuidar do município no que diz respeito à proteção do patrimônio histórico-cultural, pavimentação das ruas, garantir o bom funcionamento do transporte público, criar creches, conservação do espaço urbano e organização do trânsito.
