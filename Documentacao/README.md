@@ -453,6 +453,6 @@ do Caribe em 2019, diz relatório do BID" Por GloboNews 30/07/2020 16h56
 
 Código: <https://github.com/icei-pucminas/plf-es-2020-2-tiii-0940100-cit/tree/master/Codigo>
 Artefatos: <https://github.com/icei-pucminas/plf-es-2020-2-tiii-0940100-cit/tree/master/Artefatos>
-Apresentação final: ?
-vídeo de apresentação: ?
+Slides da Apresentação Final: https://docs.google.com/presentation/d/1fMp8fs3Tsnqbgtob1xYNHhIZUcSag5yDGLjOsnoouos/edit?usp=sharing
+Vídeo de Apresentação: https://youtu.be/FdJnp8dPO2I
 
