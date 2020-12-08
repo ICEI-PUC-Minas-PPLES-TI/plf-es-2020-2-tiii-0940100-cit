@@ -472,5 +472,10 @@ do Caribe em 2019, diz relatório do BID" Por GloboNews 30/07/2020 16h56
  <https://g1.globo.com/economia/noticia/2020/07/30/brasil-tem-o-menor-investimento-publico-em-infraestrutura-entre-21-paises-da-america-latina-e-do-caribe-em-2019-diz-relatorio-do-bid.ghtml>
  . Acesso em: 09 de ago. 2020._
 
+**APÊNDICES**
 
+Código: <https://github.com/icei-pucminas/plf-es-2020-2-tiii-0940100-cit/tree/master/Codigo>
+Artefatos: <https://github.com/icei-pucminas/plf-es-2020-2-tiii-0940100-cit/tree/master/Artefatos>
+Slides da Apresentação Final: https://docs.google.com/presentation/d/1fMp8fs3Tsnqbgtob1xYNHhIZUcSag5yDGLjOsnoouos/edit?usp=sharing
+Vídeo de Apresentação: https://youtu.be/FdJnp8dPO2I
 
