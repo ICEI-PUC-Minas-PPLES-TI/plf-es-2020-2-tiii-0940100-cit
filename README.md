@@ -22,6 +22,78 @@ Assim que a primeira versão do sistema estiver disponível, deverá complementa
 
 ## Histórico de versões
 
+#### [1.0.1] - 10/12/2020
+##### Adicionado
+* Adicionado slides de apresentação
+* Adicionado vídeo de apresentação
+* Adicionado resumo
+* Adicionado seção de uso de software na documentação 
+* Adicionado seção de avaliação na documentação 
+* Adicionado seção de conclusão na documentação 
+* Adicionado ata da décima terceira e décima quarta reunião
+
+##### Atualizado
+* Correções de erros na documentação
+#### [1.0.0] - 03/12/2020
+##### Adicionado
+* Adicionado apêndices na documentação
+* Adicionado frontend e backend de contribuição de usuário de organização
+* Adicionado backend de contribuição de cidadão
+* Adicionado upload de fotos em contribuições e denúncias novas
+* Adicionado bloqueio de permissão em telas especificas do tipo de usuário
+
+##### Atualizado
+* Atualizado projeto de solução na documentação
+* Correções de bugs
+#### [0.3.2] - 26/11/2020
+##### Adicionado
+* Adicionado frontend e backend da tela de monitoramento de spam
+* Adicionado frontend e backend de criação de usuário de organização
+* Adicionado backend da dashboard de organização
+* Adicionado backend da dashboard de cidadão
+* Adicionado backend da página de cadastrar denúncia
+* Adicionado backend da página de visualizar denúncia
+* Adicionado token de sessão para login de usuários
+##### Atualizado
+* Correções na geolocalização do mapa
+* Corregido ordenação em ranking de organização
+* Correções de bug no mapa
+* Atualizado DER
+
+#### [0.3.1] - 19/11/2020
+##### Adicionado
+* Adicionado frontend e backend de funcionalidade do mapa para selecionar o local da denúncia
+* Adicionado frontend e backend da dashboard de admin com indicadores
+* Adicionado frontend e backend do ranking de cidades
+* Adicionado frontend da dashboard de cidadão
+* Adicionado frontend da dashboard de organização
+* Adicionado frontend da página de cadastrar denúncia
+* Adicionado frontend da página de visualizar denúncia
+* Adicionado frontend da página de contribuição da denúncia pelo cidadão
+* Adicionado váriaveis de ambiente para conexão com banco
+* Adicionado ata da décima segunda reunião
+##### Atualizado
+* Corrigido da tela de cadastro
+* Correções na responsividade 
+* Alterado caminho de scripts
+
+#### [0.3.0] - 12/11/2020
+##### Adicionado
+* Adicionado segunda versão do frontend, com a remoção do framework vue
+##### Atualizado
+* Corrigido responsividade de tela inicial
+* Corrigido consultas SQL
+
+#### [0.2.0] - 05/11/2020
+##### Adicionado
+* Adicionado primeira versão do frontend e backend contento tela inicial, e telas de login/cadastro
+* Adicionado consultas pré-preparadas do sistema em SQL
+* Adicionado modelo físico do banco de dados
+* Adicionado modelo lógico do banco de dados
+* Adicionado ata da décima primeira reunião
+##### Atualizado
+* Atualizado wireframes
+
 #### [0.1.11] - 29/10/2020
 * Adicionado conteúdo de tecnologia à documentação
 ##### Atualizado
@@ -30,6 +102,7 @@ Assim que a primeira versão do sistema estiver disponível, deverá complementa
 #### [0.1.10] - 22/10/2020
 ##### Adicionado
 * Adicionado versão preliminar de DER
+* Adicionado ata da décima reunião
 
 #### [0.1.9] - 15/10/2020
 ##### Adicionado
