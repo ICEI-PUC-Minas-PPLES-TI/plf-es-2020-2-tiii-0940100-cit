@@ -18,7 +18,17 @@
 
 ## Instruções de utilização
 
-Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
+### Instalação do Banco de Dados
+1. Rodar o script /artefatos/sgbd/cit.sql em um servidor contendo o SGBD Mysql
+
+### Instalação da API
+1. Na raiz da pasta de API /codigo/api, instalar os pacotes utilizando `npm install`. O npm gerencia apenas as depêndencias do servidor
+2. Inicie o projeto com `npm start` ou `nodemon` caso você tenha instalado na sua maquina.
+3. Copie o arquivo de váriaveis de ambiente utilizando `cp .env-example .env`
+4. Altere as váriaveis de ambiente para as informações do banco de dados a ser utilizado
+### Instalação do Site
+O site em HTML/CSS/JS é um projeto estático, logo pode ser utilizado tanto em servidores apache2 ou nginx e em sites de hospedagens estáticos como AWS S3 ou Heroku, basta fazer o upload do conteúdo da pasta /codigo. Dentro da pasta /codigo/assets/js existe um arquivo cit.js que possue uma váriavel contento o ip apontando para o servidor da API, altere para o ip do servidor de backend.
+
 
 ## Histórico de versões
 
