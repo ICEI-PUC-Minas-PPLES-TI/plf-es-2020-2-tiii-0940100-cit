@@ -1,3 +1,0 @@
-SELECT * FROM denuncia d
-WHERE latitude BETWEEN (-47.449-0.015) AND (-47.449+0.0015)
-AND longitude BETWEEN (19.5449-0.015) AND (19.5449+0.0015);

@@ -17,7 +17,10 @@
 <body>
     <div id="home_container">
         <span id="auth" class="text-right">
-            <div class="cit-dropdown">
+            <a id="lblCidadao" class="d-none" href="./dashboard/cidadao.html">Painel Cidadão</a>
+            <a id="lblOrganizacao" class="d-none" href="./dashboard/organizacao.html">Painel Organização</a>
+            <a id="lblAdmin" class="d-none" href="./dashboard/admin.html">Painel Admin</a>
+            <div id="lblLogin" class="cit-dropdown">
                 <a class="cit-dropbtn">Login</a>
                 <div class="cit-dropdown-content">
                     <a href="./login/cidadao.html"> 
@@ -29,9 +32,9 @@
                         Instituição
                     </a>
                 </div>
+                |
             </div>
-            |
-            <a href="register.html">Registro</a>
+            <a id="lblRegistro" href="register.html">Registro</a>
         </span>
         <div class="logo-slogan-imagem">
             <div class="logo-slogan">
@@ -57,6 +60,17 @@
 
 <script>
     $(function() {
+        let user = getUser()
+        if(user.admin || user.organizacao || user.cidadao){
+            $('#lblRegistro').removeClass('d-inline').addClass('d-none')
+            $('#lblLogin').removeClass('d-inline').addClass('d-none')
+            if(user.admin)
+                $("#lblAdmin").removeClass('d-none').addClass('d-inline')
+            if(user.organizacao)
+                $("#lblOrganizacao").removeClass('d-none').addClass('d-inline')
+            if(user.cidadao)
+                $("#lblCidadao").removeClass('d-none').addClass('d-inline')
+        }
         $.ajax({
             url: "/test",
             type: "GET",

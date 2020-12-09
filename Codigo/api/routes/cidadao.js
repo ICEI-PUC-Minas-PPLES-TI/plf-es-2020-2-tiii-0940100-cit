@@ -10,11 +10,13 @@ const middlewareCidadao = (req,res,next) => {
         req.auth = decoded
         next();
     } catch(e) {
-        console.log(e)
         res.status(401).json({ error: 'Permissao Negada' });
     }
 }
 
+router.get('/me/cidadao', middlewareCidadao, async (req, res) => {
+    res.json(req.auth);
+})
 
 // Fazer login como cidadão
 router.post('/cidadaousuario', (req, res, next) => {

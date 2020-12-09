@@ -6,6 +6,7 @@
     <title>CIT</title>
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/css/all.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/css/cit.css" crossorigin="anonymous">
     <script src="../assets/js/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
     <script src="../assets/js/bootstrap.min.js" crossorigin="anonymous"></script>
     <link rel="icon" href="../assets/icons/favicon.ico" />
@@ -13,38 +14,52 @@
 <body>
     
   <div class="background">
-    
-    <div class="row m-0 p-0">
-
-      <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 m-0 p-0 position-relative">
-        <div id="lateral" class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
-          <a id="voltar" class="btn btn-outline-secondary position-absolute m-1" href="../index.html">
-            <i class="fas fa-arrow-left"></i>
-          </a>
-          <img src="../../assets/img/citlogo.svg" width="150px" alt="CIT Logo" class="d-block m-auto">
-          <hr>
-          <h3>Número de denúncias: <p class="d-inline-flex" id="qtdDenuncia">?</p></h3>
-          <hr>
-          <div class="final">
-            <hr class="mr-4">
-            <h4><i class="fas fa-user mr-2"></i> <a id="nomeCidadao" class="d-inline-flex">Carregando</a></h3>
+    <header class="col-12 cit-header">
+      <div class="row">
+          <div class="col-12 p-0">
+              <a href="/">
+                  <img src="../../assets/img/citlogo.svg" width="50px" alt="CIT Logo" class="d-inline mb-8 ml-2">
+                  <h6 class="text-white text-roboto d-inline-block">CIT</h6>
+              </a>
+              <button type="button" class="btn btn-outline-light btn-small float-right mr-3" id="btnLogout">
+                  <i class="fas fa-sign-out-alt"></i>
+                  Sair
+              </button>
+              <button class="float-right mr-3 btn btn-outline-light border-0 btn-small" style="pointer-events: none;">
+                <i class="fas fa-user mr-2"></i>
+                <a id="nomeCidadao" class="d-inline-flex">Carregando</a>
+              </button>
           </div>
-        </div>
       </div>
+    </header>
 
-      <div class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9">
-        <div id="denuncias">
-          <h2 style="text-align: center;">Últimas contribuições em denúncias</h2>
-          <hr>
+    <div class="row mt-3">
+      <div class="col-12 p-0">
+        <nav class="cit-breadcrumb px-2" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../"><i class="fas fa-home"></i> &nbsp; Início</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Últimas contribuições em denúncias</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
 
+    <div class="row">
+      <div class="col-12 p-0">
+        <span class="text-muted float-right d-block mr-4">
+          Número de denúncias: <p class="d-inline-flex" id="qtdDenuncia">?</p>
+        </span>
+      </div>
+    </div>
+
+    <div class="row m-0 p-0">
+      <div class="col-12 p-0">
+        <div id="denuncias" class="px-4">
           <table id="bodyDenuncias" class="lista mb-5">
-
             <div id="denuncia">
                   <h3 style="text-align: center;">Carregando...</h3>
               </div>
-
           </table>
-
         </div>
       </div>
     </div>
@@ -63,13 +78,11 @@
           url: `/dashboard/qtdDenuncias?id=${idCidadao}`,
           type: "GET",
           success: function(data, status){
-
-              $("#qtdDenuncia").text(data[0].qtd_denuncias)
-
+            $("#qtdDenuncia").text(data[0].qtd_denuncias)
           },
           error: function(data, status){
-              if(data.status == 401) redirecionaPermissao()
-              console.log("Erro ao buscar denuncias");
+            if(data.status == 401) redirecionaPermissao()
+            console.log("Erro ao buscar denuncias");
           },
       });
   })
@@ -85,50 +98,59 @@
               console.log("Erro ao buscar denuncias");
           },
       });
+      
+      $("#btnLogout").click(function() {
+        document.cookie = "xcid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        window.location.href = '/'
+      });
   })
 
   $(function() {
-        $.ajax({
-            url: `/dashboard/verContri?id=${idCidadao}`,
-            type: "GET",
-            success: function(data, status){
+    $.ajax({
+        url: `/dashboard/verContri?id=${idCidadao}`,
+        type: "GET",
+        success: function(data, status){
+            $("#denuncia").html("");
+          
+            for(let i=0; i<data.length;i++) {
+              if(data[i].urls_fotos!=null){
+                var fotos = data[i].urls_fotos.split(",")
+                if(fotos[1]==null)
+                  fotos[1] = "../assets/img/semimg.png"
+              } else
+                var fotos = "../assets/img/semimg.png,../assets/img/semimg.png".split(",")
 
-                $("#denuncia").html("");
-                
-                for(let i=0; i<data.length;i++) {
+              let dataConvertida = new Date(data[i].feita_em).toLocaleString()
 
-                  if(data[i].urls_fotos!=null){
-                    var fotos = data[i].urls_fotos.split(",")
-                    if(fotos[1]==null)
-                      fotos[1] = "../assets/img/semimg.png"
-                  } else
-                    var fotos = "../assets/img/semimg.png,../assets/img/semimg.png".split(",")
-
-                  let dataConvertida = new Date(data[i].feita_em).toLocaleString()
-
-                    $("#denuncia").append(`
-                      <a href="/denuncia/visualizar.html?id=${data[i].denuncia_id}" style="text-decoration:none; color: 	#1C1C1C;"><div class="card-horizontal m-0 p-0" style="display: flex; background-color: #dadada;">
-                        <div class="dashboard-photos">
-                          <img class="p-2" src="${fotos[0]}" alt="Card image cap"/>
-                          <img class="p-2" src="${fotos[1]}" alt="Card image cap"/>
-                        </div>
-                        <div class="card-body">
-                          <h4 class="card-title"> ${data[i].logradouro}, ${data[i].municipio} - ${data[i].uf} <small>CEP: ${data[i].cep}</small> </h4>
-                          <p class="card-text">${data[i].descricao}</p>
-                        </div>
-                      </div>
-                      <div class="card-footer mb-2">
-                          <small class="text-muted">Contribuição feita em: ${dataConvertida}</small>
-                      </div></a>
-                    `)
-
+              let photoDiv = ''
+              if(data[i].urls_fotos) {
+                let photos = data[i].urls_fotos.split(',')
+                for(let j=0;j<photos.length;j++){
+                  photoDiv += `<img class="p-2" src="${photos[j]}" alt="Card image cap" />`
                 }
+                
+              }
 
-            },
-            error: function(data, status){
-                console.log("Erro ao buscar denuncias");
-            },
-        });
+              $("#denuncia").append(`
+                <a href="/denuncia/visualizar.html?id=${data[i].denuncia_id}" style="text-decoration:none; color: 	#1C1C1C;"><div class="card-horizontal m-0 p-0" style="display: flex; background-color: #dadada;">
+                  <div class="dashboard-photos">
+                    ${photoDiv}
+                  </div>
+                  <div class="card-body">
+                    <h4 class="card-title"> ${data[i].logradouro}, ${data[i].municipio} - ${data[i].uf} <small>CEP: ${data[i].cep}</small> </h4>
+                    <p class="card-text">${data[i].descricao}</p>
+                  </div>
+                </div>
+                <div class="card-footer mb-2">
+                    <small class="text-muted">Contribuição feita em: ${dataConvertida}</small>
+                </div></a>
+              `)
+            }
+        },
+        error: function(data, status){
+            console.log("Erro ao buscar denuncias");
+        },
+    });
   })
 
   function redirecionaPermissao(){
@@ -142,38 +164,6 @@
 .background {
   height: 100vh;
   background-color: #ffffff;
-}
-
-#lateral {
-  height: 100vh;
-  background: #38ae90;
-  position: fixed;
-}
-
-#lateral hr{
-  border: 0.5px solid white;
-  margin: 5px 10px;
-}
-
-#lateral h3{
-  padding: 8px 0;
-  font-size: 1.4rem;
-  color: white;
-  margin: auto;
-  text-align: center;
-}
-
-#lateral h4{
-  color: white;
-  font-size: 1.5rem;
-  text-align: center;
-  padding: 8px;
-}
-
-#lateral .final{
-  position: absolute; 
-  bottom: 0;
-  width: 100%;
 }
 
 #denuncias h1 {
@@ -197,22 +187,24 @@
   border-radius: 20px;
 }
 
-.dashboard-photos :first-child{
+.dashboard-photos > img:first-child{
   position: absolute;
   top: 0;
   left: 0;
 }
-.dashboard-photos :last-child{
+.dashboard-photos > img:last-child{
   position: absolute;
   bottom: 0;
   right: 0;
 }
 
+.dashboard-photos > img:only-child{
+  position: relative;
+  width: 110px;
+  height: 110px;
+}
+
 @media only screen and (max-width: 768px) {
-  #lateral{
-    height: 350px;
-    position: relative;
-  }
   .denuncia{
     align-items: center;
     text-align: center;
