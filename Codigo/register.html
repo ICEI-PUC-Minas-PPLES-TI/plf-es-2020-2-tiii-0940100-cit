@@ -240,6 +240,7 @@
                     $("#txtNome").val(""),
                     $("#txtSenha").val("")
                     document.cookie = "xorgao="+data.token+";path=/";
+                    window.location.href = "../dashboard/organizacao.html";
                 },
                 error: function(data, status){
                     alert("Erro ao cadastrar");
