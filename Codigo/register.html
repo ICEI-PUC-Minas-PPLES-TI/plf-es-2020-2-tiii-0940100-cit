@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CIT</title>
+    <link rel="stylesheet" href="./assets/css/cit.css" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/all.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/bootstrap-select.min.css" crossorigin="anonymous">
@@ -239,6 +240,7 @@
                     $("#txtNome").val(""),
                     $("#txtSenha").val("")
                     document.cookie = "xorgao="+data.token+";path=/";
+                    window.location.href = "../dashboard/organizacao.html";
                 },
                 error: function(data, status){
                     alert("Erro ao cadastrar");

@@ -171,7 +171,7 @@
           let photoDiv = ''
           if(data[i].urls) {
             let photos = data[i].urls.split(',')
-            for(let j=0;j<photos.length;j++){
+            for(let j=0;j<photos.length && j< 2;j++){
               photoDiv += `<img class="p-2" src="${photos[j]}" alt="Card image cap" />`
             }
           }

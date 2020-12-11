@@ -19,6 +19,7 @@ const upload = multer({
 
 const router = Router();
 var jwt = require('jsonwebtoken');
+const { Console } = require('console');
 
 const middlewareCidadao = (req,res,next) => {
     try{
@@ -80,7 +81,7 @@ router.get('/denunciasProximas/:lat/:lng', async (req, res) => {
 
 router.get('/denuncia/ranking', async (req, res) => {
     let dtBegin, dtEnd, filtroEstado;
-    dtBegin = (req.query.dt_inicio)? req.query.dt_inicio: 'NOW() - INTERVAL 7 DAY'
+    dtBegin = (req.query.dt_inicio)? req.query.dt_inicio: 'NOW() - INTERVAL 365 DAY'
     dtEnd = (req.query.dt_fim)? req.query.dt_fim: 'NOW()'
     filtroEstado = (req.query.uf)? `AND uf = '${req.query.uf}'`: ''
 

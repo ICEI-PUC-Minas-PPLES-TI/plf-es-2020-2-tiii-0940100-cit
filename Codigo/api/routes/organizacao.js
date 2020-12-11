@@ -186,8 +186,6 @@ router.get('/dashorganizacao/denuncia',middlewareOrgao, async (req, res) => {
         ORDER BY d.criado_em ASC;`
     }
 
-    console.log(req.query.id, req.query.texto, req.query.opcao)
-
     const db = new Database();
     const connection = await db.connect();
 
