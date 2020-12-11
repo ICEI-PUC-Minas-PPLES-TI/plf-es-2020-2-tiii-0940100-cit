@@ -48,13 +48,14 @@
             </div>
         </div>
     </div>
+    <script src="/assets/js/cit.js"></script>
 
 </body>
 
 <script>
     $(function() {
         $.ajax({
-            url: "http://52.188.152.85:81/denuncia/ranking",
+            url: "/denuncia/ranking",
             type: "GET",
             success: function(data, status){
                 $("#cit-rkcidades-tbody").html("")
