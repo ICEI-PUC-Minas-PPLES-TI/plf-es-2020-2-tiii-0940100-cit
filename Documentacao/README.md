@@ -33,6 +33,8 @@ Belo Horizonte – MG – Brasil
 ---
 
 **_Resumo._**
+O Cit foi uma aplicação web desenvolvida para possibilitar cidadãos de todas os municípios do Brasil efetuarem denúncias de problemas estruturais, hídricos, elétricos, entre outras categorias. Com isso, foram traçados alguns objetivos específicos baseados nesse problema, dentre eles, permitir cidadãos se cadastrarem no site para criarem ou contribuírem com denúncias; organizações se registrarem para receber as denúncias cadastradas para suas localizações e categorias de serviço.
+Dessa forma, foi possível modelar três processos primários, 1º Efetuar denúncias onde foi tracejado todas as tarefas que o cidadão poderá percorrer para criar suas denúncias de problemas, 2º Gerenciar Denúncia no qual as organizações recebem as denúncias que elas devem corrigir e o 3º Gerenciar Ranking que cria um ranking diariamente das cidades que possuem uma maior quantia de denúncias solucionadas por suas organizações.
 
 ___
 
