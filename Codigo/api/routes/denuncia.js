@@ -126,7 +126,10 @@ router.post('/denunciar', middlewareCidadao, upload.single("file"), (req, res, n
                         connection.query('INSERT INTO denuncia_contribuicao_foto (denuncia_contribuicao_id, url) VALUES (?, ?);', [ resCont.insertId, `http://${process.env.HOST}:${process.env.PORT}/image/${fileName}`]);
                         connection.end();
                         if (err) return handleError(err, res);
-                        res.status(200).contentType("text/plain").end("File uploaded!");
+                        res.json({
+                            message: 'success',
+                            created: true
+                        });
                     });
                 } else {
                     connection.end();
@@ -141,15 +144,7 @@ router.post('/denunciar', middlewareCidadao, upload.single("file"), (req, res, n
             })
             
 
-            res.json({
-                message: 'success',
-                created: true
-            });
         }
-        res.end({
-            message: 'success',
-            created: true
-        });
         
     })
 
